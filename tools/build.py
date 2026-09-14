@@ -85,6 +85,9 @@ def clean(s):
         s = s[m[-1].end():]
     s = re.sub(r'^Q\s+', '', s)
     s = re.sub(r'\s\.\s', ' ', s)
+    # MTS 2026 prints put the answer column's "Ans" label into the middle of
+    # long questions ("which constitutional Ans principle"). Drop that word.
+    s = re.sub(r'(?<=\S)\s+Ans\s+(?=\S)', ' ', s)
     s = s.replace('�', '’')
     s = unligature(s)
     return re.sub(r'\s+', ' ', s).strip()
@@ -114,6 +117,8 @@ def unligature(s):
 def clean_option(s):
     # An option that swallowed the NEXT question's stem: cut at the first "Q.n".
     s = re.split(r'\s+Q\s?\.\s?\d+\b', s or '')[0]
+    # ...or the next section's heading ("1825 General Awareness2").
+    s = re.sub(r'\s*General Awareness\s*\d*\s*$', '', s)
     return clean(s)
 
 
