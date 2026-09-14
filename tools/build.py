@@ -148,6 +148,30 @@ def exam_family(label):
     return re.split(r' \d{1,2} [A-Z][a-z]{2} 20\d\d', label)[0]
 
 
+# Some 2022-2025 Junior Engineer and Scientific Assistant papers were saved under
+# their download file names ("24183927 DSSSB JE Electrical 22 June 202 22 Jun
+# 2022 S1"). Give them the same post names the other papers use.
+RAW_PAPER_NAMES = [
+    (r'^\d{8} Dsssb Je Paper .*? Shi (?=\d)', 'Junior Engineer '),
+    (r'^\d{8} DSSSB JE Electrical (?:SO Electric |16 Mar 2022 |22 June 202 )',
+     'Junior Engineer (Electrical) or Section Officer (Electrical) '),
+    (r'^\d{8} DSSSB JE Section Officer Civil ', 'Junior Engineer (Civil) or Section Officer (Civil) '),
+    (r'^\d{8} DSSSB Junior Engineer Mechanica ', 'Junior Engineer (Mechanical) '),
+    (r'^\d{8} DSSSB Scientific Assistant Offi ', 'Scientific Assistant '),
+]
+
+
+def paper_label(label):
+    for pattern, name in RAW_PAPER_NAMES:
+        label = re.sub(pattern, name, label)
+    return label
+
+
+def english(s):
+    # Two bilingual prints left a Hindi word or full stop in the English text.
+    return s.replace('तथा', 'and').replace('।', '').strip()
+
+
 bank = collections.defaultdict(list)
 counts = collections.Counter()
 for qid, d in dec.items():
@@ -158,11 +182,12 @@ for qid, d in dec.items():
     if s not in VALID or t not in VALID[s]:
         raise SystemExit(f'{qid}: unknown subject/topic {s}/{t}')
     r = rows[qid]
-    stem = d[5] if len(d) > 5 and d[5] else clean(r['stem'])
-    opts = d[6] if len(d) > 6 and d[6] else [clean_option(o) for o in r['o']]
+    stem = english(d[5] if len(d) > 5 and d[5] else clean(r['stem']))
+    opts = [english(o) for o in (d[6] if len(d) > 6 and d[6] else [clean_option(o) for o in r['o']])]
     if len(opts) != 4 or not all(opts) or r['a'] not in (0, 1, 2, 3):
         raise SystemExit(f'{qid}: bad options or answer')
-    item = {'id': qid, 'q': stem, 'o': opts, 'a': r['a'], 'x': x, 'e': e, 'src': r['src']}
+    src = list(dict.fromkeys(paper_label(p) for p in r['src']))
+    item = {'id': qid, 'q': stem, 'o': opts, 'a': r['a'], 'x': x, 'e': e, 'src': src}
     if note:
         item['k'] = note
     bank[(s, t)].append(item)
