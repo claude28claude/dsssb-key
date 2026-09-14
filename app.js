@@ -8,6 +8,8 @@
      #/s/<subject>          one subject
      #/t/<subject>/<topic>  the questions of one topic   (?q=<id> jumps to one)
      #/p/<all|subject>      a practice set of 20 random questions
+     #/mts/…                the same four routes for the separate MTS 2026
+                            section (data-mts.js pushes window.MTS_SUBJECTS)
 
    ANSWERS are saved in localStorage as { questionId: chosenOptionIndex }.
    Nothing ever leaves the browser.
@@ -15,6 +17,8 @@
 'use strict';
 
 var SUBJECTS = window.SUBJECTS || [];
+var MTS_SUBJECTS = window.MTS_SUBJECTS || [];
+var bank = 'main';   // which section the current page belongs to: 'main' or 'mts'
 var main = document.getElementById('main');
 var tabsEl = document.getElementById('tabs');
 var qEl = document.getElementById('q');
@@ -54,12 +58,21 @@ var view = load('dk-view', 'all');
 var shown = {};   // questions whose answer was revealed without answering (this visit only)
 
 /* Every question gets back-references to its subject and topic. */
-var ALL = [], BYID = {};
-SUBJECTS.forEach(function(s){
-  s.topics.forEach(function(t){
-    t.qs.forEach(function(q){ q.s = s; q.t = t; ALL.push(q); BYID[q.id] = q; });
+var ALL = [], MTS_ALL = [], BYID = {};
+function indexBank(subjects, into, name){
+  subjects.forEach(function(s){
+    s.topics.forEach(function(t){
+      t.qs.forEach(function(q){ q.s = s; q.t = t; q.bank = name; into.push(q); BYID[q.id] = q; });
+    });
   });
-});
+}
+indexBank(SUBJECTS, ALL, 'main');
+indexBank(MTS_SUBJECTS, MTS_ALL, 'mts');
+
+function subjectsNow(){ return bank === 'mts' ? MTS_SUBJECTS : SUBJECTS; }
+function allNow(){ return bank === 'mts' ? MTS_ALL : ALL; }
+/* A link inside the current section: link('/s/geo') is #/s/geo or #/mts/s/geo. */
+function link(path){ return (bank === 'mts' ? '#/mts' : '#') + path; }
 
 var FILTERS = [
   ['all', 'All DSSSB papers'],
@@ -82,7 +95,8 @@ function examsOf(q){
   });
   return e;
 }
-function passes(q){ return filter === 'all' || !!examsOf(q)[filter]; }
+/* The exam filter belongs to the main bank; MTS 2026 questions always pass. */
+function passes(q){ return q.bank === 'mts' || filter === 'all' || !!examsOf(q)[filter]; }
 function visible(list){ return list.filter(passes); }
 
 function stat(list){
@@ -99,10 +113,11 @@ function bar(st){
   var pct = st.n ? Math.round(st.done * 100 / st.n) : 0;
   return '<span class="bar" title="' + st.done + ' of ' + st.n + ' answered"><i style="width:' + pct + '%"></i></span>';
 }
-function subjectById(id){ for (var i = 0; i < SUBJECTS.length; i++) if (SUBJECTS[i].id === id) return SUBJECTS[i]; return null; }
+function subjectById(id){ var list = subjectsNow(); for (var i = 0; i < list.length; i++) if (list[i].id === id) return list[i]; return null; }
 function topicById(s, id){ if (!s) return null; for (var i = 0; i < s.topics.length; i++) if (s.topics[i].id === id) return s.topics[i]; return null; }
 
 function filterChips(){
+  if (bank === 'mts') return '';
   var h = ['<div class="chips" role="group" aria-label="Which exam papers"><span class="cl">Papers</span>'];
   FILTERS.forEach(function(f){
     h.push('<button type="button" class="chip" data-filter="' + f[0] + '" aria-pressed="' + (filter === f[0]) + '">' + esc(f[1]) + '</button>');
@@ -128,7 +143,15 @@ function countdownText(start, end){
 /* --------------------------------------------------------------------------
    A QUESTION CARD
    -------------------------------------------------------------------------- */
+function shiftName(x){ return x.replace(/^MTS (\d+ \w+) \d{4} S(\d)$/, '$1 · Shift $2'); }
+
 function srcChips(q){
+  if (q.bank === 'mts'){
+    var extra = q.src.length - 2;
+    return q.src.slice(0, 2).map(function(x){ return '<span class="src home">' + esc(shiftName(x)) + '</span>'; }).join('') +
+      (extra > 0 ? '<span class="src" title="Also asked: ' + esc(q.src.slice(2).map(shiftName).join(', ')) + '">+' +
+                   extra + ' more shift' + (extra > 1 ? 's' : '') + '</span>' : '');
+  }
   return q.src.map(function(x){
     var home = x.indexOf('ASO') === 0 || x.indexOf('Patwari') === 0;
     return '<span class="src' + (home ? ' home' : '') + '">' + esc(x) + '</span>';
@@ -230,33 +253,63 @@ function pageHome(){
   h.push('<div class="btnrow"><a class="btn" href="#/p/all">Practise ' + SET_SIZE + ' at random</a>' +
          (filter !== 'aso' ? '<button type="button" class="btn ghost" data-filter="aso">Only ASO 2025 questions</button>' : '') +
          (filter !== 'patwari' ? '<button type="button" class="btn ghost" data-filter="patwari">Only Patwari 2022 questions</button>' : '') +
+         (MTS_ALL.length ? '<a class="btn ghost" href="#/mts">MTS 2026 shifts</a>' : '') +
          '</div>');
   h.push('</section>');
 
   h.push(filterChips());
   if (filter !== 'all') h.push('<p class="lede">Showing ' + totalQ + ' questions from ' + esc(FILTERS.filter(function(f){ return f[0] === filter; })[0][1]) + '.</p>');
 
-  h.push('<div class="grid">');
-  SUBJECTS.forEach(function(s){
+  h.push(subjectGrid());
+
+  brandsub.textContent = 'Previous-year GK';
+  document.title = 'The DSSSB Key — previous-year static GK, answered';
+  return h.join('');
+}
+
+/* One card per subject of the current section, each listing its topics. */
+function subjectGrid(){
+  var h = ['<div class="grid">'];
+  subjectsNow().forEach(function(s){
     var st = stat(subjectQs(s));
     if (!st.n) return;
     h.push('<section class="scard">');
-    h.push('<h2><a href="#/s/' + s.id + '">' + esc(s.n) + '</a></h2>');
+    h.push('<h2><a href="' + link('/s/' + s.id) + '">' + esc(s.n) + '</a></h2>');
     h.push('<p class="w">' + esc(s.w) + '</p>');
     h.push('<div class="meta"><span>' + st.n + ' questions</span><span>' + st.done + ' answered</span></div>' + bar(st));
     h.push('<ul class="tlist">');
     s.topics.forEach(function(t){
       var ts = stat(t.qs);
       if (!ts.n) return;
-      h.push('<li><a href="#/t/' + s.id + '/' + t.id + '"><span class="t">' + esc(t.n) + '</span>' + bar(ts) +
+      h.push('<li><a href="' + link('/t/' + s.id + '/' + t.id) + '"><span class="t">' + esc(t.n) + '</span>' + bar(ts) +
              '<span class="c">' + ts.done + '/' + ts.n + '</span></a></li>');
     });
     h.push('</ul></section>');
   });
   h.push('</div>');
+  return h.join('');
+}
 
-  brandsub.textContent = 'Previous-year GK';
-  document.title = 'The DSSSB Key — previous-year static GK, answered';
+/* The MTS 2026 section: every shift's General Awareness, kept apart from the
+   main bank and sorted by the same subjects and topics. */
+function pageMtsHome(){
+  var shifts = {};
+  MTS_ALL.forEach(function(q){ q.src.forEach(function(x){ shifts[x] = 1; }); });
+  var all = stat(MTS_ALL);
+  var h = [];
+  h.push('<section class="hero">');
+  h.push('<h1>MTS 2026: General Awareness from every shift, by subject</h1>');
+  h.push('<p>The static GK questions from all ' + Object.keys(shifts).length + ' shifts of DSSSB’s MTS exam (24 Feb – 14 May 2026), ' +
+         'kept separate from the main bank. Current affairs are removed. A question asked in more than one shift appears once, with its shifts listed. ' +
+         'Answers come from the published answer key, which matched DSSSB’s own ticked papers on every question where both exist.</p>');
+  h.push('<div class="stats"><span><b>' + MTS_ALL.length + '</b> questions</span><span><b>' + Object.keys(shifts).length + '</b> shifts</span>' +
+         '<span><b>' + MTS_SUBJECTS.length + '</b> subjects</span><span>You: <b>' + all.done + '</b> answered, <b>' + all.right + '</b> correct</span></div>');
+  h.push('<div class="btnrow"><a class="btn" href="#/mts/p/all">Practise ' + SET_SIZE + ' MTS questions at random</a>' +
+         '<a class="btn ghost" href="#/">Back to the main bank</a></div>');
+  h.push('</section>');
+  h.push(subjectGrid());
+  brandsub.textContent = 'MTS 2026';
+  document.title = 'MTS 2026 — The DSSSB Key';
   return h.join('');
 }
 
@@ -265,33 +318,33 @@ function railFor(s, activeId){
   s.topics.forEach(function(t){
     var n = visible(t.qs).length;
     if (!n) return;
-    h.push('<li><a href="#/t/' + s.id + '/' + t.id + '"' + (t.id === activeId ? ' aria-current="true"' : '') + '>' +
+    h.push('<li><a href="' + link('/t/' + s.id + '/' + t.id) + '"' + (t.id === activeId ? ' aria-current="true"' : '') + '>' +
            '<span>' + esc(t.n) + '</span><span class="c">' + n + '</span></a></li>');
   });
-  h.push('</ol><div class="btnrow"><a class="btn ghost" href="#/p/' + s.id + '">Practise this subject</a></div></nav>');
+  h.push('</ol><div class="btnrow"><a class="btn ghost" href="' + link('/p/' + s.id) + '">Practise this subject</a></div></nav>');
   return h.join('');
 }
 
 function pageSubject(s){
   var h = [];
   var st = stat(subjectQs(s));
-  h.push('<div class="pagehead"><p class="eyebrow">Subject</p><h1>' + esc(s.n) + '</h1>' +
+  h.push('<div class="pagehead"><p class="eyebrow">' + (bank === 'mts' ? '<a href="#/mts" style="color:inherit">MTS 2026</a> · Subject' : 'Subject') + '</p><h1>' + esc(s.n) + '</h1>' +
          '<p class="lede">' + esc(s.w) + '</p>' + filterChips() +
          '<p class="tstats">' + statsLine(subjectQs(s)) + '</p>' +
-         '<div class="btnrow"><a class="btn" href="#/p/' + s.id + '">Practise ' + SET_SIZE + ' from ' + esc(s.n) + '</a></div></div>');
+         '<div class="btnrow"><a class="btn" href="' + link('/p/' + s.id) + '">Practise ' + SET_SIZE + ' from ' + esc(s.n) + '</a></div></div>');
   h.push('<div class="rail">' + railFor(s, null) + '<div>');
   h.push('<ul class="tlist" style="max-width:780px">');
   s.topics.forEach(function(t){
     var ts = stat(t.qs);
     if (!ts.n) return;
-    h.push('<li><a href="#/t/' + s.id + '/' + t.id + '" style="padding:12px 2px"><span class="t"><b>' + esc(t.n) + '</b></span>' +
+    h.push('<li><a href="' + link('/t/' + s.id + '/' + t.id) + '" style="padding:12px 2px"><span class="t"><b>' + esc(t.n) + '</b></span>' +
            bar(ts) + '<span class="c">' + ts.done + '/' + ts.n + '</span></a></li>');
   });
   h.push('</ul>');
   if (!st.n) h.push('<div class="empty">No questions in this subject for the selected papers.</div>');
   h.push('</div></div>');
-  brandsub.textContent = s.n;
-  document.title = s.n + ' — The DSSSB Key';
+  brandsub.textContent = (bank === 'mts' ? 'MTS 2026 · ' : '') + s.n;
+  document.title = s.n + (bank === 'mts' ? ' — MTS 2026' : '') + ' — The DSSSB Key';
   return h.join('');
 }
 
@@ -313,7 +366,8 @@ function pageTopic(s, t){
   });
   var h = [];
   h.push('<div class="rail">' + railFor(s, t.id) + '<div>');
-  h.push('<div class="pagehead"><p class="eyebrow"><a href="#/s/' + s.id + '" style="color:inherit">' + esc(s.n) + '</a></p>' +
+  h.push('<div class="pagehead"><p class="eyebrow">' + (bank === 'mts' ? '<a href="#/mts" style="color:inherit">MTS 2026</a> · ' : '') +
+         '<a href="' + link('/s/' + s.id) + '" style="color:inherit">' + esc(s.n) + '</a></p>' +
          '<h1>' + esc(t.n) + '</h1>' + filterChips() + viewChips() +
          '<p class="tstats" id="tstats" data-scope="topic:' + s.id + ':' + t.id + '">' + statsLine(t.qs) + '</p></div>');
   h.push('<div class="cards">');
@@ -327,14 +381,14 @@ function pageTopic(s, t){
   var i = s.topics.indexOf(t);
   var prev = s.topics[i - 1], next = s.topics[i + 1];
   h.push('<div class="pager">' +
-    (prev ? '<a href="#/t/' + s.id + '/' + prev.id + '"><span class="k">Previous topic</span><span class="v">' + esc(prev.n) + '</span></a>'
+    (prev ? '<a href="' + link('/t/' + s.id + '/' + prev.id) + '"><span class="k">Previous topic</span><span class="v">' + esc(prev.n) + '</span></a>'
           : '<span class="edge"><span class="k">Start of</span><span class="v">' + esc(s.n) + '</span></span>') +
-    (next ? '<a href="#/t/' + s.id + '/' + next.id + '"><span class="k">Next topic</span><span class="v">' + esc(next.n) + '</span></a>'
+    (next ? '<a href="' + link('/t/' + s.id + '/' + next.id) + '"><span class="k">Next topic</span><span class="v">' + esc(next.n) + '</span></a>'
           : '<span class="edge"><span class="k">End of</span><span class="v">' + esc(s.n) + '</span></span>') +
     '</div>');
   h.push('</div></div>');
-  brandsub.textContent = s.n;
-  document.title = t.n + ' — ' + s.n + ' — The DSSSB Key';
+  brandsub.textContent = (bank === 'mts' ? 'MTS 2026 · ' : '') + s.n;
+  document.title = t.n + ' — ' + s.n + (bank === 'mts' ? ' — MTS 2026' : '') + ' — The DSSSB Key';
   return h.join('');
 }
 
@@ -342,7 +396,7 @@ function pageTopic(s, t){
    through the bank instead of showing the same easy ones again. The set is
    kept for the browser session so a reload does not reshuffle it. */
 function newSet(scopeId){
-  var pool = scopeId === 'all' ? ALL : subjectQs(subjectById(scopeId) || { topics: [] });
+  var pool = scopeId === 'all' ? allNow() : subjectQs(subjectById(scopeId) || { topics: [] });
   pool = visible(pool);
   var fresh = pool.filter(function(q){ return progress[q.id] === undefined; });
   var used = pool.filter(function(q){ return progress[q.id] !== undefined; });
@@ -356,12 +410,12 @@ function shuffle(a){
 
 function pagePractice(scopeId){
   var s = scopeId === 'all' ? null : subjectById(scopeId);
-  if (scopeId !== 'all' && !s) return pageHome();
-  var key = 'dk-set-' + scopeId + '-' + filter;
+  if (scopeId !== 'all' && !s) return bank === 'mts' ? pageMtsHome() : pageHome();
+  var key = 'dk-set-' + (bank === 'mts' ? 'mts-' : '') + scopeId + '-' + filter;
   var ids = sload(key);
-  if (!ids || !ids.length || ids.some(function(id){ return !BYID[id]; })){ ids = newSet(scopeId); ssave(key, ids); }
+  if (!ids || !ids.length || ids.some(function(id){ return !BYID[id] || BYID[id].bank !== bank; })){ ids = newSet(scopeId); ssave(key, ids); }
   var list = ids.map(function(id){ return BYID[id]; });
-  var name = s ? s.n : 'All subjects';
+  var name = (s ? s.n : 'All subjects') + (bank === 'mts' ? ' · MTS 2026' : '');
 
   var h = [];
   h.push('<div class="pagehead"><p class="eyebrow">Practice set</p><h1>' + SET_SIZE + ' random questions · ' + esc(name) + '</h1>' +
@@ -369,7 +423,8 @@ function pagePractice(scopeId){
          filterChips() +
          '<p class="tstats" id="tstats" data-scope="set:' + key + '">' + statsLine(list) + '</p>' +
          '<div class="btnrow"><button type="button" class="btn" data-act="newset" data-key="' + key + '" data-scope="' + scopeId + '">New set</button>' +
-         (s ? '<a class="btn ghost" href="#/s/' + s.id + '">Back to ' + esc(s.n) + '</a>' : '<a class="btn ghost" href="#/">Back home</a>') + '</div></div>');
+         (s ? '<a class="btn ghost" href="' + link('/s/' + s.id) + '">Back to ' + esc(s.n) + '</a>'
+            : '<a class="btn ghost" href="' + link('/') + '">' + (bank === 'mts' ? 'Back to MTS 2026' : 'Back home') + '</a>') + '</div></div>');
   h.push('<div class="cards">');
   if (!list.length) h.push('<div class="empty">No questions available for the selected papers.</div>');
   list.forEach(function(q, i){ h.push(cardHTML(q, i + 1, true)); });
@@ -398,10 +453,12 @@ function parseHash(){
 
 function route(keepScroll){
   var r = parseHash(), p = r.parts, html, s, t;
+  bank = p[0] === 'mts' && MTS_ALL.length ? 'mts' : 'main';
+  if (bank === 'mts') p = p.slice(1);
   if (p[0] === 't' && (s = subjectById(p[1])) && (t = topicById(s, p[2]))) html = pageTopic(s, t);
   else if (p[0] === 's' && (s = subjectById(p[1]))) html = pageSubject(s);
   else if (p[0] === 'p' && p[1]) html = pagePractice(p[1]);
-  else html = pageHome();
+  else html = bank === 'mts' ? pageMtsHome() : pageHome();
 
   var y = window.scrollY;
   main.innerHTML = html;
@@ -417,12 +474,13 @@ function route(keepScroll){
 
 function buildTabs(){
   var h = ['<a href="#/" data-tab="home">Home</a>'];
+  if (MTS_ALL.length) h.push('<a href="#/mts" data-tab="mts">MTS 2026</a>');
   SUBJECTS.forEach(function(s){ h.push('<a href="#/s/' + s.id + '" data-tab="' + s.id + '">' + esc(s.tab || s.n) + '</a>'); });
   h.push('<a href="#/p/all" data-tab="practice">Practice</a>');
   tabsEl.innerHTML = h.join('');
 }
 function syncTabs(p){
-  var active = !p.length ? 'home' : p[0] === 'p' ? (p[1] === 'all' ? 'practice' : p[1]) : (p[0] === 's' || p[0] === 't') ? p[1] : 'home';
+  var active = bank === 'mts' ? 'mts' : !p.length ? 'home' : p[0] === 'p' ? (p[1] === 'all' ? 'practice' : p[1]) : (p[0] === 's' || p[0] === 't') ? p[1] : 'home';
   Array.prototype.forEach.call(tabsEl.children, function(a){
     if (a.dataset.tab === active) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
   });
@@ -442,7 +500,9 @@ main.addEventListener('click', function(e){
   var card = e.target.closest('.card');
 
   if (act && act.dataset.act === 'reset-topic'){
-    var r = parseHash().parts, s = subjectById(r[1]), t = topicById(s, r[2]);
+    var r = parseHash().parts;
+    if (r[0] === 'mts') r = r.slice(1);
+    var s = subjectById(r[1]), t = topicById(s, r[2]);
     if (t && window.confirm('Clear your saved answers for “' + t.n + '”?')){
       t.qs.forEach(function(q){ delete progress[q.id]; });
       save('dk-progress', progress);
@@ -478,7 +538,9 @@ main.addEventListener('click', function(e){
    SEARCH — over question text, options and explanations. Results never show
    the answer, so searching cannot spoil a question.
    -------------------------------------------------------------------------- */
-ALL.forEach(function(q){
+/* Search covers both the main bank and the MTS 2026 section. */
+var EVERY = ALL.concat(MTS_ALL);
+EVERY.forEach(function(q){
   q.hay = (q.q + ' ' + q.o.join(' ') + ' ' + q.x + ' ' + (q.e || '') + ' ' + q.t.n + ' ' + q.s.n).toLowerCase();
 });
 
@@ -487,7 +549,7 @@ function search(term){
   if (needle.length < 2) return [];
   var words = needle.split(/\s+/);
   var hits = [];
-  ALL.forEach(function(q){
+  EVERY.forEach(function(q){
     for (var i = 0; i < words.length; i++) if (q.hay.indexOf(words[i]) === -1) return;
     var stem = q.q.toLowerCase();
     hits.push({ q: q, score: stem.indexOf(needle) > -1 ? 0 : words.every(function(w){ return stem.indexOf(w) > -1; }) ? 1 : 2 });
@@ -514,10 +576,13 @@ function renderResults(term){
     return;
   }
   resEl.innerHTML = hits.map(function(q, i){
-    return '<a class="rrow' + (i === 0 ? ' sel' : '') + '" href="#/t/' + q.s.id + '/' + q.t.id + '?q=' + q.id + '">' +
-      '<div class="rk">' + esc(q.s.n) + ' · ' + esc(q.t.n) + '</div>' +
+    var mts = q.bank === 'mts';
+    var srcs = mts ? q.src.slice(0, 3).map(shiftName).join(' · ') + (q.src.length > 3 ? ' · +' + (q.src.length - 3) + ' more' : '')
+                   : q.src.join(' · ');
+    return '<a class="rrow' + (i === 0 ? ' sel' : '') + '" href="' + (mts ? '#/mts' : '#') + '/t/' + q.s.id + '/' + q.t.id + '?q=' + q.id + '">' +
+      '<div class="rk">' + (mts ? 'MTS 2026 · ' : '') + esc(q.s.n) + ' · ' + esc(q.t.n) + '</div>' +
       '<div class="rt">' + markText(q.q, term) + '</div>' +
-      '<div class="rs">' + esc(q.src.join(' · ')) + '</div></a>';
+      '<div class="rs">' + esc(srcs) + '</div></a>';
   }).join('');
 }
 function closeResults(){ resEl.hidden = true; qEl.setAttribute('aria-expanded', 'false'); }
