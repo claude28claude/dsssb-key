@@ -65,14 +65,19 @@ var FILTERS = [
   ['all', 'All DSSSB papers'],
   ['aso', 'ASO 2025'],
   ['patwari', 'Patwari 2022'],
-  ['other', 'Other DSSSB exams']
+  ['clerical', 'Clerical exams'],
+  ['other', 'Teaching & other posts']
 ];
+
+/* Office and clerical posts: the papers closest in level to ASO and Patwari. */
+var CLERICAL = /^(Junior Assistant|Junior Clerk|Junior Secretariat Assistant|Head Clerk|Stenographer|Personal Assistant|Assistant Superintendent|Office Superintendent|MTS|Store Keeper|Fire Operator|Ahlmad|Fee Collector|Jr\. Telephone Operator|Security Supervisor|Laboratory Attendant|Care Taker|Accountant|Publication Assistant|Hindi Translator)/;
 
 function examsOf(q){
   var e = {};
   q.src.forEach(function(x){
     if (x.indexOf('ASO') === 0) e.aso = 1;
     else if (x.indexOf('Patwari') === 0) e.patwari = 1;
+    else if (CLERICAL.test(x)) e.clerical = 1;
     else e.other = 1;
   });
   return e;

@@ -61,8 +61,12 @@ for path in sorted(glob.glob(os.path.join(GA, 'dec-*.json'))):
     dec.update(json.load(open(path, encoding='utf-8')))
 
 missing = [i for i in rows if i not in dec]
-if missing:
-    raise SystemExit(f'{len(missing)} readable questions have no decision: {missing[:20]}')
+# Round-1 questions (q0001-q1624) must all be decided. Round-2 questions are
+# reviewed in stages: an undecided one is simply not published yet.
+missing_old = [i for i in missing if int(i[1:]) <= 1624]
+if missing_old:
+    raise SystemExit(f'{len(missing_old)} round-1 questions have no decision: {missing_old[:20]}')
+pending = len(missing)
 unknown = [i for i in dec if i not in rows]
 if unknown:
     raise SystemExit(f'decisions for ids not in the readable set: {unknown[:20]}')
@@ -81,8 +85,30 @@ def clean(s):
         s = s[m[-1].end():]
     s = re.sub(r'^Q\s+', '', s)
     s = re.sub(r'\s\.\s', ' ', s)
-    s = s.replace('�', '’').replace('ﬁ', 'fi').replace('ﬂ', 'fl')
+    s = s.replace('�', '’')
+    s = unligature(s)
     return re.sub(r'\s+', ' ', s).strip()
+
+
+# Words after which a ligature starts a NEW word ("The ﬁ rst", "a ﬁ rm", "for ﬁ shing").
+LIG_BREAK = set('the a an of for is in on to and or by as at was are its his her their with from be been '
+                'has have had not no most very more less than that this which who first'.split())
+
+
+def unligature(s):
+    """Printed ligatures come out of the PDFs as one glyph with a stray space on
+    BOTH sides, whether the glyph is mid-word ("pro ﬁ t", "o ﬃ cially") or starts
+    a word ("The ﬁ rst"). The space after it is always stray. The space before it
+    is stray unless the fragment before is an ordinary short word. No English word
+    starts with 'ff', so ﬀ ﬃ ﬄ always join on both sides."""
+    def join(m):
+        before, glyph = m.group(1), m.group(2)
+        letters = {'ﬃ': 'ffi', 'ﬄ': 'ffl', 'ﬀ': 'ff', 'ﬁ': 'fi', 'ﬂ': 'fl'}[glyph]
+        if before and glyph in 'ﬁﬂ' and before.lower() in LIG_BREAK:
+            return before + ' ' + letters
+        return (before or '') + letters
+    return re.sub(r'([A-Za-z]+)? ?([ﬀﬁﬂﬃﬄ]) ?(?=[a-z])', join, s).replace('ﬁ', 'fi').replace('ﬂ', 'fl') \
+        .replace('ﬀ', 'ff').replace('ﬃ', 'ffi').replace('ﬄ', 'ffl')
 
 
 def clean_option(s):
@@ -91,7 +117,15 @@ def clean_option(s):
     return clean(s)
 
 
-EXAM_ORDER = ['ASO', 'Patwari', 'Junior Assistant', 'Stenographer', 'PRT', 'TGT', 'PGT']
+# Order of questions inside a topic: the user's own exams first, then the
+# clerical and office posts closest to them in level, then teaching papers,
+# then everything else (technical and senior posts) at rank 99.
+EXAM_ORDER = ['ASO', 'Patwari',
+              'Junior Assistant', 'Junior Clerk', 'Junior Secretariat Assistant', 'Head Clerk', 'Stenographer',
+              'Personal Assistant', 'Assistant Superintendent', 'Office Superintendent', 'MTS', 'Store Keeper',
+              'Fire Operator', 'Ahlmad', 'Fee Collector', 'Jr. Telephone Operator', 'Security Supervisor',
+              'Laboratory Attendant', 'Care Taker', 'Accountant', 'Publication Assistant', 'Hindi Translator',
+              'PRT', 'Nursery Teacher', 'TGT', 'Special Educator', 'PGT']
 
 
 def exam_rank(src):
@@ -99,6 +133,14 @@ def exam_rank(src):
         if any(x.startswith(e) for x in src):
             return i
     return 99
+
+
+def exam_family(label):
+    """'Junior Clerk 11 Nov 2021 S1' -> 'Junior Clerk'; unknown posts -> text before the date."""
+    for e in EXAM_ORDER:
+        if label.startswith(e):
+            return e
+    return re.split(r' \d{1,2} [A-Z][a-z]{2} 20\d\d', label)[0]
 
 
 bank = collections.defaultdict(list)
@@ -139,7 +181,7 @@ for sid, name, tab, blurb, topics in SUBJECTS:
         f.write(');\n')
     print(f'{sid:7} {sum(len(t["qs"]) for t in out_topics):4} questions  ' +
           ', '.join(f'{t["id"]}:{len(t["qs"])}' for t in out_topics))
-print(dict(counts), 'written', total)
-src_count = collections.Counter(x.split(' ')[0] if not x.startswith('Junior') else 'Junior Assistant'
-                                for qs in bank.values() for q in qs for x in q['src'])
-print('by exam:', dict(src_count))
+print(dict(counts), 'written', total, '| not yet reviewed (left out):', pending)
+src_count = collections.Counter(exam_family(x) for qs in bank.values() for q in qs for x in q['src'])
+print('by exam:', dict(src_count.most_common()))
+print('papers:', len({x for qs in bank.values() for q in qs for x in q['src']}))

@@ -5,32 +5,41 @@ Static General Awareness questions from DSSSB computer-based tests held since
 you tap an option. Current affairs removed. Plain HTML/CSS/JS, no build step
 to serve, works offline as an installable app.
 
-## What is in it
+## Where the papers come from
 
-996 questions from 60 official DSSSB papers:
+- DSSSB's own "Question Bank Online Exam" pages on dsssb.delhi.gov.in
+  (2021: 243 papers; 2022–23: 76 papers).
+- Official DSSSB papers re-hosted by Adda247 and GovJobTracker (ASO 2025,
+  Patwari 2022, MTS 2026, Assistant Superintendent 2024, PRT/TGT/PGT, JE, and others).
 
-| Exam | Papers | Questions kept |
-|---|---|---|
-| ASO (Grade II), Aug 2025 | 12 shifts | 334 |
-| Patwari, Aug–Sep 2022 | 5 shifts | 61 |
-| Junior Assistant, Aug 2021 | 7 shifts | 216 |
-| Stenographer, Apr 2021 | 2 shifts | 57 |
-| PRT 2026, TGT 2023–25, PGT 2025 (General Awareness section) | 34 | 329 |
+Round 1 (996 questions) used 60 papers. Round 2 reads about 500 more and is
+being reviewed in stages: a new question appears on the site only after it has
+been checked and given an explanation. The build prints how many are still
+waiting.
 
-Subjects: Static GK, History, Polity, Geography, Economy, Physics, Chemistry,
-Biology, Environment.
+## How the answers are read
 
-## How the answers were obtained
+Each official paper marks the correct option with a green tick picture.
 
-Each official paper marks the correct option with a tick image.
-`tools/extract2.py` reads that tick from the PDF by the image's fingerprint and
-refuses to output anything for a paper whose ticks and questions do not line up
-four-to-one. The Patwari 2022 papers are scans, so their questions were read by
-eye (`tools/ga/manual-*.json`). Answers are never typed by hand: `build.py`
-always takes the answer index from `ga-readable.json`.
+- `tools/extract4.py` follows the order in which each page is drawn: the tick
+  or cross picture sits next to its option label. Pictures are told apart by
+  colour, not by size or count. Every question is tied to its printed Question ID
+  (checked against the text), so an answer cannot slip onto a neighbouring
+  question. Where a paper prints each question twice (English and Hindi), both
+  copies must agree.
+- `tools/extract2.py` is the round-1 reader (counts pictures four per question).
+- `tools/blocktext.py` and `tools/unreadable_fix.py` recovered round-1 questions
+  that pdftotext could not read (mostly Hindi-medium PRT papers); a recovered
+  answer is kept only if it equals the round-1 tick.
+- `tools/batch.py` runs the reader over every paper; `tools/gadump2.py` picks
+  out General Awareness, removes reasoning/maths/language items by their wording,
+  merges repeats, and hands out permanent question ids (`tools/ga/id-registry.json`)
+  so saved progress stays attached to the same question.
+- Answers are never typed by hand: `build.py` always takes the answer index
+  from `ga-readable.json`.
 
-Where DSSSB's key differs from standard textbooks, the question carries an
-"About this key" note.
+Where DSSSB's key differs from standard textbooks the question carries an
+"About this key" note; where the key is plainly wrong the question is left out.
 
 ## Rebuilding the data files
 
@@ -39,10 +48,10 @@ python tools/build.py .
 ```
 
 `tools/ga/dec-*.json` holds one decision per question: dropped (`"CA"` current
-affairs, `"X"` unreadable or unreliable), or subject, topic, explanation,
-memory hook, optional key note, and optional cleaned stem/options (used for
-questions asked in Hindi or garbled in the PDF). The build stops if any
-question lacks a decision.
+affairs, `"X"` unreadable, wrong key, duplicate or not GK), or subject, topic,
+explanation, memory hook, optional key note, and optional English stem/options
+(used for questions asked in Hindi or garbled in the PDF). Round-1 questions
+must all have a decision; round-2 questions without one are left out.
 
 The source PDFs are not in this repository.
 

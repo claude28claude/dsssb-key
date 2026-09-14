@@ -86,6 +86,8 @@ def sec_of(s):
 
 
 OPT = re.compile(r'^\s*(?:A\s*n?\s*s?\s*)?([1-4])\.\s*(.*)$')
+# Some prints (June 2021 PGT, JE 2022) label options A. B. C. D. instead of 1. 2. 3. 4.
+OPT_LETTER = re.compile(r'^\s*(?:Ans\s*)?([A-D])\.\s*(.*)$')
 JUNK = re.compile(r'^\s*(?:[A-Za-z0-9.]|Ans|Q\.?\s*\d*\.?)\s*$')
 
 
@@ -96,8 +98,16 @@ def tidy(lines):
 
 def pick_options(lines):
     """(stem_lines, [opt1..opt4]) from the LAST 1-2-3-4 run in the block, so a
-    stem listing numbered statements is not mistaken for the options."""
-    hits = [(i, int(m.group(1))) for i, l in enumerate(lines) for m in [OPT.match(l)] if m]
+    stem listing numbered statements is not mistaken for the options. Falls back
+    to an A-B-C-D run only when no complete numbered run exists."""
+    got = _pick(lines, OPT, lambda g: int(g))
+    if got is None:
+        got = _pick(lines, OPT_LETTER, lambda g: ord(g) - 64)
+    return got
+
+
+def _pick(lines, rx, num):
+    hits = [(i, num(m.group(1))) for i, l in enumerate(lines) for m in [rx.match(l)] if m]
     want, pos, chosen = 4, len(lines), {}
     for i, n in reversed(hits):
         if n == want and i < pos:
@@ -111,7 +121,7 @@ def pick_options(lines):
     idx = [chosen[k] for k in (1, 2, 3, 4)] + [len(lines)]
     opts = []
     for k in range(4):
-        first = OPT.match(lines[idx[k]]).group(2)
+        first = rx.match(lines[idx[k]]).group(2)
         opts.append(tidy([first] + lines[idx[k] + 1:idx[k + 1]]))
     return lines[:idx[0]], opts
 
