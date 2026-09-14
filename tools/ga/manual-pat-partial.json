@@ -1,0 +1,23 @@
+{
+ "pat-2022-09-17-s3": [
+  {"n":8,"stem":"Which Prime Minister declared India a full-fledged nuclear weapon state?","o":["Narendra Modi","Indira Gandhi","Atal Bihari Vajpayee","Manmohan Singh"],"a":2,"lang":"hi"},
+  {"n":9,"stem":"In which year was the Civil Disobedience Movement called off?","o":["1932","1930","1931","1934"],"a":2,"lang":"hi"},
+  {"n":12,"stem":"Which of the following rivers, along with their tributaries, form the Northern Plains?","o":["Indus, Yamuna and Brahmaputra","Indus, Ganga and Brahmaputra","Narmada, Ganga and Brahmaputra","Indus, Ganga and Yamuna"],"a":1,"lang":"hi"}
+ ],
+ "pat-2022-09-18-s1": [
+  {"n":13,"stem":"Which of the following are the small pieces of rocks that move around the sun?","o":["Planets","Galaxy","Meteoroids","Constellations"],"a":2,"lang":"en"},
+  {"n":15,"stem":"Which Plateau generally refers to the volcanic upland north of the Vindhya Range, and Aravalli lies in the north-west of this plateau?","o":["Malwa","Bundelkhand","Baghelkhand","Deccan"],"a":0,"lang":"en"},
+  {"n":16,"stem":"The Chapcharkut Festival is celebrated in which of the following state?","o":["Sikkim","Mizoram","Tripura","Assam"],"a":1,"lang":"en"}
+ ],
+ "pat-2022-08-20-s1": [
+  {"n":5,"stem":"The Battle of Poona in which Yashwantrao Holkar of Indore defeated combined armies of Peshwas and the Scindias, was fought in which year?","o":["1802","1867","1818","1832"],"a":0,"lang":"en"},
+  {"n":7,"stem":"As per Census 2011 of India, density of population in India is _____ persons per sq km.","o":["382","540","456","654"],"a":0,"lang":"en"},
+  {"n":8,"stem":"Which of the following is NOT an example of refraction of light?","o":["Moonlight","bent pencil in glass of water","Rainbow","appearing of raised coin in a trough filled with water"],"a":0,"lang":"en"},
+  {"n":9,"stem":"Which of the following Bhavas that are expressed in the classical dance are NOT matched properly to the meaning given in front of them?","o":["Shringar: Love","Adbhoot: Wonder","Karuna: Humorous","Bibhats: Disgust"],"a":2,"lang":"en"}
+ ],
+ "pat-2022-08-20-s2": [
+  {"n":14,"stem":"What is the botanical name of coffee plant?","o":["Coffea austinian","Coffea arabica","Coffea africanus","Coffea australiana"],"a":1,"lang":"en"},
+  {"n":15,"stem":"The Slave dynasty was also called the ______.","o":["Khalji Dynasty","Lodhi Dynasty","Mamluk Dynasty","Tughlaq Dynasty"],"a":2,"lang":"en"},
+  {"n":18,"stem":"Article 51 'A', of Indian constitution contained in ______ of the Constitution deals with Fundamental Duties.","o":["Part IV A","Part III A","Part II A","Part V A"],"a":0,"lang":"en"}
+ ]
+}

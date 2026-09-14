@@ -1,0 +1,16 @@
+[
+ {"n":1,"stem":"In which year were the recommendations of the Mandal Commission implemented after the court's verdict?","o":["1991","1992","1990","1993"],"a":1,"lang":"hi","sec":"GA"},
+ {"n":2,"stem":"The Right to Information Act was enforced in ______.","o":["2007","2004","2006","2005"],"a":3,"lang":"hi","sec":"GA"},
+ {"n":4,"stem":"Which of the following is a non-traditional energy source?","o":["Petroleum","Coal","Natural Gas","Wind"],"a":3,"lang":"en","sec":"GA"},
+ {"n":5,"stem":"Which Article of the Indian Constitution gives minorities the right to establish educational institutions?","o":["Article 32","Article 30","Article 15","Article 29"],"a":1,"lang":"hi","sec":"GA"},
+ {"n":6,"stem":"India's first fully organic state is ______.","o":["Meghalaya","Nagaland","Sikkim","Tripura"],"a":2,"lang":"hi","sec":"GA"},
+ {"n":7,"stem":"The 'Bani Thani' painting is associated with which school?","o":["Kishangarh","Mewar","Bundi","Bikaner"],"a":0,"lang":"hi","sec":"GA"},
+ {"n":10,"stem":"The dense circular body part in the center of a cell is known as:","o":["Cell Membrane","Nucleus","Cell Wall","Cell tissue"],"a":1,"lang":"en","sec":"GA"},
+ {"n":11,"stem":"Which of the following minerals is not metallic?","o":["Copper","Silver","Gold","Limestone"],"a":3,"lang":"en","sec":"GA"},
+ {"n":12,"stem":"A lack of iodine in food causes ______.","o":["Goitre","Fever","Malaria","Cancer"],"a":0,"lang":"hi","sec":"GA"},
+ {"n":13,"stem":"Which Article of the Constitution guarantees equality of opportunity for all citizens in matters relating to employment or appointment to any office under the State?","o":["Article 21","Article 17","Article 16","Article 15"],"a":2,"lang":"hi","sec":"GA"},
+ {"n":14,"stem":"Which of the following is NOT a basic feature of magnets?","o":["Directive property","Magnet exists as a monopole","Attractive property","Like poles repel and unlike poles attract"],"a":1,"lang":"en","sec":"GA"},
+ {"n":15,"stem":"pH value of neutral water should be-","o":["9","6","7","8"],"a":2,"lang":"en","sec":"GA"},
+ {"n":16,"stem":"When was the Economic Survey decoupled from the Indian Union Budget?","o":["1964","1954","1951","1960"],"a":0,"lang":"en","sec":"GA"},
+ {"n":20,"stem":"Which one is not related to the protection of flora and fauna?","o":["Wildlife Sanctuary","National Park","Biosphere Reserve","Amusement Park"],"a":3,"lang":"en","sec":"GA"}
+]

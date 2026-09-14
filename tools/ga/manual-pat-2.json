@@ -1,0 +1,41 @@
+{
+ "pat-2022-09-17-s3": [
+  {"n":2,"stem":"Which of the following is a folk music of Bengal?","o":["Bhavageet","Baryi","Bihugeet","Baul"],"a":3,"lang":"hi"},
+  {"n":3,"stem":"Which of the following dances is NOT from eastern India?","o":["Bagh Nach","Ghumura","Kud dance","Chhau dance"],"a":2,"lang":"hi"},
+  {"n":4,"stem":"Which Mughal emperor was forced to leave his ancestral throne because of the invasion of another Mongol group?","o":["Babur","Jahangir","Akbar","Aurangzeb"],"a":0,"lang":"hi"},
+  {"n":5,"stem":"Which of the following statements is correct?","o":["Viceroy Curzon partitioned Bengal in 1905.","Viceroy Curzon partitioned Bengal in 1903.","Viceroy Curzon partitioned Bengal in 1901.","Viceroy Curzon partitioned Bengal in 1904."],"a":0,"lang":"hi"},
+  {"n":6,"stem":"Which of the following is celebrated in Assam to pray for the standing crops?","o":["Kati Bihu","Rongali Bihu","Bohag Bihu","Magh Bihu"],"a":0,"lang":"hi"},
+  {"n":14,"stem":"Which Article of the Indian Constitution relates to equality before law?","o":["Article 30","Article 12","Article 34","Article 14"],"a":3,"lang":"hi"},
+  {"n":15,"stem":"What was the sex ratio of India in 1901?","o":["980","972","964","955"],"a":1,"lang":"hi"},
+  {"n":17,"stem":"Which of the following arts was practised on a large scale by the people of Harappa?","o":["Aluminium casting","Iron casting","Brass casting","Bronze casting"],"a":3,"lang":"hi"},
+  {"n":18,"stem":"Where is the headquarters of Bandhan Financial Services Limited located?","o":["Surat","Hyderabad","Mumbai","Kolkata"],"a":3,"lang":"hi"},
+  {"n":20,"stem":"In which Lok Sabha election was the highest voter turnout recorded?","o":["17th","1st","16th","4th"],"a":0,"lang":"hi"}
+ ],
+ "pat-2022-09-18-s1": [
+  {"n":6,"stem":"Vijayanagar Empire was ruled by four important dynasties. Which of the following is NOT one of these?","o":["Saluva","Yaduha","Aravidu","Tuluva"],"a":1,"lang":"en"},
+  {"n":7,"stem":"Which article of the Constitution lays down the maximum strength of Rajya Sabha as 250?","o":["Article 67","Article 79","Article 80","Article 56"],"a":2,"lang":"en"},
+  {"n":8,"stem":"Bakho-Bakhain and Panwariya are the dance forms of which state?","o":["Odisha","Bihar","Chhattisgarh","Uttarakhand"],"a":1,"lang":"en"},
+  {"n":9,"stem":"The third battle of Panipat was fought between the Maratha Empire and a coalition of the King of which of the following Empires in 1761?","o":["Durrani","Mughal","British","Persian"],"a":0,"lang":"en"},
+  {"n":18,"stem":"Which of the following is a stone-like disc seen at the top of the Hindu temple, mostly in north Indian temples?","o":["Garbhagriha","Amalaka","Jagati","Antarala"],"a":1,"lang":"en"},
+  {"n":19,"stem":"Which instrument can be used to measure internal and the external dimensions of an object?","o":["Viscometer","Vernier Caliper","Wattmeter","Venturimeter"],"a":1,"lang":"en"},
+  {"n":20,"stem":"The President used to nominate two members of Anglo-Indian Community to Lok Sabha till which year, which now has been abolished?","o":["2019","2016","2020","2017"],"a":2,"lang":"en"}
+ ],
+ "pat-2022-08-20-s1": [
+  {"n":1,"stem":"Who was born as Narendranath Dutta in Calcutta in January 1863?","o":["Raja Ram Mohan Roy","Bal Gangadhar Tilak","Ramakrishna Paramahansa","Swami Vivekananda"],"a":3,"lang":"en"},
+  {"n":4,"stem":"Which Article of the Indian Constitution dealt with the citizenship at the commencement of the Constitution?","o":["Article 6","Article 5","Article 4","Article 3"],"a":1,"lang":"en"},
+  {"n":12,"stem":"The Ministry of Culture, Government of India has included Chhau into the list of classical dances that makes a total of how many classical dance forms in India?","o":["8","7","10","9"],"a":3,"lang":"en"},
+  {"n":14,"stem":"Which king of the Tuluva dynasty was the most famous king of the Vijayanagar Empire?","o":["Harihara I","Krishna Deva Raya","Bukka I","Ramaraya"],"a":1,"lang":"en"},
+  {"n":15,"stem":"In which state is the festival of Bastar Dussehra celebrated?","o":["Bihar","Maharashtra","Chhattisgarh","Uttar Pradesh"],"a":2,"lang":"en"},
+  {"n":18,"stem":"Which Amendment Act, 1991 of Indian Constitution accorded a special status to the Union Territory of Delhi by designating it as the National Capital Territory of Delhi?","o":["47th","69th","55th","76th"],"a":1,"lang":"en"}
+ ],
+ "pat-2022-08-20-s2": [
+  {"n":3,"stem":"Famous Sawai Gandharv Bhimsen Mahotsav music festival is organized in which of the following cities?","o":["Indore","Pune","Agra","Jaipur"],"a":1,"lang":"en"},
+  {"n":4,"stem":"The National Commission for Scheduled Tribes (NCST) was established by amending ______.","o":["Article 245","Article 166","Article 338","Article 344"],"a":2,"lang":"en"},
+  {"n":5,"stem":"Who is the chairman of the Fifteenth Finance Commission?","o":["N. K. Singh","A. N. Jha","Anoop Singh","Ramesh Chand"],"a":0,"lang":"en"},
+  {"n":7,"stem":"In Buddhist architecture what is the meaning of Chaitya Hall?","o":["Recreation Hall","Place of Worship","Hall of Spiritual Leaders","Place for Marriage Ceremony"],"a":1,"lang":"en"},
+  {"n":8,"stem":"The Lalit Kala Akademi was inaugurated in New Delhi in the year _____.","o":["1953","1954","1952","1951"],"a":1,"lang":"en"},
+  {"n":10,"stem":"As per the census 2011, what was the sex ratio (females per 1000 males) of Haryana state?","o":["841","860","901","879"],"a":3,"lang":"en"},
+  {"n":11,"stem":"Which of the following programs was launched by the Govt. of India to provide connectivity to unconnected habitations as part of a poverty reduction strategy?","o":["Pradhan Mantri Gram Sadak Yojana","Pradhan Mantri Gram Connectivity Scheme","PM Rural Road Transport Network Program","PM Gram Setu Yojana"],"a":0,"lang":"en"},
+  {"n":13,"stem":"In 1955, with which of the following countries did India sign an agreement to construct Koshi Barrage?","o":["Sri Lanka","Nepal","China","Bangladesh"],"a":1,"lang":"en"}
+ ]
+}

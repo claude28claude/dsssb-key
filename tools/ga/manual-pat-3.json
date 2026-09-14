@@ -1,0 +1,11 @@
+{
+ "pat-2022-09-17-s3": [
+  {"n":1,"stem":"In which state of India is a geothermal power plant located?","o":["Assam","Tripura","Nagaland","Himachal Pradesh"],"a":3,"lang":"hi"}
+ ],
+ "pat-2022-08-20-s1": [
+  {"n":20,"stem":"Which type of financial institution serves a specific demographic per their field of membership, such as teachers or members of the military?","o":["Credit Unions","Retail Banks","Commercial banks","Investment Banks and Companies"],"a":0,"lang":"en"}
+ ],
+ "pat-2022-08-20-s2": [
+  {"n":2,"stem":"About ______ percent of the Earth's surface is water-covered.","o":["71","70","73","75"],"a":0,"lang":"en"}
+ ]
+}
