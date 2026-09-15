@@ -1,0 +1,209 @@
+a0501 {geo/resources} [CA?] [AS 5 Jul 2026 S3 GA2 Q2] In which city was the 3rd United Nations Ocean Conference (UNOC3), organised by the United Nations, held in June 2025?
+   A) Tokyo, Japan | B) Geneva, Switzerland | C) Nice, France | D) Lisbon, Portugal  => C
+a0502 {chem/reactions} [AS 5 Jul 2026 S3 GA2 Q3] What is the pH of 0.0001 M HCl solution?
+   A) 1 | B) 4 | C) 7 | D) 12  => B
+a0503 {env/climate} [CA?] [AS 5 Jul 2026 S3 GA2 Q4] The UN Climate Conference (COP29) on 24 November 2024 was held in ____________.
+   A) Glasgow | B) Sharm el-Sheikh | C) Dubai | D) Baku  => D
+a0504 {eco/schemes} [CA?] [AS 5 Jul 2026 S3 GA2 Q5] Which mission aims to develop India's indigenous GPU capabilities under the IndiaAI programme, as of May 2025?
+   A) Tejas | B) Vistar | C) Shakti | D) IndiaAI  => D
+a0505 {geo/resources} [CA?] [AS 5 Jul 2026 S3 GA2 Q6] In the financial year 2025–26, what is the amount allocated to the Sports Authority of India (SAI) in India?
+   A) ₹850 crore | B) ₹830 crore | C) ₹750 crore | D) ₹800 crore  => B
+a0506 {eco/basics} [CA?] [AS 5 Jul 2026 S3 GA2 Q7] What was India's GDP growth rate in the October to December 2024 quarter?
+   A) 6.2% | B) 6.8% | C) 5.8% | D) 6.5%  => A
+a0507 {bio/cell} [CA?] [AS 5 Jul 2026 S3 GA2 Q8] The Second Blue Talks 2025 served as a lead-up to which major international conference?
+   A) COP29 Summit | B) 3rd United Nations Ocean Conference (UNOC3) | C) UN Water Conference 2025 | D) Global Biodiversity Summit 2025  => B
+a0508 {eco/money} [AS 5 Jul 2026 S3 GA2 Q9] Seasonal unemployment is commonly seen in which sector?
+   A) Manufacturing | B) Information Technology | C) Agriculture | D) Banking  => C
+a0509 {phy/heat} [AS 5 Jul 2026 S3 GA2 Q10] Which type of sound wave has a frequency below 20 Hz?
+   A) Ultrasonic wave | B) Inaudible wave | C) Audible wave | D) Infrasonic wave  => D
+a0510 {bio/living} [CA?] [AS 5 Jul 2026 S3 GA2 Q11] The “Kensington Treaty”, signed on 17 July 2025, is a cooperation treaty between which two countries?
+   A) India and Australia | B) France and Italy | C) United Kingdom and Germany | D) United States and Japan  => C
+a0511 {phy/mechanics} [CA?] [AS 5 Jul 2026 S3 GA2 Q12] NASAʼs recent scientific balloon campaign in Antarctica (2025) was aimed at studying which particles entering the Earthʼs atmosphere?
+   A) Methane atmospheric plumes | B) Carbon monoxide signatures | C) High-energy particles including anti-matter | D) Methane atmospheric plumes anti-matter  => C
+a0512 {pol/union} [AS 5 Jul 2026 S3 GA2 Q13] Which of the following is a Financial Committee of the Indian Parliament?
+   A) Railway Convention Committee | B) Committee on Ethics | C) Estimates Committee | D) Committee on Petitions  => C
+   SIM m2715 0.67 pol/union ans="Public accounts committee" :: The Public Accounts Committee is a financial committee (with Estimates and Public Undertakings).
+a0513 {geo/resources} [AS 5 Jul 2026 S3 GA2 Q14] Vizhinjam International Seaport, Indiaʼs first deep-water transshipment port, is primarily designed for which of the following purposes?
+   A) Container and multi-purpose cargo handling | B) Passenger cruise services only | C) Offshore oil drilling operations | D) Fishing and marine research activities  => A
+a0514 {?} [CA?] [AS 5 Jul 2026 S3 GA2 Q15] What engine type has ISRO advanced in developing for the LVM3 vehicle in 2025?
+   A) Liquid methane engine | B) Hybrid fuel engine | C) Plasma propulsion engine | D) Semicryogenic engine  => D
+a0515 {chem/matter} [CA?] [AS 5 Jul 2026 S3 GA2 Q16] Which organisation successfully conducted the Release Trials of the Long-Range Glide Bomb ‘Gauravʼ in April 2025?
+   A) Bhabha Atomic Research Centre (BARC) | B) Indian Space Research Organisation (ISRO) | C) Defence Research and Development Organisation (DRDO) | D) Hindustan Aeronautics Limited (HAL)  => C
+a0516 {pol/union} [CA?] [AS 5 Jul 2026 S3 GA2 Q17] Which summit was co-chaired by French President Emmanuel Macron and Indian Prime Minister Narendra Modi in February 2025?
+   A) COP30 | B) World Government Summit | C) AI Action Summit | D) G20 Summit  => C
+a0517 {bio/human} [AS 5 Jul 2026 S3 GA2 Q18] Allium sativum is the botanical name of which plant that is commonly used for conditions related to the heart and blood system?
+   A) Chives | B) Garlic | C) Onion | D) Leek  => B
+a0518 {eco/planning} [AS 5 Jul 2026 S3 GA2 Q19] Which term describes the government's control over prices and production before 1991 in India?
+   A) Free market | B) Open trade | C) License Raj | D) Liberal economy  => C
+a0519 {pol/union} [AS 5 Jul 2026 S3 GA2 Q20] The President of which country was the Chief Guest for Indiaʼs 76th Republic Day celebrations?
+   A) Albania | B) Nigeria | C) England | D) Indonesia  => D
+a0520 {geo/resources} [AS 6 Jul 2026 S1 GA1 Q1] Which Indian PSU from the following options is primarily responsible for large-scale power generation across the country?
+   A) National Thermal Power Corporation | B) Steel Authority of India Limited | C) Coal India Limited | D) Oil and Natural Gas Corporation  => A
+a0521 {geo/physical} [AS 6 Jul 2026 S1 GA1 Q2] The Deccan Plateau is primarily composed of:
+   A) Alluvial deposits | B) Metamorphic rocks | C) Sedimentary rocks | D) Igneous rocks  => D
+   SIM q9320 0.60 geo/physical ans="Basaltic lava" :: Much of the Deccan Plateau, especially the Deccan Traps, is made of basaltic lava.
+a0522 {?} [AS 6 Jul 2026 S1 GA1 Q3] In which of the following years was the India Tourism Development Corporation Ltd. established by the Government of India?
+   A) 1966 | B) 1972 | C) 1959 | D) 1952  => A
+a0523 {phy/heat} [AS 6 Jul 2026 S1 GA1 Q4] Nautanki folk theatre is mainly popular in which region of India?
+   A) Uttar Pradesh | B) Kerala | C) Assam | D) West Bengal  => A
+a0524 {hist/modern} [AS 6 Jul 2026 S1 GA1 Q5] In which year was the non-violent campaign against British colonial control, known as civil disobedience, officially and completely called off?
+   A) 1936 | B) 1934 | C) 1938 | D) 1932  => B
+a0525 {pol/judiciary} [AS 6 Jul 2026 S1 GA1 Q6] Judicial Activism is primarily associated with which of the following concepts?
+   A) Separation of Powers | B) Parliamentary Sovereignty | C) Public Interest Litigation (PIL) | D) Judicial Restraint  => C
+a0526 {?} [CA?] [AS 6 Jul 2026 S1 GA1 Q7] Which of the following is NOT recognised as a Classical Language in India as of January 2025?
+   A) Gujarati | B) Pali | C) Assamese | D) Prakrit  => A
+a0527 {pol/union} [AS 6 Jul 2026 S1 GA1 Q8] The maximum number of ministers including the Prime Minister cannot exceed what percentage of the total strength of the Lok Sabha?
+   A) 10% | B) 25% | C) 20% | D) 15%  => D
+   SIM q7453 0.67 pol/union ans="15%" :: The Council of Ministers, including the PM, cannot exceed 15% of the Lok Sabha's strength (91st Amendment).
+a0528 {pol/rights} [AS 6 Jul 2026 S1 GA1 Q9] From which country was the idea of Directive Principles of State Policy borrowed?
+   A) The Soviet Union | B) The United States of America | C) The Irish Republic | D) The United Kingdom  => C
+a0529 {?} [AS 6 Jul 2026 S1 GA1 Q10] Who among the following was the first king of the Gurjara-Pratihara Dynasty?
+   A) Mahendrapala | B) Mihirbhoja | C) Nagabhatta-I | D) Nagabhatta-II  => C
+a0530 {hist/modern} [AS 6 Jul 2026 S1 GA1 Q11] On 10th May 1857, the sepoys in which of the following cantonments broke out in mutiny?
+   A) Meerut | B) Lucknow | C) Delhi | D) Kanpur  => A
+a0531 {?} [AS 6 Jul 2026 S1 GA1 Q12] Which extremist leader gave the slogan “Political freedom is the lifebreath of a nation”?
+   A) Lala Lajpat Rai | B) Bipin Chandra Pal | C) Aurobindo Ghosh | D) Bal Gangadhar Tilak  => C
+a0532 {geo/earth} [AS 6 Jul 2026 S1 GA1 Q13] Which of the following statements is true about lines of latitude?
+   A) They measure distance East or West of the Prime Meridian. | B) They run parallel to the Equator. | C) They converge at the North and South Poles. | D) They are referred to as meridians.  => B
+a0533 {hist/ancient} [AS 6 Jul 2026 S1 GA1 Q14] The Chola military was renowned for its:
+   A) Mountain warfare | B) Naval expeditions | C) Infantry formations | D) Siege tactics  => B
+a0534 {static/art} [AS 6 Jul 2026 S1 GA1 Q15] Which of the following painting styles is traditionally executed on cloth and is linked with the deity Jagannath of Puri?
+   A) Gond | B) Pattachitra | C) Phad | D) Kalamkari  => B
+a0535 {hist/freedom} [AS 6 Jul 2026 S1 GA1 Q16] Who is famous for the quote “Swaraj is my birthright and I shall have it”?
+   A) Bal Gangadhar Tilak | B) Bhagat Singh | C) Mahatma Gandhi | D) Jawahar Lal Nehru  => A
+   SIM m1405 0.50 hist/freedom ans="Bal Gangadhar Tilak" :: Tilak gave the slogan 'Swaraj is my birthright and I shall have it'.
+a0536 {pol/constitution} [AS 6 Jul 2026 S1 GA1 Q17] The Indian Constitution came into effect on _______________.
+   A) 15 August 1947 | B) 26 January 1950 | C) 26 November 1949 | D) 22 January 1947  => B
+a0537 {pol/bodies} [AS 6 Jul 2026 S1 GA1 Q18] Which Act made provisions for the establishment of the All India Federation?
+   A) Government of India Act, 1919 | B) Government of India act, 1935 | C) Indian Councils Act, 1892 | D) Charter Act, 1833  => B
+a0538 {geo/physical} [AS 6 Jul 2026 S1 GA1 Q19] Which plateau lies to the west of the Chotanagpur region and has an elevation of about 700 metres?
+   A) Telangana Plateau | B) Baghelkhand Plateau | C) Meghalaya Plateau | D) Bundelkhand Plateau  => B
+a0539 {?} [AS 6 Jul 2026 S1 GA1 Q20] What are the newer younger deposits of the floodplains of India known as?
+   A) Bhabhar | B) Khadar | C) Bhangar | D) Kankar  => B
+a0540 {static/sports} [CA?] [AS 6 Jul 2026 S1 GA2 Q1] Where were the 2025 World Athletics Championships held?
+   A) Paris, France | B) London, England | C) Doha, Qatar | D) Tokyo, Japan  => D
+a0541 {pol/union} [AS 6 Jul 2026 S1 GA2 Q2] Which Member of Parliament is leading the Group-5 delegation of Operation Sindoor to countries like the USA, Brazil, and Colombia?
+   A) Dr. Shashi Tharoor | B) Ghulam Nabi Azad | C) Baijayant Panda | D) Asaduddin Owaisi  => A
+a0542 {?} [CA?] [AS 6 Jul 2026 S1 GA2 Q3] In May 2025, where was the Second Blue Talks event organised by the Ministry of Earth Sciences (MoES) in collaboration with the Embassies of France and Costa Rica?
+   A) South Africa | B) India | C) Italy | D) Brazil  => B
+a0543 {eco/planning} [AS 6 Jul 2026 S1 GA2 Q4] The Foreign Exchange Regulation Act (FERA) was replaced post 1991 economic reforms. Which Act replaced FERA in 1999?
+   A) FEMA | B) SICA | C) FRBM Act | D) SEZ Act  => A
+a0544 {eco/schemes} [CA?] [AS 6 Jul 2026 S1 GA2 Q5] Who was elected as the Chairperson of the African Union Commission in February 2025?
+   A) Richard Randriamandrato | B) Moussa Faki | C) Raila Odinga | D) Mahamoud Ali Youssouf  => D
+a0545 {eco/planning} [CA?] [AS 6 Jul 2026 S1 GA2 Q6] Post 1991 economic reforms, the Indian government recognised that rapid economic growth alone was insufficient to alleviate deep-rooted rural poverty. Which major rural employment program was launched in 2006 to provide guaranteed wage employment to rural households in India?
+   A) RLEGP | B) IRDP | C) MGNREGA | D) PMGSY  => C
+a0546 {eco/schemes} [CA?] [AS 6 Jul 2026 S1 GA2 Q7] Which organisations collaborated with UIDAI for the Aadhaar-based face authentication pilot during the NEET UG 2025 examination?
+   A) University Grants Commission and National Testing Agency | B) Central Board of Secondary Education and All India Council for Technical Education | C) Union Public Service Commission and National Informatics Centre | D) National Informatics Centre and National Testing Agency  => D
+a0547 {geo/world} [AS 6 Jul 2026 S1 GA2 Q8] Which of the following startups has been selected by the Indian Government to develop the country's first indigenous large language model (LLM)?
+   A) Infosys | B) Sarvam AI | C) Tata Consultancy Services | D) OpenAI  => B
+a0548 {?} [CA?] [AS 6 Jul 2026 S1 GA2 Q9] In which of the following places was the World Snooker Championship 2025 held?
+   A) London | B) Nottingham | C) Sheffield | D) Birmingham  => C
+a0549 {static/sports} [CA?] [AS 6 Jul 2026 S1 GA2 Q10] At the Khelo India Youth Games 2025, which of the following initiatives was launched to promote menstrual health awareness among athletes and coaches?
+   A) Project Shakti Booths | B) Simply Period Kiosks | C) Pink Health Pavilion | D) Menstrual Matters Mobile  => B
+a0550 {phy/light} [CA?] [AS 6 Jul 2026 S1 GA2 Q11] Which film won the Best Picture award at the 18th Asian Film Awards in March 2025?
+   A) Exhuma | B) All We Imagine as Light | C) Santosh | D) Twilight of the Warriors: Walled In  => B
+a0551 {pol/union} [AS 6 Jul 2026 S1 GA2 Q12] Under the Constitution, a person shall be disqualified from being elected as a Member of Parliament if: 1. He holds any office of profit under the Union or State Government. 2. He is an undischarged insolvent. 3. He is of unsound mind. 4. He has been convicted for an offence resulting in imprisonment for one years Which of the above statments is/are correct
+   A) 1,2 and 3 | B) Only 1 and 2 | C) 1,4 only | D) Only 2 and 3  => A
+a0552 {bio/health} [AS 6 Jul 2026 S1 GA2 Q13] Which of the following is the most common cause of the common cold?
+   A) Rhinovirus | B) Adenovirus | C) Influenza virus | D) Bacteria  => A
+a0553 {geo/world} [CA?] [AS 6 Jul 2026 S1 GA2 Q14] Which country hosted the 2025 Special Olympics World Winter Games, marking its first time hosting this event?
+   A) Canada | B) Japan | C) Switzerland | D) Italy  => D
+a0554 {?} [CA?] [AS 6 Jul 2026 S1 GA2 Q15] Which state hosted the 7th Youth Men & Women National Boxing Championship in April 2025, organised by the Boxing Federation of India?
+   A) Tamil Nadu | B) Maharashtra | C) Uttar Pradesh | D) Arunachal Pradesh  => C
+a0555 {phy/mechanics} [AS 6 Jul 2026 S1 GA2 Q16] What is the acceleration of a 4 kg object under a 20 N net force?
+   A) 0.2 m/s² | B) 80 m/s² | C) 4 m/s² | D) 5 m/s²  => D
+a0556 {?} [AS 6 Jul 2026 S1 GA2 Q17] The "Vande Bharat Express" trains are manufactured under which initiative?
+   A) Atmanirbhar Bharat | B) Make in India | C) StartUp India | D) Digital India  => B
+a0557 {?} [AS 6 Jul 2026 S1 GA2 Q18] Which model integrates rural development with urban amenities and aims to provide “Urban Infrastructure and Services in Rural Areas”?
+   A) RURBAN | B) PURA | C) SAGY | D) NRLM  => B
+a0558 {bio/health} [AS 6 Jul 2026 S1 GA2 Q19] Chickenpox is a contagious viral infection caused by:
+   A) Bordetella pertussis | B) Clostridium tetani | C) Rubella virus | D) Varicella zoster virus  => D
+a0559 {geo/resources} [CA?] [AS 6 Jul 2026 S1 GA2 Q20] What is the name of the new national-level sports policy approved by the Union Cabinet in July 2025?
+   A) India Sports Roadmap 2025 | B) National Sports Policy 2025 | C) National Athletic Policy 2025 | D) National Sports Vision 2030  => B
+a0560 {hist/modern} [AS 6 Jul 2026 S2 GA1 Q1] Which tribal movement was led by Alluri Sree Rama in 1922 against British rule?
+   A) Bhumkal Revolt | B) Koya Rebellion | C) Rampa Rebellion | D) Gond Uprising  => B
+a0561 {?} [AS 6 Jul 2026 S2 GA1 Q2] Srikalahasti and Machilipatnam are two distinct styles of which of the following art forms?
+   A) Thangka | B) Basholi | C) Kalamkari | D) Madhubani  => C
+a0562 {pol/rights} [AS 6 Jul 2026 S2 GA1 Q3] Under which Article of the Constitution can the Supreme Court issue writs for the enforcement of Fundamental Rights?
+   A) Article 131 | B) Article 226 | C) Article 124 | D) Article 32  => D
+   SIM m3195 0.92 pol/rights ans="Ratification" :: 'Ratification' is not a writ; the five writs are habeas corpus, mandamus, prohibition, certiorari and quo warranto.
+a0563 {geo/earth} [AS 6 Jul 2026 S2 GA1 Q4] What is the distance between two consecutive degrees of latitudes approximately?
+   A) 111km | B) 155km | C) 139km | D) 123km  => A
+a0564 {pol/states} [AS 6 Jul 2026 S2 GA1 Q5] The 73rd Constitutional Amendment is related to:
+   A) Right to Education | B) Introduction of GST | C) Panchayati Raj Institutions | D) Abolition of Privy Purses  => C
+   SIM q3040 0.60 pol/bodies ans="To restore the power of the states to identify the backward classes." :: The 127th Amendment Bill (2021), passed as the 105th Amendment Act, restored the states' power to prepare their own lists of backward classes.
+a0565 {static/dance} [AS 6 Jul 2026 S2 GA1 Q6] Sattriya dance form was developed in the monasteries of which Indian state?
+   A) Assam | B) Arunachal Pradesh | C) Manipur | D) Meghalaya  => A
+a0566 {hist/modern} [AS 6 Jul 2026 S2 GA1 Q7] Which of the following prominent leaders led the uprising in Bareilly in 1857 revolt of India?
+   A) Nana Sahib | B) Tantia Tope | C) Rani Laxmibai | D) Mufti Muhammad Aiwaz  => D
+a0567 {pol/states} [AS 6 Jul 2026 S2 GA1 Q8] Which Constitutional Amendment Act accorded formal constitutional status and protection to the Panchayati Raj Institutions (PRIs) in India by inserting Part IX into the Constitution?
+   A) 44th Constitutional Amendment Act | B) 42nd Constitutional Amendment Act | C) 74th Constitutional Amendment Act | D) 73rd Constitutional Amendment Act  => D
+a0568 {pol/bodies} [AS 6 Jul 2026 S2 GA1 Q9] Which of the following correctly identifies the significance of the 97th Constitutional Amendment?
+   A) Constitutional status to Anti-Defection Law | B) Introduction of GST in the Indian economy | C) Mandating compulsory education for children | D) Recognition of cooperative societies as fundamental institutions  => D
+a0569 {hist/medieval} [AS 6 Jul 2026 S2 GA1 Q10] Which ruler of Delhi Sultanate led the first Turkish expedition to South India and plundered Devagiri in 1294 AD?
+   A) Mahmud Ghazni | B) Alauddin Khalji | C) Qutbuddin Aibak | D) Shahabuddin Muhammad  => B
+a0570 {geo/india} [AS 6 Jul 2026 S2 GA1 Q11] Which of the following national parks is located in the trans-Himalayan region?
+   A) Hemis National Park | B) Valley of Flowers National Park | C) Kaziranga National Park | D) Sundarbans National Park  => A
+a0571 {hist/freedom} [AS 6 Jul 2026 S2 GA1 Q12] Who presided over the Calcutta Congress session where self-government or swaraj was declared as the goal by the Indian National Congress?
+   A) Bal Gangadhar Tilak | B) Surendranath Banerjee | C) Bipin Chandra Pal | D) Dadabhai Naoroji  => D
+a0572 {?} [AS 6 Jul 2026 S2 GA1 Q13] Which climatic condition leads to the formation of tropical deciduous forests in India?
+   A) Constant humidity | B) Heavy snowfall | C) Very low rainfall | D) Seasonal rainfall between 100 and 200 cm  => D
+a0573 {hist/medieval} [AS 6 Jul 2026 S2 GA1 Q14] Which of the following best describes the structure of Mughal society during its peak?
+   A) A complex social hierarchy with multiple classes and roles | B) A complete absence of social and economic distinctions | C) Universal implementation of caste abolition and uniformity | D) A society governed solely by tribal customs and equality  => A
+a0574 {env/climate} [AS 6 Jul 2026 S2 GA1 Q15] According to Koppenʼs Climatic Classification, which type of climate is found in the Ganga Plain of India?
+   A) Dfc | B) As | C) Amw | D) Cwg  => D
+a0575 {?} [AS 6 Jul 2026 S2 GA1 Q16] Which of the following is officially recognized as a Classical Language of India?
+   A) Bhojpuri | B) Dogri | C) Konkani | D) Tamil  => D
+   SIM m3302 0.80 static/misc ans="Tamil" :: Tamil became a classical language in 2004.
+a0576 {?} [AS 6 Jul 2026 S2 GA1 Q17] The leader of the Kol Rebellion (1831-32) was:
+   A) Sidhu Murmu | B) Buddhu Bhagat | C) Birsa Munda | D) Tantia Tope  => B
+a0577 {hist/ancient} [CA?] [AS 6 Jul 2026 S2 GA1 Q18] Which of the following products does India import in large quantities as of 2024?
+   A) Crude oil | B) Handicrafts | C) Spices | D) Ayurvedic Products  => A
+a0578 {geo/resources} [AS 6 Jul 2026 S2 GA1 Q19] Consider the following statements and select which is/are correct. 1. The National Highway 44 is the longest national highway in India. 2. The Inland Waterway No. 1 connects Prayagraj to Haldia. 3. The Konkan Railway runs parallel to the eastern coast of India.
+   A) 1 and 2 only | B) 1 only | C) 1, 2 and 3 | D) 2 only  => A
+a0579 {pol/bodies} [AS 6 Jul 2026 S2 GA1 Q20] Which Constitutional Amendment is known as the “Mini-Constitution” due to the wide range of changes it introduced?
+   A) 44th Amendment | B) 73rd Amendment | C) 24th Amendment | D) 42nd Amendment  => D
+a0580 {geo/resources} [AS 6 Jul 2026 S2 GA2 Q1] Select the correct statement about xylem.
+   A) Xylem never transports any nutrients in plants. | B) The basic function of xylem is to transport water from roots to stems and leaves. | C) The basic function of xylem is to transport food from leaves to stems and roots. | D) Phloem is located deeper in the stem when compared to the xylem which is located outward.  => B
+a0581 {?} [CA?] [AS 6 Jul 2026 S2 GA2 Q2] Which of the following two countries have signed an MoU in June 2025 to enable UPI services for cross border services?
+   A) India- Srilanka | B) India- Cyprus | C) India-China | D) India- Maldives  => B
+a0582 {geo/people} [AS 6 Jul 2026 S2 GA2 Q3] Which policy allowed foreign direct investment (FDI) in the industrial sector after 1991?
+   A) National Employment Policy | B) New Industrial Policy | C) Green Revolution Policy | D) National Population Policy  => B
+a0583 {?} [AS 6 Jul 2026 S2 GA2 Q4] What cutting-edge device did IIT Delhi researchers develop using 2D materials?
+   A) Ultra‑fast GPU | B) Quantum processor | C) MOD‑PC | D) 5G modem  => C
+a0584 {bio/health} [AS 6 Jul 2026 S2 GA2 Q5] In the context of human digestive system, match the digestive enzymes with their functions: Enzyme Function ------------------------------------------A) Amylase 1) Breaks down proteins B) Lipase 2) Breaks down fats C) Protease 3) Breaks down complex carbohydrates
+   A) A-3, B-1, C-2 | B) A-1, B-2, C-3 | C) A-2, B-3, C-1 | D) A-3, B-2, C-1  => D
+a0585 {hist/freedom} [CA?] [AS 6 Jul 2026 S2 GA2 Q6] Which of the following events in 2025 is focused on addressing advancements and collaborations in artificial intelligence?
+   A) AI Action Summit | B) World AI Congress | C) International AI Conference | D) AI Global Forum  => A
+a0586 {geo/resources} [CA?] [AS 6 Jul 2026 S2 GA2 Q7] In 2024, what percentage of Std III students in India could perform a numerical subtraction problem according to the Annual Status of Education Report (ASER) 2024?
+   A) 27.8% | B) 43.5% | C) 22.5% | D) 33.7%  => D
+a0587 {geo/resources} [AS 6 Jul 2026 S2 GA2 Q8] Consider the following statements about the e- way bill system under the GST regime. 1. E-way bill is a document required by the person in charge of the conveyance carrying any consignment of goods of value exceeding ₹50,000. 2. In case of regular transportation modes, the e-way bill has a validity of 24 hours for every 100 kms. 3. The transporter, who is carrying the consignment as per the e-way bill system at the time of expiry of validity period, can extend the validity period under certain circumstances. Which of the statements given above is/are correct?
+   A) Only 1 | B) Only 1 and 3 | C) Only 2 | D) 1, 2 and 3  => B
+a0588 {hist/ancient} [CA?] [AS 6 Jul 2026 S2 GA2 Q9] Which organization launched the Sports Scholarship Initiative to support emerging sports talent across India in 2025?
+   A) Oil and Natural Gas Corporation (ONGC) | B) Indian Oil Corporation Limited (IOCL) | C) Bharat Petroleum Corporation Limited (BPCL) | D) Hindustan Petroleum Corporation Limited (HPCL)  => C
+a0589 {geo/resources} [CA?] [AS 6 Jul 2026 S2 GA2 Q10] What was the female labour force participation rate in India in 2023-24, as reported in the Economic Survey 2024-25?
+   A) 35.5% | B) 38.2% | C) 41.7% | D) 45.0%  => C
+a0590 {pol/union} [AS 6 Jul 2026 S2 GA2 Q11] Assertion (A): The Vice-President of India can act as President in certain situations. Reason (R): The Vice-President is the head of the Election Commission. Select the correct answer using the codes given below.
+   A) Both A and R are true, and R is the correct explanation of A. | B) Both A and R are true, but R is not the correct explanation of A. | C) A is false, but R is true. | D) A is true, but R is false.  => D
+a0591 {?} [CA?] [AS 6 Jul 2026 S2 GA2 Q12] Apart from New Delhi, which state co-hosted the Khelo India Youth Games 2025?
+   A) Rajasthan | B) Maharashtra | C) Bihar | D) Haryana  => C
+a0592 {eco/money} [CA?] [AS 6 Jul 2026 S2 GA2 Q13] Which of the following cities of China hosted the 9th Asian Winter Games in 2025?
+   A) Beijing | B) Handan | C) Harbin | D) Shanghai  => C
+a0593 {hist/freedom} [AS 6 Jul 2026 S2 GA2 Q14] Which policy initiative combines both poverty alleviation and employment generation in India?
+   A) Mahatma Gandhi National Rural Employment Guarantee Act (MGNREGA) | B) Swachh Bharat Abhiyan | C) Pradhan Mantri Jan Dhan Yojana | D) Make in India  => A
+a0594 {static/festivals} [CA?] [AS 6 Jul 2026 S2 GA2 Q15] As per the Ministry of External Affairs, in Indiaʼs statement at the General Debate of the Eightieth Session of the United Nations General Assembly in September 2025, which reform measure was specifically highlighted as essential to restore the credibility of the United Nations?
+   A) Introduction of binding trade enforcement powers | B) Creation of a global counterterrorism force | C) Expansion of Security Council membership | D) Establishment of a supranational climate authority  => C
+a0595 {pol/union} [CA?] [AS 6 Jul 2026 S2 GA2 Q16] Who signed the umbrella agreement on December 2024 to implement Quick Impact Projects on behalf of India and Nicaragua, respectively?
+   A) Indian Prime Minister and Nicaraguan President | B) Indian Ambassador Sumit Seth and Nicaraguan Foreign Minister Valdrack Jaentschke | C) Indian Foreign Minister and Nicaraguan Ambassador to India | D) Indian Defense Minister and Nicaraguan Trade Minister  => B
+a0596 {geo/world} [CA?] [AS 6 Jul 2026 S2 GA2 Q17] Which country will host the18th BRICS Summit 2026?
+   A) India | B) South Africa | C) China | D) Russia  => A
+a0597 {phy/electricity} [CA?] [AS 6 Jul 2026 S2 GA2 Q18] What is the current Gross Enrolment Ratio (GER) for higher education in India, as per the Economic Survey 2024–25?
+   A) 36.7% | B) 50% | C) 28.4% | D) 20.4%  => C
+a0598 {eco/planning} [AS 6 Jul 2026 S2 GA2 Q19] Which of the following is considered a social indicator of poverty in India?
+   A) Per capita income | B) Infant mortality rate | C) Industrial production | D) Fiscal deficit  => A
+a0599 {bio/cell} [AS 6 Jul 2026 S2 GA2 Q20] What is the term for different forms of the same gene?
+   A) Genotypes | B) Chromosomes | C) Alleles | D) Traits  => C
+   SIM m0982 1.00 bio/cell ans="Alleles" :: Alleles are different forms of the same gene.
+a0600 {pol/bodies} [AS 6 Jul 2026 S3 GA1 Q1] The voting age was reduced from 21 years to 18 years under which of the following Amendments of the Indian Constitution?
+   A) 91st | B) 61st | C) 81st | D) 71st  => B
+   SIM q6225 0.50 pol/bodies ans="Sixty first" :: The 61st Amendment (1988) lowered the voting age from 21 to 18.

@@ -1,0 +1,166 @@
+a0601 {static/dance} [AS 6 Jul 2026 S3 GA1 Q2] Which of the following statements correctly describes the classical Indian dance form Mohiniattam?
+   A) A classical dance of Kerala rooted in temple traditions | B) A graceful dance known for its rapid footwork | C) A puppet-based theatrical form from Karnataka | D) A male warrior dance revived by Rukmini Devi  => A
+a0602 {pol/union} [AS 6 Jul 2026 S3 GA1 Q3] Which body is the highest decision-making authority in a formal sense in the Indian executive system?
+   A) Council of Ministers | B) Lok Sabha | C) Cabinet | D) Rajya Sabha  => C
+a0603 {hist/ancient} [AS 6 Jul 2026 S3 GA1 Q4] Which establishment of Rajendra I was done to honor the triumph over the Pala king?
+   A) Gangaikondacholapuram city | B) Great Vihara | C) Puhar Port | D) Brihadisvara Temple  => A
+a0604 {hist/freedom} [AS 6 Jul 2026 S3 GA1 Q5] Who among the following leaders played a key role in the Champaran Satyagraha of 1917, marking Gandhiʼs first active involvement in Indian mass politics?
+   A) Sardar Vallabhbhai Patel | B) Motilal Nehru | C) Rajendra Prasad | D) Bal Gangadhar Tilak  => C
+a0605 {geo/resources} [AS 6 Jul 2026 S3 GA1 Q6] Select the option that is true regarding the following two statements labelled Assertion (A) and Reason (R). Assertion (A): The development of transport and communication is essential for the economic growth of a country. Reason (R): Transport and communication help in the movement of goods, services, and information across regions efficiently.
+   A) Both A and R are true, but R is not the correct explanation of A | B) A is true, but R is false | C) Both A and R are true, and R is the correct explanation of A | D) A is false, but R is true  => C
+a0606 {hist/freedom} [AS 6 Jul 2026 S3 GA1 Q7] Which of the following was NOT a cause of the Revolt of 1857?
+   A) High taxation on peasants | B) Formation of the Indian National Congress | C) Introduction of the Enfield rifle | D) Doctrine of Lapse  => B
+   SIM m0010 0.75 hist/modern ans="Animal fat cartridges given to Indian soldiers" :: The immediate cause of the 1857 revolt was the greased cartridges of the Enfield rifle, said to use cow and pig fat.
+a0607 {hist/modern} [AS 6 Jul 2026 S3 GA1 Q8] In the context of the society and economy of the South Indian kingdoms during the medieval period (AD 700–AD 1857), which of the following formed the primary basis of their economic system?
+   A) Mineral exports | B) Spice trade | C) Textile production | D) Agriculture  => D
+a0608 {geo/resources} [AS 6 Jul 2026 S3 GA1 Q9] Which of the following is NOT a major export item of India?
+   A) Pharmaceuticals | B) Gems and Jewelry | C) Crude oil | D) Petroleum products  => C
+a0609 {hist/medieval} [AS 6 Jul 2026 S3 GA1 Q10] The Red Fort of Agra is a powerful fortress founded in 1565 by which Mughal Emperor on the banks of river Yamuna?
+   A) Akbar | B) Jahangir | C) Shah Jahan | D) Aurangzeb  => A
+a0610 {geo/physical} [AS 6 Jul 2026 S3 GA1 Q11] Which of the following coastal features is commonly found along the eastern coast of India?
+   A) Estuaries | B) Lagoons | C) Rocky cliffs | D) Coral reefs  => B
+a0611 {geo/people} [AS 6 Jul 2026 S3 GA1 Q12] When hot lava enters seawater, which hazardous phenomenon commonly forms and threatens nearby populations?
+   A) A corrosive gas plume known as laze | B) A dry steam cloud rising from the seafloor | C) A dense ash blanket covering the shoreline | D) A sulphur-rich fog spreading across oceans  => A
+a0612 {pol/union} [AS 6 Jul 2026 S3 GA1 Q13] What did the 74th Constitutional Amendment Act of 1992 provide for?
+   A) Creation of Rajya Sabha | B) Constitutional status to Municipalities | C) Redefining the structure of Lok Sabha | D) Restructuring rural governance  => B
+a0613 {hist/modern} [AS 6 Jul 2026 S3 GA1 Q14] The British ended the revolt of 1857 with:
+   A) Economic reforms | B) Military suppression | C) Diplomatic talks | D) Political alliances  => B
+a0614 {hist/modern} [AS 6 Jul 2026 S3 GA1 Q15] The Ahom Revolt (1828) was eventually quelled by the British by:
+   A) Forming a local tribal militia | B) Reinstating a local prince as a tributary | C) Executing all rebels | D) Deporting the Ahom king  => B
+a0615 {geo/physical} [AS 6 Jul 2026 S3 GA1 Q16] What role do western cyclonic disturbances primarily play in India's climate system?
+   A) They bring rainfall in India during the summer monsoon | B) They are responsible for rising temperatures in northwestern India in May | C) They help form tropical cyclones in the Bay of Bengal | D) They influence weather during the winter in northwestern India  => D
+a0616 {?} [AS 6 Jul 2026 S3 GA1 Q17] Which of the following Indian state receives rainfall from both the Cold Weather Season and Transition Season?
+   A) Haryana | B) Rajasthan | C) Punjab | D) Tamil Nadu  => D
+a0617 {static/music} [AS 6 Jul 2026 S3 GA1 Q18] Dhrupad, Khayal, Tappa, Chaturanga, Tarana, etc. are the main styles of singing in which of the following music in India?
+   A) Hindustani music | B) Carnatic music | C) Folk music | D) Bhangra music  => A
+a0618 {pol/judiciary} [AS 6 Jul 2026 S3 GA1 Q19] According to Article 76 of the Indian Constitution, who is the highest law officer of India?
+   A) Supreme Court Judge | B) Solicitor General of India | C) Law Commission of India | D) Attorney General of India  => D
+a0619 {pol/bodies} [AS 6 Jul 2026 S3 GA1 Q20] Which of the following amendments introduced the concept of "reservation" for socially and educationally backward classes (SEBCs) in government jobs and educational institutions?
+   A) 104th Amendment | B) 77th Amendment | C) 93rd Amendment | D) 86th Amendment  => C
+a0620 {geo/resources} [AS 6 Jul 2026 S3 GA2 Q1] Why do rural farmers often require credit for agricultural and non-agricultural activities?
+   A) To meet initial costs and manage expenses during the long income gap | B) To pay government taxes regularly | C) To export their produce directly to foreign countries | D) To invest in stock markets and real estate  => A
+a0621 {geo/resources} [AS 6 Jul 2026 S3 GA2 Q2] What is the main purpose of assigning Universal Account Numbers (UAN) to unorganised workers through the eShram portal?
+   A) To provide access to digital skills training | B) To promote entrepreneurship among workers | C) To facilitate direct benefit transfers and social security schemes | D) To improve healthcare access for workers  => C
+a0622 {bio/human} [CA?] [AS 6 Jul 2026 S3 GA2 Q3] Who delivered the keynote address at the inauguration of Bharat Telecom 2025, emphasizing India's transformative role in the global telecom ecosystem?
+   A) Shri Baijayant Panda | B) Dr. Pemmasani Chandra Sekhar | C) Shri Asaduddin Owaisi | D) Shri Jyotiraditya M. Scindia  => D
+a0623 {phy/mechanics} [AS 6 Jul 2026 S3 GA2 Q4] A bullet of mass 0.05 kg moving with a speed of 100 m s-1 enters a heavy wooden block and comes to rest after penetrating 50 cm. The average resistive force exerted by the block on the bullet is:
+   A) 250 N | B) 500 N | C) 1000 N | D) 750 N  => B
+a0624 {?} [AS 6 Jul 2026 S3 GA2 Q5] In which year did the Ministry of Rural Development, Government of India, start "Road Connectivity Project of Left Wing Extremism Affected Areas" (RCPLWEA)?
+   A) 2019 | B) 2016 | C) 2020 | D) 2014  => B
+a0625 {?} [CA?] [AS 6 Jul 2026 S3 GA2 Q6] In which cities were the Khelo India Winter Games, 2025, conducted?
+   A) Manali and Dehradun | B) Leh and Gulmarg | C) Auli and Amritsar | D) Shimla and Manali  => B
+a0626 {pol/constitution} [CA?] [AS 6 Jul 2026 S3 GA2 Q7] Which city is scheduled to host the 2025 World Games in August, featuring sports that are not included in the Olympic Games?
+   A) Kuala Lumpur, Malaysia | B) Lima, Peru | C) Chengdu, China | D) Birmingham, United Kingdom  => C
+a0627 {geo/resources} [AS 6 Jul 2026 S3 GA2 Q8] Which vascular tissue is mainly involved in the upward movement of dissolved minerals?
+   A) Phloem | B) Epidermis | C) Xylem | D) Cambium  => C
+a0628 {geo/resources} [CA?] [AS 6 Jul 2026 S3 GA2 Q9] What is the title of the World Bankʼs report on India released in April 2025?
+   A) India Poverty and Equity Brief | B) India Economic Insights | C) Growth Outlook: India 2025 | D) India Equity Review  => A
+a0629 {eco/planning} [AS 6 Jul 2026 S3 GA2 Q10] In which month and year was the 10th Governing Council Meeting of NITI Aayog held?
+   A) March 2024 | B) May 2025 | C) January 2025 | D) April 2023  => B
+a0630 {static/music} [CA?] [AS 6 Jul 2026 S3 GA2 Q11] Who received the 2025 Grammy Global Impact Award for their outstanding contributions to music and cultural diplomacy?
+   A) Taylor Swift | B) Alicia Keys | C) Beyoncé | D) Rihanna  => B
+a0631 {?} [AS 6 Jul 2026 S3 GA2 Q12] Who is leading the Group-3 delegation of Operation Sindoor to countries including Indonesia, Japan, and Singapore?
+   A) Shri Sanjay Kumar Jha | B) Dr. John Brittas | C) Smt. Aparajita Sarangi | D) Shri Salman Khurshid  => A
+a0632 {?} [CA?] [AS 6 Jul 2026 S3 GA2 Q13] ______ sets 10km world record for women-only race in April 2025.
+   A) Sifan Hassan | B) Faith Kipyegon | C) Letesenbet Gidey | D) Agnes Ngetich  => D
+a0633 {static/art} [CA?] [AS 6 Jul 2026 S3 GA2 Q14] In March 2025, which two NASA astronauts were rescued through a collaborative effort between SpaceX and NASA?
+   A) Butch Wilmore and Sunita Williams | B) Victor Glover and Peggy Whitson | C) Scott Kelly and Christina Koch | D) Michael Collins and Jessica Meir  => A
+a0634 {geo/resources} [AS 6 Jul 2026 S3 GA2 Q15] What is the type of inflation that mainly occurs when the general price level rises in a country because of the rise in prices of imported commodities?
+   A) Stagflation | B) Deflation | C) Disinflation | D) Imported inflation  => D
+a0635 {eco/schemes} [AS 6 Jul 2026 S3 GA2 Q16] Under the PM-KISAN scheme, a financial benefit of ₹6,000 per year is transferred to farmers in how many instalments?
+   A) Six | B) Two | C) One | D) Three  => D
+a0636 {eco/schemes} [CA?] [AS 6 Jul 2026 S3 GA2 Q17] As stated in the UN Environment Programme's 2025 Champions of the Earth citation, Supriya Sahu's award highlights leadership in which key area of climate action?
+   A) Climate-resilient architecture | B) Methane emissions reduction | C) Forest conservation monitoring | D) Sustainable cooling and ecosystem restoration  => D
+a0637 {chem/reactions} [AS 6 Jul 2026 S3 GA2 Q18] What is the primary role of enzymes in biological reactions?
+   A) Act as structural components | B) Serve as energy storage molecules | C) Increase the activation energy | D) Catalyze reactions by lowering activation energy  => D
+a0638 {geo/earth} [CA?] [AS 6 Jul 2026 S3 GA2 Q19] Which film won Best Visual Effects at the 2025 Oscars?
+   A) Dune: Part Two | B) Alien: Romulus | C) Wicked | D) Kingdom of the Planet of the Apes  => A
+a0639 {eco/schemes} [CA?] [AS 6 Jul 2026 S3 GA2 Q20] Which digital system was introduced on 28 April 2025, to improve efficiency and transparency in the Central Government Health Scheme (CGHS)?
+   A) Health Management Information System | B) Ayushman Bharat Digital Mission | C) National Health Stack | D) eSanjeevani  => A
+a0640 {?} [AS 7 Jul 2026 S1 GA1 Q1] Who among the following was the king of the Kalachuri dynasty?
+   A) Yasovarman | B) Vidyadhar | C) Krishnaraja | D) Chandravarman  => C
+   SIM q0539 0.50 hist/medieval ans="Kokalla I" :: Kokalla I founded the Kalachuri dynasty of Tripuri (near Jabalpur, Madhya Pradesh) around 875 CE.
+a0641 {eco/basics} [AS 7 Jul 2026 S1 GA1 Q2] The IT sector in India is primarily concentrated and has its largest hub in which of the following cities?
+   A) Chennai | B) Delhi | C) Bengaluru | D) Mumbai  => C
+a0642 {hist/medieval} [AS 7 Jul 2026 S1 GA1 Q3] During the Delhi Sultanate period (13th–16th centuries), which military branch was considered the principal strength and received the greatest royal investment and attention?
+   A) Infantry units | B) Cavalry | C) Naval forces | D) Archers only  => B
+a0643 {pol/rights} [AS 7 Jul 2026 S1 GA1 Q4] Which Amendment added Fundamental Duties to the Indian Constitution?
+   A) 89th Amendment | B) 73rd Amendment | C) 44th Amendment | D) 42nd Amendment  => D
+   SIM m1278 0.80 pol/rights ans="42nd Amendment" :: The 42nd Amendment added the Fundamental Duties.
+a0644 {geo/india} [AS 7 Jul 2026 S1 GA1 Q5] Which of the following is/are NOT part of the Peninsular block?
+   A) Javadi Hills | B) Aravalli Hills | C) Shiwalik Range | D) Nallamala Hills  => C
+   SIM m2678 0.50 geo/india ans="Satpura Range" :: The Satpura Range is part of the Peninsular Plateau.
+a0645 {geo/india} [AS 7 Jul 2026 S1 GA1 Q6] The Lokpal and Lokayuktas Act was passed in which year?
+   A) 2014 | B) 2016 | C) 2013 | D) 2015  => C
+   SIM q5087 0.50 pol/rights ans="1955" :: The Citizenship Act was passed in 1955.
+a0646 {geo/physical} [AS 7 Jul 2026 S1 GA1 Q7] Which of the following processes does NOT represent chemical weathering of rocks?
+   A) Carbonation | B) Oxidation | C) Frost wedging | D) Hydration  => C
+a0647 {pol/states} [AS 7 Jul 2026 S1 GA1 Q8] Establishment of the District Planning Committee in local governance of India has been provided under which article of the Indian constitution?
+   A) Article 243ZG | B) Article 243ZE | C) Article 243ZD | D) Article 243ZF  => C
+a0648 {static/art} [AS 7 Jul 2026 S1 GA1 Q9] The Keshava temple complex, one of the most exquisite and ornate variety of Hoysala art and architecture, is located at which place?
+   A) Somnathpura | B) Mathura | C) Srikakulam | D) Pattadakal  => A
+a0649 {pol/bodies} [AS 7 Jul 2026 S1 GA1 Q10] Lok Adalat derives its statutory status from which Act?
+   A) Civil Procedure Code, 1908 | B) Legal Services Authorities Act, 1987 | C) Indian Penal Code, 1860 | D) Arbitration and Conciliation Act, 1996  => B
+a0650 {?} [AS 7 Jul 2026 S1 GA1 Q11] Which of the following Indian states shares its border with Bhutan?
+   A) Jharkhand | B) Uttar Pradesh | C) Bihar | D) Sikkim  => D
+a0651 {static/music} [AS 7 Jul 2026 S1 GA1 Q12] Which tribal leader is associated with the Santhal Rebellion of 1855-56?
+   A) Tantia Bhil | B) Alluri Sitarama Raju | C) Sidhu and Kanhu | D) Birsa Munda  => C
+a0652 {pol/rights} [AS 7 Jul 2026 S1 GA1 Q13] Which of the following statements about the justiciability of the Directive Principles of State Policy of the Indian Constitution is most accurate?
+   A) They are non-justiciable but are fundamental to governance | B) They are binding and override all the Fundamental Rights | C) They have no legal or constitutional status | D) They are enforceable through the Supreme Court under Article 32  => A
+   SIM q1286 0.60 pol/rights ans="They are not enforceable but guide the governance of the state." :: Directive Principles are not enforceable by courts, but they are fundamental in governance and guide the state in making laws (Article 37).
+a0653 {?} [AS 7 Jul 2026 S1 GA1 Q14] Which of the following revolutionary fighters were NOT involved in the Kakori Robbery (1925)?
+   A) Ashfaqulla Khan | B) Chandrashekhar Azad | C) Rajendra Lahiri | D) Surya Sen  => D
+a0654 {static/art} [AS 7 Jul 2026 S1 GA1 Q15] Under Islamic architecture, Charbagh was a:
+   A) style of calligraphy | B) foresightening technique | C) style of entrance | D) style of gardening  => D
+a0655 {bio/cell} [AS 7 Jul 2026 S1 GA1 Q16] In which Indian state is the Eturnagaram Wildlife Sanctuary located?
+   A) Telangana | B) Andhra Pradesh | C) Tamil Nadu | D) Kerala  => A
+   SIM q5986 0.50 env/biodiversity ans="Bihar" :: The Vikramshila Gangetic Dolphin Sanctuary is in Bhagalpur, Bihar.
+a0656 {hist/modern} [AS 7 Jul 2026 S1 GA1 Q17] The French East India Company was established in which year?
+   A) 1604 | B) 1690 | C) 1664 | D) 1600  => C
+   SIM q4018 0.50 hist/modern ans="31 December 1600" :: The English East India Company received its royal charter from Queen Elizabeth I on 31 December 1600.
+a0657 {eco/money} [CA?] [AS 7 Jul 2026 S1 GA1 Q18] Which of the following development banks has approved a $190 million loan (equivalent to approximately ₹1,600 crore) to Indore Metro Rail Project in 2025?
+   A) Inter-American Development Bank | B) European Investment Bank | C) World Bank | D) Asian Development Bank  => D
+a0658 {hist/medieval} [AS 7 Jul 2026 S1 GA1 Q19] Who was the architect of the Tomb of Humayun located at Delhi, built by his widow Biga Begum (Hajji Begum) in 1569-70?
+   A) Mirak Mirza Ghiyath | B) Mir Abd-ul Karim | C) Ustad Ahmad Lahori | D) Makramat Khan  => A
+a0659 {eco/planning} [AS 7 Jul 2026 S1 GA1 Q20] The Indigo Revolt (1859-60) was against:
+   A) Forced cultivation | B) Military recruitment | C) Land taxes | D) Trade monopolies  => A
+a0660 {eco/basics} [CA?] [AS 7 Jul 2026 S1 GA2 Q1] What major change is seen in India's workforce between 1972-73 and 2022-23?
+   A) More people moved from agriculture sector to startups | B) More people moved from farming to industries and services | C) More people moved from farming to startups | D) More people moved from services to business  => B
+a0661 {geo/world} [CA?] [AS 7 Jul 2026 S1 GA2 Q2] Which city is hosting the 2025 G20 Summit, marking the first time the event is held on the African continent?
+   A) Nairobi | B) Lagos | C) Cairo | D) Johannesburg  => D
+a0662 {geo/people} [AS 7 Jul 2026 S1 GA2 Q3] Low-density lipoprotein (LDL) is also known as:
+   A) Hard cholesterol | B) Bad cholesterol | C) Soft cholesterol | D) Good cholesterol  => B
+a0663 {?} [CA?] [AS 7 Jul 2026 S1 GA2 Q4] The Ashok Dalwai committee, seen in news during 2022, was associated with which of the following?
+   A) Increasing MSME output | B) Increasing the quality standards in MSMEs | C) Doubling farmers' income | D) The Make-in-India campaign  => C
+a0664 {geo/world} [CA?] [AS 7 Jul 2026 S1 GA2 Q5] On January 14, 2025, New Zealand signed a Comprehensive Economic Partnership Agreement (CEPA) with which country?
+   A) Saudi Arabia | B) Qatar | C) Oman | D) United Arab Emirates  => D
+a0665 {geo/people} [AS 7 Jul 2026 S1 GA2 Q6] Indiaʼs demographic dividend became more relevant after 1991. Which of the following options best defines demographic dividend?
+   A) Migration to urban areas | B) Higher working-age population | C) Rise in birth rate | D) Increase in elderly population  => B
+a0666 {?} [CA?] [AS 7 Jul 2026 S1 GA2 Q7] How many records in total were created during the Khelo India Youth Games 2025, and how many of those were set by girls?
+   A) 26 records; 8 by girls | B) 28 records; 6 by girls | C) 26 records; 6 by girls | D) 24 records; 8 by girls  => A
+a0667 {pol/constitution} [AS 7 Jul 2026 S1 GA2 Q8] Which article in the Indian Constitution allows the Union to give grants-in-aid to states?
+   A) Article 300 | B) Article 280 | C) Article 360 | D) Article 275  => D
+a0668 {geo/resources} [CA?] [AS 7 Jul 2026 S1 GA2 Q9] What was the Unemployment Rate (UR) for females of age 15 years and above in the usual status during July 2023 – June 2024 as per the Periodic Labour Force Survey (PLFS) – Annual Report, 2024?
+   A) 7.2% | B) 3.2% | C) 1.2% | D) 5.2%  => B
+a0669 {?} [CA?] [AS 7 Jul 2026 S1 GA2 Q10] Which cybersecurity event was held in May 2025 at the Dubai World Trade Centre?
+   A) RSA Conference 2025 | B) DEF CON Dubai 2025 | C) Black Hat Middle East 2025 | D) GISEC Global 2025  => D
+a0670 {bio/cell} [CA?] [AS 7 Jul 2026 S1 GA2 Q11] What is the primary focus of the Center for Generative AI at IIT Jodhpur, announced in October 2024 under the partnership between Meta and the Government of India?
+   A) Enhancing AI applications in social media marketing | B) Developing AI-powered defence systems | C) Addressing national challenges in healthcare, mobility, and education | D) Building proprietary AI models for private corporations  => C
+a0671 {phy/mechanics} [CA?] [AS 7 Jul 2026 S1 GA2 Q12] According to the Joint Statement of the 23rd Annual Summit (December 2025), India and Russia identified cooperation in which multilateral grouping as central to promoting a multipolar world order?
+   A) European Union framework | B) Association of Southeast Nations | C) Group of Twenty forum | D) Shanghai Cooperation Organization  => D
+a0672 {?} [AS 7 Jul 2026 S1 GA2 Q13] Juxtaglomerular Apparatus (JGA) regulates GFR through the secretion of which of the following enzymes?
+   A) Aldosterone | B) Renin | C) Angiotensin | D) Vasopressin  => B
+a0673 {geo/resources} [AS 7 Jul 2026 S1 GA2 Q14] Post 1991, trade policy reforms included Special Economic Zones (SEZs) for export promotion. In which year was the SEZ Act passed in India?
+   A) 2005 | B) 2010 | C) 2000 | D) 1991  => A
+a0674 {?} [CA?] [AS 7 Jul 2026 S1 GA2 Q15] The 2025 Shanghai Cooperation Organization (SCO) Summit was held at which of the following places?
+   A) Astana, Kazakhstan | B) Tianjin, China | C) Moscow, Russia | D) Beijing, China  => B
+a0675 {phy/mechanics} [CA?] [AS 7 Jul 2026 S1 GA2 Q16] In January 2025, which cybersecurity company launched the worldʼs first AI-powered Deepfake Detector in India?
+   A) Kaspersky | B) Avast | C) McAfee | D) Norton  => C
+a0676 {?} [CA?] [AS 7 Jul 2026 S1 GA2 Q17] Which of the following parts of a child's life was the focus of Poshan Pakhwada, 2025?
+   A) Initial 6 years | B) First 1,000 Days | C) First 40 days | D) Birth to 6 months  => B
+a0677 {static/sports} [CA?] [AS 7 Jul 2026 S1 GA2 Q18] At just 14 years old, which Indian cricketer made headlines in the 2025 IPL by scoring a century on debut and achieving the highest strike rate of the season?
+   A) Abhishek Sharma | B) Shubman Gill | C) Vaibhav Suryavanshi | D) Tilak Varma  => C
+a0678 {geo/resources} [CA?] [AS 7 Jul 2026 S1 GA2 Q19] What is Indiaʼs rank out of 193 countries in the 2025 Human Development Report released by the United Nations Development Programme (UNDP)?
+   A) 125 | B) 133 | C) 135 | D) 130  => D
+a0679 {bio/health} [AS 7 Jul 2026 S1 GA2 Q20] What is the primary role of dietary fibre in the human body?
+   A) Increases blood glucose levels | B) Enhances protein absorption | C) Aids in digestion and prevents constipation | D) Helps in fat storage  => C

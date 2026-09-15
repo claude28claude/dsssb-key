@@ -1,0 +1,210 @@
+a0001 {pol/rights} [AS 1 Jul 2026 S1 GA1 Q1] In which part of the Indian Constitution are the Fundamental Duties explicitly mentioned?
+   A) Part IV-A | B) Part III | C) Part V | D) Part IV  => A
+   SIM m1542 0.57 pol/rights ans="51A" :: Fundamental Duties are in Article 51A.
+a0002 {geo/resources} [AS 1 Jul 2026 S1 GA1 Q2] Which of the following ports has been developed under the Sagarmala Programme as a major port on the eastern coast?
+   A) Paradip | B) Kandla | C) Jawaharlal Nehru Port | D) Haldia  => A
+a0003 {geo/resources} [AS 1 Jul 2026 S1 GA1 Q3] Which of the following plants is a private sector iron and steel industry in India?
+   A) Rourkela Steel Plant | B) Tata Iron and Steel Plant | C) Bhilai Steel Plant | D) Durgapur Steel Plant  => B
+a0004 {?} [AS 1 Jul 2026 S1 GA1 Q4] Which line divides the Earth into the Northern and Southern Hemispheres?
+   A) Prime Meridian | B) Tropic of Capricorn | C) Tropic of Cancer | D) Equator  => D
+a0005 {?} [AS 1 Jul 2026 S1 GA1 Q5] What is the main material used in making traditional Kathputli puppets of Rajasthan?
+   A) Leather | B) Bamboo | C) Wood | D) Cloth  => C
+a0006 {hist/freedom} [AS 1 Jul 2026 S1 GA1 Q6] What was the main demand of the Quit India Movement of 1942?
+   A) Separate electorate for minorities | B) Indianisation of army | C) Dominion status | D) Complete independence from British rule  => D
+a0007 {static/festivals} [AS 1 Jul 2026 S1 GA1 Q7] Which of the following is a local festival of Chhattisgarh?
+   A) Hareli | B) Bathukamma | C) Bhogi | D) Nua Khai  => A
+a0008 {pol/bodies} [AS 1 Jul 2026 S1 GA1 Q8] Which of the following bodies derives its authority directly from the Constitution of India?
+   A) Election Commission of India | B) NITI Aayog | C) National Human Rights Commission | D) Central Vigilance Commission  => A
+a0009 {pol/rights} [AS 1 Jul 2026 S1 GA1 Q9] The concept of Panchayati Raj is based on which Article of the Directive Principles of State Policy (DPSP)?
+   A) Article 39A | B) Article 45 | C) Article 43 | D) Article 40  => D
+a0010 {hist/freedom} [AS 1 Jul 2026 S1 GA1 Q10] During the Salt March of 1930, Gandhi marched from Sabarmati to which coastal village to break the salt law?
+   A) Dandi | B) Champaran | C) Surat | D) Bardoli  => A
+a0011 {geo/resources} [AS 1 Jul 2026 S1 GA1 Q11] Nancowry, mentioned in the context of Indiaʼs island geography, is part of which group of islands?
+   A) Nicobar Islands | B) Minicoy Islands | C) Andaman Islands | D) Lakshadweep Islands  => A
+a0012 {hist/modern} [AS 1 Jul 2026 S1 GA1 Q12] The symbolic leader of the 1857 revolt was:
+   A) Tantia Tope | B) Kunwar Singh | C) Bahadur Shah Zafar | D) Nana Saheb  => C
+   SIM m0565 0.80 hist/modern ans="Bahadur Shah Zafar" :: Bahadur Shah Zafar was proclaimed the symbolic leader of the 1857 revolt.
+a0013 {hist/modern} [AS 1 Jul 2026 S1 GA1 Q13] Which proclamation assured Indians that their religious practices would be respected after the Revolt of 1857?
+   A) Doctrine of Lapse | B) Queen Victoriaʼs Proclamation of 1858 | C) Government of India Act, 1858 | D) Subsidiary Alliance  => B
+a0014 {hist/medieval} [AS 1 Jul 2026 S1 GA1 Q14] Which dynasty did the Nizam of Hyderabad belong to?
+   A) Maratha | B) Asaf Jahi | C) Shinde | D) Mughal  => B
+a0015 {geo/world} [AS 1 Jul 2026 S1 GA1 Q15] Which neighbouring country of India was, for centuries, called the world's only Hindu kingdom?
+   A) Bhutan | B) Myanmar | C) Sri Lanka | D) Nepal  => D
+a0016 {geo/india} [AS 1 Jul 2026 S1 GA1 Q16] Which among the following is one of the major tributaries of River Yamuna?
+   A) Ganga | B) Brahmaputra | C) Narmada | D) Chambal  => D
+a0017 {pol/rights} [AS 1 Jul 2026 S1 GA1 Q17] Which Article of the Indian Constitution guarantees the Right to Equality before Law?
+   A) Article 14 | B) Article 18 | C) Article 21A | D) Article 16  => A
+   SIM q0101 0.70 pol/rights ans="Article 14" :: Article 14: the State shall not deny any person equality before the law or equal protection of the laws within India.
+a0018 {static/dance} [AS 1 Jul 2026 S1 GA1 Q18] Kathak is believed to have evolved from performances by which group of ancient storytellers?
+   A) Kathakas | B) Sattras | C) Bhikshus | D) Devadasis  => A
+a0019 {pol/judiciary} [AS 1 Jul 2026 S1 GA1 Q19] According to Article 75 of the Constitution of India, who is empowered to appoint the Prime Minister of India?
+   A) The President of India | B) The Chief Justice of India | C) The Attorney General for India | D) The Vice-President of India  => A
+   SIM m1502 0.50 pol/union ans="Article 75" :: Article 75: the President appoints the Prime Minister.
+a0020 {?} [AS 1 Jul 2026 S1 GA1 Q20] During the early medieval period (8th to 13th century CE), the Rajputs, who rose to prominence, were primarily concentrated in which region of India?
+   A) Southern India | B) Central and Eastern India | C) Eastern India | D) Northern and Western India  => D
+a0021 {eco/schemes} [CA?] [AS 1 Jul 2026 S1 GA2 Q1] What is the name of Indiaʼs first Biotechnology Policy launched in August 2024?
+   A) BIO-E3 | B) BIO-E5 | C) BioNext | D) BioMission  => A
+a0022 {static/sports} [CA?] [AS 1 Jul 2026 S1 GA2 Q2] Which among the following players was awarded The Best FIFA Menʼs Player in 2025?
+   A) Robert Lewandowski | B) Ousmane Dembélé | C) Lionel Messi | D) Kylian Mbappé  => B
+a0023 {hist/freedom} [AS 1 Jul 2026 S1 GA2 Q3] What was a key objective of economic planning in India from 1947 to 1991?
+   A) Promote foreign rule | B) Reduce imports | C) Increase inflation | D) Achieve self-reliance  => D
+a0024 {?} [CA?] [AS 1 Jul 2026 S1 GA2 Q4] What is the cumulative value of Foreign Direct Investment (FDI) achieved by India in December 2024 since April 2000?
+   A) 100 billion $ | B) 500 billion $ | C) 1 trillion $ | D) 1 billion $  => C
+a0025 {eco/planning} [AS 1 Jul 2026 S1 GA2 Q5] How many indicators are considered in India's Multidimensional Poverty Index as per NITI Aayog methodology?
+   A) 8 | B) 10 | C) 12 | D) 11  => C
+a0026 {env/climate} [AS 1 Jul 2026 S1 GA2 Q6] Which of the following is a composite index, published annually by UNDP, combining life-expectancy, education and income to rank countries?
+   A) Human Development Index (HDI) | B) Global Competitiveness Index (GCI) | C) Global Hunger Index (GHI) | D) Climate Risk Index (CRI)  => A
+a0027 {pol/judiciary} [AS 1 Jul 2026 S1 GA2 Q7] What was the primary objective of the Punchhi Commission?
+   A) To implement the Goods and Services Tax | B) To revise the Constitution and make amendments | C) To review judicial appointments | D) To look into the new issues of Centre-State relations  => D
+a0028 {bio/cell} [AS 1 Jul 2026 S1 GA2 Q8] Which of the following established the legal framework for the protection of civilians and the conduct of war?
+   A) Treaty of Versailles | B) Hague Conventions | C) Geneva Conventions | D) United Nations Charter  => C
+a0029 {pol/union} [CA?] [AS 1 Jul 2026 S1 GA2 Q9] Who launched the Bharatpol portal, developed by the Central Bureau of Investigation (CBI), on January 7, 2025?
+   A) National Security Advisor Ajit Doval | B) Union Home Minister Amit Shah | C) Prime Minister Narendra Modi | D) CBI Director Praveen Sood  => B
+a0030 {?} [CA?] [AS 1 Jul 2026 S1 GA2 Q10] Which of the following countries joined the BRICS group as a full member in January 2025?
+   A) China | B) Singapore | C) Bangladesh | D) Indonesia  => D
+a0031 {chem/reactions} [AS 1 Jul 2026 S1 GA2 Q11] Which functional groups are present in all standard amino acids?
+   A) Amino (-NH₂) and Hydroxyl (-OH) | B) Amino (-NH₂) and Carboxyl (-COOH) | C) Carboxyl (-COOH) and Methyl (-CH₃) | D) Hydroxyl (-OH) and Carboxyl (-COOH)  => B
+a0032 {chem/reactions} [AS 1 Jul 2026 S1 GA2 Q12] Which of the following reactions is NOT an oxidation reaction?
+   A) Corrosion | B) Rancidity | C) Combustion | D) Isomerization  => D
+a0033 {geo/resources} [CA?] [AS 1 Jul 2026 S1 GA2 Q13] As per the Press Information Bureau (PIB) release dated 29 January 2026 on the Economic Survey 2025–26, which country was reported to have experienced significant deflation due to weak domestic demand and export pressures arising from tariff regimes?
+   A) China | B) Russia | C) Brazil | D) Mexico  => A
+a0034 {?} [CA?] [AS 1 Jul 2026 S1 GA2 Q14] Who won the singles title at the Dubai Open 2025?
+   A) Stefanos Tsitsipas | B) Rafael Nadal | C) Novak Djokovic | D) Alexander Zverev  => A
+a0035 {geo/world} [CA?] [AS 1 Jul 2026 S1 GA2 Q15] Which Indian telecom company showcased its products at the Bharat Telecom 2025 event, highlighting the country's emergence as a hub for telecom manufacturing and network innovation?
+   A) Vodafone Idea | B) Ericsson | C) Bharti Airtel | D) Tejas Networks  => D
+a0036 {geo/world} [CA?] [AS 1 Jul 2026 S1 GA2 Q16] Which country won the 2025 Sudirman Cup, securing its fourth consecutive and record-extending 14th title in the tournament's history?
+   A) Japan | B) Indonesia | C) South Korea | D) China  => D
+a0037 {eco/basics} [AS 1 Jul 2026 S1 GA2 Q17] In a major policy shift, when did/will the Government of India start releasing monthly unemployment data to the public?
+   A) 1 July 2025 | B) 15 July 2025 | C) 15 May 2025 | D) 1 May 2025  => C
+a0038 {phy/mechanics} [AS 1 Jul 2026 S1 GA2 Q18] Which of the following is the SI unit of luminous intensity?
+   A) Kilogram | B) Candela | C) Hertz | D) Watt  => B
+   SIM q1163 0.67 phy/light ans="Candela" :: The candela is the SI unit of luminous intensity; it is one of the seven SI base units.
+a0039 {geo/resources} [CA?] [AS 1 Jul 2026 S1 GA2 Q19] What was the total allocation for the sports budget in India's Union Budget 2025?
+   A) ₹4,045.64 crore | B) ₹3,000 crore | C) ₹3,500.56 crore | D) ₹3,794.30 crore  => D
+a0040 {phy/mechanics} [CA?] [AS 1 Jul 2026 S1 GA2 Q20] In May 2025, Union Minister Shri Ashwini Vaishnaw inaugurated two new state-of-the-art design facilities of which company, located at Noida and Bengaluru, which are Indiaʼs first design centers to work on cutting-edge 3 nanometer chip design?
+   A) Renesas Electronics India Private Limited | B) NXP Semiconductors | C) Agnit Semiconductors Private Limited | D) Moschip Technologies Limited  => A
+a0041 {static/art} [AS 1 Jul 2026 S2 GA1 Q1] Which mosque was the first major example of Indo-Islamic architecture built by Qutbuddin Aibak?
+   A) Alai Darwaza | B) Quwwat-ul-Islam Mosque | C) Jamat Khana Masjid | D) Adhai Din Ka Jhoupra  => B
+a0042 {?} [AS 1 Jul 2026 S2 GA1 Q2] Who among the following was associated with the establishment of the Berlin Committee for Indian Independence in 1914?
+   A) Lala Har Dayal | B) Virendranath Chattopadhyaya | C) Raja Mahendra Pratap | D) V. D. Savarkar  => B
+a0043 {?} [AS 1 Jul 2026 S2 GA1 Q3] Which of the following tribal rebellions occurred earliest?
+   A) Pahariya Sardar's Revolution | B) Chakma rebellion | C) Chuar uprising | D) Halba rebellion  => C
+a0044 {?} [AS 1 Jul 2026 S2 GA1 Q4] Which of the following was a major economic consequence of the political instability and warfare in 18th-century India?
+   A) Rapid industrial growth | B) Abolition of land revenue systems | C) Prolonged trade disruptions | D) Significant agricultural expansion  => C
+a0045 {hist/medieval} [AS 1 Jul 2026 S2 GA1 Q5] Which of the following features is common in Vijayanagara architecture?
+   A) Gopurams and mandapas | B) Persian domes | C) Use of white marble | D) Circular sanctum  => A
+a0046 {pol/bodies} [AS 1 Jul 2026 S2 GA1 Q6] Right to Education is enacted under which of the following Amendments of the Indian Constitution?
+   A) 100th | B) 101th | C) 89th | D) 86th  => D
+a0047 {geo/india} [AS 1 Jul 2026 S2 GA1 Q7] Which of the following lakes is a saltwater lake?
+   A) Wular Lake | B) Sambhar Lake | C) Loktak Lake | D) Dal Lake  => B
+a0048 {?} [AS 1 Jul 2026 S2 GA1 Q8] The eastern coastal plain of India in Tamil Nadu state is known as:
+   A) Konkan Coast | B) Kannad Coast | C) Malabar Coast | D) Coromandel Coast  => D
+a0049 {hist/medieval} [AS 1 Jul 2026 S2 GA1 Q9] Which Mughal emperor is credited with building the Jama Masjid in Delhi?
+   A) Shah Jahan | B) Babur | C) Akbar | D) Humayun  => A
+a0050 {hist/medieval} [AS 1 Jul 2026 S2 GA1 Q10] The 18th century saw the rise of which of the following regional powers in western India?
+   A) Rajputs | B) Jats | C) Marathas | D) Sikhs  => C
+a0051 {pol/rights} [AS 1 Jul 2026 S2 GA1 Q11] The provision 'Village Panchayats' under Article 40 was implemented through which Act?
+   A) 97th Amendment, 2011 | B) 73rd Amendment, 1992 | C) 42nd Amendment, 1976 | D) 86th Amendment, 2002  => B
+a0052 {geo/india} [AS 1 Jul 2026 S2 GA1 Q12] Which two peaks are the highest in the Himalayan range, with one located between Tibet (China) and Nepal, and the other between Nepal and the Indian State of Sikkim?
+   A) Mount Everest and Kanchenjunga | B) K2 and Dhaulagiri | C) Nanda Devi and Annapurna | D) Makalu and Manaslu  => A
+a0053 {pol/union} [AS 1 Jul 2026 S2 GA1 Q13] Under which Article of the Constitution of India is the "Electoral College" for the Presidential election defined?
+   A) Article 52 | B) Article 54 | C) Article 56 | D) Article 74  => B
+   SIM m3630 0.58 pol/union ans="Elected members of the Legislative Councils of the States" :: Members of state Legislative Councils do not vote in the presidential election.
+a0054 {pol/union} [AS 1 Jul 2026 S2 GA1 Q14] The 61st Constitutional Amendment Act reduced the voting age for Lok Sabha and Legislative Assembly elections from ________.
+   A) 23 to 18 | B) 25 to 21 | C) 21 to 16 | D) 21 to 18  => D
+a0055 {?} [AS 1 Jul 2026 S2 GA1 Q15] India accounts for what per cent of the total land mass of the world?
+   A) 1.4% | B) 2.4% | C) 4.5% | D) 3.4%  => B
+a0056 {pol/judiciary} [AS 1 Jul 2026 S2 GA1 Q16] In which landmark case did the Supreme Court of India rule that laws placed under the Ninth Schedule are not immune from judicial review if they violate the basic structure of the Constitution?
+   A) Minerva Mills case (1980) | B) Kesavananda Bharati case (1973) | C) Golaknath case (1967) | D) I.R. Coelho case (2007)  => D
+a0057 {bio/cell} [AS 1 Jul 2026 S2 GA1 Q17] The movement of Birsa Munda was related to which of the following regions in the present day?
+   A) Karnataka | B) Maharashtra | C) Jharkhand | D) Rajasthan  => C
+a0058 {geo/physical} [AS 1 Jul 2026 S2 GA1 Q18] Carbonation most actively acts on rocks containing which of the following minerals?
+   A) Calcite | B) Feldspar | C) Mica | D) Quartz  => A
+a0059 {hist/freedom} [AS 1 Jul 2026 S2 GA1 Q19] When did Mahatma Gandhi ji move a resolution accepting the Motilal Nehru report's recommendation of Dominion Status within two years?
+   A) 1931 | B) 1925 | C) 1922 | D) 1928  => D
+a0060 {geo/resources} [AS 1 Jul 2026 S2 GA1 Q20] Read the given Assertion (A) and Reason (R) and select the most appropriate option. Assertion (A): The Hirakud Dam is among the longest dams in the world. Reason (R): It is constructed across the Yamuna River.
+   A) A is false but R is true | B) A is true but R is false | C) Both A and R are true, but R is not the correct explanation of A | D) Both A and R are true, and R is the correct explanation of A  => B
+a0061 {pol/union} [AS 1 Jul 2026 S2 GA2 Q1] Which of the following statements is/are mandated to be submitted by the government in the Parliament as per the Fiscal Responsibility and Budget Management Act, 2003, in India? 1. Medium-term Fiscal Policy Statement 2. Fiscal Policy Strategy Statement 3. Microeconomic Framework Statement
+   A) 1 and 3 only | B) 1, 2 and 3 | C) 2 and 3 only | D) 1 and 2 only  => D
+a0062 {geo/world} [CA?] [AS 1 Jul 2026 S2 GA2 Q2] What was is shape of the economic recovery in India that the country has experienced after the Covid-19 pandemic in 2020?
+   A) W-shaped recovery | B) L-shaped recovery | C) C-shaped recovery | D) V-shaped recovery  => D
+a0063 {eco/basics} [CA?] [AS 1 Jul 2026 S2 GA2 Q3] According to the Ministry of External Affairs, the 23rd round of the India–China Corps Commander Level Meeting held at Chushul–Moldo on 25 October 2025 was the first meeting under which mechanism in the Western Sector since the 24th round of Special Representatives Talks?
+   A) Working Joint Mechanism | B) General Level Mechanism | C) Border Peace Framework | D) Strategic Dialogue Mechanism  => B
+a0064 {static/sports} [CA?] [AS 1 Jul 2026 S2 GA2 Q4] Which Indian city hosted the inaugural Kho Kho World Cup in January 2025, where India secured both the men's and women's titles?
+   A) Bengaluru | B) Hyderabad | C) New Delhi | D) Mumbai  => C
+a0065 {eco/schemes} [CA?] [AS 1 Jul 2026 S2 GA2 Q5] Which of the following states of India launched the Witness Protection Scheme, 2025?
+   A) Maharashtra | B) Haryana | C) Bihar | D) Punjab  => B
+a0066 {bio/human} [AS 1 Jul 2026 S2 GA2 Q6] Which part of the human brain primarily regulates balance and coordination?
+   A) Cerebellum | B) Cerebrum | C) Corpus callosum | D) Medulla Oblongata  => A
+a0067 {pol/states} [AS 1 Jul 2026 S2 GA2 Q7] Which of the following bodies functions at the block level in the 3-tier Panchayati Raj system?
+   A) Panchayat Samiti | B) Gram Sabha | C) Gram Panchayat | D) Zila Parishad  => A
+   SIM m0918 0.56 pol/states ans="Panchayat Samiti" :: The Panchayat Samiti works at the block level.
+a0068 {geo/resources} [AS 1 Jul 2026 S2 GA2 Q8] Which of the following is a key tool of RBIʼs monetary policy ?
+   A) Income tax rates | B) Import bans | C) Repo rate | D) GST rates  => C
+a0069 {bio/cell} [CA?] [AS 1 Jul 2026 S2 GA2 Q9] Who was elected as the first Caribbean national to serve as Secretary General of the Organization of American States (OAS) in March 2025?
+   A) Luis Almagro | B) Albert Ramdin | C) Laura Gil | D) Carlos Trujillo  => B
+a0070 {pol/federal} [AS 1 Jul 2026 S2 GA2 Q10] Inflation targeting in India is set by ______________.
+   A) State Bank of India | B) World Bank | C) Finance Commission | D) Reserve Bank of India  => D
+a0071 {phy/heat} [AS 1 Jul 2026 S2 GA2 Q11] Which part of the ear breaks complex sound into frequency components?
+   A) Outer ear | B) Auditory nerve | C) Eardrum | D) Cochlea  => D
+a0072 {geo/resources} [CA?] [AS 1 Jul 2026 S2 GA2 Q12] Which athlete was honoured with the 2025 Laureus World Sportsman of the Year Award?
+   A) Tadej Pogačart | B) Armand Duplantis | C) Carlos Alcaraz | D) Max Verstappen  => B
+a0073 {geo/world} [CA?] [AS 1 Jul 2026 S2 GA2 Q13] Which country hosted the 6th Summit of the Heads of State/Government of the member States of BIMSTEC (Bay of Bengal Initiative for Multi-Sectoral Technical and Economic Cooperation) in April 2025?
+   A) Nepal | B) Bangladesh | C) Thailand | D) Myanmar  => C
+a0074 {geo/world} [CA?] [AS 1 Jul 2026 S2 GA2 Q14] Which country declared a polio outbreak by the WHO due to detection in healthy children in May 2025?
+   A) Indonesia | B) India | C) Papua New Guinea | D) Australia  => C
+a0075 {static/sports} [CA?] [AS 1 Jul 2026 S2 GA2 Q15] Which team was crowned the 15th Hockey India Senior Women National Champion held in March 2025?
+   A) Hockey Bengal | B) Hockey Haryana | C) Hockey Punjab | D) Hockey Jharkhand  => D
+a0076 {bio/plants} [AS 1 Jul 2026 S2 GA2 Q16] To heal the wounds and form calluses after pruning in plants, the growth of cells is stimulated by _________________.
+   A) Abscisic acid | B) Ethylene | C) Auxin | D) Gibberllin  => C
+a0077 {geo/resources} [CA?] [AS 1 Jul 2026 S2 GA2 Q17] Which nationwide initiative was launched by Sports Minister Mansukh Mandaviya to promote health and combat pollution in December 2024 ?
+   A) Fit India Cycling Initiative | B) Fit India School Certification | C) National Youth Fitness Drive | D) Khelo India Movement  => A
+a0078 {eco/planning} [CA?] [AS 1 Jul 2026 S2 GA2 Q18] In the Union Budget 2025–26, how many new medical seats have been proposed to be added over the next one year?
+   A) 10,000 new medical seats | B) 20,000 new medical seats | C) 15,000 new medical seats | D) 25,000 new medical seats  => A
+a0079 {eco/planning} [AS 1 Jul 2026 S2 GA2 Q19] By what year does WHO aim to have 50% of its core budget funded by assessed contributions?
+   A) 2025 | B) 2030 | C) 2028 | D) 2035  => B
+a0080 {geo/resources} [CA?] [AS 1 Jul 2026 S2 GA2 Q20] Which Indian cricketer was conferred with the Padma Shri in 2025 for his outstanding contributions to the sport?
+   A) Rohit Sharma | B) R. Ashwin | C) Mohammed Shami | D) Virat Kohli  => B
+a0081 {hist/modern} [AS 1 Jul 2026 S3 GA1 Q1] Which policy was introduced by Lord Wellesley to force Indian rulers into accepting British military protection?
+   A) Subsidiary Alliance System | B) Dual Government System | C) Doctrine of Lapse | D) Divide and Rule Policy  => A
+a0082 {?} [AS 1 Jul 2026 S3 GA1 Q2] Which of the following is a traditional glove puppet play of Kerala, in which the height of a puppet varies from one foot to two feet and the head and the arms are carved of wood and joined together with thick cloth, cut and stitched into a small bag?
+   A) Gombeyatta | B) Yampuri | C) Ravanachhaya | D) Pavakoothu  => D
+a0083 {geo/india} [AS 1 Jul 2026 S3 GA1 Q3] What are 'Mango Showers' commonly known for in the context of the Indian climate?
+   A) Post-monsoon rainfall in the Indo-Gangetic Plain | B) Early summer pre-monsoon showers in South India | C) Heavy winter rainfall in Punjab | D) Cyclonic rainfall in eastern coastal India  => B
+a0084 {pol/bodies} [AS 1 Jul 2026 S3 GA1 Q4] The National Commission for Scheduled Castes (NCSC) derives its authority from which of the following Articles of the Indian Constitution?
+   A) Article 342 | B) Article 340 | C) Article 338 | D) Article 336  => C
+a0085 {pol/bodies} [AS 1 Jul 2026 S3 GA1 Q5] The term of office of the Chief Election Commissioner of India is _________.
+   A) 5 years or 65 years of age, whichever is earlier | B) 6 years or 65 years of age, whichever is earlier | C) 5 years or 62 years of age, whichever is earlier | D) 6 years or 62 years of age, whichever is earlier  => B
+   SIM q7137 0.50 pol/bodies ans="Sukumar Sen" :: Sukumar Sen was India's first Chief Election Commissioner.
+a0086 {geo/physical} [AS 1 Jul 2026 S3 GA1 Q6] The Tropic of Cancer divides India into two distinct climatic zones. Which of the following correctly describes these zones?
+   A) Northern part in tropical zone; southern part in temperate and polar zone | B) Northern part in desert zone; southern part in tropical monsoon zone | C) Northern part in sub-tropical and temperate zone; southern part in tropical zone | D) Northern part in equatorial zone; southern part in sub-tropical and arid zone  => C
+a0087 {eco/planning} [AS 1 Jul 2026 S3 GA1 Q7] Which of the following was the religious tax imposed by Delhi Sultans on non-Muslims which they had to pay for their protection?
+   A) Zakat | B) Jizya | C) Kharaj | D) Khamus  => B
+a0088 {eco/basics} [AS 1 Jul 2026 S3 GA1 Q8] The Vellore Mutiny (1806) was triggered by:
+   A) Revenue demands | B) Military uniforms | C) Trade restrictions | D) Land annexation  => B
+a0089 {static/books} [AS 1 Jul 2026 S3 GA1 Q9] Lok Adalats in India were given statutory status under the Legal Services Authorities Act of which year?
+   A) 1997 | B) 1967 | C) 1987 | D) 1977  => C
+   SIM q1094 0.91 pol/judiciary ans="1987" :: Lok Adalats got statutory status under the Legal Services Authorities Act, 1987, which came into force in 1995.
+a0090 {geo/resources} [AS 1 Jul 2026 S3 GA1 Q10] In which of the following years was the Soil and Land Use Survey of India (SLUSI) established by the Government of India?
+   A) 1991 | B) 1958 | C) 1965 | D) 1985  => B
+a0091 {geo/resources} [AS 1 Jul 2026 S3 GA1 Q11] Where in the Malabar region did the Portuguese establish their first factory in 1500?
+   A) Madras | B) Calicut | C) Mysore | D) Travancore  => B
+a0092 {static/art} [AS 1 Jul 2026 S3 GA1 Q12] Which of the following is a traditional Indian folk painting style originating from Bihar?
+   A) Kalamkari | B) Madhubani | C) Pattachitra | D) Warli  => B
+a0093 {geo/resources} [AS 1 Jul 2026 S3 GA1 Q13] Which of the following is the largest public sector railway network in Asia?
+   A) Indian Railways | B) Japan Railways | C) Chinese Railways | D) Pakistan Railways  => A
+a0094 {geo/physical} [AS 1 Jul 2026 S3 GA1 Q14] Which earthquake zone accounts for the largest number of global seismic energy release?
+   A) East African rift zone | B) Circum-Pacific belt | C) Mid-Atlantic ridge | D) Alpide belt region  => B
+a0095 {hist/medieval} [AS 1 Jul 2026 S3 GA1 Q15] In the Nayankara system of the Vijayanagara Empire, which officials were responsible for both provincial administration and maintaining military forces for the king?
+   A) Religious leaders | B) Merchants | C) Village headmen | D) Nayakas  => D
+a0096 {pol/judiciary} [AS 1 Jul 2026 S3 GA1 Q16] The Supreme Court of India came into existence on which date?
+   A) 30 July 1935 | B) 26 January 1950 | C) 15 August 1952 | D) 28 January 1950  => B
+a0097 {geo/physical} [AS 1 Jul 2026 S3 GA1 Q17] Which of the following correctly explains the geological significance of the syntaxial bends of the Himalayas?
+   A) They mark the regions where the Himalayas sharply curve to merge with older mountain systems. | B) They are the regions where the Himalayan rivers originate. | C) They represent the fault lines separating the Aravallis from the Indo-Gangetic plain. | D) They are formed due to volcanic eruptions beneath the Tibetan Plateau.  => A
+a0098 {hist/modern} [AS 1 Jul 2026 S3 GA1 Q18] The revolt of 1857 was most active in:
+   A) Eastern India | B) Western India | C) Northern India | D) Southern India  => C
+a0099 {static/dance} [AS 1 Jul 2026 S3 GA1 Q19] In which classical dance form is the concept of ‘Lasyaʼ prominently featured, showcasing feminine grace?
+   A) Sattriya | B) Kathakali | C) Kathak | D) Mohiniyattam  => D
+a0100 {pol/rights} [AS 1 Jul 2026 S3 GA1 Q20] According to Article 33 of the Indian Constitution, who has the authority to modify or restrict the application of fundamental rights for armed forces and similar services?
+   A) The Parliament of India | B) The Supreme Court | C) The Council of Ministers | D) The President of India  => A
+   SIM m3509 0.62 pol/rights ans="Article 33" :: Article 33 lets Parliament restrict Fundamental Rights of the armed forces.

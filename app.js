@@ -10,6 +10,8 @@
      #/p/<all|subject>      a practice set of 20 random questions
      #/mts/…                the same four routes for the separate MTS 2026
                             section (data-mts.js pushes window.MTS_SUBJECTS)
+     #/as/…                 and for the separate Assistant Superintendent 2026
+                            section (data-as.js pushes window.AS_SUBJECTS)
 
    ANSWERS are saved in localStorage as { questionId: chosenOptionIndex }.
    Nothing ever leaves the browser.
@@ -18,7 +20,8 @@
 
 var SUBJECTS = window.SUBJECTS || [];
 var MTS_SUBJECTS = window.MTS_SUBJECTS || [];
-var bank = 'main';   // which section the current page belongs to: 'main' or 'mts'
+var AS_SUBJECTS = window.AS_SUBJECTS || [];
+var bank = 'main';   // which section the current page belongs to: 'main', 'mts' or 'as'
 var main = document.getElementById('main');
 var tabsEl = document.getElementById('tabs');
 var qEl = document.getElementById('q');
@@ -58,7 +61,7 @@ var view = load('dk-view', 'all');
 var shown = {};   // questions whose answer was revealed without answering (this visit only)
 
 /* Every question gets back-references to its subject and topic. */
-var ALL = [], MTS_ALL = [], BYID = {};
+var ALL = [], MTS_ALL = [], AS_ALL = [], BYID = {};
 function indexBank(subjects, into, name){
   subjects.forEach(function(s){
     s.topics.forEach(function(t){
@@ -68,11 +71,25 @@ function indexBank(subjects, into, name){
 }
 indexBank(SUBJECTS, ALL, 'main');
 indexBank(MTS_SUBJECTS, MTS_ALL, 'mts');
+indexBank(AS_SUBJECTS, AS_ALL, 'as');
 
-function subjectsNow(){ return bank === 'mts' ? MTS_SUBJECTS : SUBJECTS; }
-function allNow(){ return bank === 'mts' ? MTS_ALL : ALL; }
-/* A link inside the current section: link('/s/geo') is #/s/geo or #/mts/s/geo. */
-function link(path){ return (bank === 'mts' ? '#/mts' : '#') + path; }
+/* The separate exam sections, each kept apart from the main bank. */
+var SECTIONS = {
+  mts: { name: 'MTS 2026', subjects: MTS_SUBJECTS, all: MTS_ALL,
+         heading: 'MTS 2026: General Awareness from every shift, by subject',
+         exam: 'DSSSB’s MTS exam (24 Feb – 14 May 2026)',
+         source: 'Answers come from the published answer key, which matched DSSSB’s own ticked papers on every question where both exist.' },
+  as:  { name: 'AS 2026', subjects: AS_SUBJECTS, all: AS_ALL,
+         heading: 'AS 2026: General Awareness from every shift, by subject',
+         exam: 'DSSSB’s Assistant Superintendent exam (1 – 7 July 2026)',
+         source: 'Answers come from a coaching institute’s compilation of the answer key, because DSSSB’s own ticked papers for these shifts are not available. Every answer was checked again; questions whose key looked wrong or unclear were left out.' }
+};
+function subjectsNow(){ return bank === 'main' ? SUBJECTS : SECTIONS[bank].subjects; }
+function allNow(){ return bank === 'main' ? ALL : SECTIONS[bank].all; }
+/* A link inside the current section: link('/s/geo') is #/s/geo, #/mts/s/geo or #/as/s/geo. */
+function link(path){ return (bank === 'main' ? '#' : '#/' + bank) + path; }
+/* "MTS 2026 · " or "AS 2026 · " in front of a page name when inside a section. */
+function sectionPrefix(){ return bank === 'main' ? '' : SECTIONS[bank].name + ' · '; }
 
 var FILTERS = [
   ['all', 'All DSSSB papers'],
@@ -95,8 +112,8 @@ function examsOf(q){
   });
   return e;
 }
-/* The exam filter belongs to the main bank; MTS 2026 questions always pass. */
-function passes(q){ return q.bank === 'mts' || filter === 'all' || !!examsOf(q)[filter]; }
+/* The exam filter belongs to the main bank; MTS and AS 2026 questions always pass. */
+function passes(q){ return q.bank !== 'main' || filter === 'all' || !!examsOf(q)[filter]; }
 function visible(list){ return list.filter(passes); }
 
 function stat(list){
@@ -117,7 +134,7 @@ function subjectById(id){ var list = subjectsNow(); for (var i = 0; i < list.len
 function topicById(s, id){ if (!s) return null; for (var i = 0; i < s.topics.length; i++) if (s.topics[i].id === id) return s.topics[i]; return null; }
 
 function filterChips(){
-  if (bank === 'mts') return '';
+  if (bank !== 'main') return '';
   var h = ['<div class="chips" role="group" aria-label="Which exam papers"><span class="cl">Papers</span>'];
   FILTERS.forEach(function(f){
     h.push('<button type="button" class="chip" data-filter="' + f[0] + '" aria-pressed="' + (filter === f[0]) + '">' + esc(f[1]) + '</button>');
@@ -143,10 +160,10 @@ function countdownText(start, end){
 /* --------------------------------------------------------------------------
    A QUESTION CARD
    -------------------------------------------------------------------------- */
-function shiftName(x){ return x.replace(/^MTS (\d+ \w+) \d{4} S(\d)$/, '$1 · Shift $2'); }
+function shiftName(x){ return x.replace(/^(?:MTS|AS) (\d+ \w+) \d{4} S(\d)$/, '$1 · Shift $2'); }
 
 function srcChips(q){
-  if (q.bank === 'mts'){
+  if (q.bank !== 'main'){
     var extra = q.src.length - 2;
     return q.src.slice(0, 2).map(function(x){ return '<span class="src home">' + esc(shiftName(x)) + '</span>'; }).join('') +
       (extra > 0 ? '<span class="src" title="Also asked: ' + esc(q.src.slice(2).map(shiftName).join(', ')) + '">+' +
@@ -253,6 +270,7 @@ function pageHome(){
   h.push('<div class="btnrow"><a class="btn" href="#/p/all">Practise ' + SET_SIZE + ' at random</a>' +
          (filter !== 'aso' ? '<button type="button" class="btn ghost" data-filter="aso">Only ASO 2025 questions</button>' : '') +
          (filter !== 'patwari' ? '<button type="button" class="btn ghost" data-filter="patwari">Only Patwari 2022 questions</button>' : '') +
+         (AS_ALL.length ? '<a class="btn ghost" href="#/as">AS 2026 shifts</a>' : '') +
          (MTS_ALL.length ? '<a class="btn ghost" href="#/mts">MTS 2026 shifts</a>' : '') +
          '</div>');
   h.push('</section>');
@@ -290,26 +308,27 @@ function subjectGrid(){
   return h.join('');
 }
 
-/* The MTS 2026 section: every shift's General Awareness, kept apart from the
-   main bank and sorted by the same subjects and topics. */
-function pageMtsHome(){
-  var shifts = {};
-  MTS_ALL.forEach(function(q){ q.src.forEach(function(x){ shifts[x] = 1; }); });
-  var all = stat(MTS_ALL);
+/* A separate exam section (MTS 2026, AS 2026): every shift's General
+   Awareness, kept apart from the main bank and sorted by the same subjects
+   and topics. */
+function pageSectionHome(){
+  var sec = SECTIONS[bank], shifts = {};
+  sec.all.forEach(function(q){ q.src.forEach(function(x){ shifts[x] = 1; }); });
+  var all = stat(sec.all);
   var h = [];
   h.push('<section class="hero">');
-  h.push('<h1>MTS 2026: General Awareness from every shift, by subject</h1>');
-  h.push('<p>The static GK questions from all ' + Object.keys(shifts).length + ' shifts of DSSSB’s MTS exam (24 Feb – 14 May 2026), ' +
+  h.push('<h1>' + esc(sec.heading) + '</h1>');
+  h.push('<p>The static GK questions from all ' + Object.keys(shifts).length + ' shifts of ' + esc(sec.exam) + ', ' +
          'kept separate from the main bank. Current affairs are removed. A question asked in more than one shift appears once, with its shifts listed. ' +
-         'Answers come from the published answer key, which matched DSSSB’s own ticked papers on every question where both exist.</p>');
-  h.push('<div class="stats"><span><b>' + MTS_ALL.length + '</b> questions</span><span><b>' + Object.keys(shifts).length + '</b> shifts</span>' +
-         '<span><b>' + MTS_SUBJECTS.length + '</b> subjects</span><span>You: <b>' + all.done + '</b> answered, <b>' + all.right + '</b> correct</span></div>');
-  h.push('<div class="btnrow"><a class="btn" href="#/mts/p/all">Practise ' + SET_SIZE + ' MTS questions at random</a>' +
+         esc(sec.source) + '</p>');
+  h.push('<div class="stats"><span><b>' + sec.all.length + '</b> questions</span><span><b>' + Object.keys(shifts).length + '</b> shifts</span>' +
+         '<span><b>' + sec.subjects.length + '</b> subjects</span><span>You: <b>' + all.done + '</b> answered, <b>' + all.right + '</b> correct</span></div>');
+  h.push('<div class="btnrow"><a class="btn" href="' + link('/p/all') + '">Practise ' + SET_SIZE + ' ' + esc(sec.name.split(' ')[0]) + ' questions at random</a>' +
          '<a class="btn ghost" href="#/">Back to the main bank</a></div>');
   h.push('</section>');
   h.push(subjectGrid());
-  brandsub.textContent = 'MTS 2026';
-  document.title = 'MTS 2026 — The DSSSB Key';
+  brandsub.textContent = sec.name;
+  document.title = sec.name + ' — The DSSSB Key';
   return h.join('');
 }
 
@@ -328,7 +347,7 @@ function railFor(s, activeId){
 function pageSubject(s){
   var h = [];
   var st = stat(subjectQs(s));
-  h.push('<div class="pagehead"><p class="eyebrow">' + (bank === 'mts' ? '<a href="#/mts" style="color:inherit">MTS 2026</a> · Subject' : 'Subject') + '</p><h1>' + esc(s.n) + '</h1>' +
+  h.push('<div class="pagehead"><p class="eyebrow">' + (bank !== 'main' ? '<a href="' + link('') + '" style="color:inherit">' + SECTIONS[bank].name + '</a> · Subject' : 'Subject') + '</p><h1>' + esc(s.n) + '</h1>' +
          '<p class="lede">' + esc(s.w) + '</p>' + filterChips() +
          '<p class="tstats">' + statsLine(subjectQs(s)) + '</p>' +
          '<div class="btnrow"><a class="btn" href="' + link('/p/' + s.id) + '">Practise ' + SET_SIZE + ' from ' + esc(s.n) + '</a></div></div>');
@@ -343,8 +362,8 @@ function pageSubject(s){
   h.push('</ul>');
   if (!st.n) h.push('<div class="empty">No questions in this subject for the selected papers.</div>');
   h.push('</div></div>');
-  brandsub.textContent = (bank === 'mts' ? 'MTS 2026 · ' : '') + s.n;
-  document.title = s.n + (bank === 'mts' ? ' — MTS 2026' : '') + ' — The DSSSB Key';
+  brandsub.textContent = sectionPrefix() + s.n;
+  document.title = s.n + (bank !== 'main' ? ' — ' + SECTIONS[bank].name : '') + ' — The DSSSB Key';
   return h.join('');
 }
 
@@ -366,7 +385,7 @@ function pageTopic(s, t){
   });
   var h = [];
   h.push('<div class="rail">' + railFor(s, t.id) + '<div>');
-  h.push('<div class="pagehead"><p class="eyebrow">' + (bank === 'mts' ? '<a href="#/mts" style="color:inherit">MTS 2026</a> · ' : '') +
+  h.push('<div class="pagehead"><p class="eyebrow">' + (bank !== 'main' ? '<a href="' + link('') + '" style="color:inherit">' + SECTIONS[bank].name + '</a> · ' : '') +
          '<a href="' + link('/s/' + s.id) + '" style="color:inherit">' + esc(s.n) + '</a></p>' +
          '<h1>' + esc(t.n) + '</h1>' + filterChips() + viewChips() +
          '<p class="tstats" id="tstats" data-scope="topic:' + s.id + ':' + t.id + '">' + statsLine(t.qs) + '</p></div>');
@@ -387,8 +406,8 @@ function pageTopic(s, t){
           : '<span class="edge"><span class="k">End of</span><span class="v">' + esc(s.n) + '</span></span>') +
     '</div>');
   h.push('</div></div>');
-  brandsub.textContent = (bank === 'mts' ? 'MTS 2026 · ' : '') + s.n;
-  document.title = t.n + ' — ' + s.n + (bank === 'mts' ? ' — MTS 2026' : '') + ' — The DSSSB Key';
+  brandsub.textContent = sectionPrefix() + s.n;
+  document.title = t.n + ' — ' + s.n + (bank !== 'main' ? ' — ' + SECTIONS[bank].name : '') + ' — The DSSSB Key';
   return h.join('');
 }
 
@@ -410,12 +429,12 @@ function shuffle(a){
 
 function pagePractice(scopeId){
   var s = scopeId === 'all' ? null : subjectById(scopeId);
-  if (scopeId !== 'all' && !s) return bank === 'mts' ? pageMtsHome() : pageHome();
-  var key = 'dk-set-' + (bank === 'mts' ? 'mts-' : '') + scopeId + '-' + filter;
+  if (scopeId !== 'all' && !s) return bank !== 'main' ? pageSectionHome() : pageHome();
+  var key = 'dk-set-' + (bank !== 'main' ? bank + '-' : '') + scopeId + '-' + filter;
   var ids = sload(key);
   if (!ids || !ids.length || ids.some(function(id){ return !BYID[id] || BYID[id].bank !== bank; })){ ids = newSet(scopeId); ssave(key, ids); }
   var list = ids.map(function(id){ return BYID[id]; });
-  var name = (s ? s.n : 'All subjects') + (bank === 'mts' ? ' · MTS 2026' : '');
+  var name = (s ? s.n : 'All subjects') + (bank !== 'main' ? ' · ' + SECTIONS[bank].name : '');
 
   var h = [];
   h.push('<div class="pagehead"><p class="eyebrow">Practice set</p><h1>' + SET_SIZE + ' random questions · ' + esc(name) + '</h1>' +
@@ -424,7 +443,7 @@ function pagePractice(scopeId){
          '<p class="tstats" id="tstats" data-scope="set:' + key + '">' + statsLine(list) + '</p>' +
          '<div class="btnrow"><button type="button" class="btn" data-act="newset" data-key="' + key + '" data-scope="' + scopeId + '">New set</button>' +
          (s ? '<a class="btn ghost" href="' + link('/s/' + s.id) + '">Back to ' + esc(s.n) + '</a>'
-            : '<a class="btn ghost" href="' + link('/') + '">' + (bank === 'mts' ? 'Back to MTS 2026' : 'Back home') + '</a>') + '</div></div>');
+            : '<a class="btn ghost" href="' + link('/') + '">' + (bank !== 'main' ? 'Back to ' + SECTIONS[bank].name : 'Back home') + '</a>') + '</div></div>');
   h.push('<div class="cards">');
   if (!list.length) h.push('<div class="empty">No questions available for the selected papers.</div>');
   list.forEach(function(q, i){ h.push(cardHTML(q, i + 1, true)); });
@@ -453,12 +472,12 @@ function parseHash(){
 
 function route(keepScroll){
   var r = parseHash(), p = r.parts, html, s, t;
-  bank = p[0] === 'mts' && MTS_ALL.length ? 'mts' : 'main';
-  if (bank === 'mts') p = p.slice(1);
+  bank = SECTIONS.hasOwnProperty(p[0]) && SECTIONS[p[0]].all.length ? p[0] : 'main';
+  if (bank !== 'main') p = p.slice(1);
   if (p[0] === 't' && (s = subjectById(p[1])) && (t = topicById(s, p[2]))) html = pageTopic(s, t);
   else if (p[0] === 's' && (s = subjectById(p[1]))) html = pageSubject(s);
   else if (p[0] === 'p' && p[1]) html = pagePractice(p[1]);
-  else html = bank === 'mts' ? pageMtsHome() : pageHome();
+  else html = bank !== 'main' ? pageSectionHome() : pageHome();
 
   var y = window.scrollY;
   main.innerHTML = html;
@@ -474,13 +493,14 @@ function route(keepScroll){
 
 function buildTabs(){
   var h = ['<a href="#/" data-tab="home">Home</a>'];
+  if (AS_ALL.length) h.push('<a href="#/as" data-tab="as">AS 2026</a>');
   if (MTS_ALL.length) h.push('<a href="#/mts" data-tab="mts">MTS 2026</a>');
   SUBJECTS.forEach(function(s){ h.push('<a href="#/s/' + s.id + '" data-tab="' + s.id + '">' + esc(s.tab || s.n) + '</a>'); });
   h.push('<a href="#/p/all" data-tab="practice">Practice</a>');
   tabsEl.innerHTML = h.join('');
 }
 function syncTabs(p){
-  var active = bank === 'mts' ? 'mts' : !p.length ? 'home' : p[0] === 'p' ? (p[1] === 'all' ? 'practice' : p[1]) : (p[0] === 's' || p[0] === 't') ? p[1] : 'home';
+  var active = bank !== 'main' ? bank : !p.length ? 'home' : p[0] === 'p' ? (p[1] === 'all' ? 'practice' : p[1]) : (p[0] === 's' || p[0] === 't') ? p[1] : 'home';
   Array.prototype.forEach.call(tabsEl.children, function(a){
     if (a.dataset.tab === active) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
   });
@@ -501,7 +521,7 @@ main.addEventListener('click', function(e){
 
   if (act && act.dataset.act === 'reset-topic'){
     var r = parseHash().parts;
-    if (r[0] === 'mts') r = r.slice(1);
+    if (SECTIONS.hasOwnProperty(r[0])) r = r.slice(1);
     var s = subjectById(r[1]), t = topicById(s, r[2]);
     if (t && window.confirm('Clear your saved answers for “' + t.n + '”?')){
       t.qs.forEach(function(q){ delete progress[q.id]; });
@@ -538,8 +558,8 @@ main.addEventListener('click', function(e){
    SEARCH — over question text, options and explanations. Results never show
    the answer, so searching cannot spoil a question.
    -------------------------------------------------------------------------- */
-/* Search covers both the main bank and the MTS 2026 section. */
-var EVERY = ALL.concat(MTS_ALL);
+/* Search covers the main bank and the MTS 2026 and AS 2026 sections. */
+var EVERY = ALL.concat(AS_ALL, MTS_ALL);
 EVERY.forEach(function(q){
   q.hay = (q.q + ' ' + q.o.join(' ') + ' ' + q.x + ' ' + (q.e || '') + ' ' + q.t.n + ' ' + q.s.n).toLowerCase();
 });
@@ -576,11 +596,11 @@ function renderResults(term){
     return;
   }
   resEl.innerHTML = hits.map(function(q, i){
-    var mts = q.bank === 'mts';
-    var srcs = mts ? q.src.slice(0, 3).map(shiftName).join(' · ') + (q.src.length > 3 ? ' · +' + (q.src.length - 3) + ' more' : '')
+    var sec = q.bank !== 'main' ? SECTIONS[q.bank] : null;
+    var srcs = sec ? q.src.slice(0, 3).map(shiftName).join(' · ') + (q.src.length > 3 ? ' · +' + (q.src.length - 3) + ' more' : '')
                    : q.src.join(' · ');
-    return '<a class="rrow' + (i === 0 ? ' sel' : '') + '" href="' + (mts ? '#/mts' : '#') + '/t/' + q.s.id + '/' + q.t.id + '?q=' + q.id + '">' +
-      '<div class="rk">' + (mts ? 'MTS 2026 · ' : '') + esc(q.s.n) + ' · ' + esc(q.t.n) + '</div>' +
+    return '<a class="rrow' + (i === 0 ? ' sel' : '') + '" href="' + (sec ? '#/' + q.bank : '#') + '/t/' + q.s.id + '/' + q.t.id + '?q=' + q.id + '">' +
+      '<div class="rk">' + (sec ? esc(sec.name) + ' · ' : '') + esc(q.s.n) + ' · ' + esc(q.t.n) + '</div>' +
       '<div class="rt">' + markText(q.q, term) + '</div>' +
       '<div class="rs">' + esc(srcs) + '</div></a>';
   }).join('');

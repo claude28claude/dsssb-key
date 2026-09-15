@@ -1,0 +1,207 @@
+a0301 {pol/union} [CA?] [AS 3 Jul 2026 S2 GA2 Q1] What prestigious honor was presented to President Droupadi Murmu during her state visit to Portugal in April 2025?
+   A) Medal of Democracy | B) Crown of the City | C) Order of the Republic | D) City Key of Lisbon  => D
+a0302 {?} [CA?] [AS 3 Jul 2026 S2 GA2 Q2] When was the Munich Security Conference (MSC) 2025 took place?
+   A) January 10–12, 2025 | B) February 14–16, 2025 | C) March 2–4, 2025 | D) April 5–7, 2025  => B
+a0303 {eco/planning} [CA?] [AS 3 Jul 2026 S2 GA2 Q3] What was the allocation for the rural jobs guarantee program (MGNREGA) in India's budget for the financial year 2025-2026?
+   A) ₹860 billion | B) ₹1.06 trillion | C) ₹760 billion | D) ₹960 billion  => A
+a0304 {static/art} [AS 3 Jul 2026 S2 GA2 Q4] In the first phase of the Genome India Project, how many individuals' genomes were sequenced through the collaborative effort of 20 scientific institutions?
+   A) 10,000 | B) 20,000 | C) 5,000 | D) 50,000  => A
+a0305 {geo/resources} [CA?] [AS 3 Jul 2026 S2 GA2 Q5] Who won the Best Actress award at the 97th Academy Awards in 2025?
+   A) Natalie Portman | B) Margot Robbie | C) Emma Stone | D) Mikey Madison  => D
+a0306 {pol/union} [AS 3 Jul 2026 S2 GA2 Q6] Which of the following is incorrect regarding the speaker of the Lok Sabha?
+   A) The Speaker is directly appointed by the President of India | B) The Speaker presides over joint sittings of both Houses of Parliament | C) He acts as the guardian of the rights of the members | D) He maintains order and decorum in the house  => A
+   SIM m2820 0.60 pol/union ans="elected by the members of the Lok Sabha" :: The Lok Sabha Speaker is elected by the members of the Lok Sabha.
+a0307 {geo/resources} [CA?] [AS 3 Jul 2026 S2 GA2 Q7] Which ASEAN–India institutional engagement, reported by the Press Information Bureau in January 2026, was convened specifically to strengthen co-operation in the digital domain between India and ASEAN member states?
+   A) ASEAN–India Cultural Ministersʼ Conference | B) ASEAN–India Trade Ministersʼ Meeting | C) ASEAN–India Defence Ministersʼ Dialogue | D) ASEAN–India Digital Ministersʼ Meeting  => D
+a0308 {geo/world} [AS 3 Jul 2026 S2 GA2 Q8] A government policy that lowers the value of a country's currency relative to other currencies is called ______.
+   A) appreciation | B) revaluation | C) devaluation | D) depreciation  => C
+a0309 {eco/money} [AS 3 Jul 2026 S2 GA2 Q9] The interest rate on Ways and Means Advances (WMA) from the Reserve Bank of India is linked to _____________.
+   A) Marginal Standing Facility (MSF) rate | B) Reverse Repo rate | C) Repo rate | D) Bank rate  => C
+a0310 {geo/resources} [AS 3 Jul 2026 S2 GA2 Q10] The principle of energy conservation in a hydroelectric dam involves the conversion of ___________.
+   A) electrical energy to mechanical energy | B) nuclear energy to thermal energy | C) kinetic energy to electrical energy | D) solar energy to thermal energy  => C
+a0311 {geo/resources} [AS 3 Jul 2026 S2 GA2 Q11] After liberalisation, India experienced an increase in private sector participation. Which indicator best reflects liberalisation's success?
+   A) Decrease in imports | B) Increase in GDP growth rate | C) Decline in exports | D) Rise in subsidy payments  => B
+a0312 {eco/money} [CA?] [AS 3 Jul 2026 S2 GA2 Q12] Which of the following events took place in Davos-Klosters, Switzerland from January 20 to 24, 2025?
+   A) G7 Summit | B) World Economic Forum Annual Meeting | C) International Monetary Fund Conference | D) United Nations General Assembly  => B
+a0313 {static/sports} [CA?] [AS 3 Jul 2026 S2 GA2 Q13] Whom did R Praggnanandhaa defeat in the tie-breaker to win the 2025 Tata Steel Masters chess tournament?
+   A) D Gukesh | B) Hikaru Nakamura | C) Levon Aronian | D) Magnus Carlsen  => A
+a0314 {?} [AS 3 Jul 2026 S2 GA2 Q14] The relationship between the crossover frequency and the distance between loci was first suggested in 1913 by:
+   A) J. Belling | B) C. D. Darlington | C) A. H. Sturtevant | D) F. A. Jansens  => C
+a0315 {static/sports} [CA?] [AS 3 Jul 2026 S2 GA2 Q15] Who won the Indian Super League (ISL) 2024–25 Cup in April 2025?
+   A) East Bengal FC | B) Mohun Bagan SG | C) Bengaluru FC | D) Mumbai City FC  => B
+a0316 {pol/bodies} [CA?] [AS 3 Jul 2026 S2 GA2 Q16] The Election Commission of India announced launch of which of the following new one-stop platform in May 2025 to integrate and reorient over 40 of its existing mobile and web applications?
+   A) ElectNet | B) ElectApp 1.0 | C) ECIAPP | D) ECINET  => D
+a0317 {eco/money} [CA?] [AS 3 Jul 2026 S2 GA2 Q17] Which international institution launched the Frontier Seed (Pacific) program in March, 2025 to boost private sector development and economic resilience in the Pacific region?
+   A) Asian Development Bank | B) Asian Infrastructure Investment Bank | C) International Monetary Fund | D) World Bank  => A
+a0318 {geo/resources} [AS 3 Jul 2026 S2 GA2 Q18] Match the biomolecules with their functions: Biomolecule Function ------------------------------------A) Carbohydrates 1) Store and transmit genetic information B) Proteins 2) Provide energy and structural support C) Lipids 3) Serve as enzymes and structural components D) Nucleic Acids 4) Form cell membranes and store energy
+   A) A-2, B-3, C-4, D-1 | B) A-1, B-4, C-3, D-2 | C) A-4, B-1, C-2, D-3 | D) A-3, B-2, C-1, D-4  => A
+a0319 {bio/human} [CA?] [AS 3 Jul 2026 S2 GA2 Q19] What is the full form of HSTDV tested by the Defence Research and Development Organisation (DRDO) in March 2025?
+   A) Hypersonic Technology Demonstrator Vehicle | B) Hyper Test Supersonic Drone Vehicle | C) High-Security Tactical Defense Vehicle | D) High-Speed Test Delivery Vehicle  => A
+a0320 {geo/resources} [AS 3 Jul 2026 S2 GA2 Q20] During the 2000s, the share of manufactured goods in Indiaʼs merchandise exports decreased mainly because of __________.
+   A) Rise in import duties | B) Increase in oil exports from India | C) Growth in primary exports like iron ore | D) Decline in global demand for Indian products  => C
+a0321 {geo/physical} [AS 4 Jul 2026 S2 GA1 Q1] What is the location of the Deccan Plateau in relation to the Satpura Range?
+   A) North of the Satpura Range | B) West of the Satpura Range | C) East of the Satpura Range | D) South of the Satpura Range  => D
+a0322 {hist/freedom} [AS 4 Jul 2026 S2 GA1 Q2] The trial of the Howrah-Sibpur Conspiracy case began in which of the following years?
+   A) 1917 | B) 1919 | C) 1910 | D) 1908  => C
+a0323 {pol/judiciary} [AS 4 Jul 2026 S2 GA1 Q3] The Mansabdari system was related to:
+   A) Judicial reforms | B) Revenue collection | C) Military ranking | D) Trade regulation  => C
+a0324 {?} [AS 4 Jul 2026 S2 GA1 Q4] The concept of 'Drain of Wealth' was systematically elaborated by:
+   A) M.G. Ranade | B) Dadabhai Naoroji | C) R.C. Dutt | D) Gopal Krishna Gokhale  => B
+a0325 {pol/bodies} [AS 4 Jul 2026 S2 GA1 Q5] The Preamble of India was amended by which Constitutional Amendment?
+   A) 73rd Amendment | B) 42nd Amendment | C) 44th Amendment | D) 86th Amendment  => B
+a0326 {hist/medieval} [AS 4 Jul 2026 S2 GA1 Q6] Which of the following railway stations has been recognised by UNESCO as a World Heritage Site?
+   A) Rani Kamlapati Railway Station | B) Howrah Junction | C) Vijayawada Junction | D) Chhatrapati Shivaji Terminus  => D
+a0327 {geo/resources} [AS 4 Jul 2026 S2 GA1 Q7] The note in a raga which supports both Vadi and Samvadi notes are called ____________.
+   A) Uttarang | B) Purvang | C) Vivadi | D) Anuvadi  => D
+a0328 {?} [AS 4 Jul 2026 S2 GA1 Q8] Which Indian city is known as 'Silicon Valley of India' due to its large number of software companies?
+   A) Bengaluru | B) Mumbai | C) Kolkata | D) Chennai  => A
+a0329 {geo/physical} [AS 4 Jul 2026 S2 GA1 Q9] Which of the following correctly defines shallow-focus earthquakes based on their depth of origin?
+   A) Earthquakes originating at depths greater than seven hundred kilometres below the Earth | B) Earthquakes originating at depths less than seventy kilometres below the Earthʼs surface | C) Earthquakes originating at depths between three hundred and seven hundred kilometres below surface | D) Earthquakes originating at depths between seventy and three hundred kilometres below surface  => B
+a0330 {pol/rights} [AS 4 Jul 2026 S2 GA1 Q10] The Directive Principles of State Policy in the Indian Constitution aim to establish India as a _________.
+   A) Religious State | B) Capitalist State | C) Welfare State | D) Police State  => C
+   SIM m2626 0.56 pol/rights ans="Part IV" :: Directive Principles are in Part IV.
+a0331 {static/art} [AS 4 Jul 2026 S2 GA1 Q11] Which stone was used in the foundation, the (invisible) core of the platform and the steps of the Sun Temple at Konark?
+   A) Quartzite | B) Basalt | C) Granite | D) Laterite  => D
+a0332 {pol/states} [AS 4 Jul 2026 S2 GA1 Q12] According to the 73rd Constitutional Amendment Act, which authority is vested with the powers of superintendence, direction, and control of the preparation of electoral rolls for, and the conduct of, all elections to the Panchayats?
+   A) Gram Sabha | B) State Legislative Assembly | C) Election Commission of India | D) State Election Commission  => D
+a0333 {pol/federal} [AS 4 Jul 2026 S2 GA1 Q13] What is the primary function of the Inter-State Council in India?
+   A) Promoting coordination between states and the centre | B) Resolving inter-state water disputes | C) Reviewing the implementation of federal laws | D) Allocating central taxes among states  => A
+a0334 {pol/judiciary} [AS 4 Jul 2026 S2 GA1 Q14] Judicial review in India allows the judiciary to:
+   A) Suspend the Constitution | B) Review the speeches of parliamentarians | C) Examine the constitutionality of laws and executive orders | D) Amend the Constitution  => C
+a0335 {hist/freedom} [AS 4 Jul 2026 S2 GA1 Q15] The title 'Sardar' was given to Vallabhbhai Patel after which Satyagraha of 1928?
+   A) Kheda Satyagraha | B) Bardoli Satyagraha | C) Borsad Satyagraha | D) Salt Satyagraha  => B
+   SIM m0928 0.60 hist/freedom ans="Bardoli Satyagraha" :: Vallabhbhai Patel earned the title 'Sardar' after the Bardoli Satyagraha of 1928.
+a0336 {geo/resources} [AS 4 Jul 2026 S2 GA1 Q16] In which of the following years was the first Rajdhani Express train introduced in the Indian Railways?
+   A) 1969 | B) 1991 | C) 1981 | D) 1973  => A
+a0337 {geo/resources} [AS 4 Jul 2026 S2 GA1 Q17] Which of the following island group is man-made (artificial)?
+   A) Willingdon Island | B) Minicoy Island | C) North Andaman | D) Elephanta Island  => A
+a0338 {?} [AS 4 Jul 2026 S2 GA1 Q18] The Ramosi Uprising (1822-29) took place in:
+   A) Rajasthan | B) Bihar | C) Maharashtra | D) Odisha  => C
+a0339 {geo/physical} [AS 4 Jul 2026 S2 GA1 Q19] The Great Indian Desert, also known as Marusthali, lies to the northwest of the Aravali hills. Which evidence supports the belief that this region was under the sea during the Mesozoic era?
+   A) Traces of wood fossils at Aakal and marine deposits near Brahmsar | B) Remains of ancient coral formations found across the Rann of Kutch | C) Basaltic volcanic rocks identified in the Mount Abu upland region | D) Sediment layers with salt deposits discovered in Sambhar Lake basin  => A
+a0340 {hist/medieval} [AS 4 Jul 2026 S2 GA1 Q20] Who among the following was the First Turkish Sultan of Delhi?
+   A) Alauddin Khalji | B) Bahlul Lodi | C) Qutubuddin Aibak | D) Khizr Khan  => C
+a0341 {eco/schemes} [AS 4 Jul 2026 S2 GA2 Q1] Which of the following focuses on upgrading infrastructure in Tier-2 and Tier-3 cities?
+   A) Sagarmala Programme | B) Bharatmala Pariyojana | C) Urban Infrastructure Development Fund | D) PRASAD Scheme and Development Fund  => C
+a0342 {chem/reactions} [CA?] [AS 4 Jul 2026 S2 GA2 Q2] Who won the ‘Actor in a Leading Roleʼ award at the 97th Academy Awards 2025?
+   A) Ralph Fiennes | B) Timothée Chalamet | C) Adrien Brody | D) Sebastian Stan  => C
+a0343 {eco/planning} [CA?] [AS 4 Jul 2026 S2 GA2 Q3] As per NITI Aayogʼs Discussion Paper ‘Multidimensional Poverty in India since 2005-06ʼ published in January 2024, how many Indians have escaped multidimensional poverty in the past 9 years?
+   A) 36.45 crore | B) 24.82 crore | C) 50.00 crore | D) 12.34 crore  => B
+a0344 {geo/world} [CA?] [AS 4 Jul 2026 S2 GA2 Q4] Who was awarded the Nobel Peace Prize 2025 by the Norwegian Nobel Committee for her work promoting democratic rights and peaceful transition in her country?
+   A) Michelle Bachelet | B) Cristina Fernández de Kirchner | C) Dilma Rousseff | D) Maria Corina Machado  => D
+a0345 {geo/resources} [AS 4 Jul 2026 S2 GA2 Q5] After 1991, Indiaʼs labor market dualism was exacerbated due to:
+   A) Import substitution | B) Agrarian reforms | C) Urbanization | D) Skill-biased technological change  => D
+a0346 {?} [CA?] [AS 4 Jul 2026 S2 GA2 Q6] In April 2025, Mexico and the United States made an agreement involving Mexico to send more water from their share of which basin, primarily for use by farmers of Texas?
+   A) Rio Sonora | B) Rio Conchos | C) Rio Sonoyta | D) Rio Grande  => D
+a0347 {pol/union} [CA?] [AS 4 Jul 2026 S2 GA2 Q7] How many redeveloped railway stations were virtually inaugurated by Prime Minister Shri Narendra Modi across 18 states on May 22, 2025, under the Amrit Bharat Station Scheme?
+   A) 93 | B) 113 | C) 83 | D) 103  => D
+a0348 {?} [CA?] [AS 4 Jul 2026 S2 GA2 Q8] Which of the following is the official mascot of Expo 2025?
+   A) Doraemon | B) Pikachu | C) Myaku-Myaku | D) Kumamon  => C
+a0349 {?} [CA?] [AS 4 Jul 2026 S2 GA2 Q9] In April 2025, who smashed the second-fastest century in Indian Premier League history at age 14?
+   A) Vaibhav Suryavanshi | B) Riyan Parag | C) Yashasvi Jaiswal | D) Tilak Varma  => A
+a0350 {static/sports} [AS 4 Jul 2026 S2 GA2 Q10] At the Syed Modi India International Super 300 tournament held in Lucknow, which of the following achievements was notable for Indian badminton?
+   A) Lakshya Sen ended his title drought by winning the menʼs singles | B) PV Sindhu won her first-ever Syed Modi title | C) PV Sindhu claimed her third title at the event | D) Treesa Jolly and Gayatri Gopichand became the first Indian womenʼs pair to win the title since 2009  => B
+a0351 {phy/mechanics} [AS 4 Jul 2026 S2 GA2 Q11] Match each physical quantity with its corresponding SI unit: Physical Quantity SI Unit A) Force 1) Joule (J) B) Power 2) Pascal (Pa) C) Pressure 3) Watt (W) D) Energy 4) Newton (N)
+   A) A-3, B-2, C-1, D-4 | B) A-2, B-1, C-3, D-4 | C) A-4, B-3, C-2, D-1 | D) A-1, B-4, C-2, D-3  => C
+a0352 {geo/resources} [CA?] [AS 4 Jul 2026 S2 GA2 Q12] Which team topped the medal tally at the 2025 National Games held in Uttarakhand?
+   A) Maharashtra | B) Services Sports Control Board | C) Madhya Pradesh | D) Haryana  => B
+a0353 {bio/human} [CA?] [AS 4 Jul 2026 S2 GA2 Q13] Which of the following organisations has delivered its second Drishti-10 Starliner surveillance drone to the Indian Navy, enhancing India's maritime security capabilities in 2024?
+   A) Bharat Dynamics Limited | B) Hindustan Aeronautics Limited | C) Defence Research and Development Organisation | D) Adani Defence and Aerospace  => D
+a0354 {phy/mechanics} [AS 4 Jul 2026 S2 GA2 Q14] Which of the following is CORRECT about static friction?
+   A) It remains constant regardless of applied force. | B) It helps objects slide easily on rough surfaces. | C) It increases with the applied force. | D) It always acts in the direction of motion.  => C
+a0355 {phy/electricity} [CA?] [AS 4 Jul 2026 S2 GA2 Q15] Who among the 2025 Nobel Prize in Physics laureates is associated with demonstrating macroscopic quantum mechanical tunnelling using superconducting electrical circuits?
+   A) Brian Josephson | B) Arthur Ashkin | C) John Clarke | D) Alain Aspect  => C
+a0356 {pol/union} [AS 4 Jul 2026 S2 GA2 Q16] Consider the following statements: 1. Whenever the Lok Sabha is dissolved, the Speaker has to vacate his office. 2. The Speaker acts as the ex-officio Chairman of the Indian Parliamentary Group. 3. The Speaker can be removed only by a resolution passed by the Lok Sabha by an ordinary majority. Which of the above statements is/are correct?
+   A) 1 and 3 only | B) 2 only | C) 1 only | D) 2 and 3 only  => B
+a0357 {?} [CA?] [AS 4 Jul 2026 S2 GA2 Q17] In January 2025, what action did Donald Trump take regarding WHO?
+   A) Increased WHO funding | B) Signed a new health agreement | C) Appointed a WHO director | D) Suspended WHO funding again  => D
+a0358 {chem/matter} [AS 4 Jul 2026 S2 GA2 Q18] Which pair of elements shows a prominent diagonal relationship?
+   A) Be and Ca | B) Li and Mg | C) B and Al | D) Na and Ca  => B
+a0359 {pol/union} [AS 4 Jul 2026 S2 GA2 Q19] Nationalisation of banks refers to the process where the government takes control of private commercial banks and converts them into public sector entities. Which Prime Minister spearheaded the bank nationalisation drive of India in 1969?
+   A) Indira Gandhi | B) Jawaharlal Nehru | C) Morarji Desai | D) Rajiv Gandhi  => A
+a0360 {eco/schemes} [CA?] [AS 4 Jul 2026 S2 GA2 Q20] In May 2025, which Indian state government approved the launch of the 'Mukhyamantri Shiksha Gunvatta Abhiyan' to enhance education quality in government schools?
+   A) Bihar | B) Madhya Pradesh | C) Uttar Pradesh | D) Chhattisgarh  => D
+a0361 {hist/modern} [AS 4 Jul 2026 S3 GA1 Q1] Who emerged as the leader of the peasants during the 1783 Rangpur uprising against British revenue practices?
+   A) Dirjinarain | B) Sidhu and Kanu | C) Musa Shah | D) Bhawani Pathak  => A
+a0362 {geo/physical} [AS 4 Jul 2026 S3 GA1 Q2] Weathering is correctly defined as which of the following processes occurring in situ without movement of material?
+   A) Downslope movement of soil and rock material under the influence of gravitational force | B) Deposition of sediments by river systems within low-lying basins and floodplain regions | C) Disintegration and decay of rocks through physical, chemical, and biological processes in place | D) Transportation of rock particles by running water, wind currents, or moving glacial ice  => C
+a0363 {geo/india} [AS 4 Jul 2026 S3 GA1 Q3] Which of the following rivers does NOT form a delta at its mouth?
+   A) Narmada | B) Mahanadi | C) Krishna | D) Ganga  => A
+a0364 {?} [AS 4 Jul 2026 S3 GA1 Q4] How many total islands are there in the Lakshadweep archipelago?
+   A) 36 | B) 20 | C) 12 | D) 10  => A
+a0365 {?} [AS 4 Jul 2026 S3 GA1 Q5] Which of the following channels separates the island of Minicoy from the main Lakshadweep archipelago?
+   A) Ten Degree Channel | B) Nine Degree Channel | C) Six Degree Channel | D) Eight Degree Channel  => B
+a0366 {geo/resources} [AS 4 Jul 2026 S3 GA1 Q6] Which of the following is NOT a part of the tertiary activities in India?
+   A) Tourism | B) Banking | C) Transportation | D) Agriculture  => D
+   SIM q1249 0.50 eco/basics ans="Direct extraction of materials from the earth" :: Tertiary activities provide services (transport, trade, communication, banking, IT) to the primary and secondary sectors; direct extraction of materials from the earth is a primary activity.
+a0367 {pol/rights} [AS 4 Jul 2026 S3 GA1 Q7] The Right to Education was made a Fundamental Right by which Constitutional Amendment?
+   A) 61st Amendment | B) 74th Amendment | C) 86th Amendment | D) 42nd Amendment  => C
+   SIM m2317 0.83 pol/rights ans="86th Amendment" :: The 86th Amendment made education a Fundamental Right (Article 21A).
+a0368 {bio/cell} [AS 4 Jul 2026 S3 GA1 Q8] Togalu Gombeyatta of Karnataka is which type of a puppet form of the following?
+   A) Glove Puppets | B) Rod Puppets | C) String Puppets | D) Shadow Puppets  => D
+a0369 {pol/constitution} [AS 4 Jul 2026 S3 GA1 Q9] Which Article of the Indian Constitution deals with the status of the Union Council of Ministers?
+   A) Article 74 | B) Article 73 | C) Article 78 | D) Article 75  => A
+   SIM q2005 0.50 pol/union ans="74" :: Article 74: a Council of Ministers headed by the Prime Minister aids and advises the President, who must act on its advice (42nd and 44th Amendments).
+a0370 {eco/schemes} [AS 4 Jul 2026 S3 GA1 Q10] Which of the following government schemes aims to provide affordable air travel to common citizens in smaller cities?
+   A) UDAN (Ude Desh ka Aam Nagrik) | B) Sagarmala | C) Make in India | D) RCS (Regional Connectivity Scheme)  => A
+a0371 {geo/india} [AS 4 Jul 2026 S3 GA1 Q11] When was the Right to Information Act passed?
+   A) 2002 | B) 2007 | C) 2005 | D) 2010  => C
+   SIM q5109 0.50 pol/bodies ans="2005" :: The Right to Information Act was passed in 2005.
+a0372 {?} [AS 4 Jul 2026 S3 GA1 Q12] The Doctrine of Lapse affected:
+   A) Military reforms | B) Princely states | C) Revenue systems | D) Trade policies  => B
+a0373 {pol/judiciary} [AS 4 Jul 2026 S3 GA1 Q13] The National Legal Services Authority (NALSA), which was constituted to provide free Legal Services to the weaker sections of the society and to organize Lok Adalats for amicable settlement of disputes, is housed at which court of Delhi?
+   A) Dwarka Court | B) Tis Hazari Court | C) Supreme Court of India | D) Delhi High Court  => D
+a0374 {static/music} [AS 4 Jul 2026 S3 GA1 Q14] Who was the founder of the Gwalior Gharana, a style of Hindustani classical music?
+   A) Kader Baksh | B) Nathan Pir Bakhsh | C) Hassu Khan | D) Haddu Khan  => B
+a0375 {pol/union} [AS 4 Jul 2026 S3 GA1 Q15] Who serves as the head of the National Disaster Management Authority (NDMA) of India?
+   A) Minister of Home Affairs of India | B) Chief of Defence Staff | C) President of India | D) Prime Minister of India  => D
+a0376 {?} [AS 4 Jul 2026 S3 GA1 Q16] The 1st Rampa Rebellion of 1879 was primarily associated with which region?
+   A) Orissa | B) Bastar | C) Chhotanagpur | D) Vizagapatnam  => D
+a0377 {phy/heat} [AS 4 Jul 2026 S3 GA1 Q17] Bommalattam is a traditional puppet theatre from which Indian state?
+   A) Odisha | B) Gujarat | C) Tamil Nadu | D) Manipur  => C
+a0378 {?} [AS 4 Jul 2026 S3 GA1 Q18] Which of the following revolutionary leaders killed A.M.T. Jackson District Magistrate of Nashik?
+   A) Lala Har Dayal | B) Madanlal Dhingra | C) Anant Laxman Kanhere | D) Bipin Chandra Pal  => C
+a0379 {hist/ancient} [AS 4 Jul 2026 S3 GA1 Q19] Which dynasty was prominent in South India during the early medieval period (800-1200 AD) for its naval power?
+   A) Cheras | B) Pandyas | C) Cholas | D) Pallavas  => C
+a0380 {hist/ancient} [AS 4 Jul 2026 S3 GA1 Q20] During its early history, the state of Hyderabad faced constant struggle against which of the following powers?
+   A) The British and the French forces | B) The Mughals and the Rajput clans | C) The Marathas and Telugu warrior chiefs | D) The Vijayanagara and Chola dynasties  => C
+a0381 {eco/money} [CA?] [AS 4 Jul 2026 S3 GA2 Q1] Which organization released the 'World Economic Outlook' in April 2025?
+   A) UN Trade and Development | B) International Monetary Fund | C) Organisation for Economic Co-operation and Development | D) World Bank  => B
+a0382 {geo/world} [AS 4 Jul 2026 S3 GA2 Q2] The “Global Value Chain” concept reflects:
+   A) The abandonment of manufacturing in global markets | B) Independent production processes within a single country | C) Complete self-sufficiency of nations | D) International production networks where different stages occur in different countries  => D
+a0383 {static/festivals} [CA?] [AS 4 Jul 2026 S3 GA2 Q3] Which ministry of government of India conducted the National Achievement Survey (NAS) in 2024?
+   A) Ministry of Labour | B) Ministry of Education | C) Ministry of Culture | D) Ministry of External Affairs  => B
+a0384 {bio/cell} [CA?] [AS 4 Jul 2026 S3 GA2 Q4] Which of the following organizations declared 2025 as the ‘International Year of Quantum Science and Technologyʼ to raise awareness about quantum science and its applications?
+   A) International Atomic Energy Agency | B) World Economic Forum | C) World Energy Council | D) United Nations General Assembly  => D
+a0385 {eco/planning} [AS 4 Jul 2026 S3 GA2 Q5] The services sector saw rapid expansion post 1991 economic reforms. Which of the following sub-sectors grew rapidly due to liberalisation?
+   A) IT and Software | B) Agriculture | C) Manufacturing | D) Textiles  => A
+a0386 {bio/health} [AS 4 Jul 2026 S3 GA2 Q6] Which of the following cellular structures is responsible for the synthesis of proteins in a eukaryotic cell?
+   A) Mitochondrion | B) Ribosome | C) Smooth endoplasmic reticulim | D) Golgi apparatus  => B
+a0387 {pol/bodies} [AS 4 Jul 2026 S3 GA2 Q7] Since 1991, the Indian economy has become more resilient to global shocks. Which of the following institutions manages India's monetary policy to control inflation and support growth?
+   A) Planning Commission | B) Election Commission | C) Reserve Bank of India | D) Ministry of External Affairs  => C
+a0388 {chem/reactions} [AS 4 Jul 2026 S3 GA2 Q8] Which of the following acids has the highest acid dissociation constant (Ka)?
+   A) HCl | B) CH₃COOH | C) HF | D) HNO₂  => A
+a0389 {?} [CA?] [AS 4 Jul 2026 S3 GA2 Q9] In April 2025, India signed a significant defense agreement with France. What was the primary focus of this agreement?
+   A) Joint development of nuclear submarines | B) Establishment of a joint space research center | C) Purchase of 26 Rafale fighter jets for the Indian Navy | D) Deployment of French troops in the Indo-Pacific region  => C
+a0390 {phy/heat} [AS 4 Jul 2026 S3 GA2 Q10] The Doppler Effect explains the change in the _________.
+   A) temperature of sound waves | B) pitch of sound due to relative motion | C) loudness of sound due to pressure | D) speed of sound due to humidity  => B
+a0391 {?} [CA?] [AS 4 Jul 2026 S3 GA2 Q11] Which significant initiative did the Defence Research and Development Organisation (DRDO) undertake in 2025 to advance India's indigenous quantum defence capabilities?
+   A) Establishment of the Quantum Technology Research Centre | B) Launch of the Kaveri Jet Engine | C) Inauguration of the Naval Anti-Ship Missile Program | D) Development of the Multi-Influence Ground Mine  => A
+a0392 {bio/cell} [CA?] [AS 4 Jul 2026 S3 GA2 Q12] Who among the following has become the fastest batter to reach 14,000 runs in One Day Internationals in February 2025?
+   A) Virat Kohli | B) K L Rahul | C) Suryakumar Yadav | D) Rohit Sharma  => A
+a0393 {geo/resources} [CA?] [AS 4 Jul 2026 S3 GA2 Q13] As per the Ministry of External Affairs, the India–Russia Annual Summit held in December 2025 recorded Russiaʼs explicit support for Indiaʼs permanent membership in which international body?
+   A) International Court Justice | B) International Monetary Fund | C) United Nations Security Council | D) World Trade Organization  => C
+a0394 {?} [CA?] [AS 4 Jul 2026 S3 GA2 Q14] In December 2024, the European Union reached a revised trade agreement with which South American trade bloc?
+   A) Pacific Alliance | B) Andean Community | C) Mercosur | D) Caricom  => C
+a0395 {static/sports} [CA?] [AS 4 Jul 2026 S3 GA2 Q15] How many gold medals did India win at the Archery World Cup Stage 2, held in Shanghai, China, in May 2025?
+   A) 01 | B) 04 | C) 03 | D) 02  => D
+a0396 {eco/schemes} [CA?] [AS 4 Jul 2026 S3 GA2 Q16] What was the focus of the Bio-RIDE scheme approved in September 2024?
+   A) Vaccine development | B) Biomanufacturing and Biofoundry | C) Clinical trials | D) Genetic engineering  => B
+a0397 {eco/money} [AS 4 Jul 2026 S3 GA2 Q17] Monetary policy in India is implemented by __________.
+   A) Ministry of Finance | B) SEBI | C) Reserve Bank of India | D) State Bank of India  => C
+a0398 {bio/cell} [CA?] [AS 4 Jul 2026 S3 GA2 Q18] Which state launched the cleanliness movement called Vruthi 2025?
+   A) Tamil Nadu | B) Andhra Pradesh | C) Kerala | D) Karnataka  => C
+a0399 {pol/states} [AS 4 Jul 2026 S3 GA2 Q19] In which year was Nanaji Deshmukh Sarvottam Panchayat Satat Vikas Puraskar revamped and launched to align with the United Nations Sustainable Development Goals (SDGs)?
+   A) 2016 | B) 2014 | C) 2022 | D) 2018  => C
+a0400 {geo/resources} [CA?] [AS 4 Jul 2026 S3 GA2 Q20] The recent (as of March 2026) surge in global oil prices was largely linked to tensions in the Middle East affecting which strategic maritime chokepoint for global oil transport?
+   A) Suez Canal | B) Strait of Hormuz | C) Strait of Malacca | D) Panama Canal  => B

@@ -1,0 +1,213 @@
+a0401 {static/art} [AS 5 Jul 2026 S1 GA1 Q1] What is the main shrine called in the northern Nagara style of temple architecture?
+   A) Vimana | B) Prasada | C) Garbhagriha | D) Mandapa  => C
+a0402 {hist/ancient} [AS 5 Jul 2026 S1 GA1 Q2] The Chalukyas of Kalyani came to power after the fall of _______ .
+   A) Palas | B) Hoysalas | C) Rashtrakutas | D) Cholas  => C
+a0403 {hist/freedom} [AS 5 Jul 2026 S1 GA1 Q3] Who emphasised the use of boycott as a weapon during the Swadeshi Movement (1905-1911) in India?
+   A) Dadabhai Naoroji | B) Lala Lajpat Rai | C) Gopal Krishna Gokhale | D) Bal Gangadhar Tilak  => D
+a0404 {pol/federal} [AS 5 Jul 2026 S1 GA1 Q4] Which of the following provides for the establishment of an Inter-State Council for smooth transition of business between the Union and states and resolution of disputes?
+   A) Article 253 | B) Article 283 | C) Article 263 | D) Article 248  => C
+a0405 {pol/rights} [AS 5 Jul 2026 S1 GA1 Q5] Which Directive Principle was added by the 42nd Constitutional Amendment Act, 1976?
+   A) Free legal aid to the poor | B) Organisation of village panchayats | C) Equal pay for equal work | D) Promotion of cottage industries  => A
+a0406 {pol/rights} [AS 5 Jul 2026 S1 GA1 Q6] Which of the following discusses socio-economic principles under the Directive Principles of State Policy?
+   A) Promote International peace and security | B) Organise village panchayats | C) Protect historical monuments | D) Equal pay for both men and women  => D
+a0407 {geo/resources} [AS 5 Jul 2026 S1 GA1 Q7] Which Indian territory was the first to come under European control after Alexander the Great's time, and whom was it acquired from in 1510?
+   A) Calicut, acquired from the Zamorin of Calicut | B) Goa, acquired from the Sultan of Bijapur | C) Daman, acquired from the Sultan of Gujarat | D) Cochin, acquired from the King of Travancore  => B
+a0408 {geo/resources} [CA?] [AS 5 Jul 2026 S1 GA1 Q8] Which of the following initiatives, launched in October 2021, aims to integrate various modes of transport across India to improve connectivity and reduce logistics costs?
+   A) UDAN Scheme | B) Bharatmala Pariyojana | C) PM Gati Shakti National Master Plan | D) Sagarmala Project  => C
+a0409 {?} [AS 5 Jul 2026 S1 GA1 Q9] When did the Government of India approve the BharatNet project?
+   A) 2013 | B) 2014 | C) 2012 | D) 2011  => D
+a0410 {geo/physical} [AS 5 Jul 2026 S1 GA1 Q10] Why do northeast trade winds bring little to no rainfall to India?
+   A) They originate over land and carry little moisture | B) They blow over oceans and lose moisture | C) They are diverted by the Western Ghats | D) They are blocked by the Himalayas  => A
+a0411 {hist/modern} [AS 5 Jul 2026 S1 GA1 Q11] What was the main method used by moderates to protest the partition?
+   A) Boycott of British goods | B) Violent rebellion | C) Forming armies | D) Petitions and speeches  => D
+a0412 {hist/freedom} [AS 5 Jul 2026 S1 GA1 Q12] In which year was the Public Accounts Committee first set up in India?
+   A) 1935 | B) 1950 | C) 1947 | D) 1921  => D
+   SIM m2316 0.56 pol/union ans="Government of India Act 1919" :: The Public Accounts Committee was first set up in 1921 under the Government of India Act 1919.
+a0413 {hist/modern} [AS 5 Jul 2026 S1 GA1 Q13] Which of the following options best explains the role of Bahadur Shah Zafar during the Revolt of 1857?
+   A) He formed an alliance with the British to suppress the rebels. | B) He remained neutral and refused to get involved. | C) He led the sepoys into direct battle against the British. | D) He was declared the symbolic leader of the revolt by the rebels.  => D
+a0414 {static/dance} [AS 5 Jul 2026 S1 GA1 Q14] The annual Mamallapuram Dance Festival is organised in which state, in which Indian classical dances including Bharatanatyam, Kuchipudi, Kathak, Mohiniattam, Odissi and Kathakali are performed?
+   A) Karnataka | B) Kerala | C) Odisha | D) Tamil Nadu  => D
+a0415 {geo/india} [AS 5 Jul 2026 S1 GA1 Q15] Vishu—a festival associated with harvest, prosperity, hope, and happiness—has traditionally been celebrated primarily in which state of India?
+   A) Tamil Nadu | B) Karnataka | C) Odisha | D) Kerala  => D
+a0416 {geo/physical} [AS 5 Jul 2026 S1 GA1 Q16] Which type of mass movement is characterized by the downward slipping of a mass of rock or unconsolidated material moving as a unit along a curved surface?
+   A) Creep | B) Rockslide | C) Rockfall | D) Slump  => D
+a0417 {geo/india} [AS 5 Jul 2026 S1 GA1 Q17] The Karakoram Pass, a key historical trade route, is located on which of the following international borders of India?
+   A) Nepal | B) China | C) Bangladesh | D) Afghanistan  => B
+a0418 {pol/states} [AS 5 Jul 2026 S1 GA1 Q18] What is the main objective of the Panchayati Raj system in India, in the context of the recommendations of the Balwant Rai Mehta Committee in 1957?
+   A) Democratic decentralization | B) Strengthening the powers of the Executive | C) Direct intervention of the Judiciary in rural affairs | D) Centralization of administrative authority  => A
+a0419 {?} [AS 5 Jul 2026 S1 GA1 Q19] Which tree from the following is most dominant in Tropical Deciduous Forests?
+   A) Ebony | B) Rosewood | C) Teak | D) Mahogony  => C
+   SIM m1980 0.75 env/biodiversity ans="Teak" :: Teak (with sal) dominates India's tropical deciduous forests.
+a0420 {?} [AS 5 Jul 2026 S1 GA1 Q20] Khizr Khan, the most proficient leader of the Sayyid dynasty, governed Delhi from 1414 until what year?
+   A) 1445 | B) 1450 | C) 1437 | D) 1421  => D
+a0421 {pol/states} [CA?] [AS 5 Jul 2026 S1 GA2 Q1] As of March 2025, how many Tele MANAS Cells have been established across various states/union territories, ensuring local access to mental health services?
+   A) 51 | B) 45 | C) 48 | D) 53  => D
+a0422 {?} [CA?] [AS 5 Jul 2026 S1 GA2 Q2] Who won the Best Cinematography award at the Oscars 2025?
+   A) Sean Baker | B) Adrien Brody | C) Mikey Madison | D) Lol Crawley  => D
+a0423 {static/sports} [CA?] [AS 5 Jul 2026 S1 GA2 Q3] The 2025 World Athletics Championships will be held in which city?
+   A) Beijing | B) Osaka | C) Tokyo | D) Seoul  => C
+a0424 {bio/health} [AS 5 Jul 2026 S1 GA2 Q4] Which of the following is a bacterial disease?
+   A) AIDS | B) Influenza | C) Ringworm | D) Typhoid  => D
+   SIM q3633 1.00 bio/health ans="Typhoid" :: Typhoid is a bacterial disease (Salmonella typhi); COVID-19 and influenza are viral and malaria is protozoan.
+a0425 {?} [CA?] [AS 5 Jul 2026 S1 GA2 Q5] As of January 2025, how many countries had signed the Artemis Accords for space cooperation?
+   A) 45 | B) 25 | C) 37 | D) 53  => D
+a0426 {eco/schemes} [CA?] [AS 5 Jul 2026 S1 GA2 Q6] Which state government announced that its upcoming 'Zero Poverty' Mission will be named after Bharat Ratna Dr. Bhimrao Ambedkar in April 2025?
+   A) Uttar Pradesh | B) Madhya Pradesh | C) Bihar | D) Maharashtra  => A
+a0427 {eco/planning} [AS 5 Jul 2026 S1 GA2 Q7] Consider the following statements with respect to GST composition scheme in India. 1. The GST composition scheme has brought simplicity and reduced the compliance cost for small taxpayers. 2. Businesses dealing with goods having an annual aggregate turnover up to ₹1.5 crore can opt into the composition scheme. 3. A person registered under composition scheme is required to file in total only 5 returns. Which of the given statements is/are correct?
+   A) 1, 2 and 3 | B) Only 2 and 3 | C) Only 1 and 2 | D) Only 3  => A
+a0428 {hist/freedom} [AS 5 Jul 2026 S1 GA2 Q8] When did India launch its First Five-Year Plan?
+   A) 1961 | B) 1951 | C) 1950 | D) 1947  => B
+   SIM q5920 0.57 eco/planning ans="1951-1956" :: The First Five-Year Plan ran from 1951 to 1956.
+a0429 {pol/states} [CA?] [AS 5 Jul 2026 S1 GA2 Q9] As of February 2025, India is home to how many Gram Panchayats and Rural Local Bodies?
+   A) 3.12 Lakhs | B) 2.68 Lakhs | C) 3.95 Lakhs | D) 1.53 Lakhs  => B
+a0430 {bio/human} [CA?] [AS 5 Jul 2026 S1 GA2 Q10] Who was awarded the prestigious Abel Prize in March 2025 for contributions to algebraic analysis and representation theory?
+   A) Masaki Kashiwara | B) Robert Langlands | C) Andrew Wiles | D) Caucher Birkar  => A
+a0431 {env/biodiversity} [AS 5 Jul 2026 S1 GA2 Q11] Which of the following is a part of economic infrastructure?
+   A) National parks | B) Primary schools | C) Roads and highways | D) Cultural centres  => C
+   SIM q6077 0.50 static/misc ans="G-12" :: India is a member of the G-15, G-20 and G-24, but not the G-12.
+a0432 {eco/money} [CA?] [AS 5 Jul 2026 S1 GA2 Q12] According to the World Bank, how many Indians were living in extreme poverty (on less than $2.15 per day) in 2024?
+   A) 129 million | B) 200 million | C) 431 million | D) 300 million  => A
+a0433 {?} [CA?] [AS 5 Jul 2026 S1 GA2 Q13] Where was Indiaʼs first Quantum Technology Park launched in April 2025?
+   A) Bengaluru | B) Noida | C) Amaravati | D) Pune  => C
+a0434 {geo/resources} [AS 5 Jul 2026 S1 GA2 Q14] Which of the following is NOT a characteristic of a compound?
+   A) It has a fixed composition. | B) It can be separated by physical means. | C) It has properties different from its constituent elements. | D) It follows the law of definite proportions.  => B
+a0435 {geo/resources} [CA?] [AS 5 Jul 2026 S1 GA2 Q15] According to the World Bank report Spring 2025 Poverty and Equity Brief, India has lifted how many people out of extreme poverty?
+   A) 141 million | B) 151 million | C) 161 million | D) 171 million  => D
+a0436 {static/sports} [CA?] [AS 5 Jul 2026 S1 GA2 Q16] Consider the following statements regarding Indiaʼs performance at the 2025 World Boxing Cup in Astana: 1. Indian women boxers Sakshi, Jaismine, and Nupur won gold medals in their respective weight categories. 2. India recorded its best-ever medal tally at the event, finishing with a total of 11 medals. Which of the statements given above is/are correct?
+   A) 2 only | B) 1 only | C) Neither 1 nor 2 | D) Both 1 and 2  => D
+a0437 {?} [CA?] [AS 5 Jul 2026 S1 GA2 Q17] What was the theme of the 6th meeting of the European Political Community in Tirana in May 2025?
+   A) “Europe United: Strength in Diversity” | B) “New Europe in a new world: unity – cooperation – joint action” | C) “Security, Prosperity and Connectivity for All – joint action” | D) “Global Challenges, European Solutions”  => B
+a0438 {geo/resources} [CA?] [AS 5 Jul 2026 S1 GA2 Q18] Who among the following won the BBC Sports Personality World Sport Star of the Year award in 2025?
+   A) Mariona Caldentey | B) Sydney McLaughlin-Levrone | C) Sifan Hassan | D) Armand Duplantis  => D
+a0439 {bio/plants} [AS 5 Jul 2026 S1 GA2 Q19] Leaves have tiny, microscopic pores on their surfaces that allow gases to move in and out. These small openings are called:
+   A) Roots | B) Veins | C) Tendrils | D) Stomata  => D
+a0440 {pol/federal} [AS 5 Jul 2026 S1 GA2 Q20] Which body supervises the financial performance of urban local bodies?
+   A) State Government | B) State Finance Commission | C) NITI Aayog | D) Planning Commission  => B
+a0441 {?} [AS 5 Jul 2026 S2 GA1 Q1] The Permanent Settlement was implemented in which of the following areas?
+   A) Madras | B) Bengal | C) Punjab | D) Bombay  => B
+a0442 {?} [AS 5 Jul 2026 S2 GA1 Q2] Which of the following Indian language was first recognised as a Classical Language by the Government of India in 2004?
+   A) Tamil | B) Sanskrit | C) Odia | D) Malayalam  => A
+   SIM m4147 0.50 static/misc ans="Kannada" :: Kannada (with Telugu) became classical in 2008.
+a0443 {pol/union} [AS 5 Jul 2026 S2 GA1 Q3] Who is the ex-officio Chairman of the Rajya Sabha?
+   A) The President of India | B) The Vice-President of India | C) The Prime Minister of India | D) The Speaker of Lok Sabha  => B
+   SIM m3469 1.00 pol/union ans="Vice-President of India" :: The Vice-President is ex officio Chairman of the Rajya Sabha.
+a0444 {pol/bodies} [AS 5 Jul 2026 S2 GA1 Q4] Which of the following is a constitutional body created under Article 324 of the Indian Constitution?
+   A) Central Information Commission | B) Union Public Service Commission | C) Election Commission of India | D) National Human Rights Commission  => C
+   SIM q4424 0.50 pol/federal ans="Finance Commission" :: The Finance Commission is set up under Article 280.
+a0445 {static/art} [AS 5 Jul 2026 S2 GA1 Q5] Warli painting is predominantly associated with which Indian state?
+   A) Odisha | B) Maharashtra | C) Tamil Nadu | D) Kerala  => B
+a0446 {geo/physical} [AS 5 Jul 2026 S2 GA1 Q6] What primary force causes wind deflection to the right in the Northern Hemisphere?
+   A) Coriolis force | B) Jet stream | C) Trade winds | D) Westerly flow  => A
+a0447 {pol/rights} [AS 5 Jul 2026 S2 GA1 Q7] In which year was the 11th Fundamental Duty, requiring parents and guardians to provide educational opportunities to their children, added to Part IVA of the Constitution?
+   A) 2003 | B) 2000 | C) 2002 | D) 2001  => C
+a0448 {pol/federal} [AS 5 Jul 2026 S2 GA1 Q8] Armed forces can be deployed in a State under:
+   A) Article 361 | B) Article 352 | C) Article 355 | D) Article 356  => C
+a0449 {?} [AS 5 Jul 2026 S2 GA1 Q9] Which of the following correct group of countries share a land boundary with India?
+   A) Myanmar, Bhutan, Bangladesh | B) China, Maldives, Sri Lanka | C) Nepal, Sri Lanka, Afghanistan | D) Bhutan, Maldives, Sri Lanka  => A
+   SIM q6242 0.80 geo/world ans="Tajikistan" :: Tajikistan does not share a land boundary with India; China, Afghanistan and Myanmar do.
+a0450 {hist/medieval} [AS 5 Jul 2026 S2 GA1 Q10] According to historical studies, which was the primary basis for structuring society in the Vijayanagar Empire?
+   A) Military rank | B) Caste hierarchy | C) Tribal affiliations | D) Village councils  => B
+a0451 {hist/freedom} [AS 5 Jul 2026 S2 GA1 Q11] Who among the following was the Viceroy of India at the time of the formation of the Indian National Congress?
+   A) Wellesley | B) Dufferin | C) Curzon | D) Hastings  => B
+   SIM m0043 0.57 hist/freedom ans="Lord Dufferin" :: Lord Dufferin was Viceroy when the Indian National Congress was founded in 1885.
+a0452 {pol/rights} [AS 5 Jul 2026 S2 GA1 Q12] Which Fundamental Right is available only to citizens and not to foreigners?
+   A) Right against Exploitation (Article 23) | B) Right to Freedom of Speech (Article 19) | C) Right to Protection in Arrest (Article 22) | D) Right to Equality before Law (Article 14)  => B
+   SIM m0067 1.00 pol/rights ans="Right to Freedom of Speech and Expression" :: The Article 19 freedoms, including speech and expression, are available only to citizens.
+a0453 {hist/ancient} [AS 5 Jul 2026 S2 GA1 Q13] How does the drainage was integrated into Harappan urban design?
+   A) Drains were built below the granaries. | B) Drainage planning came after house construction. | C) Houses had no connection to the drains. | D) Drains were planned first, and houses were built along them.  => D
+a0454 {hist/modern} [AS 5 Jul 2026 S2 GA1 Q14] When did Dadabhai Naoroji first present the concept of the 'Drain of Wealth', highlighting economic exploitation under British rule?
+   A) 1886 | B) 1880 | C) 1867 | D) 1875  => C
+a0455 {geo/india} [AS 5 Jul 2026 S2 GA1 Q15] The Chilika Lake, a significant lagoon, is located in which state?
+   A) West Bengal | B) Andhra Pradesh | C) Odisha | D) Tamil Nadu  => C
+a0456 {geo/earth} [AS 5 Jul 2026 S2 GA1 Q16] At what latitude is the Tropic of Cancer located approximately?
+   A) 50° South | B) 66.5° North | C) 66.5° South | D) 23.5° North  => D
+a0457 {hist/medieval} [AS 5 Jul 2026 S2 GA1 Q17] Who founded the Delhi Sultanate in 1206?
+   A) Alauddin Khilji | B) Qutb-ud-din Aibak | C) Iltutmish | D) Muhammad bin Tughlaq  => B
+a0458 {geo/india} [AS 5 Jul 2026 S2 GA1 Q18] Which of the following river systems is called the "National Waterways 1" in India?
+   A) The Kakinada-Puducherry -Godavari river system | B) The Krishna - Kaveri -Godavari river system | C) The Ganga - Bhagirathi -Hooghly river system | D) The Brahmaputra - Ganga -Sutlej River System  => C
+a0459 {?} [AS 5 Jul 2026 S2 GA1 Q19] In which year was the Hindustan Ghadar Party established?
+   A) 1917 | B) 1907 | C) 1911 | D) 1913  => D
+a0460 {geo/resources} [AS 5 Jul 2026 S2 GA1 Q20] Which of the following is a feature of the cotton textile industry in India?
+   A) Decentralized in nature | B) Entirely dependent on synthetic fibre | C) Highly capital-intensive | D) Located only in Maharashtra  => A
+a0461 {geo/people} [AS 5 Jul 2026 S2 GA2 Q1] Which of the following is measured by the Gini Coefficient in the Indian rural development context?
+   A) Migration rate | B) Income inequality | C) Agricultural output | D) Literacy ratio  => B
+a0462 {static/sports} [CA?] [AS 5 Jul 2026 S2 GA2 Q2] In 2025, which footballer became the fastest male player ever to score 50 international goals, breaking the previous record held by Harry Kane?
+   A) Cristiano Ronaldo | B) Kylian Mbappé | C) Erling Haaland | D) Lionel Messi  => C
+a0463 {eco/basics} [CA?] [AS 5 Jul 2026 S2 GA2 Q3] On which incorporation day did Government e-Marketplace (GeM) launch Indiaʼs first GenAI chatbot in the public sector in 2025?
+   A) 4th | B) 8th | C) 6th | D) 9th  => B
+a0464 {?} [CA?] [AS 5 Jul 2026 S2 GA2 Q4] As per the March 2025 PIB release, how many eSewa Kendras have been established across India to facilitate citizen-centric services under the eCourts Project?
+   A) 2870 | B) 1610 | C) 4210 | D) 714  => B
+a0465 {static/festivals} [CA?] [AS 5 Jul 2026 S2 GA2 Q5] In July 2025, who became Indiaʼs 87th Grandmaster after earning his final GM norm at the La Plagne International Chess Festival in France?
+   A) R Praggnanandhaa | B) Arjun Erigaisi | C) D Gukesh | D) Harikrishnan A. Ra.  => D
+a0466 {eco/money} [CA?] [AS 5 Jul 2026 S2 GA2 Q7] In 2025, which space programme did ISRO declare as its central focus for the year?
+   A) Gaganyaan Human Spaceflight Programme | B) Mars Orbiter Mission Expansion | C) Chandrayaan Lunar Exploration Mission | D) Aditya Solar Observation Programme  => A
+a0467 {chem/matter} [AS 5 Jul 2026 S2 GA2 Q8] Which of the following is NOT a condition for Newtonian mechanics to be valid?
+   A) Low velocities compared to the speed of light | B) Large scale objects (not atomic) | C) Negligible gravitational force | D) Macroscopic dimensions  => C
+a0468 {?} [AS 5 Jul 2026 S2 GA2 Q9] What are the official dates for the 3rd United Nations Ocean Conference (UNOC3)?
+   A) 1–5 June 2025 | B) 9–13 June 2025 | C) 10–14 July 2025 | D) 15–19 May 2025  => B
+a0469 {chem/reactions} [AS 5 Jul 2026 S2 GA2 Q10] In the saponification process, triglycerides are reacted with which alkali to produce glycerol and fatty acid salts called "soaps"?
+   A) Ba(OH)₂ | B) Mg(OH)₂ | C) NaOH | D) Ca(OH)2  => C
+a0470 {geo/resources} [AS 5 Jul 2026 S2 GA2 Q11] India signed a US$7 billion LNG supply contract with ADNOC (UAE) through IOCL to support its transition to a natural gas-based economy. From which year will this 14-year contract begin?
+   A) 2026 | B) 2024 | C) 2025 | D) 2027  => A
+a0471 {chem/reactions} [AS 5 Jul 2026 S2 GA2 Q12] Which acid-base theory is restricted to water as a solvent?
+   A) Arrhenius theory | B) Lowry-Bronsted theory | C) Davy's theory | D) Lewis's theory  => A
+a0472 {phy/mechanics} [AS 5 Jul 2026 S2 GA2 Q13] Which missile system is designed to replace the Kh-31 in the Indian Air Force's inventory?
+   A) Pinaka | B) QRSAM | C) LRAShM | D) Rudram-II  => D
+a0473 {?} [CA?] [AS 5 Jul 2026 S2 GA2 Q14] Which of the following programs was aimed to ensure attainment of malnutrition free India by 2022?
+   A) Special Nutrition | B) Balwadi Nutrition | C) POSHAN Abhiyaan | D) Midday Meal  => C
+a0474 {geo/people} [AS 5 Jul 2026 S2 GA2 Q15] Which of the following is not a component of the Human Development Index (HDI)?
+   A) Literacy rate | B) Gender Inequality | C) Life expectancy at birth | D) Gross National Income (GNI) per capita  => B
+a0475 {?} [CA?] [AS 5 Jul 2026 S2 GA2 Q16] On 21 April 2025, at the age of 88, Pope Francis took his last breath at which of the following places?
+   A) Venice | B) Finland | C) Vatican | D) Florence  => C
+a0476 {pol/constitution} [AS 5 Jul 2026 S2 GA2 Q17] Which of the following are the functions included in the Twelfth Schedule of the Constitution of India? 1. Roads and bridges 2. Urban forestry 3. Urban poverty alleviation 4. Non-conventional energy sources 5. Regulation of land use
+   A) 1, 2, 3, 5 | B) 1, 3 | C) 2, 3, 4,5 | D) 2, 3, 4  => A
+a0477 {geo/resources} [AS 5 Jul 2026 S2 GA2 Q18] The 'PM Vishwakarma' scheme provides financial support to traditional artisans and craftspeople with an initial loan limit of __________
+   A) ₹50,000 | B) ₹1 lakh | C) ₹2 lakh | D) ₹5 lakh  => B
+a0478 {geo/india} [CA?] [AS 5 Jul 2026 S2 GA2 Q19] In May 2025, Neeraj Chopra became the first Indian javelin thrower to surpass the 90-meter mark in an international competition. What was the exact distance of his record-breaking throw at the Doha Diamond League?
+   A) 88.44 meters | B) 89.94 meters | C) 91.06 meters | D) 90.23 meters  => D
+a0479 {eco/basics} [CA?] [AS 5 Jul 2026 S2 GA2 Q20] As highlighted by the United Nations Office for South-South Cooperation, which newly adopted framework at the 47th Association of Southeast Asian Nations Summit held in Kuala Lumpur in October 2025 explicitly institutionalised cooperation between ASEAN and the United Nations with a focus on South-South and triangular cooperation?
+   A) Regional Comprehensive Economic Partnership | B) ASEAN United Nations Plan of Action | C) ASEAN Digital Economy Framework Agreement | D) ASEAN Outlook on Indo-Pacific  => B
+a0480 {geo/physical} [AS 5 Jul 2026 S3 GA1 Q1] What does the Richter scale primarily measure in an earthquake?
+   A) Surface fault length | B) Duration of ground motion | C) Visible structural damage | D) Released seismic energy  => D
+a0481 {hist/medieval} [AS 5 Jul 2026 S3 GA1 Q2] The aftermath of 1857 Revolt saw the end of the rule of the __________ administratively.
+   A) Maratha power | B) Sikh dominance | C) East India Company | D) Mughals  => C
+a0482 {geo/india} [AS 5 Jul 2026 S3 GA1 Q3] Loktak Lake, famous for its unique floating islands of vegetation called "Phumdis", is located in which northeastern state of India?
+   A) Meghalaya | B) Assam | C) Mizoram | D) Manipur  => D
+a0483 {pol/rights} [AS 5 Jul 2026 S3 GA1 Q4] What does Article 40 of the Indian Constitution, which is the Directive Principle of State Policy, direct the State to do?
+   A) to promote cottage industries on an individual or cooperative basis in rural areas | B) to organise village panchayats as units of Self-government | C) to raise the level of nutrition and the standard of living and to improve public health | D) to secure a uniform civil code for all citizens across India  => B
+a0484 {hist/medieval} [AS 5 Jul 2026 S3 GA1 Q5] Into how many volumes is the ‘Akbar-Namaʼ divided?
+   A) Four | B) Six | C) Three | D) Two  => C
+a0485 {pol/union} [AS 5 Jul 2026 S3 GA1 Q6] Who can perform Union functions when entrusted by the President, as per Article 258(1) of the Constitution?
+   A) District courts | B) Local bodies | C) Chief Minister of the State | D) Governors of States  => D
+a0486 {pol/states} [AS 5 Jul 2026 S3 GA1 Q7] Which Schedule of the Constitution was added by the 74th Amendment Act, listing the functional items of Municipalities?
+   A) Twelfth Schedule | B) Tenth Schedule | C) Ninth Schedule | D) Eleventh Schedule  => A
+a0487 {hist/medieval} [AS 5 Jul 2026 S3 GA1 Q8] The Battle of Talikota (1565 CE), which marked the beginning of the decline of the Vijayanagara Empire, was fought between:
+   A) Vijayanagara Empire and the Bahmani Sultanate | B) Vijayanagara Empire and the Mughal forces | C) Vijayanagara Empire and a coalition of Deccan Sultanates | D) Vijayanagara Empire and the Portuguese  => C
+a0488 {pol/union} [AS 5 Jul 2026 S3 GA1 Q9] Which of the following effects does NOT occur during a Proclamation of Financial Emergency under Article 360?
+   A) Financial powers of the States may be curtailed by the Centre | B) The President may reduce the salaries of Central Government employees | C) Distribution of revenues between Centre and States is suspended | D) State legislatures may be directed to reserve money bills for Presidential consideration  => C
+a0489 {geo/india} [AS 5 Jul 2026 S3 GA1 Q10] Which of the following rivers is primarily responsible for the formation of the northern part of the Great Indian Plains?
+   A) Ganga | B) Narmada | C) Godavari | D) Krishna  => A
+a0490 {pol/union} [AS 5 Jul 2026 S3 GA1 Q11] What major administrative change occurred after the suppression of the Revolt of 1857?
+   A) The British Parliament abolished the Indian Penal Code | B) The East India Company was strengthened and given direct control | C) Queen Victoria announced direct Crown rule through a proclamation | D) Lord Dalhousie was appointed as the Viceroy  => C
+   SIM m0378 0.64 hist/modern ans="Direct rule by the British Crown replacing Company rule" :: After 1857, the Government of India Act 1858 ended Company rule and brought direct rule by the Crown.
+a0491 {geo/resources} [AS 5 Jul 2026 S3 GA1 Q12] What is the key aim of the UDAN Scheme of the Ministry of Civil Aviation?
+   A) Privatisation of airports under the PPP model | B) Regional connectivity through affordable air travel | C) Promotion of air travel only in metro cities | D) Expansion of international air cargo facilities  => B
+a0492 {static/art} [AS 5 Jul 2026 S3 GA1 Q13] The temple at Konark, a monumental representation of God Surya's chariot, has how many wheels decorated with symbolic designs, with the chariot being led by a team of six horses?
+   A) 30 | B) 12 | C) 18 | D) 24  => D
+a0493 {geo/physical} [AS 5 Jul 2026 S3 GA1 Q14] Which of the following characteristics of the Peninsular Plateau best differentiates it from the Himalayan Mountain ranges?
+   A) Presence of high, conical peaks and steep slopes | B) Composition of unconsolidated materials like mud and silt | C) Formation due to recent tectonic folding and uplift | D) Rounded hilltops made of hard igneous and metamorphic rocks  => D
+a0494 {?} [AS 5 Jul 2026 S3 GA1 Q15] What is the major type of land use in India?
+   A) Land under permanent pastures | B) Forest land | C) Barren and uncultivable land | D) Net sown area  => D
+a0495 {static/music} [AS 5 Jul 2026 S3 GA1 Q16] What do we call a specific sequence of notes that is peculiar to each Raga of Indian classical music and by which a listener can easily recognize the Raga?
+   A) Pakad | B) Avaroha | C) Aroha | D) Thata  => A
+a0496 {hist/freedom} [AS 5 Jul 2026 S3 GA1 Q17] What was the ultimate goal of Satyagraha, that took place in India, according to Gandhi?
+   A) To convert the enemy through self-suffering and truth | B) To surrender to injustice | C) To defeat the enemy by force | D) To seek political power by any means  => A
+a0497 {hist/modern} [AS 5 Jul 2026 S3 GA1 Q18] Which traditional system of land ownership existed among the Mundas before British interference?
+   A) Jagirdari system | B) Zamindari system | C) Khuntkatti system | D) Raiyatwari system  => C
+a0498 {bio/cell} [AS 5 Jul 2026 S3 GA1 Q19] Mudiyettu and Krishnattam are traditional folk theatre forms of which Indian state?
+   A) Karnataka | B) Kerala | C) Telangana | D) Andhra Pradesh  => B
+a0499 {pol/judiciary} [AS 5 Jul 2026 S3 GA1 Q20] The Central Vigilance Commission (CVC) is categorised as a __________ body.
+   A) statutory | B) quasi-judicial | C) constitutional | D) regulatory  => A
+a0500 {geo/resources} [AS 5 Jul 2026 S3 GA2 Q1] The Pradhan Mantri Gram Sadak Yojana aims to:
+   A) provide electricity to urban areas | B) promote export-oriented businesses | C) build expressways across the country | D) connect rural areas through all-weather roads  => D
+   SIM m2445 0.86 eco/schemes ans="provide all-weather road connectivity to eligible unconnected rural habitations" :: PMGSY gives all-weather roads to unconnected rural habitations.
