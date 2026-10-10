@@ -6,11 +6,11 @@
    (a cache-first worker on a sister site once served new data to old code),
    and the cached copies take over when offline. */
 
-var CACHE = 'dsssb-key-v4';
+var CACHE = 'dsssb-key-v5';
 var ASSETS = [
   './', './index.html', './styles.css', './app.js', './manifest.webmanifest',
   './data-static.js', './data-hist.js', './data-pol.js', './data-geo.js', './data-eco.js',
-  './data-phy.js', './data-chem.js', './data-bio.js', './data-env.js', './data-mts.js', './data-as.js',
+  './data-phy.js', './data-chem.js', './data-bio.js', './data-env.js', './data-mts.js', './data-as.js', './data-prac.js',
   './fonts/literata-400.woff2', './fonts/literata-600.woff2', './fonts/literata-italic-400.woff2',
   './fonts/inter-400.woff2', './fonts/inter-600.woff2', './fonts/plexmono-400.woff2', './fonts/plexmono-500.woff2',
   './icon-192.png', './icon-512.png', './icon-maskable-512.png', './icon-180.png'

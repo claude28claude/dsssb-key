@@ -117,6 +117,7 @@ h2{font-size:var(--t-lead)}
 .bar i{display:block;height:100%;background:var(--right);border-radius:99px}
 
 /* ---------------- home ---------------- */
+.warnline{border-left:3px solid var(--warn);background:rgba(var(--warn-rgb),.08);padding:10px 14px;border-radius:0 var(--r-s) var(--r-s) 0;margin:0 0 12px}
 .hero{border:1px solid var(--line);border-radius:var(--r);background:linear-gradient(160deg,var(--panel2),var(--panel));padding:24px 22px;margin-bottom:22px}
 .hero h1{font-size:27px;max-width:30ch}
 .hero p{margin:10px 0 0;color:var(--dim);max-width:68ch}
@@ -168,8 +169,9 @@ h2{font-size:var(--t-lead)}
 @keyframes flash{0%{box-shadow:0 0 0 3px rgba(var(--accent-rgb),.7)}100%{box-shadow:0 0 0 3px rgba(var(--accent-rgb),0)}}
 .cmeta{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-bottom:8px}
 .qn{font-family:var(--mono);font-size:var(--t-tiny);color:var(--dimmer);margin-right:4px}
-.src{font-family:var(--mono);font-size:var(--t-micro);color:var(--accent);border:1px solid rgba(var(--accent-rgb),.35);border-radius:999px;padding:0 8px;white-space:nowrap}
+.src{font-family:var(--mono);font-size:var(--t-micro);color:var(--accent);border:1px solid rgba(var(--accent-rgb),.35);border-radius:12px;padding:0 8px;max-width:100%;overflow-wrap:anywhere}
 .src.home{color:var(--right);border-color:rgba(var(--right-rgb),.45)}
+.src.written{color:var(--warn);border-color:rgba(var(--warn-rgb),.45);background:rgba(var(--warn-rgb),.07)}
 .tlabel{font-family:var(--mono);font-size:var(--t-micro);color:var(--dim)}
 .qtext{font-family:var(--serif);font-size:var(--t-lead);line-height:1.45;margin:0 0 12px}
 @media (max-width:640px){.qtext{font-size:var(--t-copy)}}
@@ -218,6 +220,20 @@ h2{font-size:var(--t-lead)}
 .pager a:hover{text-decoration:none;border-color:var(--accent)}
 .pager .k{display:block;font-family:var(--mono);font-size:var(--t-micro);letter-spacing:.09em;text-transform:uppercase;color:var(--dimmer)}
 .pager .v{font-family:var(--serif);font-weight:600}
+
+/* ---------------- paging inside one topic ---------------- */
+.pagenote{font-family:var(--mono);font-size:var(--t-tiny);color:var(--dimmer);margin:6px 0 0}
+.paging{display:flex;flex-wrap:wrap;align-items:center;gap:6px;max-width:780px}
+.paging.top{margin:16px 0 4px}
+.paging.bottom{margin:18px 0 0}
+.pg{font-family:var(--mono);font-size:var(--t-small);color:var(--dim);background:var(--panel);
+  border:1px solid var(--line);border-radius:var(--r-s);padding:6px 11px;min-width:38px;text-align:center}
+a.pg:hover{color:var(--ink);text-decoration:none;border-color:var(--line2)}
+.pg.here{color:var(--bg);background:var(--accent);border-color:var(--accent);font-weight:600}
+.pg.step{font-weight:600;color:var(--ink)}
+.pg.step.off{color:var(--dimmer);background:transparent;border-color:var(--line);opacity:.5}
+.pg.gap{border:0;background:transparent;min-width:0;padding:6px 2px;color:var(--dimmer)}
+@media (max-width:420px){.paging{gap:4px}.pg{padding:6px 8px;min-width:32px;font-size:var(--t-tiny)}}
 
 /* ---------------- search ---------------- */
 #results{position:fixed;left:50%;transform:translateX(-50%);top:62px;width:min(760px,calc(100vw - 24px));max-height:70vh;overflow-y:auto;

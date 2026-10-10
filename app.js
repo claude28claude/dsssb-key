@@ -21,7 +21,8 @@
 var SUBJECTS = window.SUBJECTS || [];
 var MTS_SUBJECTS = window.MTS_SUBJECTS || [];
 var AS_SUBJECTS = window.AS_SUBJECTS || [];
-var bank = 'main';   // which section the current page belongs to: 'main', 'mts' or 'as'
+var PRAC_SUBJECTS = window.PRAC_SUBJECTS || [];
+var bank = 'main';   // which section the current page belongs to: 'main', 'mts', 'as' or 'prac'
 var main = document.getElementById('main');
 var tabsEl = document.getElementById('tabs');
 var qEl = document.getElementById('q');
@@ -30,6 +31,7 @@ var brandsub = document.getElementById('brandsub');
 
 var LETTERS = 'ABCD';
 var SET_SIZE = 20;
+var PAGE_SIZE = 25;   // questions per page of a topic, so a big topic is not one endless scroll
 
 /* --------------------------------------------------------------------------
    HELPERS
@@ -61,7 +63,7 @@ var view = load('dk-view', 'all');
 var shown = {};   // questions whose answer was revealed without answering (this visit only)
 
 /* Every question gets back-references to its subject and topic. */
-var ALL = [], MTS_ALL = [], AS_ALL = [], BYID = {};
+var ALL = [], MTS_ALL = [], AS_ALL = [], PRAC_ALL = [], BYID = {};
 function indexBank(subjects, into, name){
   subjects.forEach(function(s){
     s.topics.forEach(function(t){
@@ -72,6 +74,7 @@ function indexBank(subjects, into, name){
 indexBank(SUBJECTS, ALL, 'main');
 indexBank(MTS_SUBJECTS, MTS_ALL, 'mts');
 indexBank(AS_SUBJECTS, AS_ALL, 'as');
+indexBank(PRAC_SUBJECTS, PRAC_ALL, 'prac');
 
 /* The separate exam sections, each kept apart from the main bank. */
 var SECTIONS = {
@@ -82,7 +85,12 @@ var SECTIONS = {
   as:  { name: 'AS 2026', subjects: AS_SUBJECTS, all: AS_ALL,
          heading: 'AS 2026: General Awareness from every shift, by subject',
          exam: 'DSSSB’s Assistant Superintendent exam (1 – 7 July 2026)',
-         source: 'Answers come from a coaching institute’s compilation of the answer key, because DSSSB’s own ticked papers for these shifts are not available. Every answer was checked again; questions whose key looked wrong or unclear were left out.' }
+         source: 'Answers come from a coaching institute’s compilation of the answer key, because DSSSB’s own ticked papers for these shifts are not available. Every answer was checked again; questions whose key looked wrong or unclear were left out.' },
+  /* The one section that is NOT previous-year questions. Marked `written` so
+     every page says so plainly and nobody mistakes these for a real paper. */
+  prac:{ name: 'Extra Practice', subjects: PRAC_SUBJECTS, all: PRAC_ALL, written: true,
+         heading: 'Extra practice: new questions in the DSSSB pattern',
+         source: 'These questions were not asked by DSSSB. They were written fresh, in the same pattern and on the same syllabus, so that there is something left to practise on after a topic’s real questions have been used up. Each one carries a short explanation like the rest of the site, and none of them repeats a question from the other sections.' }
 };
 function subjectsNow(){ return bank === 'main' ? SUBJECTS : SECTIONS[bank].subjects; }
 function allNow(){ return bank === 'main' ? ALL : SECTIONS[bank].all; }
@@ -163,6 +171,7 @@ function countdownText(start, end){
 function shiftName(x){ return x.replace(/^(?:MTS|AS) (\d+ \w+) \d{4} S(\d)$/, '$1 · Shift $2'); }
 
 function srcChips(q){
+  if (q.bank === 'prac') return '<span class="src written">' + esc(q.src[0]) + '</span>';
   if (q.bank !== 'main'){
     var extra = q.src.length - 2;
     return q.src.slice(0, 2).map(function(x){ return '<span class="src home">' + esc(shiftName(x)) + '</span>'; }).join('') +
@@ -251,9 +260,10 @@ function scopeList(scope){
    PAGES
    -------------------------------------------------------------------------- */
 function pageHome(){
-  var totalQ = visible(ALL).length;
+  var shownQs = visible(ALL);
+  var totalQ = shownQs.length;
   var papers = {};
-  ALL.forEach(function(q){ q.src.forEach(function(x){ papers[x] = 1; }); });
+  shownQs.forEach(function(q){ q.src.forEach(function(x){ papers[x] = 1; }); });
   var all = stat(ALL);
   var h = [];
 
@@ -265,13 +275,14 @@ function pageHome(){
          '<div><span class="k">ASO Tier-I</span><span class="v">21 Sep – 18 Oct 2026</span><span class="s">' + countdownText([2026, 9, 21], [2026, 10, 18]) + '</span></div>' +
          '<div><span class="k">Patwari</span><span class="v">21 – 23 Oct 2026</span><span class="s">' + countdownText([2026, 10, 21], [2026, 10, 23]) + '</span></div>' +
          '</div>');
-  h.push('<div class="stats"><span><b>' + ALL.length + '</b> questions</span><span><b>' + Object.keys(papers).length + '</b> papers</span>' +
+  h.push('<div class="stats"><span><b>' + totalQ + '</b> questions</span><span><b>' + Object.keys(papers).length + '</b> papers</span>' +
          '<span><b>' + SUBJECTS.length + '</b> subjects</span><span>You: <b>' + all.done + '</b> answered, <b>' + all.right + '</b> correct</span></div>');
   h.push('<div class="btnrow"><a class="btn" href="#/p/all">Practise ' + SET_SIZE + ' at random</a>' +
          (filter !== 'aso' ? '<button type="button" class="btn ghost" data-filter="aso">Only ASO 2025 questions</button>' : '') +
          (filter !== 'patwari' ? '<button type="button" class="btn ghost" data-filter="patwari">Only Patwari 2022 questions</button>' : '') +
          (AS_ALL.length ? '<a class="btn ghost" href="#/as">AS 2026 shifts</a>' : '') +
          (MTS_ALL.length ? '<a class="btn ghost" href="#/mts">MTS 2026 shifts</a>' : '') +
+         (PRAC_ALL.length ? '<a class="btn ghost" href="#/prac">Extra practice questions</a>' : '') +
          '</div>');
   h.push('</section>');
 
@@ -318,12 +329,21 @@ function pageSectionHome(){
   var h = [];
   h.push('<section class="hero">');
   h.push('<h1>' + esc(sec.heading) + '</h1>');
+  if (sec.written){
+    h.push('<p class="warnline"><b>Not from a DSSSB paper.</b> Everything else on this site is a question DSSSB has really asked. ' +
+           'This section is the exception, and it is kept separate for that reason.</p>');
+    h.push('<p>' + esc(sec.source) + '</p>');
+    h.push('<div class="stats"><span><b>' + sec.all.length + '</b> questions</span>' +
+           '<span><b>' + sec.subjects.length + '</b> subjects</span><span>You: <b>' + all.done + '</b> answered, <b>' + all.right + '</b> correct</span></div>');
+  } else {
   h.push('<p>The static GK questions from all ' + Object.keys(shifts).length + ' shifts of ' + esc(sec.exam) + ', ' +
          'kept separate from the main bank. Current affairs are removed. A question asked in more than one shift appears once, with its shifts listed. ' +
          esc(sec.source) + '</p>');
   h.push('<div class="stats"><span><b>' + sec.all.length + '</b> questions</span><span><b>' + Object.keys(shifts).length + '</b> shifts</span>' +
          '<span><b>' + sec.subjects.length + '</b> subjects</span><span>You: <b>' + all.done + '</b> answered, <b>' + all.right + '</b> correct</span></div>');
-  h.push('<div class="btnrow"><a class="btn" href="' + link('/p/all') + '">Practise ' + SET_SIZE + ' ' + esc(sec.name.split(' ')[0]) + ' questions at random</a>' +
+  }
+  h.push('<div class="btnrow"><a class="btn" href="' + link('/p/all') + '">Practise ' + SET_SIZE +
+         (sec.written ? ' of these at random' : ' ' + esc(sec.name.split(' ')[0]) + ' questions at random') + '</a>' +
          '<a class="btn ghost" href="#/">Back to the main bank</a></div>');
   h.push('</section>');
   h.push(subjectGrid());
@@ -377,25 +397,74 @@ function viewChips(){
   return h.join('');
 }
 
-function pageTopic(s, t){
+/* --------------------------------------------------------------------------
+   PAGING — a topic can hold 300+ questions, which is an unusable wall of
+   scrolling on a phone. Topics are shown PAGE_SIZE at a time; the page number
+   lives in the address (?p=2) so Back works and a page can be bookmarked.
+   -------------------------------------------------------------------------- */
+function pageStrip(base, pno, pages, where){
+  if (pages < 2) return '';
+  var h = ['<nav class="paging ' + where + '" aria-label="Pages of this topic">'];
+  h.push(pno > 1 ? '<a class="pg step" href="' + base + '?p=' + (pno - 1) + '" rel="prev">‹ Back</a>'
+                 : '<span class="pg step off">‹ Back</span>');
+
+  /* First page, last page, and a short run around the one being read. */
+  var want = {1: 1, 2: 1};
+  want[pages] = 1; want[pages - 1] = 1;
+  for (var d = -1; d <= 1; d++) if (pno + d >= 1 && pno + d <= pages) want[pno + d] = 1;
+  var nums = Object.keys(want).map(Number).sort(function(a, b){ return a - b; });
+  var last = 0;
+  nums.forEach(function(n){
+    if (n > last + 1) h.push('<span class="pg gap">…</span>');
+    h.push(n === pno ? '<span class="pg here" aria-current="true">' + n + '</span>'
+                     : '<a class="pg" href="' + base + '?p=' + n + '">' + n + '</a>');
+    last = n;
+  });
+
+  h.push(pno < pages ? '<a class="pg step" href="' + base + '?p=' + (pno + 1) + '" rel="next">Next ›</a>'
+                     : '<span class="pg step off">Next ›</span>');
+  h.push('</nav>');
+  return h.join('');
+}
+
+function pageTopic(s, t, query){
   var list = visible(t.qs).filter(function(q){
     if (view === 'todo') return progress[q.id] === undefined;
     if (view === 'wrong') return progress[q.id] !== undefined && progress[q.id] !== q.a;
     return true;
   });
+  query = query || {};
+  var base = link('/t/' + s.id + '/' + t.id);
+  var pages = Math.max(1, Math.ceil(list.length / PAGE_SIZE));
+
+  /* Arriving from search (?q=…) opens the page that question is actually on. */
+  var pno = parseInt(query.p, 10) || 1;
+  if (query.q){
+    for (var qi = 0; qi < list.length; qi++){
+      if (list[qi].id === query.q){ pno = Math.floor(qi / PAGE_SIZE) + 1; break; }
+    }
+  }
+  pno = Math.min(pages, Math.max(1, pno));
+  var from = (pno - 1) * PAGE_SIZE;
+  var onPage = list.slice(from, from + PAGE_SIZE);
+
   var h = [];
   h.push('<div class="rail">' + railFor(s, t.id) + '<div>');
   h.push('<div class="pagehead"><p class="eyebrow">' + (bank !== 'main' ? '<a href="' + link('') + '" style="color:inherit">' + SECTIONS[bank].name + '</a> · ' : '') +
          '<a href="' + link('/s/' + s.id) + '" style="color:inherit">' + esc(s.n) + '</a></p>' +
          '<h1>' + esc(t.n) + '</h1>' + filterChips() + viewChips() +
-         '<p class="tstats" id="tstats" data-scope="topic:' + s.id + ':' + t.id + '">' + statsLine(t.qs) + '</p></div>');
+         '<p class="tstats" id="tstats" data-scope="topic:' + s.id + ':' + t.id + '">' + statsLine(t.qs) + '</p>' +
+         (pages > 1 ? '<p class="pagenote">Showing question ' + (from + 1) + '–' + (from + onPage.length) +
+                      ' of ' + list.length + ' · page ' + pno + ' of ' + pages + '</p>' : '') + '</div>');
+  h.push(pageStrip(base, pno, pages, 'top'));
   h.push('<div class="cards">');
   if (!list.length){
     h.push('<div class="empty">' + (view === 'all' ? 'No questions here for the selected papers.' :
            view === 'todo' ? 'You have answered every question shown here.' : 'Nothing answered wrongly here.') + '</div>');
   }
-  list.forEach(function(q, i){ h.push(cardHTML(q, i + 1, false)); });
+  onPage.forEach(function(q, i){ h.push(cardHTML(q, from + i + 1, false)); });
   h.push('</div>');
+  h.push(pageStrip(base, pno, pages, 'bottom'));
 
   var i = s.topics.indexOf(t);
   var prev = s.topics[i - 1], next = s.topics[i + 1];
@@ -437,7 +506,7 @@ function pagePractice(scopeId){
   var name = (s ? s.n : 'All subjects') + (bank !== 'main' ? ' · ' + SECTIONS[bank].name : '');
 
   var h = [];
-  h.push('<div class="pagehead"><p class="eyebrow">Practice set</p><h1>' + SET_SIZE + ' random questions · ' + esc(name) + '</h1>' +
+  h.push('<div class="pagehead"><p class="eyebrow">Practice set</p><h1>' + list.length + ' random question' + (list.length === 1 ? '' : 's') + ' · ' + esc(name) + '</h1>' +
          '<p class="lede">Unanswered questions are picked first. Your answers count towards your progress everywhere on the site.</p>' +
          filterChips() +
          '<p class="tstats" id="tstats" data-scope="set:' + key + '">' + statsLine(list) + '</p>' +
@@ -474,7 +543,7 @@ function route(keepScroll){
   var r = parseHash(), p = r.parts, html, s, t;
   bank = SECTIONS.hasOwnProperty(p[0]) && SECTIONS[p[0]].all.length ? p[0] : 'main';
   if (bank !== 'main') p = p.slice(1);
-  if (p[0] === 't' && (s = subjectById(p[1])) && (t = topicById(s, p[2]))) html = pageTopic(s, t);
+  if (p[0] === 't' && (s = subjectById(p[1])) && (t = topicById(s, p[2]))) html = pageTopic(s, t, r.query);
   else if (p[0] === 's' && (s = subjectById(p[1]))) html = pageSubject(s);
   else if (p[0] === 'p' && p[1]) html = pagePractice(p[1]);
   else html = bank !== 'main' ? pageSectionHome() : pageHome();
@@ -495,12 +564,16 @@ function buildTabs(){
   var h = ['<a href="#/" data-tab="home">Home</a>'];
   if (AS_ALL.length) h.push('<a href="#/as" data-tab="as">AS 2026</a>');
   if (MTS_ALL.length) h.push('<a href="#/mts" data-tab="mts">MTS 2026</a>');
+  if (PRAC_ALL.length) h.push('<a href="#/prac" data-tab="prac">Extra Practice</a>');
   SUBJECTS.forEach(function(s){ h.push('<a href="#/s/' + s.id + '" data-tab="' + s.id + '">' + esc(s.tab || s.n) + '</a>'); });
-  h.push('<a href="#/p/all" data-tab="practice">Practice</a>');
+  h.push('<a href="#/p/all" data-tab="practice">Practise 20</a>');
   tabsEl.innerHTML = h.join('');
 }
 function syncTabs(p){
   var active = bank !== 'main' ? bank : !p.length ? 'home' : p[0] === 'p' ? (p[1] === 'all' ? 'practice' : p[1]) : (p[0] === 's' || p[0] === 't') ? p[1] : 'home';
+  /* An address that names no real subject falls back to the home page, so light Home. */
+  var known = Array.prototype.some.call(tabsEl.children, function(a){ return a.dataset.tab === active; });
+  if (!known) active = 'home';
   Array.prototype.forEach.call(tabsEl.children, function(a){
     if (a.dataset.tab === active) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
   });
@@ -559,7 +632,7 @@ main.addEventListener('click', function(e){
    the answer, so searching cannot spoil a question.
    -------------------------------------------------------------------------- */
 /* Search covers the main bank and the MTS 2026 and AS 2026 sections. */
-var EVERY = ALL.concat(AS_ALL, MTS_ALL);
+var EVERY = ALL.concat(AS_ALL, MTS_ALL, PRAC_ALL);
 EVERY.forEach(function(q){
   q.hay = (q.q + ' ' + q.o.join(' ') + ' ' + q.x + ' ' + (q.e || '') + ' ' + q.t.n + ' ' + q.s.n).toLowerCase();
 });
