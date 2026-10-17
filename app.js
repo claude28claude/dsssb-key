@@ -61,6 +61,17 @@ var progress = load('dk-progress', {});
 var filter = load('dk-filter', 'all');
 var view = load('dk-view', 'all');
 var shown = {};   // questions whose answer was revealed without answering (this visit only)
+/* Questions the user marked to come back to. { questionId: time saved },
+   so the newest sits at the top of the Saved tab. Kept in this browser only. */
+var saved = load('dk-saved', {});
+function isSaved(id){ return Object.prototype.hasOwnProperty.call(saved, id); }
+function savedList(){
+  return Object.keys(saved)
+    .filter(function(id){ return BYID[id]; })        // a question dropped by a rebuild just goes
+    .sort(function(a, b){ return saved[b] - saved[a]; })
+    .map(function(id){ return BYID[id]; });
+}
+function savedCount(){ return savedList().length; }
 
 /* Every question gets back-references to its subject and topic. */
 var ALL = [], MTS_ALL = [], AS_ALL = [], PRAC_ALL = [], BYID = {};
@@ -124,10 +135,10 @@ function examsOf(q){
 function passes(q){ return q.bank !== 'main' || filter === 'all' || !!examsOf(q)[filter]; }
 function visible(list){ return list.filter(passes); }
 
-function stat(list){
+function stat(list, everything){
   var n = 0, done = 0, right = 0;
   list.forEach(function(q){
-    if (!passes(q)) return;
+    if (!everything && !passes(q)) return;
     n++;
     if (progress[q.id] !== undefined){ done++; if (progress[q.id] === q.a) right++; }
   });
@@ -184,6 +195,11 @@ function srcChips(q){
   }).join('');
 }
 
+/* Where a question lives, whichever section it belongs to. */
+function topicHref(q){
+  return (q.bank === 'main' ? '#' : '#/' + q.bank) + '/t/' + q.s.id + '/' + q.t.id + '?q=' + q.id;
+}
+
 function cardHTML(q, num, withTopic){
   var chosen = progress[q.id];
   var answered = chosen !== undefined;
@@ -191,7 +207,9 @@ function cardHTML(q, num, withTopic){
   var h = [];
   h.push('<article class="card' + (answered ? ' done' : '') + '" id="q-' + q.id + '" data-id="' + q.id + '">');
   h.push('<div class="cmeta"><span class="qn">Q' + num + '</span>' + srcChips(q) +
-         (withTopic ? '<span class="tlabel">· ' + esc(q.s.n) + ' · ' + esc(q.t.n) + '</span>' : '') + '</div>');
+         (withTopic ? '<a class="tlabel" href="' + topicHref(q) + '">' +
+            (q.bank !== 'main' ? esc(SECTIONS[q.bank].name) + ' · ' : '') +
+            esc(q.s.n) + ' · ' + esc(q.t.n) + '</a>' : '') + '</div>');
   h.push('<p class="qtext">' + esc(q.q) + '</p>');
   h.push('<div class="opts">');
   q.o.forEach(function(o, i){
@@ -214,6 +232,9 @@ function cardHTML(q, num, withTopic){
   } else {
     h.push('<button type="button" class="linkbtn" data-act="show">Show answer</button>');
   }
+  h.push('<button type="button" class="linkbtn savebtn' + (isSaved(q.id) ? ' on' : '') + '" data-act="save"' +
+         ' aria-pressed="' + isSaved(q.id) + '" title="' + (isSaved(q.id) ? 'Remove from Saved' : 'Keep this for revision') + '">' +
+         (isSaved(q.id) ? '★ Saved' : '☆ Save') + '</button>');
   h.push('</div>');
 
   if (revealed){
@@ -237,11 +258,11 @@ function refreshCard(id){
   fresh.innerHTML = cardHTML(BYID[id], num, withTopic);
   node.parentNode.replaceChild(fresh.firstElementChild, node);
   var st = document.getElementById('tstats');
-  if (st && st.dataset.scope) st.innerHTML = statsLine(scopeList(st.dataset.scope));
+  if (st && st.dataset.scope) st.innerHTML = statsLine(scopeList(st.dataset.scope), st.dataset.scope === 'saved');
 }
 
-function statsLine(list){
-  var s = stat(list);
+function statsLine(list, everything){
+  var s = stat(list, everything);
   var pct = s.done ? Math.round(s.right * 100 / s.done) : 0;
   return '<b>' + s.n + '</b> questions · <b>' + s.done + '</b> answered · <span class="ok">' + s.right + ' correct</span>' +
          (s.done ? ' (' + pct + '%)' : '');
@@ -253,6 +274,7 @@ function scopeList(scope){
   var p = scope.split(':');
   if (p[0] === 'topic'){ var s = subjectById(p[1]); var t = topicById(s, p[2]); return t ? t.qs : []; }
   if (p[0] === 'set'){ return (sload(p[1]) || []).map(function(id){ return BYID[id]; }).filter(Boolean); }
+  if (p[0] === 'saved'){ return savedList(); }
   return [];
 }
 
@@ -283,6 +305,7 @@ function pageHome(){
          (AS_ALL.length ? '<a class="btn ghost" href="#/as">AS 2026 shifts</a>' : '') +
          (MTS_ALL.length ? '<a class="btn ghost" href="#/mts">MTS 2026 shifts</a>' : '') +
          (PRAC_ALL.length ? '<a class="btn ghost" href="#/prac">Extra practice questions</a>' : '') +
+         (savedCount() ? '<a class="btn ghost" href="#/saved">★ Saved (' + savedCount() + ')</a>' : '') +
          '</div>');
   h.push('</section>');
 
@@ -387,13 +410,16 @@ function pageSubject(s){
   return h.join('');
 }
 
-function viewChips(){
+/* `withReset` is off on the Saved page: "Clear my answers here" belongs to a
+   topic, and Saved is not a topic. */
+function viewChips(withReset){
   var opts = [['all', 'All'], ['todo', 'Not answered'], ['wrong', 'Got wrong']];
   var h = ['<div class="chips" role="group" aria-label="Which questions to show"><span class="cl">Show</span>'];
   opts.forEach(function(v){
     h.push('<button type="button" class="chip" data-view="' + v[0] + '" aria-pressed="' + (view === v[0]) + '">' + v[1] + '</button>');
   });
-  h.push('<button type="button" class="chip" data-act="reset-topic">Clear my answers here</button></div>');
+  if (withReset !== false) h.push('<button type="button" class="chip" data-act="reset-topic">Clear my answers here</button>');
+  h.push('</div>');
   return h.join('');
 }
 
@@ -480,10 +506,72 @@ function pageTopic(s, t, query){
   return h.join('');
 }
 
+/* --------------------------------------------------------------------------
+   SAVED — the questions the user ticked to come back to, from every section
+   of the site in one list, newest first.
+   -------------------------------------------------------------------------- */
+function pageSaved(query){
+  query = query || {};
+  var all = savedList();
+  var list = all.filter(function(q){
+    if (view === 'todo') return progress[q.id] === undefined;
+    if (view === 'wrong') return progress[q.id] !== undefined && progress[q.id] !== q.a;
+    return true;
+  });
+  var pages = Math.max(1, Math.ceil(list.length / PAGE_SIZE));
+  var pno = Math.min(pages, Math.max(1, parseInt(query.p, 10) || 1));
+  var from = (pno - 1) * PAGE_SIZE;
+  var onPage = list.slice(from, from + PAGE_SIZE);
+
+  /* Where the saved questions came from, so the page says something useful. */
+  var where = {};
+  all.forEach(function(q){ where[q.bank === 'main' ? 'the main bank' : SECTIONS[q.bank].name] = 1; });
+
+  var h = [];
+  h.push('<div class="pagehead"><p class="eyebrow">Your list</p><h1>Saved questions</h1>');
+  if (!all.length){
+    h.push('<p class="lede">Nothing saved yet. Tap <b>☆ Save</b> under any question and it lands here, ' +
+           'so you can revise just those again later. Saved questions stay in this browser.</p></div>');
+    h.push('<div class="empty">No saved questions yet.</div>');
+    brandsub.textContent = 'Saved';
+    document.title = 'Saved — The DSSSB Key';
+    return h.join('');
+  }
+  h.push('<p class="lede">Everything you marked with ★, newest first — from ' +
+         esc(Object.keys(where).join(', ')) + '. Tap ★ Saved on a card to drop it from this list.</p>');
+  h.push(viewChips(false));
+  h.push('<p class="tstats" id="tstats" data-scope="saved">' + statsLine(all, true) + '</p>');
+  if (pages > 1){
+    h.push('<p class="pagenote">Showing question ' + (from + 1) + '–' + (from + onPage.length) +
+           ' of ' + list.length + ' · page ' + pno + ' of ' + pages + '</p>');
+  }
+  h.push('<div class="btnrow"><a class="btn" href="#/saved/p">Practise ' + Math.min(SET_SIZE, all.length) + ' saved at random</a>' +
+         '<button type="button" class="btn ghost" data-act="clear-saved">Empty the list</button></div></div>');
+
+  h.push(pageStrip('#/saved', pno, pages, 'top'));
+  h.push('<div class="cards">');
+  if (!list.length){
+    h.push('<div class="empty">' + (view === 'todo' ? 'You have answered every saved question.'
+                                                    : 'None of your saved questions was answered wrongly.') + '</div>');
+  }
+  onPage.forEach(function(q, i){ h.push(cardHTML(q, from + i + 1, true)); });
+  h.push('</div>');
+  h.push(pageStrip('#/saved', pno, pages, 'bottom'));
+
+  brandsub.textContent = 'Saved';
+  document.title = 'Saved (' + all.length + ') — The DSSSB Key';
+  return h.join('');
+}
+
 /* A practice set prefers questions not yet answered, so repeated sets move
    through the bank instead of showing the same easy ones again. The set is
    kept for the browser session so a reload does not reshuffle it. */
 function newSet(scopeId){
+  if (scopeId === 'saved'){
+    var kept = savedList();
+    shuffle(kept);
+    return kept.slice(0, SET_SIZE).map(function(q){ return q.id; });
+  }
   var pool = scopeId === 'all' ? allNow() : subjectQs(subjectById(scopeId) || { topics: [] });
   pool = visible(pool);
   var fresh = pool.filter(function(q){ return progress[q.id] === undefined; });
@@ -497,21 +585,29 @@ function shuffle(a){
 }
 
 function pagePractice(scopeId){
-  var s = scopeId === 'all' ? null : subjectById(scopeId);
-  if (scopeId !== 'all' && !s) return bank !== 'main' ? pageSectionHome() : pageHome();
-  var key = 'dk-set-' + (bank !== 'main' ? bank + '-' : '') + scopeId + '-' + filter;
+  var fromSaved = scopeId === 'saved';
+  if (fromSaved && !savedCount()) return pageSaved({});
+  var s = (scopeId === 'all' || fromSaved) ? null : subjectById(scopeId);
+  if (!fromSaved && scopeId !== 'all' && !s) return bank !== 'main' ? pageSectionHome() : pageHome();
+  var key = fromSaved ? 'dk-set-saved' : 'dk-set-' + (bank !== 'main' ? bank + '-' : '') + scopeId + '-' + filter;
   var ids = sload(key);
-  if (!ids || !ids.length || ids.some(function(id){ return !BYID[id] || BYID[id].bank !== bank; })){ ids = newSet(scopeId); ssave(key, ids); }
+  var stale = !ids || !ids.length || ids.some(function(id){
+    return !BYID[id] || (fromSaved ? !isSaved(id) : BYID[id].bank !== bank);
+  });
+  if (stale){ ids = newSet(scopeId); ssave(key, ids); }
   var list = ids.map(function(id){ return BYID[id]; });
-  var name = (s ? s.n : 'All subjects') + (bank !== 'main' ? ' · ' + SECTIONS[bank].name : '');
+  var name = fromSaved ? 'Saved questions' : (s ? s.n : 'All subjects') + (bank !== 'main' ? ' · ' + SECTIONS[bank].name : '');
 
   var h = [];
   h.push('<div class="pagehead"><p class="eyebrow">Practice set</p><h1>' + list.length + ' random question' + (list.length === 1 ? '' : 's') + ' · ' + esc(name) + '</h1>' +
-         '<p class="lede">Unanswered questions are picked first. Your answers count towards your progress everywhere on the site.</p>' +
-         filterChips() +
-         '<p class="tstats" id="tstats" data-scope="set:' + key + '">' + statsLine(list) + '</p>' +
+         '<p class="lede">' + (fromSaved
+            ? 'Drawn only from the questions you saved. Your answers count towards your progress everywhere on the site.'
+            : 'Unanswered questions are picked first. Your answers count towards your progress everywhere on the site.') + '</p>' +
+         (fromSaved ? '' : filterChips()) +
+         '<p class="tstats" id="tstats" data-scope="set:' + key + '">' + statsLine(list, fromSaved) + '</p>' +
          '<div class="btnrow"><button type="button" class="btn" data-act="newset" data-key="' + key + '" data-scope="' + scopeId + '">New set</button>' +
-         (s ? '<a class="btn ghost" href="' + link('/s/' + s.id) + '">Back to ' + esc(s.n) + '</a>'
+         (fromSaved ? '<a class="btn ghost" href="#/saved">Back to Saved</a>'
+            : s ? '<a class="btn ghost" href="' + link('/s/' + s.id) + '">Back to ' + esc(s.n) + '</a>'
             : '<a class="btn ghost" href="' + link('/') + '">' + (bank !== 'main' ? 'Back to ' + SECTIONS[bank].name : 'Back home') + '</a>') + '</div></div>');
   h.push('<div class="cards">');
   if (!list.length) h.push('<div class="empty">No questions available for the selected papers.</div>');
@@ -543,7 +639,9 @@ function route(keepScroll){
   var r = parseHash(), p = r.parts, html, s, t;
   bank = SECTIONS.hasOwnProperty(p[0]) && SECTIONS[p[0]].all.length ? p[0] : 'main';
   if (bank !== 'main') p = p.slice(1);
-  if (p[0] === 't' && (s = subjectById(p[1])) && (t = topicById(s, p[2]))) html = pageTopic(s, t, r.query);
+  /* Saved spans every section, so it is not a section of its own. */
+  if (p[0] === 'saved') html = p[1] === 'p' ? pagePractice('saved') : pageSaved(r.query);
+  else if (p[0] === 't' && (s = subjectById(p[1])) && (t = topicById(s, p[2]))) html = pageTopic(s, t, r.query);
   else if (p[0] === 's' && (s = subjectById(p[1]))) html = pageSubject(s);
   else if (p[0] === 'p' && p[1]) html = pagePractice(p[1]);
   else html = bank !== 'main' ? pageSectionHome() : pageHome();
@@ -560,8 +658,19 @@ function route(keepScroll){
   }
 }
 
+function savedTabLabel(){
+  var c = savedCount();
+  return '★ Saved' + (c ? ' (' + c + ')' : '');
+}
+/* The count in the tab changes as the user saves, without a full redraw. */
+function updateSavedTab(){
+  var a = tabsEl.querySelector('[data-tab="saved"]');
+  if (a) a.textContent = savedTabLabel();
+}
+
 function buildTabs(){
   var h = ['<a href="#/" data-tab="home">Home</a>'];
+  h.push('<a href="#/saved" data-tab="saved" class="savedtab">' + savedTabLabel() + '</a>');
   if (AS_ALL.length) h.push('<a href="#/as" data-tab="as">AS 2026</a>');
   if (MTS_ALL.length) h.push('<a href="#/mts" data-tab="mts">MTS 2026</a>');
   if (PRAC_ALL.length) h.push('<a href="#/prac" data-tab="prac">Extra Practice</a>');
@@ -570,7 +679,8 @@ function buildTabs(){
   tabsEl.innerHTML = h.join('');
 }
 function syncTabs(p){
-  var active = bank !== 'main' ? bank : !p.length ? 'home' : p[0] === 'p' ? (p[1] === 'all' ? 'practice' : p[1]) : (p[0] === 's' || p[0] === 't') ? p[1] : 'home';
+  var active = p[0] === 'saved' ? 'saved' : bank !== 'main' ? bank : !p.length ? 'home' :
+               p[0] === 'p' ? (p[1] === 'all' ? 'practice' : p[1]) : (p[0] === 's' || p[0] === 't') ? p[1] : 'home';
   /* An address that names no real subject falls back to the home page, so light Home. */
   var known = Array.prototype.some.call(tabsEl.children, function(a){ return a.dataset.tab === active; });
   if (!known) active = 'home';
@@ -603,6 +713,16 @@ main.addEventListener('click', function(e){
     }
     return;
   }
+  if (act && act.dataset.act === 'clear-saved'){
+    var howMany = savedCount();
+    if (howMany && window.confirm('Remove all ' + howMany + ' questions from your Saved list? Your answers are not touched.')){
+      saved = {};
+      save('dk-saved', saved);
+      updateSavedTab();
+      route(false);
+    }
+    return;
+  }
   if (act && act.dataset.act === 'newset'){
     ssave(act.dataset.key, newSet(act.dataset.scope));
     route(false);
@@ -615,10 +735,16 @@ main.addEventListener('click', function(e){
     if (act.dataset.act === 'show') shown[id] = true;
     if (act.dataset.act === 'hide') delete shown[id];
     if (act.dataset.act === 'retry'){ delete progress[id]; delete shown[id]; save('dk-progress', progress); }
+    if (act.dataset.act === 'save'){
+      if (isSaved(id)) delete saved[id]; else saved[id] = Date.now();
+      save('dk-saved', saved);
+      updateSavedTab();
+    }
     refreshCard(id);
     return;
   }
 
+  if (e.target.closest('.tlabel')) return;
   var opt = e.target.closest('.opt');
   if (opt && progress[id] === undefined){
     progress[id] = Number(opt.dataset.i);

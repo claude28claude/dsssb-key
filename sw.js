@@ -6,7 +6,7 @@
    (a cache-first worker on a sister site once served new data to old code),
    and the cached copies take over when offline. */
 
-var CACHE = 'dsssb-key-v5';
+var CACHE = 'dsssb-key-v6';
 var ASSETS = [
   './', './index.html', './styles.css', './app.js', './manifest.webmanifest',
   './data-static.js', './data-hist.js', './data-pol.js', './data-geo.js', './data-eco.js',

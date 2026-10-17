@@ -173,6 +173,7 @@ h2{font-size:var(--t-lead)}
 .src.home{color:var(--right);border-color:rgba(var(--right-rgb),.45)}
 .src.written{color:var(--warn);border-color:rgba(var(--warn-rgb),.45);background:rgba(var(--warn-rgb),.07)}
 .tlabel{font-family:var(--mono);font-size:var(--t-micro);color:var(--dim)}
+a.tlabel:hover{color:var(--accent)}
 .qtext{font-family:var(--serif);font-size:var(--t-lead);line-height:1.45;margin:0 0 12px}
 @media (max-width:640px){.qtext{font-size:var(--t-copy)}}
 
@@ -202,6 +203,11 @@ h2{font-size:var(--t-lead)}
 .verdict{font-weight:600;font-size:var(--t-small)}
 .verdict.ok{color:var(--right)}
 .verdict.no{color:var(--wrong)}
+.savebtn{margin-left:auto;color:var(--dimmer)}
+.savebtn:hover{color:var(--warn)}
+.savebtn.on{color:var(--warn)}
+.tabs a.savedtab{color:var(--warn)}
+.tabs a.savedtab[aria-current="true"]{color:var(--warn);border-bottom-color:var(--warn)}
 
 .reveal{margin-top:10px;border-top:1px solid var(--line);padding-top:10px}
 .reveal p{margin:0 0 8px;font-size:var(--t-copy);max-width:72ch}
