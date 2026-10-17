@@ -6,7 +6,7 @@
    (a cache-first worker on a sister site once served new data to old code),
    and the cached copies take over when offline. */
 
-var CACHE = 'dsssb-key-v6';
+var CACHE = 'dsssb-key-v7';
 var ASSETS = [
   './', './index.html', './styles.css', './app.js', './manifest.webmanifest',
   './data-static.js', './data-hist.js', './data-pol.js', './data-geo.js', './data-eco.js',
@@ -39,6 +39,10 @@ self.addEventListener('activate', function (e) {
 self.addEventListener('fetch', function (e) {
   var req = e.request;
   if (req.method !== 'GET' || new URL(req.url).origin !== location.origin) return;
+  /* /patwari/ is a separate site with its own worker. Never answer for it here:
+     this worker stores every navigation as index.html, so the Patwari page
+     would replace the Key's offline copy. */
+  if (new URL(req.url).pathname.indexOf('/patwari/') !== -1) return;
   e.respondWith(
     fetch(req).then(function (res) {
       if (res && res.ok) {

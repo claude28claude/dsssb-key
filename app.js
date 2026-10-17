@@ -281,6 +281,34 @@ function scopeList(scope){
 /* --------------------------------------------------------------------------
    PAGES
    -------------------------------------------------------------------------- */
+/* The front door: two sites live at this address. The Key (this app) and the
+   DUSIB Patwari Prep site in /patwari/, which is a separate page with its own
+   offline cache and its own saved list. */
+function pageStart(){
+  var keyQ = visible(ALL).length + MTS_ALL.length + AS_ALL.length;
+  var h = [];
+  h.push('<section class="gate">');
+  h.push('<h1>Which do you want to open?</h1>');
+  h.push('<p class="lede">Two study sites live here. Pick one; you can switch at any time from the tab bar.</p>');
+  h.push('<div class="gategrid">');
+  h.push('<a class="gatecard" href="#/">' +
+         '<span class="gk">Previous-year GK</span>' +
+         '<b>The DSSSB Key</b>' +
+         '<span class="gd">Static GK that DSSSB has actually asked since 2021, with answers and explanations. ASO, Patwari 2022, MTS 2026, AS 2026 and more.</span>' +
+         '<span class="gs">' + keyQ + ' questions</span>' +
+         '<span class="btn">Open the DSSSB Key →</span></a>');
+  h.push('<a class="gatecard pat" href="patwari/">' +
+         '<span class="gk">Subject paper · Post Code 14/26</span>' +
+         '<b>DUSIB Patwari Prep</b>' +
+         '<span class="gd">Every Delhi Act in the syllabus with section tables and traps (DUSIB 2010 + 2026 amendment, DD Act, Land Revenue, Land Reforms, LA 1894, RFCTLARR 2013, PLR 1887, NCT Special Provisions, Delhi administration), computer revision, a 100-question timed mock and a Revise list.</span>' +
+         '<span class="gs">557 MCQs</span>' +
+         '<span class="btn">Open Patwari Prep →</span></a>');
+  h.push('</div></section>');
+  brandsub.textContent = 'Choose a site';
+  document.title = 'The DSSSB Key — choose: previous-year GK or DUSIB Patwari Prep';
+  return h.join('');
+}
+
 function pageHome(){
   var shownQs = visible(ALL);
   var totalQ = shownQs.length;
@@ -637,6 +665,16 @@ function parseHash(){
 
 function route(keepScroll){
   var r = parseHash(), p = r.parts, html, s, t;
+  /* The front door: arriving at the bare address (or #/start) asks which site
+     to open. Every link inside the Key says #/ explicitly, so it never lands here. */
+  var bare = !location.hash || location.hash === '#';
+  if (bare || (p[0] === 'start' && p.length === 1)){
+    bank = 'main';
+    main.innerHTML = pageStart();
+    syncTabs(['start']);
+    window.scrollTo(0, 0);
+    return;
+  }
   bank = SECTIONS.hasOwnProperty(p[0]) && SECTIONS[p[0]].all.length ? p[0] : 'main';
   if (bank !== 'main') p = p.slice(1);
   /* Saved spans every section, so it is not a section of its own. */
@@ -669,7 +707,8 @@ function updateSavedTab(){
 }
 
 function buildTabs(){
-  var h = ['<a href="#/" data-tab="home">Home</a>'];
+  var h = ['<a href="#/start" data-tab="start" class="starttab">⇄ Sites</a>', '<a href="#/" data-tab="home">Home</a>'];
+  h.push('<a href="patwari/" data-tab="patwari" class="pattab">Patwari Prep</a>');
   h.push('<a href="#/saved" data-tab="saved" class="savedtab">' + savedTabLabel() + '</a>');
   if (AS_ALL.length) h.push('<a href="#/as" data-tab="as">AS 2026</a>');
   if (MTS_ALL.length) h.push('<a href="#/mts" data-tab="mts">MTS 2026</a>');
@@ -679,7 +718,7 @@ function buildTabs(){
   tabsEl.innerHTML = h.join('');
 }
 function syncTabs(p){
-  var active = p[0] === 'saved' ? 'saved' : bank !== 'main' ? bank : !p.length ? 'home' :
+  var active = p[0] === 'start' ? 'start' : p[0] === 'saved' ? 'saved' : bank !== 'main' ? bank : !p.length ? 'home' :
                p[0] === 'p' ? (p[1] === 'all' ? 'practice' : p[1]) : (p[0] === 's' || p[0] === 't') ? p[1] : 'home';
   /* An address that names no real subject falls back to the home page, so light Home. */
   var known = Array.prototype.some.call(tabsEl.children, function(a){ return a.dataset.tab === active; });

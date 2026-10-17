@@ -1,0 +1,17 @@
+{
+  "name": "DUSIB Patwari Prep — Delhi Acts, Computer, MCQs",
+  "short_name": "Patwari",
+  "description": "DUSIB Patwari (Post Code 14/26) prep: every Delhi Act in the syllabus, computer revision, 557 MCQs, a timed mock and a Revise list. Works offline.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#141a17",
+  "theme_color": "#141a17",
+  "categories": ["education", "reference"],
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

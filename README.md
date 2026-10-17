@@ -5,6 +5,14 @@ Static General Awareness questions from DSSSB computer-based tests held since
 you tap an option. Current affairs removed. Plain HTML/CSS/JS, no build step
 to serve, works offline as an installable app.
 
+The bare address opens a **front door** that asks which site to open: the Key
+itself, or **DUSIB Patwari Prep** in `patwari/` (the subject paper for Post
+Code 14/26: every Delhi Act in the syllabus with section tables, computer
+revision, 557 MCQs, a timed 100-question mock and a Revise list). The Patwari
+site is a separate page with its own service worker and its own saved list;
+the Key's worker leaves `/patwari/` alone. `#/start` or the **⇄ Sites** tab
+brings the front door back.
+
 ## Where the papers come from
 
 - DSSSB's own "Question Bank Online Exam" pages on dsssb.delhi.gov.in

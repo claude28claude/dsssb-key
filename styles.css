@@ -262,3 +262,22 @@ footer kbd{font-family:var(--mono);font-size:var(--t-micro);border:1px solid var
 
 @media print{.top,#results,footer,.railnav,.cfoot,.chips{display:none}body{background:#fff;color:#000}}
 @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* ---------------- front door: choose a site ---------------- */
+.gate{padding:8px 0 28px}
+.gate h1{font-size:27px;margin:6px 0 0}
+.gategrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:20px}
+.gatecard{display:flex;flex-direction:column;gap:8px;border:1px solid var(--line2);border-radius:var(--r);
+  background:linear-gradient(160deg,var(--panel2),var(--panel));padding:22px 20px;color:var(--ink);min-width:0}
+.gatecard:hover{text-decoration:none;border-color:var(--accent)}
+.gatecard b{font-family:var(--serif);font-size:var(--t-big);font-weight:600;line-height:1.2}
+.gatecard .gk{font-family:var(--mono);font-size:var(--t-micro);text-transform:uppercase;letter-spacing:.09em;color:var(--dim)}
+.gatecard .gd{color:var(--dim);font-size:var(--t-copy);flex:1}
+.gatecard .gs{font-family:var(--mono);font-size:var(--t-small);color:var(--accent)}
+.gatecard .btn{align-self:flex-start;margin-top:6px}
+.gatecard.pat{border-color:rgba(var(--wrong-rgb),.45)}
+.gatecard.pat:hover{border-color:var(--wrong)}
+.gatecard.pat .gs{color:var(--wrong)}
+.gatecard.pat .btn{background:var(--wrong)}
+.tabs a.pattab{color:var(--wrong)}
+.tabs a.starttab{color:var(--ink)}

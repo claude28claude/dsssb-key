@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>DUSIB Patwari Prep</title>
+<meta name="description" content="DUSIB Patwari (Post Code 14/26) prep: every Delhi Act in the syllabus with section tables and traps, computer revision, 557 MCQs, a timed 100-question mock with negative marking, and a Revise list of wrong and saved questions. Works offline.">
+<meta name="theme-color" content="#141a17">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Patwari">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="preload" href="../fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/literata-600.woff2" as="font" type="font/woff2" crossorigin>
+</head>
+<body>
+
+<style>
+@font-face{font-family:'Literata';font-weight:400;font-display:swap;src:url('../fonts/literata-400.woff2') format('woff2')}
+@font-face{font-family:'Literata';font-weight:600;font-display:swap;src:url('../fonts/literata-600.woff2') format('woff2')}
+@font-face{font-family:'Inter';font-weight:400;font-display:swap;src:url('../fonts/inter-400.woff2') format('woff2')}
+@font-face{font-family:'Inter';font-weight:600;font-display:swap;src:url('../fonts/inter-600.woff2') format('woff2')}
+@font-face{font-family:'IBM Plex Mono';font-weight:400;font-display:swap;src:url('../fonts/plexmono-400.woff2') format('woff2')}
+@font-face{font-family:'IBM Plex Mono';font-weight:500;font-display:swap;src:url('../fonts/plexmono-500.woff2') format('woff2')}
+/* Layout: a revenue-register desk. Sticky tab bar, one panel at a time, ledger-style fact strips and section tables. Dim sage paper, never white. */
+:root{
+  --bg:#d6dbcd; --surface:#e2e6d9; --surface2:#cad1bf; --ink:#1e2922; --muted:#4f5c53; --rule:#aeb7a2;
+  --law:#a1232a; --law-soft:#e6d0c8; --comp:#1b5870; --comp-soft:#cbdbdc;
+  --ok:#2b6838; --ok-soft:#c9dcc5; --bad:#94460f; --bad-soft:#e7d2bd; --focus:#1b5870;
+  --f-display:"Literata",Georgia,"Times New Roman",serif;
+  --f-body:"Inter","Segoe UI",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#141a17; --surface:#1c2420; --surface2:#25302a; --ink:#d9e0d4; --muted:#92a096; --rule:#34413a;
+  --law:#ef7d76; --law-soft:#3a2321; --comp:#82bfd6; --comp-soft:#1b2f37;
+  --ok:#82c792; --ok-soft:#1e3324; --bad:#e8a86f; --bad-soft:#3a2a1b; --focus:#82bfd6; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141a17; --surface:#1c2420; --surface2:#25302a; --ink:#d9e0d4; --muted:#92a096; --rule:#34413a;
+  --law:#ef7d76; --law-soft:#3a2321; --comp:#82bfd6; --comp-soft:#1b2f37;
+  --ok:#82c792; --ok-soft:#1e3324; --bad:#e8a86f; --bad-soft:#3a2a1b; --focus:#82bfd6; color-scheme:dark}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3,h4{font-family:var(--f-display);font-weight:600;text-wrap:balance;line-height:1.2;margin:0}
+h2{font-size:1.75rem} h3{font-size:1.35rem} h4{font-size:1.05rem}
+p{margin:0} ul{margin:0;padding-left:1.2em} li+li{margin-top:.3em}
+code,kbd,.mono{font-family:var(--f-mono);font-size:.88em}
+kbd{background:var(--surface2);border:1px solid var(--rule);border-bottom-width:2px;border-radius:4px;padding:0 .35em;white-space:nowrap}
+a{color:var(--comp)}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+
+header.top{padding-block:20px 12px}
+.brand{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;justify-content:space-between}
+.brand h1{font-size:clamp(1.6rem,4vw,2.3rem)}
+.brand h1 span{color:var(--law)}
+.meta{color:var(--muted);font-size:.92rem}
+.themebtn{font:inherit;font-size:.85rem;background:transparent;color:var(--muted);border:1px solid var(--rule);border-radius:6px;padding:4px 10px;cursor:pointer}
+
+nav.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-block:1px solid var(--rule)}
+nav.tabs .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+nav.tabs button{font:inherit;font-weight:700;font-size:.95rem;background:none;border:0;border-bottom:3px solid transparent;color:var(--muted);padding:12px 12px 9px;cursor:pointer;white-space:nowrap}
+nav.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--ink)}
+nav.tabs button.backbtn{position:sticky;left:0;z-index:1;background:var(--surface);color:var(--ink);border-bottom:0;border-right:1px solid var(--rule);padding-inline:4px 14px;margin-right:2px}
+nav.tabs button.backbtn:disabled{color:var(--muted);opacity:.5;cursor:default}
+nav.tabs button.t-law{color:var(--law)}
+nav.tabs button.t-law[aria-selected="true"]{border-bottom-color:var(--law)}
+nav.tabs button.t-comp[aria-selected="true"]{border-bottom-color:var(--comp);color:var(--comp)}
+
+main{padding-block:24px 64px}
+.panel{display:grid;gap:22px}
+.lede{max-width:68ch;color:var(--muted)}
+.banner{border-radius:10px;padding:18px 20px;display:grid;gap:6px}
+.banner.law{background:var(--law-soft);border-left:6px solid var(--law)}
+.banner.law h2{color:var(--law)}
+.banner.comp{background:var(--comp-soft);border-left:6px solid var(--comp)}
+.banner.comp h2{color:var(--comp)}
+
+.subnav{display:flex;flex-wrap:wrap;gap:6px}
+.subnav a{font-size:.88rem;text-decoration:none;color:var(--ink);background:var(--surface);border:1px solid var(--rule);border-radius:999px;padding:4px 11px}
+.subnav.law a:hover{border-color:var(--law);color:var(--law)}
+.subnav.comp a:hover{border-color:var(--comp);color:var(--comp)}
+
+article.unit{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:20px;display:grid;gap:14px;scroll-margin-top:70px;min-width:0}
+article.unit.law h3{color:var(--law)}
+article.unit.comp h3{color:var(--comp)}
+.tag{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:8px;overflow:hidden}
+.facts div{background:var(--bg);padding:9px 12px;display:grid;gap:2px}
+.facts dt{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.facts dd{margin:0;font-weight:700}
+.tbl{overflow-x:auto;border:1px solid var(--rule);border-radius:8px}
+table{border-collapse:collapse;width:100%;font-size:.94rem}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{background:var(--surface2);font-size:.78rem;letter-spacing:.05em;text-transform:uppercase}
+tr:last-child td{border-bottom:0}
+td.sec{font-family:var(--f-mono);font-weight:500;white-space:nowrap;width:1%}
+.law td.sec{color:var(--law)} .comp td.sec{color:var(--comp)}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.two>*{min-width:0}
+.note{border-left:4px solid var(--bad);background:var(--bad-soft);padding:9px 12px;border-radius:0 8px 8px 0;font-size:.95rem}
+.note.new{border-left-color:var(--ok);background:var(--ok-soft)}
+.note b{font-weight:700}
+.boxhead{font-weight:700;margin-bottom:4px}
+
+/* plan */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.stat{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:12px 14px}
+.stat b{display:block;font-family:var(--f-display);font-size:1.6rem;font-variant-numeric:tabular-nums}
+.stat span{font-size:.85rem;color:var(--muted)}
+.plan td:first-child{font-family:var(--f-mono);white-space:nowrap}
+
+/* quiz */
+.qsetup{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:18px;display:grid;gap:14px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--rule);border-radius:999px;padding:4px 11px;font-size:.88rem;cursor:pointer;background:var(--bg);user-select:none}
+.chip input{accent-color:var(--ink);margin:0}
+.chip:has(input:checked){background:var(--surface2);border-color:var(--ink)}
+.row{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
+select,.btn{font:inherit}
+select{background:var(--bg);color:var(--ink);border:1px solid var(--rule);border-radius:6px;padding:6px 8px}
+.btn{border:1px solid var(--ink);background:var(--ink);color:var(--bg);font-weight:700;border-radius:8px;padding:9px 16px;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--rule)}
+.btn.law{background:var(--law);border-color:var(--law);color:var(--bg)}
+.btn.comp{background:var(--comp);border-color:var(--comp);color:var(--bg)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.qcard{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:18px;display:grid;gap:14px}
+.qbar{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;font-size:.9rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.qbar .timer{font-family:var(--f-mono);font-weight:500;color:var(--ink)}
+.qbar .timer.low{color:var(--bad)}
+.progress{height:5px;background:var(--surface2);border-radius:3px;overflow:hidden}
+.progress i{display:block;height:100%;background:var(--ink);width:0}
+.qtext{font-size:1.12rem;font-weight:700;max-width:70ch}
+.qtopic{font-family:var(--f-mono);font-size:.74rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.opts{display:grid;gap:8px}
+.opt{display:flex;gap:10px;align-items:flex-start;text-align:left;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--rule);border-radius:8px;padding:10px 12px;cursor:pointer}
+.opt .k{font-family:var(--f-mono);font-weight:500;min-width:1.4em;color:var(--muted)}
+.opt:hover:not(:disabled){border-color:var(--ink)}
+.opt.picked{border-color:var(--ink);background:var(--surface2)}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.right .k::after{content:" ✓";color:var(--ok)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt.wrong .k::after{content:" ✕";color:var(--bad)}
+.opt:disabled{cursor:default}
+.expl{font-size:.95rem;border-left:4px solid var(--ok);padding:8px 12px;background:var(--ok-soft);border-radius:0 8px 8px 0}
+.expl.bad{border-left-color:var(--bad);background:var(--bad-soft)}
+.qnav{display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between}
+.palette{display:grid;grid-template-columns:repeat(auto-fill,minmax(34px,1fr));gap:4px}
+.palette button{font:inherit;font-size:.78rem;font-variant-numeric:tabular-nums;padding:5px 0;border-radius:5px;border:1px solid var(--rule);background:var(--bg);color:var(--muted);cursor:pointer}
+.palette button.done{background:var(--surface2);color:var(--ink);border-color:var(--ink)}
+.palette button.cur{outline:2px solid var(--focus);outline-offset:1px}
+.palette button.flag{border-color:var(--bad);color:var(--bad)}
+.result{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:18px;display:grid;gap:16px}
+.big{font-family:var(--f-display);font-size:2.6rem;font-variant-numeric:tabular-nums;line-height:1}
+.pill{display:inline-block;font-size:.8rem;font-weight:700;border-radius:999px;padding:2px 10px}
+.pill.ok{background:var(--ok-soft);color:var(--ok)} .pill.bad{background:var(--bad-soft);color:var(--bad)}
+.target{position:relative;height:14px;background:var(--surface2);border-radius:7px;overflow:visible}
+.target i{display:block;height:100%;border-radius:7px;background:var(--ink)}
+.target i.ok{background:var(--ok)} .target i.bad{background:var(--bad)}
+.target s{position:absolute;top:-4px;bottom:-4px;left:80%;width:2px;background:var(--ink)}
+.target em{position:absolute;top:-22px;left:80%;transform:translateX(-50%);font-size:.72rem;font-style:normal;color:var(--muted)}
+.review{display:grid;gap:10px}
+.review div{border:1px solid var(--rule);border-radius:8px;padding:10px 12px;font-size:.95rem;display:grid;gap:3px;background:var(--bg)}
+.review .ans{color:var(--ok);font-weight:700}
+.review .your{color:var(--bad)}
+.muted{color:var(--muted)}
+.small{font-size:.88rem}
+footer{color:var(--muted);font-size:.85rem;padding-block:24px;border-top:1px solid var(--rule)}
+.count{display:inline-block;min-width:1.6em;text-align:center;font-size:.75rem;font-variant-numeric:tabular-nums;background:var(--bad);color:var(--bg);border-radius:999px;padding:0 6px;margin-left:2px}
+.count:empty,.count[data-zero]{background:var(--surface2);color:var(--muted)}
+.savebtn{font:inherit;font-size:.85rem;font-weight:700;background:transparent;color:var(--muted);border:1px solid var(--rule);border-radius:999px;padding:3px 11px;cursor:pointer;white-space:nowrap}
+.savebtn[aria-pressed="true"]{color:var(--bad);border-color:var(--bad);background:var(--bad-soft)}
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.rvlist{display:grid;gap:10px}
+.rvitem{border:1px solid var(--rule);border-radius:8px;padding:12px;display:grid;gap:5px;background:var(--surface);min-width:0}
+.rvitem .meta2{display:flex;flex-wrap:wrap;gap:6px;align-items:center;justify-content:space-between}
+.rvitem .ans{color:var(--ok);font-weight:700}
+.badge{font-size:.72rem;font-weight:700;border-radius:999px;padding:1px 8px;background:var(--surface2);color:var(--muted)}
+.badge.w{background:var(--bad-soft);color:var(--bad)} .badge.s{background:var(--comp-soft);color:var(--comp)} .badge.ok{background:var(--ok-soft);color:var(--ok)}
+.linkbtn{font:inherit;font-size:.82rem;background:none;border:0;color:var(--muted);text-decoration:underline;cursor:pointer;padding:2px 4px}
+.seg{display:inline-flex;border:1px solid var(--rule);border-radius:8px;overflow:hidden}
+.seg button{font:inherit;font-size:.88rem;background:var(--bg);color:var(--muted);border:0;border-right:1px solid var(--rule);padding:6px 12px;cursor:pointer}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg);font-weight:700}
+.sync{font-size:.82rem;color:var(--muted)}
+@media (max-width:560px){h2{font-size:1.45rem} article.unit{padding:14px} .qcard,.qsetup,.result{padding:14px}}
+@media (prefers-reduced-motion:no-preference){.progress i,.target i{transition:width .3s ease}}
+</style>
+
+<header class="top">
+  <div class="wrap brand">
+    <div>
+      <h1>DUSIB <span>Patwari</span> Prep</h1>
+      <p class="meta">Post Code 14/26 · Subject-specific syllabus: (A) Relevant Acts · (B) Computer Knowledge · <a href="../#/start">⇄ Switch to DSSSB Key</a></p>
+    </div>
+    <button class="themebtn" id="themeBtn" type="button">Theme: system</button>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Sections">
+  <div class="wrap" role="tablist">
+    <button id="backBtn" class="backbtn" type="button" disabled aria-label="Go back one step">← Back</button>
+    <button role="tab" data-tab="plan" aria-selected="true">Plan</button>
+    <button role="tab" data-tab="laws" class="t-law" aria-selected="false">Delhi Laws</button>
+    <button role="tab" data-tab="computer" class="t-comp" aria-selected="false">Computer</button>
+    <button role="tab" data-tab="lawq" class="t-law" aria-selected="false">Law MCQs</button>
+    <button role="tab" data-tab="compq" class="t-comp" aria-selected="false">Computer MCQs</button>
+    <button role="tab" data-tab="mock" aria-selected="false">Full Mock · 100</button>
+    <button role="tab" data-tab="revise" aria-selected="false">Revise <span class="count" id="rvCount">0</span></button>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- ============ PLAN ============ -->
+<section class="panel" data-panel="plan">
+  <div class="stats">
+    <div class="stat"><b>19 Oct</b><span>Shift III, 5–7 PM (DSSSB calendar; confirm on admit card)</span></div>
+    <div class="stat"><b>100 Q</b><span>From this syllabus (your estimate)</span></div>
+    <div class="stat"><b>−0.25</b><span>Negative mark per wrong answer (standard DSSSB)</span></div>
+    <div class="stat"><b>80+</b><span>Your target net score out of 100</span></div>
+  </div>
+
+  <div class="two">
+    <div class="qsetup">
+      <h3>The 80% math</h3>
+      <p>With −0.25 per wrong answer, net = right − wrong ÷ 4.</p>
+      <div class="tbl"><table>
+        <tr><th>Attempt</th><th>Right</th><th>Wrong</th><th>Net</th></tr>
+        <tr><td>100</td><td>84</td><td>16</td><td><b>80</b></td></tr>
+        <tr><td>92</td><td>82</td><td>10</td><td><b>79.5</b></td></tr>
+        <tr><td>88</td><td>81</td><td>7</td><td><b>79.25</b></td></tr>
+      </table></div>
+      <p class="small muted">Rule: attempt a doubtful question only if you can cut it to two options. A 50/50 guess still gains +0.375 on average.</p>
+    </div>
+    <div class="qsetup">
+      <h3>Where marks hide</h3>
+      <ul>
+        <li><b>Computer</b> is your strength: aim 45+/50. Do 2 Computer MCQ sets only to catch traps (shortcuts, Excel limits, ports).</li>
+        <li><b>Acts</b> decide the 80%. Sections, numbers and dates of LA 1894 and RFCTLARR 2013 are the most question-dense.</li>
+        <li><b>2026 updates</b> are likely: DUSIB cut-off moved to 01.01.2025, 13 districts, new LG, MPD-2047 draft.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>36-hour plan</h3>
+  <div class="tbl plan"><table>
+    <tr><th>When</th><th>Do this</th><th>Then test</th></tr>
+    <tr><td>Hr 0–3</td><td>Read Delhi Laws: RFCTLARR 2013 and LA 1894 (side-by-side table)</td><td>Law MCQs: topics LA 1894 + RFCTLARR, 50 Q, practice mode</td></tr>
+    <tr><td>Hr 3–6</td><td>DUSIB Act, DD Act 1957, NCT Special Provisions, Administration</td><td>Law MCQs on those 4 topics, 50 Q</td></tr>
+    <tr><td>Hr 6–8</td><td>Delhi Land Revenue, Land Reforms Act, PLR Act 1887, Land reforms in India, patwari terms</td><td>Law MCQs on those, 50 Q</td></tr>
+    <tr><td>Hr 8–16</td><td colspan="2">Sleep. Memory consolidates what you read.</td></tr>
+    <tr><td>Hr 16–19</td><td>Computer theory skim (tables only)</td><td>Computer MCQs, All topics, 50 Q test mode</td></tr>
+    <tr><td>Hr 19–21</td><td>Full Mock #1 (60 min, negative on)</td><td>Review every wrong answer in theory</td></tr>
+    <tr><td>Hr 21–24</td><td>Laws re-read: only the section tables and "Traps" boxes</td><td>Practice "Only my mistakes"</td></tr>
+    <tr><td>Hr 24–26</td><td>Full Mock #2</td><td>Target net 80+. Below that, repeat mistakes set</td></tr>
+    <tr><td>Hr 26–33</td><td colspan="2">Sleep / rest. Light revision of the numbers sheet below.</td></tr>
+    <tr><td>Last 2 hr</td><td colspan="2">Numbers sheet + mistakes set only. Nothing new.</td></tr>
+  </table></div>
+
+  <h3>Numbers sheet</h3>
+  <div class="tbl"><table>
+    <tr><th>Fact</th><th>Value</th><th>Source</th></tr>
+    <tr><td>Solatium</td><td><b>30%</b> (1894) vs <b>100%</b> (2013)</td><td>S.23(2) / S.30</td></tr>
+    <tr><td>Additional amount</td><td>12% p.a.</td><td>S.23(1A) / S.30(3)</td></tr>
+    <tr><td>Interest on delay</td><td>9% first year, 15% after</td><td>S.34 / S.80</td></tr>
+    <tr><td>Consent</td><td>80% private, 70% PPP</td><td>2013 S.2(2)</td></tr>
+    <tr><td>Time limits (2013)</td><td>SIA 6 mo · Expert group 2 mo · Objections 60 days · Declaration 12 mo · Award 12 mo</td><td>S.4, 7, 15, 19, 25</td></tr>
+    <tr><td>Time limits (1894)</td><td>Objections 30 days · Declaration 1 yr · Award 2 yr</td><td>S.5A, 6, 11A</td></tr>
+    <tr><td>Urgency extra</td><td>75%</td><td>2013 S.40(5)</td></tr>
+    <tr><td>R&amp;R committee</td><td>100 acres+</td><td>2013 S.45</td></tr>
+    <tr><td>Unused land return</td><td>5 years</td><td>2013 S.101</td></tr>
+    <tr><td>Rural multiplier</td><td>1 to 2 (max ~4× MV)</td><td>First Schedule</td></tr>
+    <tr><td>JJ basti</td><td>50+ households; cut-off 01.01.2006 → <b>01.01.2025</b> (2026 amendment)</td><td>DUSIB S.2(g)(iii)</td></tr>
+    <tr><td>2015 Policy</td><td>Individual cut-off 01.01.2015; rehab in-situ or within 5 km</td><td>DUSIB policy</td></tr>
+    <tr><td>NCT Special Provisions</td><td>Valid till <b>31.12.2026</b>; JJ cut-off 01.01.2006</td><td>2023 amendment</td></tr>
+    <tr><td>Land Reforms transfer</td><td>Not below 8 standard acres</td><td>DLR Act S.33</td></tr>
+    <tr><td>DUSIB sections</td><td>S.9 survey · S.10 remove &amp; resettle (no consent) · S.11 improve · S.12 redevelop · S.14 vacant sites · S.42 eviction</td><td>DUSIB Act</td></tr>
+    <tr><td>DLRev sections</td><td>S.13 Patwari per halka (by DC) · S.14 Kanungo · S.20 RoR per village · S.21 Annual Register · S.23 Tahsildar mutation · S.41 presumption · S.65/66 appeals · S.72 revision</td><td>Delhi LR Act</td></tr>
+    <tr><td>Ejectment</td><td>S.84 suit · S.85 occupier becomes Bhumidhar/Asami · S.86A Revenue Assistant (3 yrs)</td><td>Delhi Land Reforms Act</td></tr>
+    <tr><td>Unauthorised colonies</td><td>Existing 31.03.2002, construction till 01.06.2014</td><td>NCT Act S.3(2)</td></tr>
+    <tr><td>Delhi area</td><td>1 acre = 4.8 bigha; 1 bigha = 20 biswa</td><td>Revenue practice</td></tr>
+    <tr><td>Delhi polity</td><td>70 MLAs (12 SC) · 7 ministers max · 7 LS · 3 RS · 250 MCD wards · 13 districts</td><td>Art 239AA etc.</td></tr>
+  </table></div>
+</section>
+
+<!-- ============ LAWS ============ -->
+<section class="panel" data-panel="laws" hidden>
+  <div class="banner law">
+    <h2>Delhi Laws</h2>
+    <p>Section (A), Knowledge of Relevant Acts. Each act has quick facts, a section table, and traps examiners use.</p>
+  </div>
+  <nav class="subnav law" aria-label="Acts">
+    <a href="#a-glance">At a glance</a><a href="#a-dusib">DUSIB 2010</a><a href="#a-dda">DD Act 1957</a><a href="#a-dlrv">Land Revenue 1954</a><a href="#a-lri">Land Reforms India</a><a href="#a-nct">NCT Special Provisions 2011</a><a href="#a-la">LA Act 1894</a><a href="#a-rfct">RFCTLARR 2013</a><a href="#a-plr">PLR Act 1887</a><a href="#a-dlrf">Land Reforms Act 1954</a><a href="#a-admin">Delhi Administration</a>
+  </nav>
+
+  <article class="unit law" id="a-glance">
+    <span class="tag">Read this first · most-asked identifiers</span>
+    <h3>All Acts at a glance</h3>
+    <div class="tbl"><table>
+      <tr><th>Act</th><th>Number</th><th>Made by</th><th>Body / officer it creates or uses</th><th>Head</th></tr>
+      <tr><td>Punjab Land Revenue Act, 1887</td><td class="sec">17 of 1887</td><td>Colonial legislature (Punjab)</td><td>Revenue officers (FC, Commissioner, Collector, AC-I, AC-II)</td><td>Financial Commissioner</td></tr>
+      <tr><td>Land Acquisition Act, 1894</td><td class="sec">1 of 1894</td><td>Central</td><td>Collector, reference court</td><td>Collector</td></tr>
+      <tr><td>Delhi Land Reforms Act, 1954</td><td class="sec">Delhi 8 of 1954</td><td>Delhi (Part C State) Assembly</td><td>Bhumidhar, Asami, Gaon Sabha, revenue courts</td><td>Revenue Assistant / DC</td></tr>
+      <tr><td>Delhi Land Revenue Act, 1954</td><td class="sec">Delhi 12 of 1954</td><td>Delhi (Part C State) Assembly</td><td>Patwari, Kanungo, Tahsildar, DC, record of rights</td><td>Chief Commissioner (now LG / FC)</td></tr>
+      <tr><td>Delhi Development Act, 1957</td><td class="sec">61 of 1957</td><td>Parliament</td><td>DDA</td><td>LG (Chairman)</td></tr>
+      <tr><td>DUSIB Act, 2010 (+ 2026 amdt)</td><td class="sec">Delhi 7 of 2010</td><td>Delhi Legislative Assembly (passed 1.4.2010)</td><td>DUSIB (in force 1.7.2010)</td><td>CM (Chairperson)</td></tr>
+      <tr><td>NCT Laws (Special Provisions) Second Act, 2011</td><td class="sec">20 of 2011</td><td>Parliament</td><td>Central Govt policy; status quo on action</td><td>Central Govt</td></tr>
+      <tr><td>RFCTLARR Act, 2013</td><td class="sec">30 of 2013</td><td>Parliament</td><td>Collector, Administrator, Commissioner R&amp;R, LARR Authority</td><td>Collector</td></tr>
+      <tr><td>GNCTD Act, 1991 / Art 239AA</td><td class="sec">1 of 1992</td><td>Parliament (69th Amdt)</td><td>Legislative Assembly, Council of Ministers</td><td>LG / CM</td></tr>
+    </table></div>
+  </article>
+
+  <article class="unit law" id="a-dusib">
+    <span class="tag">Delhi Act 7 of 2010 · with amendments</span>
+    <h3>Delhi Urban Shelter Improvement Board Act, 2010</h3>
+    <dl class="facts">
+      <div><dt>Body created</dt><dd>DUSIB (body corporate)</dd></div>
+      <div><dt>Passed by</dt><dd>Delhi Legislative Assembly</dd></div>
+      <div><dt>In force</dt><dd>1 July 2010</dd></div>
+      <div><dt>Chairperson</dt><dd>Chief Minister of Delhi</dd></div>
+      <div><dt>Vice-Chairperson</dt><dd>Minister, Urban Development</dd></div>
+      <div><dt>Executive head</dt><dd>CEO</dd></div>
+      <div><dt>HQ</dt><dd>Punarwas Bhawan, I.P. Estate</dd></div>
+      <div><dt>Replaced</dt><dd>Slum &amp; JJ Dept of MCD</dd></div>
+    </dl>
+    <div class="note new"><b>2026 update (very likely to be asked):</b> The DUSIB (Amendment) Bill, 2026, passed by the Delhi Assembly in August 2026, changes the cut-off in <b>Section 2(g)(iii)</b> from <b>1 January 2006</b> to <b>1 January 2025</b>. It aligns the Act with the new <b>Delhi Slum &amp; JJ Rehabilitation and Relocation Policy, 2026</b>, which keeps in-situ rehabilitation as the priority. The 50-household rule in the definition is unchanged. New rules apply after notification.</div>
+    <div class="tbl"><table>
+      <tr><th>Provision</th><th>What it says</th></tr>
+      <tr><td class="sec">S.2(f)</td><td><b>Jhuggi</b>: a structure, temporary or pucca, built for residence, which does not conform to the Master Plan and is not duly authorised.</td></tr>
+      <tr><td class="sec">S.2(g)</td><td><b>Jhuggi jhopri basti</b>: any group of jhuggis the Board declares by notification, considering listed factors; condition (iii): at least <b>50 households</b> existing before the cut-off (01.01.2006, now 01.01.2025). The Board may by order <b>attach scattered jhuggis</b> nearby to a basti.</td></tr>
+      <tr><td class="sec">S.3</td><td>Government constitutes the Board by notification; body corporate with perpetual succession and common seal. Members: CM (Chairperson), MLAs, MCD members, ex-officio officials, nominated members.</td></tr>
+      <tr><td class="sec">S.4</td><td>Non-official (expert) members; 4(2) term/removal. In 2024 the LG used S.4(2) to end two expert members' terms.</td></tr>
+      <tr><td class="sec">Board</td><td>CM (Chair), UD Minister (Vice-Chair), CEO, official members (finance etc.), 3 nominated MLAs, experts in urban planning/social work.</td></tr>
+      <tr><td class="sec">Ch. III</td><td>Functions of the Board (Sections 9 onward).</td></tr>
+      <tr><td class="sec">S.9</td><td><b>Survey</b> of a JJ basti: number of residents, health, sanitation, civic amenities, medical and educational facilities.</td></tr>
+      <tr><td class="sec">S.10</td><td><b>Removal and resettlement scheme</b>: Board may, after consulting Government, remove a basti and resettle eligible residents. <b>Residents' consent not required.</b> On Central Govt land, prior consent of the Central Govt is needed.</td></tr>
+      <tr><td class="sec">S.11</td><td><b>Improvement scheme</b> (upgrading the basti where it stands)</td></tr>
+      <tr><td class="sec">S.12</td><td><b>Redevelopment scheme</b></td></tr>
+      <tr><td class="sec">S.14</td><td><b>Temporary use of vacant sites</b></td></tr>
+      <tr><td class="sec">S.41–42</td><td><b>Eviction</b>: notices; S.42(1) Board must be satisfied that eviction serves the public interest.</td></tr>
+      <tr><td class="sec">Role</td><td>Competent authority for slum areas under the Slum Areas (Improvement &amp; Clearance) Act, 1956; nodal agency for JJ basti survey, rehabilitation and relocation.</td></tr>
+    </table></div>
+    <p class="small muted">Memory line for S.9 to 12: <b>S</b>urvey → <b>R</b>emove &amp; resettle → <b>I</b>mprove → <b>R</b>edevelop ("SRIR").</p>
+    <div class="two">
+      <div><p class="boxhead">Functions to remember</p><ul>
+        <li>Improvement and environmental upgradation of JJ bastis and notified slums</li>
+        <li>Rehabilitation / relocation of JJ dwellers, EWS flats</li>
+        <li>Night shelters (rain baseras) and winter tents for the homeless</li>
+        <li>Jan Suvidha Complexes / community toilet complexes, basti vikas kendras</li>
+        <li>Survey of JJ bastis (list of about 675 bastis in the 2015 era)</li>
+      </ul></div>
+      <div><p class="boxhead">Policy 2015 vs 2026</p><ul>
+        <li>2015: basti before <b>01.01.2006</b>; dweller before <b>01.01.2015</b></li>
+        <li>2015: in-situ or within <b>5 km</b>; no demolition without alternative housing</li>
+        <li>2026: basti cut-off <b>01.01.2025</b> (via Act amendment), in-situ priority</li>
+        <li>DUSIB's 36th Board meeting extended benefits to settlements up to 01.01.2025</li>
+      </ul></div>
+    </div>
+    <div class="note"><b>Traps:</b> DUSIB chair is the CM, not the LG (LG chairs DDA). DUSIB is a Delhi Act; DD Act and NCT Special Provisions are Central Acts. Master Plan is DDA's job, not DUSIB's. Passed 1 April 2010, in force 1 July 2010. Some older copies of the 2010 text print 31.03.2002 in S.2(g); the date the 2026 amendment replaced was 01.01.2006. If an option shows 2002 but not 2006, it is the original-text answer.</div>
+  </article>
+
+  <article class="unit law" id="a-dda">
+    <span class="tag">Central Act 61 of 1957</span>
+    <h3>Delhi Development Act, 1957</h3>
+    <dl class="facts">
+      <div><dt>Body</dt><dd>Delhi Development Authority</dd></div>
+      <div><dt>Chairman</dt><dd>Lieutenant Governor</dd></div>
+      <div><dt>Vice-Chairman</dt><dd>Appointed by Central Govt</dd></div>
+      <div><dt>Ministry</dt><dd>Housing &amp; Urban Affairs</dd></div>
+      <div><dt>HQ</dt><dd>Vikas Sadan, INA</dd></div>
+      <div><dt>Lineage</dt><dd>DIT 1937 → DDPA 1955 → DDA 1957</dd></div>
+    </dl>
+    <div class="tbl"><table>
+      <tr><th>Section</th><th>Subject</th></tr>
+      <tr><td class="sec">2</td><td>Definitions. "Development" = building, engineering, mining or other operations in/over/under land, or material change in use; includes redevelopment.</td></tr>
+      <tr><td class="sec">3</td><td>Constitution of DDA (LG Chairman, VC, Finance Member, Engineer Member, MCD and Assembly representatives, nominees)</td></tr>
+      <tr><td class="sec">5 / 5A</td><td>Advisory Council / committees</td></tr>
+      <tr><td class="sec">6</td><td>Objects: promote and secure development of Delhi according to plan</td></tr>
+      <tr><td class="sec">7</td><td>Civic survey and <b>Master Plan</b></td></tr>
+      <tr><td class="sec">8</td><td><b>Zonal Development Plans</b></td></tr>
+      <tr><td class="sec">9</td><td>Submission of plans to Central Government for approval</td></tr>
+      <tr><td class="sec">10</td><td>Procedure: publish draft, invite objections and suggestions</td></tr>
+      <tr><td class="sec">11A</td><td>Modification of Master/Zonal plan</td></tr>
+      <tr><td class="sec">12</td><td>Declaration of development areas; no development without permission</td></tr>
+      <tr><td class="sec">14</td><td>Use of land/building must conform to plans</td></tr>
+      <tr><td class="sec">15</td><td>Compulsory acquisition of land for development</td></tr>
+      <tr><td class="sec">22</td><td><b>Nazul lands</b> placed at DDA's disposal</td></tr>
+      <tr><td class="sec">29</td><td>Penalties</td></tr>
+      <tr><td class="sec">30</td><td>Order of demolition</td></tr>
+      <tr><td class="sec">31 / 31A</td><td>Stop development / <b>Sealing</b></td></tr>
+    </table></div>
+    <div class="two">
+      <div><p class="boxhead">Master Plans</p><ul>
+        <li>MPD-1962: first (in force 1 Sept 1962)</li>
+        <li>MPD-2001: notified 1990</li>
+        <li>MPD-2021: notified 7 Feb 2007</li>
+        <li>MPD-2041: draft stalled</li>
+        <li><b>MPD-2047</b>: draft approved by DDA on 12 Aug 2026, replaces the 2041 draft; final notification by MoHUA</li>
+      </ul></div>
+      <div><p class="boxhead">Also know</p><ul>
+        <li>Land Pooling Policy notified 2018</li>
+        <li>Land is excluded from Delhi Assembly's power, so DDA reports to the Union</li>
+        <li>PM-UDAY (unauthorised colonies, 2019 Act) is run by DDA</li>
+      </ul></div>
+    </div>
+    <div class="note"><b>Traps:</b> S.7 vs S.8 (Master vs Zonal). S.30 demolition vs S.31A sealing. S.22 is Nazul. DDA Chairman = LG.</div>
+  </article>
+
+  <article class="unit law" id="a-dlrv">
+    <span class="tag">Delhi Act 12 of 1954 · your job's core</span>
+    <h3>Delhi Land Revenue Act, 1954 &amp; land records</h3>
+    <p class="lede">Governs revenue officers and courts, record of rights, village maps, boundaries and marks, assessment and recovery of land revenue in rural Delhi. Works together with the Delhi Land Reforms Act, 1954 (tenures). Land revenue is the <b>first charge</b> on land. 7 chapters.</p>
+    <div class="tbl"><table>
+      <tr><th>Section</th><th>What it says</th></tr>
+      <tr><td class="sec">S.3</td><td>Definitions. "Revenue court" includes Chief Commissioner, Deputy Commissioner, Additional Collector, Revenue Assistant, Assistant Collector, Settlement Officer, Asst. Settlement Officer, Record Officer, Asst. Record Officer, Tahsildar.</td></tr>
+      <tr><td class="sec">Ch. III</td><td><b>Patwaris and Kanungos</b> (S.12 onward)</td></tr>
+      <tr><td class="sec">S.13</td><td><b>Patwari for each halka</b>, appointed by the <b>Deputy Commissioner</b> (or a Revenue Assistant empowered by the Chief Commissioner), who may transfer, remove or dismiss, subject to rules under S.84.</td></tr>
+      <tr><td class="sec">S.14</td><td><b>Kanungos</b>: one or more, for supervision, maintenance and correction of the annual register.</td></tr>
+      <tr><td class="sec">S.15</td><td>Patwaris and Kanungos are <b>public servants</b> (S.21 IPC, now BNS); their records are public records.</td></tr>
+      <tr><td class="sec">S.16</td><td><b>Map and field-book</b> kept and corrected by the Deputy Commissioner</td></tr>
+      <tr><td class="sec">S.17</td><td>Boundary marks / survey marks: duty to maintain</td></tr>
+      <tr><td class="sec">S.20</td><td><b>Record of rights for each village</b></td></tr>
+      <tr><td class="sec">S.21</td><td><b>Annual Register</b>: DC maintains the record of rights and has an amended register prepared annually (or longer interval the Chief Commissioner directs).</td></tr>
+      <tr><td class="sec">S.22</td><td><b>Report of succession or transfer of possession</b> (to be reported to the Tahsildar/Patwari)</td></tr>
+      <tr><td class="sec">S.23</td><td>Procedure on report: <b>Tahsildar</b> inquires; if undisputed, directs the <b>Patwari</b> to record it in the Annual Register (mutation).</td></tr>
+      <tr><td class="sec">S.41</td><td><b>Presumption of truth</b> of entries in the record of rights until the contrary is proved</td></tr>
+      <tr><td class="sec">Ch. V</td><td>Procedure of revenue courts and officers; S.55: no appeal from ex-parte/default orders (restoration on good cause)</td></tr>
+      <tr><td class="sec">Ch. VI</td><td>Appeals, reference, revision: <b>S.64</b> courts of appeal · <b>S.65</b> first appeal · <b>S.66</b> second appeal (law points) · <b>S.67</b> limitation (generally 30 days) · S.69 powers of appellate court · <b>S.72</b> revision: Chief Commissioner may call for files and revise</td></tr>
+      <tr><td class="sec">S.84</td><td>Power to make rules</td></tr>
+    </table></div>
+    <div class="note"><b>Two Acts, two presumption sections:</b> Delhi Land Revenue Act <b>S.41</b> vs Punjab Land Revenue Act <b>S.44</b>. Patwari: appointed for a <b>halka</b> under <b>S.13</b> (DLRev) by the Deputy Commissioner. 2026 Delhi HC: mutation entries are fiscal; they don't create inheritable rights by themselves.</div>
+    <div class="two">
+      <div><p class="boxhead">Revenue hierarchy (Delhi)</p><div class="tbl"><table>
+        <tr><td class="sec">LG</td><td>Chief revenue controlling authority (constitutionally)</td></tr>
+        <tr><td class="sec">FC</td><td>Financial Commissioner: top appellate revenue court</td></tr>
+        <tr><td class="sec">Div. Comm.</td><td>Divisional Commissioner: heads Revenue Department</td></tr>
+        <tr><td class="sec">DM / DC</td><td>District Magistrate / Deputy Commissioner (Collector)</td></tr>
+        <tr><td class="sec">SDM</td><td>Sub-division (Revenue Assistant)</td></tr>
+        <tr><td class="sec">Tehsildar</td><td>Tehsil; Naib Tehsildar below</td></tr>
+        <tr><td class="sec">Kanungo</td><td>Supervises a circle of Patwaris</td></tr>
+        <tr><td class="sec">Patwari</td><td>Village records keeper</td></tr>
+      </table></div></div>
+      <div><p class="boxhead">Patwari glossary</p><div class="tbl"><table>
+        <tr><td class="sec">Khasra</td><td>Field number; khasra girdawari = field-wise crop &amp; possession record</td></tr>
+        <tr><td class="sec">Girdawari</td><td>Crop inspection, each harvest (Kharif, Rabi)</td></tr>
+        <tr><td class="sec">Khatauni</td><td>Register of holdings / record of rights</td></tr>
+        <tr><td class="sec">Khewat</td><td>Ownership account</td></tr>
+        <tr><td class="sec">Jamabandi</td><td>Periodical record of rights</td></tr>
+        <tr><td class="sec">Shajra</td><td>Village map (Shajra Nasab = pedigree table)</td></tr>
+        <tr><td class="sec">Intkal</td><td>Mutation (dakhil-kharij)</td></tr>
+        <tr><td class="sec">Nishandehi</td><td>Demarcation</td></tr>
+        <tr><td class="sec">Tatima</td><td>Sketch of sub-division of a khasra</td></tr>
+        <tr><td class="sec">Roznamcha</td><td>Patwari's daily diary</td></tr>
+        <tr><td class="sec">Fard</td><td>Copy/extract of record</td></tr>
+        <tr><td class="sec">Lal Dora</td><td>Village abadi marked in 1908</td></tr>
+        <tr><td class="sec">Phirni</td><td>Circular road round the abadi</td></tr>
+      </table></div></div>
+    </div>
+    <div class="note"><b>Units:</b> 1 bigha = 20 biswa; 1 biswa = 20 biswansi; Delhi bigha ≈ 1008 sq yd; <b>1 acre = 4.8 bigha</b>. Consolidated villages: 1 killa ≈ 1 acre, 1 mustatil = 25 killas; 1 kanal = 20 marla, 8 kanal = 1 acre.</div>
+  </article>
+
+  <article class="unit law" id="a-lri">
+    <span class="tag">Background · constitution</span>
+    <h3>Land Reforms in India</h3>
+    <div class="two">
+      <div><p class="boxhead">Colonial revenue systems</p><div class="tbl"><table>
+        <tr><td class="sec">Permanent</td><td>1793, Cornwallis, Bengal (zamindari)</td></tr>
+        <tr><td class="sec">Ryotwari</td><td>Thomas Munro, Madras (cultivator pays directly)</td></tr>
+        <tr><td class="sec">Mahalwari</td><td>Holt Mackenzie 1822; village as unit (NWP, Punjab)</td></tr>
+      </table></div></div>
+      <div><p class="boxhead">Four pillars after 1947</p><ul>
+        <li>Abolition of intermediaries (zamindari)</li>
+        <li>Tenancy reform (security, fair rent, ownership)</li>
+        <li>Ceiling on holdings, surplus to landless (1972 guidelines)</li>
+        <li>Consolidation of holdings (chakbandi) + updated records</li>
+      </ul></div>
+    </div>
+    <div class="tbl"><table>
+      <tr><th>Item</th><th>Fact</th></tr>
+      <tr><td class="sec">1st Amdt 1951</td><td>Art 31A, 31B and <b>Ninth Schedule</b> to shield land laws</td></tr>
+      <tr><td class="sec">44th Amdt 1978</td><td>Property removed from FRs; now legal right, <b>Art 300A</b></td></tr>
+      <tr><td class="sec">Lists</td><td>Land: State List Entry 18 · Acquisition: Concurrent List Entry 42</td></tr>
+      <tr><td class="sec">I.R. Coelho 2007</td><td>Ninth Schedule laws after 24.4.1973 open to review (basic structure)</td></tr>
+      <tr><td class="sec">Kumarappa 1949</td><td>Congress Agrarian Reforms Committee: land to the tiller</td></tr>
+      <tr><td class="sec">Bhoodan 1951</td><td>Vinoba Bhave, Pochampally (18 April 1951); later Gramdan</td></tr>
+      <tr><td class="sec">Op. Barga</td><td>West Bengal 1978, sharecropper registration</td></tr>
+      <tr><td class="sec">DILRMP</td><td>2008 as NLRMP; digitised records, ULPIN (14-digit "Bhu-Aadhaar")</td></tr>
+      <tr><td class="sec">SVAMITVA</td><td>24 April 2020; drone survey of rural abadi, property cards</td></tr>
+    </table></div>
+  </article>
+
+  <article class="unit law" id="a-nct">
+    <span class="tag">Central Act 20 of 2011 · with amendments</span>
+    <h3>NCT of Delhi Laws (Special Provisions) Second Act, 2011</h3>
+    <p class="lede">A stop-gap law: it keeps punitive action (sealing, demolition, notices) in abeyance for specified unauthorised development until orderly arrangements and policies are made.</p>
+    <dl class="facts">
+      <div><dt>Passed by</dt><dd>Parliament</dd></div>
+      <div><dt>Series</dt><dd>2006 → 2007 → 2009 → 2011</dd></div>
+      <div><dt>Original expiry</dt><dd>31.12.2014</dd></div>
+      <div><dt>Now valid till</dt><dd>31.12.2026 (2023 amdt)</dd></div>
+      <div><dt>JJ cluster cut-off</dt><dd>1 January 2006</dd></div>
+      <div><dt>Key section</dt><dd>S.3: enforcement in abeyance</dd></div>
+    </dl>
+    <div class="tbl"><table>
+      <tr><th>Section</th><th>What it says</th></tr>
+      <tr><td class="sec">S.2</td><td>Definitions. <b>"Unauthorised development"</b>: use of land/building, construction, or development of colonies against sanctioned plans, without sanction, or against Master/Zonal/layout plan land use; <b>includes encroachment</b>.</td></tr>
+      <tr><td class="sec">S.3(1)</td><td>Central Govt to make norms/policies (relocation of JJ clusters, unauthorised colonies, village abadi, farm houses, storages and godowns for agricultural inputs/produce including dairy and poultry, schools, dispensaries, religious and cultural institutions on agricultural land).</td></tr>
+      <tr><td class="sec">S.3(2)</td><td><b>Status quo</b> notwithstanding any court order: <b>unauthorised colonies existing on 31.03.2002</b> where construction took place up to <b>01.06.2014</b> (2014 amendment replaced 08.02.2007); JJ clusters as on 01.01.2006.</td></tr>
+      <tr><td class="sec">S.4</td><td><b>No relief</b> under S.3 for listed cases, e.g. encroachment on public land (except categories in S.3(1)(a) and (c)), and removal of slums/JJ dwellers as per law and policy.</td></tr>
+    </table></div>
+    <div class="two">
+      <div><p class="boxhead">Covered categories</p><ul>
+        <li>JJ clusters (relocation/rehab per policy)</li>
+        <li>Unauthorised colonies</li>
+        <li>Village abadi (Lal Dora), urban villages and extensions</li>
+        <li>Farm houses beyond permissible limits</li>
+        <li>Schools, dispensaries, religious/cultural bodies, storages on agricultural land</li>
+        <li>Mixed/commercial use of residential premises, street vendors (policy)</li>
+      </ul></div>
+      <div><p class="boxhead">Extensions</p><ul>
+        <li>2014 amdt → 31.12.2017</li>
+        <li>2017 amdt → 31.12.2020</li>
+        <li>2020 amdt → 31.12.2023</li>
+        <li><b>2023 amdt</b> (assent 24.12.2023) → <b>31.12.2026</b></li>
+      </ul></div>
+    </div>
+    <div class="note"><b>Related:</b> NCT of Delhi (Recognition of Property Rights of Residents in Unauthorised Colonies) Act, 2019 gives ownership (PM-UDAY). Don't confuse "protection from action" (2011 Act) with "ownership rights" (2019 Act). Watch the news: the Act expires on 31.12.2026, so another extension may come.</div>
+  </article>
+
+  <article class="unit law" id="a-la">
+    <span class="tag">Act 1 of 1894 · in force 1 March 1894 · repealed 2014</span>
+    <h3>The Land Acquisition Act, 1894</h3>
+    <div class="tbl"><table>
+      <tr><th>Section</th><th>Stage</th><th>Key number</th></tr>
+      <tr><td class="sec">3</td><td>Definitions: person interested, Collector, Court, public purpose</td><td></td></tr>
+      <tr><td class="sec">4</td><td>Preliminary notification (Gazette + 2 dailies + locality)</td><td></td></tr>
+      <tr><td class="sec">5A</td><td>Hearing of objections (added 1923)</td><td>30 days</td></tr>
+      <tr><td class="sec">6</td><td>Declaration of public purpose</td><td>within 1 yr of S.4</td></tr>
+      <tr><td class="sec">9</td><td>Notice to persons interested</td><td></td></tr>
+      <tr><td class="sec">11</td><td>Enquiry and award by Collector</td><td></td></tr>
+      <tr><td class="sec">11A</td><td>Award time limit, else lapse</td><td>2 years from S.6</td></tr>
+      <tr><td class="sec">16</td><td>Possession; vests free of encumbrances</td><td></td></tr>
+      <tr><td class="sec">17</td><td>Urgency: possession before award, 5A can be skipped</td><td>80% advance (17(3A))</td></tr>
+      <tr><td class="sec">18</td><td>Reference to Civil Court</td><td>6 weeks / 6 months</td></tr>
+      <tr><td class="sec">23</td><td>Matters considered; 23(1A) additional; 23(2) solatium</td><td>12% p.a.; 30%</td></tr>
+      <tr><td class="sec">24</td><td>Matters to be neglected</td><td></td></tr>
+      <tr><td class="sec">28A</td><td>Re-determination based on court award</td><td>apply in 3 months</td></tr>
+      <tr><td class="sec">30</td><td>Dispute on apportionment</td><td></td></tr>
+      <tr><td class="sec">31</td><td>Payment / deposit of compensation</td><td></td></tr>
+      <tr><td class="sec">34</td><td>Interest on delayed payment</td><td>9% then 15%</td></tr>
+      <tr><td class="sec">38–44B</td><td>Part VII: acquisition for companies</td><td></td></tr>
+      <tr><td class="sec">48</td><td>Withdrawal from acquisition</td><td>before possession</td></tr>
+      <tr><td class="sec">54</td><td>Appeals</td><td></td></tr>
+    </table></div>
+    <div class="note"><b>Traps:</b> 1984 amendment added 11A, 23(1A), 28A and raised solatium 15% → 30%. Section 4 and 6 of 1894 map to Section 11 and 19 of 2013.</div>
+  </article>
+
+  <article class="unit law" id="a-rfct">
+    <span class="tag">Act 30 of 2013 · assent 26.9.2013 · in force 1.1.2014</span>
+    <h3>Right to Fair Compensation and Transparency in Land Acquisition, Rehabilitation and Resettlement Act, 2013</h3>
+    <dl class="facts">
+      <div><dt>Short</dt><dd>RFCTLARR / LARR Act</dd></div>
+      <div><dt>Sections / Schedules</dt><dd>114 / 4</dd></div>
+      <div><dt>Ministry</dt><dd>Rural Dev. (Dept of Land Resources)</dd></div>
+      <div><dt>Solatium</dt><dd>100%</dd></div>
+      <div><dt>Consent</dt><dd>80% private · 70% PPP</dd></div>
+      <div><dt>Repeals</dt><dd>LA Act 1894 (S.114)</dd></div>
+    </dl>
+    <div class="tbl"><table>
+      <tr><th>Section</th><th>Subject</th><th>Number</th></tr>
+      <tr><td class="sec">2(1)</td><td>Public purposes (strategic, infrastructure, housing for poor, planned development, PAF projects)</td><td></td></tr>
+      <tr><td class="sec">2(2)</td><td>Consent of affected families</td><td>80% / 70%</td></tr>
+      <tr><td class="sec">4–9</td><td>Ch. II: Social Impact Assessment; 5 public hearing; 7 expert group; 9 exemption in urgency</td><td>SIA 6 months; expert 2 months</td></tr>
+      <tr><td class="sec">10</td><td>Food security: irrigated multi-crop land only as last resort</td><td></td></tr>
+      <tr><td class="sec">11</td><td>Preliminary notification</td><td></td></tr>
+      <tr><td class="sec">14</td><td>SIA lapses if no S.11 notification</td><td>12 months</td></tr>
+      <tr><td class="sec">15</td><td>Hearing of objections</td><td>60 days</td></tr>
+      <tr><td class="sec">16</td><td>R&amp;R scheme by Administrator</td><td></td></tr>
+      <tr><td class="sec">19</td><td>Declaration + summary of R&amp;R</td><td>within 12 months of S.11</td></tr>
+      <tr><td class="sec">21</td><td>Notice to persons interested</td><td></td></tr>
+      <tr><td class="sec">23</td><td>Enquiry and award by Collector</td><td></td></tr>
+      <tr><td class="sec">24</td><td>Lapse of 1894 proceedings (IDA v. Manoharlal, 2020)</td><td>5-year rule</td></tr>
+      <tr><td class="sec">25</td><td>Period for award</td><td>12 months of S.19</td></tr>
+      <tr><td class="sec">26</td><td>Market value: highest of stamp value, avg of top 50% sale deeds (last 3 yrs), consented amount</td><td>3 years</td></tr>
+      <tr><td class="sec">27–29</td><td>Total compensation; parameters; value of buildings/trees</td><td></td></tr>
+      <tr><td class="sec">30</td><td>Solatium; 30(3) additional amount from SIA notification</td><td>100%; 12% p.a.</td></tr>
+      <tr><td class="sec">31</td><td>R&amp;R award</td><td></td></tr>
+      <tr><td class="sec">38</td><td>Possession after payment</td><td>3 mo comp · 6 mo R&amp;R</td></tr>
+      <tr><td class="sec">40</td><td>Urgency: defence, national security, natural calamity</td><td>+75%</td></tr>
+      <tr><td class="sec">41</td><td>SC/ST safeguards; Scheduled Areas need Gram Sabha consent</td><td></td></tr>
+      <tr><td class="sec">43 / 44</td><td>Administrator / Commissioner for R&amp;R</td><td></td></tr>
+      <tr><td class="sec">45</td><td>Project R&amp;R Committee</td><td>100 acres+</td></tr>
+      <tr><td class="sec">48 / 50</td><td>National / State Monitoring Committee</td><td></td></tr>
+      <tr><td class="sec">51</td><td>LARR Authority (presiding officer: District Judge level)</td><td></td></tr>
+      <tr><td class="sec">64</td><td>Reference to Authority</td><td></td></tr>
+      <tr><td class="sec">74</td><td>Appeal to High Court</td><td>60 days</td></tr>
+      <tr><td class="sec">80</td><td>Interest</td><td>9% then 15%</td></tr>
+      <tr><td class="sec">93</td><td>Withdrawal from acquisition</td><td></td></tr>
+      <tr><td class="sec">96</td><td>No income tax / stamp duty on award</td><td></td></tr>
+      <tr><td class="sec">101</td><td>Return of unutilised land</td><td>5 years</td></tr>
+      <tr><td class="sec">104</td><td>Option to lease instead of acquire</td><td></td></tr>
+      <tr><td class="sec">105</td><td>Fourth Schedule: 13 exempt central Acts</td><td>13</td></tr>
+      <tr><td class="sec">114</td><td>Repeal of 1894 Act</td><td></td></tr>
+    </table></div>
+    <div class="two">
+      <div><p class="boxhead">Schedules</p><ul>
+        <li><b>First</b>: compensation; rural multiplier 1 to 2, urban 1</li>
+        <li><b>Second</b>: R&amp;R elements for families</li>
+        <li><b>Third</b>: infrastructure amenities in resettlement area</li>
+        <li><b>Fourth</b>: exempted enactments (Railways, NH, Atomic Energy etc.)</li>
+      </ul></div>
+      <div><p class="boxhead">Second Schedule money</p><ul>
+        <li>Job, or ₹5 lakh one-time, or ₹2,000/month for 20 years</li>
+        <li>Subsistence ₹3,000/month for 1 year</li>
+        <li>Transportation ₹50,000 · resettlement allowance ₹50,000</li>
+        <li>House: rural as per housing scheme; urban 50 sq m</li>
+      </ul></div>
+    </div>
+    <div class="note"><b>Compensation formula:</b> Market value × multiplier + value of assets = A; solatium = 100% of A. Rural max ≈ 4× MV, urban ≈ 2× MV.</div>
+  </article>
+
+  <article class="unit law" id="a-plr">
+    <span class="tag">Act 17 of 1887</span>
+    <h3>The Punjab Land Revenue Act, 1887</h3>
+    <p class="lede">Delhi was part of Punjab province until 1912, so Punjab revenue law (continued by the Delhi Laws Act, 1912) shaped Delhi's records, patwari system and procedures. The Delhi Land Revenue Act, 1954 later took over for rural Delhi.</p>
+    <div class="tbl"><table>
+      <tr><th>Section</th><th>Subject</th></tr>
+      <tr><td class="sec">3</td><td>Definitions: estate, holding, landowner, tenant, revenue officer</td></tr>
+      <tr><td class="sec">7</td><td>Classes of Revenue Officers: Financial Commissioner, Commissioner, Collector, Assistant Collector Grade I, Grade II</td></tr>
+      <tr><td class="sec">13 / 16</td><td>Appeals / Review</td></tr>
+      <tr><td class="sec">31</td><td>Record-of-rights for each <b>estate</b></td></tr>
+      <tr><td class="sec">32</td><td>Documents included in record-of-rights</td></tr>
+      <tr><td class="sec">33</td><td>Periodical records (Jamabandi)</td></tr>
+      <tr><td class="sec">34</td><td>Acquisition of rights to be <b>reported to Patwari</b> (mutation)</td></tr>
+      <tr><td class="sec">44</td><td><b>Presumption of truth</b> of entries</td></tr>
+      <tr><td class="sec">45</td><td>Suit for declaration against an entry</td></tr>
+      <tr><td class="sec">61</td><td>Land revenue: first charge on rents, profits, produce</td></tr>
+      <tr><td class="sec">67</td><td>Processes for recovery of arrears</td></tr>
+      <tr><td class="sec">110–126</td><td>Partition (Ch. IX); <b>S.111 application</b>; S.117 title questions</td></tr>
+      <tr><td class="sec">158</td><td><b>Bar of civil court</b> jurisdiction</td></tr>
+    </table></div>
+    <div class="note"><b>Trap:</b> Patwari is a village officer, not one of the S.7 classes of Revenue Officers.</div>
+  </article>
+
+  <article class="unit law" id="a-dlrf">
+    <span class="tag">Delhi Act 8 of 1954</span>
+    <h3>The Delhi Land Reforms Act, 1954</h3>
+    <p class="lede">Abolished intermediary proprietors in rural Delhi, created a simple two-tenure system, and vested common lands in the Gaon Sabha.</p>
+    <div class="two">
+      <div class="tbl"><table>
+        <tr><th>Section</th><th>Subject</th></tr>
+        <tr><td class="sec">3</td><td>Definitions (holding, land, standard acre…)</td></tr>
+        <tr><td class="sec">5</td><td><b>Bhumidhar</b></td></tr>
+        <tr><td class="sec">6</td><td><b>Asami</b></td></tr>
+        <tr><td class="sec">7</td><td>Lands vesting in <b>Gaon Sabha</b></td></tr>
+        <tr><td class="sec">33</td><td>Transfer bar below <b>8 standard acres</b></td></tr>
+        <tr><td class="sec">48</td><td>Bequest (will), referred in S.50</td></tr>
+        <tr><td class="sec">50</td><td>Order of <b>succession</b> (male tenure-holder): male lineal descendants in the male line first, then widow, father, mother (widowed) and others</td></tr>
+        <tr><td class="sec">52</td><td>Succession to holding inherited in a special way; heir found as per S.50</td></tr>
+        <tr><td class="sec">53</td><td>Succession when the tenure-holder is a <b>woman</b></td></tr>
+        <tr><td class="sec">81</td><td>Non-agricultural use: ejectment, vests in Gaon Sabha</td></tr>
+        <tr><td class="sec">84</td><td>Suit for <b>ejectment of a person occupying land without title</b></td></tr>
+        <tr><td class="sec">85</td><td>If no suit / decree not executed, the occupier <b>becomes Bhumidhar or Asami</b></td></tr>
+        <tr><td class="sec">86</td><td>Ejectment of such a person at the instance of the Gaon Sabha</td></tr>
+        <tr><td class="sec">86A</td><td><b>Revenue Assistant</b> may eject (on information or own motion); limitation 3 years</td></tr>
+        <tr><td class="sec">154</td><td>Proprietors' lands other than their holdings vested in the Gaon Sabha (SC reading)</td></tr>
+        <tr><td class="sec">185</td><td>Revenue courts' cognizance (Schedule I): bars civil courts</td></tr>
+      </table></div>
+      <div><p class="boxhead">Bhumidhar vs Asami</p><div class="tbl"><table>
+        <tr><th></th><th>Bhumidhar</th><th>Asami</th></tr>
+        <tr><td>Heritable</td><td>Yes</td><td>Yes</td></tr>
+        <tr><td>Transferable</td><td>Yes (S.33)</td><td>No</td></tr>
+        <tr><td>Ejectable</td><td>Only by law (S.81)</td><td>Yes, on grounds</td></tr>
+        <tr><td>Uses</td><td>Agri, horticulture, animal husbandry, pisciculture, poultry</td><td>Limited term / Gaon Sabha land</td></tr>
+      </table></div></div>
+    </div>
+    <div class="note"><b>Traps:</b> Delhi has no "Sirdar" (that is UP). Only Bhumidhar and Asami. In <b>2022 the Supreme Court upheld S.50(a)</b>: the 1954 Act is a special law on agricultural land, so the Hindu Succession Act does not override it. Sections 33, 81 and 85 have been on the Delhi govt's proposed-amendment list (2016 consultation), not yet law.</div>
+  </article>
+
+  <article class="unit law" id="a-admin">
+    <span class="tag">Constitution · GNCTD Act 1991</span>
+    <h3>Administrative Set-up and Governance in NCT of Delhi</h3>
+    <dl class="facts">
+      <div><dt>Article</dt><dd>239AA (69th Amdt 1991)</dd></div>
+      <div><dt>In force</dt><dd>1 Feb 1992</dd></div>
+      <div><dt>Assembly</dt><dd>70 seats, 12 SC</dd></div>
+      <div><dt>Ministers</dt><dd>Max 10% = 7</dd></div>
+      <div><dt>Parliament</dt><dd>7 Lok Sabha · 3 Rajya Sabha</dd></div>
+      <div><dt>LG (23rd)</dt><dd>Taranjit Singh Sandhu, since 11 Mar 2026</dd></div>
+      <div><dt>CM</dt><dd>Rekha Gupta, since Feb 2025</dd></div>
+      <div><dt>Districts</dt><dd>13 (notified 25 Dec 2025)</dd></div>
+    </dl>
+    <div class="tbl"><table>
+      <tr><th>Provision</th><th>Content</th></tr>
+      <tr><td class="sec">Art 239</td><td>President administers UTs through an Administrator (LG)</td></tr>
+      <tr><td class="sec">239AA(3)</td><td>Assembly can legislate on State &amp; Concurrent List except <b>public order (E1), police (E2), land (E18)</b> and E64–66 related</td></tr>
+      <tr><td class="sec">239AA(4)</td><td>CoM headed by CM aids LG; on difference LG refers to President</td></tr>
+      <tr><td class="sec">239AA(5)</td><td>CM appointed by President; ministers on CM's advice</td></tr>
+      <tr><td class="sec">239AA(8)</td><td>Art 239B (ordinance power) applies to Delhi</td></tr>
+      <tr><td class="sec">239AB</td><td>Failure of constitutional machinery</td></tr>
+      <tr><td class="sec">GNCTD 2021</td><td>"Government" means LG; LG's opinion before executive action</td></tr>
+      <tr><td class="sec">SC 2018</td><td>LG bound by aid and advice except reserved subjects</td></tr>
+      <tr><td class="sec">SC 11.5.2023</td><td>Services with elected govt (except public order, police, land)</td></tr>
+      <tr><td class="sec">GNCTD 2023</td><td>National Capital Civil Service Authority: CM (chair), Chief Secretary, Pr. Secy (Home)</td></tr>
+    </table></div>
+    <div class="two">
+      <div><p class="boxhead">Timeline</p><ul>
+        <li>12 Dec 1911: capital shift announced (Delhi Durbar)</li>
+        <li>1912: Delhi carved out of Punjab</li>
+        <li>13 Feb 1931: New Delhi inaugurated (Lutyens, Baker)</li>
+        <li>1952: Part C State, CM Brahm Prakash</li>
+        <li>1 Nov 1956: Union Territory</li>
+        <li>1966: Delhi Administration Act, Metropolitan Council; HC on 31 Oct 1966; first LG A.N. Jha</li>
+        <li>1987–89: Balakrishnan Committee</li>
+        <li>1993: first Assembly, CM Madan Lal Khurana</li>
+        <li>22 May 2022: MCD unified (250 wards)</li>
+        <li>Mar 2026: LG V.K. Saxena → Ladakh; T.S. Sandhu takes over</li>
+      </ul></div>
+      <div><p class="boxhead">Revenue &amp; local bodies</p><ul>
+        <li>Revenue Dept headed by <b>Divisional Commissioner</b>; FC is the top revenue court</li>
+        <li><b>13 revenue districts</b> (from 11): South East, Old Delhi, North, New Delhi, Central, Central North, South West, Outer North, North West, North East, East, South, West. <b>Shahdara merged</b>. Aligned with MCD, NDMC and Cantonment boundaries</li>
+        <li>3 Sept 2026: 13 registration districts and 39 sub-divisions made co-terminus</li>
+        <li>District: DM/DC → SDM → Tehsildar</li>
+        <li>MCD (DMC Act 1957), NDMC (Act 1994, chair by Centre), Delhi Cantonment Board (2006 Act)</li>
+        <li>Police and land: Union (MHA / MoHUA via DDA)</li>
+      </ul></div>
+    </div>
+  </article>
+</section>
+
+<!-- ============ COMPUTER ============ -->
+<section class="panel" data-panel="computer" hidden>
+  <div class="banner comp">
+    <h2>Computer Knowledge</h2>
+    <p>Section (B). Revision tables for all 13 syllabus topics. Skim, then go straight to Computer MCQs.</p>
+  </div>
+  <nav class="subnav comp" aria-label="Computer topics">
+    <a href="#c-hist">History</a><a href="#c-io">I/O devices</a><a href="#c-hw">Hardware &amp; Software</a><a href="#c-win">Windows</a><a href="#c-net">Internet</a><a href="#c-office">MS Office</a><a href="#c-abbr">Abbreviations</a><a href="#c-logic">Logic gates</a><a href="#c-netw">Networking</a><a href="#c-dbms">DBMS</a><a href="#c-sec">Security</a><a href="#c-keys">Short keys</a><a href="#c-modern">Modern tech</a>
+  </nav>
+
+  <article class="unit comp" id="c-hist">
+    <h3>History of Computers</h3>
+    <div class="two">
+      <div class="tbl"><table>
+        <tr><th>Gen</th><th>Years</th><th>Technology</th><th>Example</th></tr>
+        <tr><td class="sec">1st</td><td>1940–56</td><td>Vacuum tubes, machine language</td><td>ENIAC, UNIVAC</td></tr>
+        <tr><td class="sec">2nd</td><td>1956–63</td><td>Transistors, assembly, FORTRAN/COBOL</td><td>IBM 1401</td></tr>
+        <tr><td class="sec">3rd</td><td>1964–71</td><td>Integrated circuits, OS</td><td>IBM 360</td></tr>
+        <tr><td class="sec">4th</td><td>1971–now</td><td>Microprocessor (VLSI)</td><td>PCs, Intel 4004</td></tr>
+        <tr><td class="sec">5th</td><td>Now/future</td><td>AI, ULSI, parallel processing</td><td>AI systems</td></tr>
+      </table></div>
+      <ul>
+        <li>Abacus (earliest) · Napier's Bones · Pascaline 1642 (Pascal) · Leibniz Stepped Reckoner 1673</li>
+        <li>Jacquard loom 1801: punched cards</li>
+        <li><b>Charles Babbage</b>: Difference Engine 1822, Analytical Engine 1837 → father of computer</li>
+        <li><b>Ada Lovelace</b>: first programmer</li>
+        <li>Herman Hollerith: tabulator for 1890 census → IBM</li>
+        <li>Alan Turing: Turing machine 1936 · von Neumann: stored program</li>
+        <li>ENIAC 1946 (Eckert &amp; Mauchly, ~18,000 tubes) · UNIVAC I 1951 first commercial</li>
+        <li>Transistor 1947 Bell Labs · IC 1958 Jack Kilby · Intel 4004 1971</li>
+        <li>India: TIFRAC (1960) · PARAM 8000 (1991, C-DAC, Vijay Bhatkar)</li>
+        <li>Types: Analog, Digital, Hybrid · Micro, Mini, Mainframe, Super (speed in FLOPS)</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="unit comp" id="c-io">
+    <h3>Input and Output devices</h3>
+    <div class="two">
+      <div><p class="boxhead">Input</p><ul>
+        <li>Keyboard (QWERTY, 12 function keys), mouse (Douglas Engelbart), trackball, joystick, light pen</li>
+        <li>Scanner, webcam, microphone, digitizer/graphics tablet, biometric reader</li>
+        <li><b>MICR</b>: bank cheques · <b>OCR</b>: printed text → editable · <b>OMR</b>: bubble answer sheets · <b>BCR</b>: barcodes · QR scanner</li>
+      </ul></div>
+      <div><p class="boxhead">Output</p><ul>
+        <li>Monitor: CRT, LCD, LED, OLED · refresh rate in Hz · pixel = smallest unit</li>
+        <li>Impact printers: dot matrix (CPS), daisy wheel, line printer (LPM)</li>
+        <li>Non-impact: inkjet, laser (PPM), thermal · resolution in DPI</li>
+        <li>Plotter (large drawings), speaker, projector, headphones</li>
+        <li>Both: touch screen, modem, headset</li>
+      </ul></div>
+    </div>
+  </article>
+
+  <article class="unit comp" id="c-hw">
+    <h3>Hardware and Software</h3>
+    <div class="two">
+      <div><ul>
+        <li><b>CPU</b> = ALU + CU + Registers; speed in GHz</li>
+        <li>Memory speed: Registers &gt; Cache (SRAM) &gt; RAM (DRAM) &gt; SSD &gt; HDD</li>
+        <li>RAM volatile; ROM non-volatile: PROM, EPROM (UV), EEPROM (electric), Flash</li>
+        <li>BIOS/UEFI in firmware; runs POST and boot</li>
+        <li>Motherboard, SMPS, ports: USB, HDMI, VGA, Ethernet (RJ-45)</li>
+        <li>Storage: CD 700 MB · DVD 4.7 GB · Blu-ray 25 GB (single layer)</li>
+      </ul></div>
+      <div class="tbl"><table>
+        <tr><th>Unit</th><th>Size</th></tr>
+        <tr><td class="sec">Nibble</td><td>4 bits</td></tr>
+        <tr><td class="sec">Byte</td><td>8 bits</td></tr>
+        <tr><td class="sec">KB → MB → GB</td><td>× 1024 each</td></tr>
+        <tr><td class="sec">TB → PB → EB</td><td>→ ZB → YB</td></tr>
+        <tr><td class="sec">Bases</td><td>Binary 2 · Octal 8 · Decimal 10 · Hex 16 (A=10…F=15)</td></tr>
+      </table></div>
+    </div>
+    <div class="tbl"><table>
+      <tr><th>Software type</th><th>Meaning / examples</th></tr>
+      <tr><td class="sec">System</td><td>OS, device drivers, utilities (antivirus, disk cleanup)</td></tr>
+      <tr><td class="sec">Application</td><td>MS Word, Excel, browsers, Tally</td></tr>
+      <tr><td class="sec">Translators</td><td>Compiler (whole program) · Interpreter (line by line) · Assembler (assembly → machine)</td></tr>
+      <tr><td class="sec">Licensing</td><td>Freeware (free) · Shareware (trial) · Open source (code open: Linux, LibreOffice) · Proprietary</td></tr>
+      <tr><td class="sec">Firmware</td><td>Software stored in hardware chips (BIOS)</td></tr>
+    </table></div>
+  </article>
+
+  <article class="unit comp" id="c-win">
+    <h3>Windows operating system</h3>
+    <div class="two">
+      <ul>
+        <li>Microsoft: 1975, Bill Gates &amp; Paul Allen; MS-DOS was CUI, Windows is GUI</li>
+        <li>Versions: 1.0 (1985), 3.1, 95, 98, XP (2001), Vista, 7 (2009), 8, 10 (2015), <b>11 (5 Oct 2021)</b></li>
+        <li>Windows 10 support ended <b>14 Oct 2025</b></li>
+        <li>File systems: FAT32 (4 GB file limit), <b>NTFS</b>, exFAT</li>
+        <li>Booting: cold (from off) vs warm (restart)</li>
+      </ul>
+      <ul>
+        <li>Desktop, taskbar, Start menu, notification area, Recycle Bin (Shift+Del skips it)</li>
+        <li>File Explorer, Settings / Control Panel, Task Manager</li>
+        <li>Built-in apps: Notepad (.txt), Paint, Snipping Tool, Calculator</li>
+        <li>Disk Cleanup, Defragment &amp; Optimize Drives, System Restore</li>
+        <li>Shortcut icon = small arrow; deleting it keeps the original</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="unit comp" id="c-net">
+    <h3>Internet terms and services</h3>
+    <div class="two">
+      <ul>
+        <li>ARPANET 1969 (US DoD) · TCP/IP: Vint Cerf &amp; Bob Kahn</li>
+        <li>WWW: Tim Berners-Lee, 1989, CERN · first email: Ray Tomlinson 1971</li>
+        <li>India: VSNL public Internet, 15 Aug 1995</li>
+        <li>Browser (Chrome, Edge, Firefox, Safari) vs Search engine (Google, Bing)</li>
+        <li>Intranet (inside org) · Extranet (partners) · ISP · URL · hyperlink · cookies · cache</li>
+        <li>Email: To, CC, <b>BCC</b> (hidden), spam, attachment</li>
+        <li>Domains: .gov.in, .nic.in, .edu, .org, .com</li>
+      </ul>
+      <div class="tbl"><table>
+        <tr><th>Protocol</th><th>Use</th><th>Port</th></tr>
+        <tr><td class="sec">HTTP / HTTPS</td><td>Web</td><td>80 / 443</td></tr>
+        <tr><td class="sec">FTP</td><td>File transfer</td><td>20, 21</td></tr>
+        <tr><td class="sec">SMTP</td><td>Send mail</td><td>25</td></tr>
+        <tr><td class="sec">POP3 / IMAP</td><td>Receive mail</td><td>110 / 143</td></tr>
+        <tr><td class="sec">DNS</td><td>Name → IP</td><td>53</td></tr>
+        <tr><td class="sec">SSH / Telnet</td><td>Remote login</td><td>22 / 23</td></tr>
+        <tr><td class="sec">IPv4 / IPv6</td><td>Address size</td><td>32 / 128 bit</td></tr>
+      </table></div>
+    </div>
+  </article>
+
+  <article class="unit comp" id="c-office">
+    <h3>MS Office: Word, Excel, PowerPoint</h3>
+    <div class="tbl"><table>
+      <tr><th>App</th><th>Must-know</th></tr>
+      <tr><td class="sec">Word .docx</td><td>Mail Merge (letters to many) · Track Changes (Review tab) · Header/Footer · Watermark (Design) · Drop Cap · Gutter (binding margin) · Styles · Thesaurus Shift+F7 · Default font Calibri 11 (2007), Aptos in new Microsoft 365</td></tr>
+      <tr><td class="sec">Excel .xlsx</td><td>1,048,576 rows × 16,384 columns (last column <b>XFD</b>) · formula starts with = · $A$1 absolute (F4 toggles) · 1 sheet in new workbook (2013+) · Freeze Panes · Pivot Table · Conditional Formatting · Data Validation · Charts</td></tr>
+      <tr><td class="sec">Functions</td><td>SUM, AVERAGE, COUNT (numbers), COUNTA (non-blank), COUNTIF, SUMIF, IF, VLOOKUP (first column), HLOOKUP (first row), XLOOKUP, MAX, MIN, ROUND, CONCAT, TODAY(), NOW()</td></tr>
+      <tr><td class="sec">Errors</td><td>#DIV/0! (÷0) · #REF! (deleted ref) · #NAME? (bad name) · #VALUE! (wrong type) · #N/A (not found) · #### (column too narrow)</td></tr>
+      <tr><td class="sec">PowerPoint .pptx</td><td>Transition (between slides) vs Animation (objects) · Slide Master · Views: Normal, Slide Sorter, Notes Page, Reading, Slide Show · .ppsx opens as show · .potx template</td></tr>
+      <tr><td class="sec">Access .accdb</td><td>Database: tables, queries, forms, reports</td></tr>
+    </table></div>
+  </article>
+
+  <article class="unit comp" id="c-abbr">
+    <h3>Computer abbreviations</h3>
+    <div class="tbl"><table>
+      <tr><th>Short</th><th>Full form</th><th>Short</th><th>Full form</th></tr>
+      <tr><td class="sec">ALU</td><td>Arithmetic Logic Unit</td><td class="sec">ASCII</td><td>American Standard Code for Information Interchange</td></tr>
+      <tr><td class="sec">BIOS</td><td>Basic Input Output System</td><td class="sec">CMOS</td><td>Complementary Metal Oxide Semiconductor</td></tr>
+      <tr><td class="sec">DNS</td><td>Domain Name System</td><td class="sec">DBMS</td><td>Database Management System</td></tr>
+      <tr><td class="sec">EEPROM</td><td>Electrically Erasable Programmable ROM</td><td class="sec">FTP</td><td>File Transfer Protocol</td></tr>
+      <tr><td class="sec">GUI</td><td>Graphical User Interface</td><td class="sec">HDMI</td><td>High-Definition Multimedia Interface</td></tr>
+      <tr><td class="sec">HTML</td><td>HyperText Markup Language</td><td class="sec">HTTP</td><td>HyperText Transfer Protocol</td></tr>
+      <tr><td class="sec">IMAP</td><td>Internet Message Access Protocol</td><td class="sec">IP</td><td>Internet Protocol</td></tr>
+      <tr><td class="sec">ISP</td><td>Internet Service Provider</td><td class="sec">LAN/MAN/WAN</td><td>Local / Metropolitan / Wide Area Network</td></tr>
+      <tr><td class="sec">MAC</td><td>Media Access Control</td><td class="sec">MICR</td><td>Magnetic Ink Character Recognition</td></tr>
+      <tr><td class="sec">MODEM</td><td>Modulator-Demodulator</td><td class="sec">NIC</td><td>Network Interface Card / National Informatics Centre</td></tr>
+      <tr><td class="sec">OCR / OMR</td><td>Optical Character / Mark Recognition (Reader)</td><td class="sec">OTP</td><td>One Time Password</td></tr>
+      <tr><td class="sec">PDF</td><td>Portable Document Format</td><td class="sec">POP</td><td>Post Office Protocol</td></tr>
+      <tr><td class="sec">RAM / ROM</td><td>Random Access / Read Only Memory</td><td class="sec">SMTP</td><td>Simple Mail Transfer Protocol</td></tr>
+      <tr><td class="sec">SQL</td><td>Structured Query Language</td><td class="sec">SSD</td><td>Solid State Drive</td></tr>
+      <tr><td class="sec">TCP</td><td>Transmission Control Protocol</td><td class="sec">UPI</td><td>Unified Payments Interface</td></tr>
+      <tr><td class="sec">URL</td><td>Uniform Resource Locator</td><td class="sec">USB</td><td>Universal Serial Bus</td></tr>
+      <tr><td class="sec">VGA</td><td>Video Graphics Array</td><td class="sec">VoIP</td><td>Voice over Internet Protocol</td></tr>
+      <tr><td class="sec">WWW</td><td>World Wide Web</td><td class="sec">Wi-Fi</td><td>Wireless Fidelity (IEEE 802.11)</td></tr>
+      <tr><td class="sec">CAPTCHA</td><td>Completely Automated Public Turing test to tell Computers and Humans Apart</td><td class="sec">CERT-In</td><td>Computer Emergency Response Team - India</td></tr>
+      <tr><td class="sec">GIS / GPS</td><td>Geographic Information System / Global Positioning System</td><td class="sec">IoT / AI</td><td>Internet of Things / Artificial Intelligence</td></tr>
+    </table></div>
+  </article>
+
+  <article class="unit comp" id="c-logic">
+    <h3>Logic gates</h3>
+    <div class="tbl"><table>
+      <tr><th>A B</th><th>AND</th><th>OR</th><th>NAND</th><th>NOR</th><th>XOR</th><th>XNOR</th></tr>
+      <tr><td class="sec">0 0</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td></tr>
+      <tr><td class="sec">0 1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td><td>0</td></tr>
+      <tr><td class="sec">1 0</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td><td>0</td></tr>
+      <tr><td class="sec">1 1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+    </table></div>
+    <ul>
+      <li>NOT (inverter): 1 input, flips it · <b>Universal gates: NAND, NOR</b></li>
+      <li>De Morgan: (A·B)' = A' + B' and (A+B)' = A'·B'</li>
+      <li>A + A = A · A·A' = 0 · A + A' = 1 · A + 1 = 1 · A·0 = 0 · Boolean algebra: George Boole (1854)</li>
+    </ul>
+  </article>
+
+  <article class="unit comp" id="c-netw">
+    <h3>Networking and communication</h3>
+    <div class="two">
+      <ul>
+        <li>PAN (Bluetooth) &lt; LAN (office) &lt; MAN (city) &lt; WAN (Internet)</li>
+        <li>Topologies: Bus, Star (central hub), Ring, Mesh (links = n(n−1)/2), Tree, Hybrid</li>
+        <li>Modes: Simplex (TV) · Half-duplex (walkie-talkie) · Full-duplex (phone)</li>
+        <li>Media: twisted pair, coaxial, <b>optical fibre</b> (fastest, light), wireless</li>
+        <li>IEEE: 802.3 Ethernet · 802.11 Wi-Fi · 802.15 Bluetooth/PAN · 802.5 Token Ring</li>
+        <li>MAC 48-bit · speed in bps</li>
+      </ul>
+      <div class="tbl"><table>
+        <tr><th>OSI layer</th><th>Device / job</th></tr>
+        <tr><td class="sec">7 Application</td><td>HTTP, SMTP, FTP</td></tr>
+        <tr><td class="sec">6 Presentation</td><td>Encryption, format</td></tr>
+        <tr><td class="sec">5 Session</td><td>Sessions</td></tr>
+        <tr><td class="sec">4 Transport</td><td>TCP/UDP, segments</td></tr>
+        <tr><td class="sec">3 Network</td><td>Router, IP, routing</td></tr>
+        <tr><td class="sec">2 Data Link</td><td>Switch, bridge, MAC</td></tr>
+        <tr><td class="sec">1 Physical</td><td>Hub, repeater, cables</td></tr>
+      </table></div>
+    </div>
+    <p class="small muted">Memory line (1→7): Please Do Not Throw Sausage Pizza Away. Gateway joins networks with different protocols. TCP/IP model has 4 layers.</p>
+  </article>
+
+  <article class="unit comp" id="c-dbms">
+    <h3>Database Management System</h3>
+    <div class="two">
+      <ul>
+        <li>Relational model: <b>E.F. Codd</b> (1970) · ER model: Peter Chen</li>
+        <li>Table = relation · row = tuple/record · column = attribute/field</li>
+        <li>Keys: Primary (unique, not NULL), Foreign (refers to another table), Candidate, Super, Composite, Alternate</li>
+        <li>ACID: Atomicity, Consistency, Isolation, Durability</li>
+        <li>Normalization (1NF, 2NF, 3NF, BCNF) reduces redundancy</li>
+        <li>ER: entity = rectangle, attribute = ellipse, relationship = diamond</li>
+        <li>Schema = design · instance = data at a moment · DBA manages</li>
+      </ul>
+      <div class="tbl"><table>
+        <tr><th>SQL group</th><th>Commands</th></tr>
+        <tr><td class="sec">DDL</td><td>CREATE, ALTER, DROP, TRUNCATE, RENAME</td></tr>
+        <tr><td class="sec">DML</td><td>SELECT, INSERT, UPDATE, DELETE</td></tr>
+        <tr><td class="sec">DCL</td><td>GRANT, REVOKE</td></tr>
+        <tr><td class="sec">TCL</td><td>COMMIT, ROLLBACK, SAVEPOINT</td></tr>
+        <tr><td class="sec">Examples</td><td>MySQL, Oracle, PostgreSQL, MS Access, SQL Server</td></tr>
+      </table></div>
+    </div>
+  </article>
+
+  <article class="unit comp" id="c-sec">
+    <h3>Security tools and viruses</h3>
+    <div class="two">
+      <div class="tbl"><table>
+        <tr><th>Threat</th><th>Meaning</th></tr>
+        <tr><td class="sec">Virus</td><td>Needs a host file to spread</td></tr>
+        <tr><td class="sec">Worm</td><td>Self-replicates over networks</td></tr>
+        <tr><td class="sec">Trojan</td><td>Disguised as useful software</td></tr>
+        <tr><td class="sec">Ransomware</td><td>Encrypts files, demands ransom (WannaCry 2017)</td></tr>
+        <tr><td class="sec">Spyware / Keylogger</td><td>Secretly watches / records keys</td></tr>
+        <tr><td class="sec">Adware / Rootkit / Botnet</td><td>Ads / hidden admin access / zombie network</td></tr>
+        <tr><td class="sec">Phishing</td><td>Fake email/site (vishing = call, smishing = SMS)</td></tr>
+        <tr><td class="sec">DoS / DDoS</td><td>Flood a service to make it unavailable</td></tr>
+        <tr><td class="sec">Spoofing / MITM</td><td>Fake identity / intercepting traffic</td></tr>
+      </table></div>
+      <ul>
+        <li>First: Creeper (1971) · first PC virus: <b>Brain</b> (1986, Pakistan) · ILOVEYOU (2000)</li>
+        <li>Tools: antivirus (Quick Heal is Indian), firewall, encryption, 2FA, VPN, CAPTCHA, digital signature, backups</li>
+        <li>White hat = ethical hacker</li>
+        <li>IT Act 2000 (in force 17 Oct 2000, amended 2008): 43 damage, 66 hacking, 66C identity theft, 66D cheating by personation, <b>66F cyber terrorism</b>, 67 obscene content; 66A struck down (Shreya Singhal, 2015)</li>
+        <li>DPDP Act 2023 · CERT-In (2004) · helpline <b>1930</b>, cybercrime.gov.in</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="unit comp" id="c-keys">
+    <h3>Short keys</h3>
+    <div class="two">
+      <div class="tbl"><table>
+        <tr><th>Windows / general</th><th>Action</th></tr>
+        <tr><td><kbd>Ctrl+C/X/V</kbd></td><td>Copy / Cut / Paste</td></tr>
+        <tr><td><kbd>Ctrl+Z</kbd> <kbd>Ctrl+Y</kbd></td><td>Undo / Redo</td></tr>
+        <tr><td><kbd>Alt+Tab</kbd> <kbd>Win+Tab</kbd></td><td>Switch apps / Task View</td></tr>
+        <tr><td><kbd>Alt+F4</kbd></td><td>Close app</td></tr>
+        <tr><td><kbd>Win+D</kbd> <kbd>Win+E</kbd></td><td>Desktop / File Explorer</td></tr>
+        <tr><td><kbd>Win+L</kbd> <kbd>Win+R</kbd> <kbd>Win+I</kbd></td><td>Lock / Run / Settings</td></tr>
+        <tr><td><kbd>Win+V</kbd> <kbd>Win+Shift+S</kbd></td><td>Clipboard history / Snip</td></tr>
+        <tr><td><kbd>Ctrl+Shift+Esc</kbd></td><td>Task Manager</td></tr>
+        <tr><td><kbd>F2</kbd> <kbd>F5</kbd></td><td>Rename / Refresh</td></tr>
+        <tr><td><kbd>Shift+Del</kbd></td><td>Permanent delete</td></tr>
+        <tr><td><kbd>Ctrl+Shift+N</kbd></td><td>New folder (Explorer) / Incognito (Chrome)</td></tr>
+        <tr><td><kbd>Alt+Enter</kbd></td><td>Properties</td></tr>
+        <tr><td><kbd>Ctrl+T/W</kbd> <kbd>Ctrl+Shift+T</kbd></td><td>Tab new/close / reopen closed</td></tr>
+        <tr><td><kbd>Ctrl+H</kbd> <kbd>Ctrl+J</kbd> <kbd>Ctrl+D</kbd></td><td>Browser history / downloads / bookmark</td></tr>
+      </table></div>
+      <div class="tbl"><table>
+        <tr><th>MS Office</th><th>Action</th></tr>
+        <tr><td><kbd>Ctrl+L/E/R/J</kbd></td><td>Left / Centre / Right / Justify</td></tr>
+        <tr><td><kbd>Ctrl+F</kbd> <kbd>Ctrl+H</kbd> <kbd>Ctrl+G</kbd></td><td>Find / Replace / Go To</td></tr>
+        <tr><td><kbd>Ctrl+K</kbd></td><td>Hyperlink</td></tr>
+        <tr><td><kbd>Ctrl+Enter</kbd> <kbd>Shift+Enter</kbd></td><td>Page break / line break (Word)</td></tr>
+        <tr><td><kbd>Ctrl+=</kbd> <kbd>Ctrl+Shift+=</kbd></td><td>Subscript / Superscript</td></tr>
+        <tr><td><kbd>Ctrl+]</kbd> <kbd>Ctrl+[</kbd></td><td>Font size +1 / −1</td></tr>
+        <tr><td><kbd>Shift+F3</kbd></td><td>Change case</td></tr>
+        <tr><td><kbd>F7</kbd> <kbd>Shift+F7</kbd> <kbd>F12</kbd></td><td>Spelling / Thesaurus / Save As</td></tr>
+        <tr><td><kbd>F2</kbd> <kbd>F4</kbd> <kbd>F9</kbd></td><td>Excel: edit cell / $ toggle / recalc</td></tr>
+        <tr><td><kbd>Alt+=</kbd> <kbd>Ctrl+1</kbd></td><td>Excel: AutoSum / Format Cells</td></tr>
+        <tr><td><kbd>Ctrl+;</kbd> <kbd>Ctrl+Shift+;</kbd></td><td>Excel: date / time</td></tr>
+        <tr><td><kbd>Alt+Enter</kbd> <kbd>Ctrl+`</kbd></td><td>Excel: new line in cell / show formulas</td></tr>
+        <tr><td><kbd>Shift+F11</kbd> <kbd>F11</kbd></td><td>Excel: new sheet / chart sheet</td></tr>
+        <tr><td><kbd>Ctrl+Space</kbd> <kbd>Shift+Space</kbd></td><td>Excel: select column / row</td></tr>
+        <tr><td><kbd>Ctrl+Shift+L</kbd></td><td>Excel: filter</td></tr>
+        <tr><td><kbd>F5</kbd> <kbd>Shift+F5</kbd></td><td>PPT: show from start / current</td></tr>
+        <tr><td><kbd>Ctrl+M</kbd> <kbd>Ctrl+D</kbd></td><td>PPT: new slide / duplicate</td></tr>
+        <tr><td><kbd>B</kbd> <kbd>W</kbd> <kbd>Esc</kbd></td><td>PPT show: black / white / end</td></tr>
+      </table></div>
+    </div>
+  </article>
+
+  <article class="unit comp" id="c-modern">
+    <h3>Modern day technology</h3>
+    <div class="two">
+      <ul>
+        <li><b>AI</b> ⊃ Machine Learning ⊃ Deep Learning · Generative AI / LLMs (ChatGPT, Nov 2022), chatbots, deepfakes</li>
+        <li>Cloud: <b>IaaS</b> (virtual machines, AWS EC2) · <b>PaaS</b> (dev platforms) · <b>SaaS</b> (Gmail, Docs)</li>
+        <li>IoT, edge computing, Big Data (Volume, Velocity, Variety, Veracity, Value)</li>
+        <li>Blockchain (distributed ledger, Bitcoin), NFT, Web 3.0</li>
+        <li>AR (overlay) vs VR (fully virtual) vs MR · Metaverse · Digital twin</li>
+        <li>Quantum computing (qubit) · 3D printing = additive manufacturing · Robotics, RPA, drones</li>
+      </ul>
+      <ul>
+        <li>Digital India: 1 July 2015 · DigiLocker · Aadhaar · UPI (NPCI, 2016)</li>
+        <li>5G India: 1 Oct 2022 · National Quantum Mission: 2023 (~₹6,003 cr)</li>
+        <li>IndiaAI Mission: March 2024 (₹10,371 cr)</li>
+        <li>Land-tech: GIS, GPS (India's NavIC), drones in SVAMITVA, DILRMP, ULPIN</li>
+      </ul>
+    </div>
+  </article>
+</section>
+
+<!-- ============ QUIZZES ============ -->
+<section class="panel" data-panel="lawq" hidden>
+  <div class="banner law"><h2>Law MCQs</h2><p>Pick acts, set count, start. Practice mode shows the answer instantly; Test mode shows results at the end.</p></div>
+  <div id="quiz-law"></div>
+</section>
+<section class="panel" data-panel="compq" hidden>
+  <div class="banner comp"><h2>Computer MCQs</h2><p>All 13 syllabus topics. Use Test mode with negative marking to check exam readiness.</p></div>
+  <div id="quiz-comp"></div>
+</section>
+<section class="panel" data-panel="mock" hidden>
+  <div class="banner"><h2>Full Mock · 100 questions</h2><p class="muted">50 Delhi Laws + 50 Computer, random each time. Timed, −0.25 negative marking, palette navigation, auto-submit.</p></div>
+  <div id="quiz-mock"></div>
+</section>
+<section class="panel" data-panel="revise" hidden>
+  <div class="banner"><h2>Revise</h2><p class="muted">Every question you get wrong lands here automatically. Questions you <b>☆ Save</b> land here too. Read them, then practise only these until they stick.</p></div>
+  <div id="quiz-revise"></div>
+</section>
+
+</main>
+<footer><div class="wrap">Built for your Patwari (DUSIB) paper. Current-affairs items (LG, districts, DUSIB 2026 amendment, MPD-2047, NCT Act expiry) are as reported up to Oct 2026: confirm anything that changes this week. Your Revise list is stored on this device; move it with the code in the Revise tab. Part of <a href="../#/start">The DSSSB Key</a>.</div></footer>
+
+<script src="qbank.js"></script>
+<script>
+(function(){
+  const store = {
+    get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},
+    set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+  };
+
+  /* theme */
+  const root=document.documentElement, tb=document.getElementById('themeBtn');
+  const modes=['system','light','dark'];
+  function applyTheme(m){ if(m==='system') root.removeAttribute('data-theme'); else root.setAttribute('data-theme',m); tb.textContent='Theme: '+m; }
+  let theme=store.get('pp_theme','system'); applyTheme(theme);
+  tb.onclick=()=>{theme=modes[(modes.indexOf(theme)+1)%3];applyTheme(theme);store.set('pp_theme',theme)};
+
+  /* helpers */
+  const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+  const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const L='ABCD';
+  const rowOf=id=>{const p=id.split(':');return QB[p[0]]&&QB[p[0]][+p[1]]};
+  function makeItem(bank,idx){
+    const [t,q,o,a,e]=QB[bank][idx];
+    let order=[0,1,2,3];
+    if(!o.some(x=>/of the above/i.test(x))) order=shuffle(order);
+    return {id:bank+':'+idx,bank,t,q,opts:order.map(i=>o[i]),ans:order.indexOf(a),e};
+  }
+  const itemFromId=id=>{const p=id.split(':');return makeItem(p[0],+p[1])};
+
+  /* ---------- Revise store: wrong answers (auto) + saved (manual) ---------- */
+  // RV = { w: {id:{n,last,ok,ts} | {del,ts}}, s: {id:{ts} | {del,ts}} }
+  let RV=store.get('pp_rv',null);
+  if(!RV||!RV.w||!RV.s){
+    RV={w:{},s:{}}; const now=Date.now();
+    store.get('pp_mistakes',[]).forEach(id=>{RV.w[id]={n:1,last:'wrong',ok:0,ts:now}});
+  }
+  const live=o=>!!o&&!o.del;
+  const wrongIds=()=>Object.keys(RV.w).filter(id=>live(RV.w[id])&&rowOf(id));
+  const savedIds=()=>Object.keys(RV.s).filter(id=>live(RV.s[id])&&rowOf(id));
+  const isSaved=id=>live(RV.s[id]);
+  const isWrong=id=>live(RV.w[id]);
+  function recordAnswer(id,correct){
+    const e=RV.w[id], now=Date.now();
+    if(!correct) RV.w[id]={n:(live(e)?e.n:0)+1,last:'wrong',ok:0,ts:now};
+    else if(live(e)) RV.w[id]={n:e.n,last:'right',ok:(e.ok||0)+1,ts:now};
+    else return;
+    changed();
+  }
+  function toggleSave(id){ RV.s[id]=isSaved(id)?{del:true,ts:Date.now()}:{ts:Date.now()}; changed(); return isSaved(id); }
+  function markLearnt(id){ RV.w[id]={del:true,ts:Date.now()}; changed(); }
+  const countEl=document.getElementById('rvCount');
+  function updateCount(){
+    const n=new Set(wrongIds().concat(savedIds())).size;
+    countEl.textContent=n; if(n) countEl.removeAttribute('data-zero'); else countEl.setAttribute('data-zero','');
+  }
+  let onRvChange=()=>{};
+  function changed(){ store.set('pp_rv',RV); updateCount(); scheduleCloud(); }
+
+  /* cloud sync: private per-viewer doc in the artifact db */
+  let ref=null, timer=null, writing=false, again=false, synced=false;
+  const enc=o=>{const r={};for(const k in o) r[k.replace(':','_')]=o[k];return r};
+  const dec=o=>{const r={};for(const k in (o||{})) r[k.replace('_',':')]=o[k];return r};
+  function merge(remote){
+    ['w','s'].forEach(kind=>{const src=dec(remote&&remote[kind]);
+      for(const id in src){const a=RV[kind][id], b=src[id]; if(!a||(b&&b.ts||0)>(a.ts||0)) RV[kind][id]=b;}});
+  }
+  function setSync(){
+    document.querySelectorAll('[data-sync]').forEach(n=>n.textContent= synced
+      ? 'Synced to your claude.ai account (private to you), so it follows you to other devices. Also kept in this browser.'
+      : 'Saved on this device. To use it on another device, use "Move my Revise list" below.');
+  }
+  async function push(){
+    if(!ref) return; if(writing){again=true;return}
+    writing=true;
+    try{ await ref.set({w:enc(RV.w),s:enc(RV.s),v:2}); synced=true; }
+    catch(e){ const c=e&&e.code; if(c==='unavailable'){ setTimeout(scheduleCloud,2500+Math.random()*2000) } else if(c){ ref=null; synced=false; } }
+    writing=false; setSync();
+    if(again){again=false; push();}
+  }
+  function scheduleCloud(){ if(!ref) return; clearTimeout(timer); timer=setTimeout(push,1200); }
+  async function initCloud(){
+    try{
+      const C=window.claude; if(!C||typeof C.use!=='function') return;
+      const [db,user]=await Promise.all([C.use('db'),C.use('user')]);
+      if(!db||!user) return;
+      const uid=await user.id(); if(!uid) return;
+      ref=db.doc('data/users/'+uid+'/revise');
+      const snap=await ref.get();
+      if(snap.exists){ merge(snap.data()); store.set('pp_rv',RV); updateCount(); onRvChange(); }
+      synced=true; setSync(); push();
+    }catch(e){ ref=null; synced=false; setSync(); }
+  }
+
+  /* tabs */
+  const tabs=[...document.querySelectorAll('[data-tab]')], panels=[...document.querySelectorAll('[data-panel]')];
+  function show(name, keepScroll){
+    if(!panels.some(p=>p.dataset.panel===name)) name='plan';
+    tabs.forEach(t=>t.setAttribute('aria-selected', t.dataset.tab===name));
+    panels.forEach(p=>p.hidden = p.dataset.panel!==name);
+    store.set('pp_tab',name);
+    if(name==='revise') onRvChange();
+    if(!keepScroll) window.scrollTo({top:0});
+  }
+  /* Back: one step at a time. Inside a running quiz it goes to the previous
+     question; otherwise to the previous screen, section or tab. Each step is
+     also a browser history entry, so the phone's own back button does the same. */
+  const quizzes={};
+  const curTab=()=>{const p=panels.find(p=>!p.hidden);return p?p.dataset.panel:'plan'};
+  const NAV={stack:[],hist:false};
+  const backBtn=document.getElementById('backBtn');
+  function canBack(){const q=quizzes[curTab()];return NAV.stack.length>0||!!(q&&q.running()&&q.index()>0)}
+  function updBack(){backBtn.disabled=!canBack()}
+  function navPush(hash){
+    const t=curTab(), q=quizzes[t];
+    NAV.stack.push({tab:t,y:window.scrollY,qz:q?q.state():null});
+    if(NAV.stack.length>200) NAV.stack.shift();
+    try{history.pushState({pp:NAV.stack.length},'',hash||location.hash||'#'+t);NAV.hist=true}catch(e){NAV.hist=false}
+    updBack();
+  }
+  function restore(st){
+    show(st.tab,true);
+    const q=quizzes[st.tab];
+    if(q&&st.qz==='setup'&&q.state()!=='setup') q.toSetup();
+    requestAnimationFrame(()=>window.scrollTo({top:st.y||0}));
+    updBack();
+  }
+  function stepQuizBack(){const q=quizzes[curTab()]; if(q&&q.running()&&q.index()>0){q.prev();return true} return false}
+  backBtn.onclick=()=>{
+    if(stepQuizBack()){updBack();return}
+    if(!NAV.stack.length) return;
+    if(NAV.hist){try{history.back();return}catch(e){}}
+    restore(NAV.stack.pop());
+  };
+  window.addEventListener('popstate',()=>{
+    if(stepQuizBack()){ try{history.pushState({pp:NAV.stack.length},'',location.hash)}catch(e){} updBack(); return; }
+    if(NAV.stack.length) restore(NAV.stack.pop());
+  });
+
+  tabs.forEach(t=>t.onclick=()=>{ if(t.dataset.tab===curTab()) return; navPush('#'+t.dataset.tab); show(t.dataset.tab); updBack(); });
+
+  document.querySelectorAll('.subnav a').forEach(a=>a.addEventListener('click',e=>{
+    const el=document.getElementById(a.getAttribute('href').slice(1)); if(el){e.preventDefault(); navPush(); el.scrollIntoView({behavior:'smooth',block:'start'});}
+  }));
+
+  const saveBtn=id=>`<button class="savebtn" type="button" data-sv="${id}" aria-pressed="${isSaved(id)}">${isSaved(id)?'★ Saved':'☆ Save'}</button>`;
+  function wireSave(scope){
+    scope.querySelectorAll('[data-sv]').forEach(b=>b.onclick=()=>{
+      const on=toggleSave(b.dataset.sv); b.setAttribute('aria-pressed',on); b.textContent=on?'★ Saved':'☆ Save';
+    });
+  }
+
+  function Quiz(host,cfg){
+    const S={};
+    const topicsOf=bank=>[...new Set(QB[bank].map(r=>r[0]))];
+    const fmt=s=>{s=Math.max(0,s);return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')};
+
+    function begin(items,mode,time,neg){
+      navPush();
+      S.items=items; S.pick=new Array(items.length).fill(null); S.flag=new Set(); S.i=0; S.done=false; S.running=true;
+      S.mode=mode; S.time=time; S.neg=neg; clearInterval(S.tm);
+      if(time){S.left=time; S.tm=setInterval(()=>{S.left--; const el=host.querySelector('.timer'); if(el){el.textContent=fmt(S.left); el.classList.toggle('low',S.left<300)} if(S.left<=0){clearInterval(S.tm); finish()}},1000)}
+      render();
+    }
+
+    /* ----- Revise list view ----- */
+    function reviseView(){
+      S.running=false; S.done=false;
+      const f=store.get('pp_rvf',{kind:'all',subj:'all',hide:false});
+      const w=wrongIds(), s=savedIds();
+      let ids=[...new Set(f.kind==='wrong'?w:f.kind==='saved'?s:w.concat(s))];
+      if(f.subj!=='all') ids=ids.filter(id=>id.startsWith(f.subj+':'));
+      ids.sort((a,b)=>((isWrong(b)?RV.w[b].n:0)-(isWrong(a)?RV.w[a].n:0)) || ((RV.w[b]||RV.s[b]||{}).ts||0)-((RV.w[a]||RV.s[a]||{}).ts||0));
+      const segBtn=(key,val,label)=>`<button type="button" data-f="${key}" data-v="${val}" aria-pressed="${f[key]===val}">${label}</button>`;
+      host.innerHTML=`<div class="qsetup">
+        <div class="stats" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+          <div class="stat"><b>${w.length}</b><span>Got wrong (auto-added)</span></div>
+          <div class="stat"><b>${s.length}</b><span>Saved by you</span></div>
+          <div class="stat"><b>${ids.length}</b><span>Showing now</span></div>
+        </div>
+        <div class="row">
+          <span class="seg">${segBtn('kind','all','All')}${segBtn('kind','wrong','Wrong')}${segBtn('kind','saved','Saved')}</span>
+          <span class="seg">${segBtn('subj','all','Both')}${segBtn('subj','law','Laws')}${segBtn('subj','comp','Computer')}</span>
+          <label class="chip"><input type="checkbox" id="rv-hide" ${f.hide?'checked':''}> Hide answers (tap a card to reveal)</label>
+        </div>
+        <div class="row">
+          <label>Questions <select id="rv-n"><option>10</option><option selected>25</option><option>50</option><option value="999">All</option></select></label>
+          <button class="btn" type="button" data-start ${ids.length?'':'disabled'}>Practise these (${ids.length})</button>
+        </div>
+        <p class="sync" data-sync></p>
+        <details><summary class="small">Move my Revise list to another device</summary>
+          <div style="display:grid;gap:8px;margin-top:8px">
+            <p class="small muted">On this device press <b>Copy code</b>, send the code to yourself (WhatsApp, email), then on the other device paste it below and press <b>Import</b>. Lists are merged, nothing is lost.</p>
+            <div class="row"><button class="btn ghost" type="button" data-export>Copy code</button><span class="small" data-exmsg></span></div>
+            <textarea id="rv-io" rows="3" style="width:100%;font:inherit;font-size:.8rem;background:var(--bg);color:var(--ink);border:1px solid var(--rule);border-radius:6px;padding:6px" placeholder="Paste a Revise code here"></textarea>
+            <div class="row"><button class="btn ghost" type="button" data-import>Import</button></div>
+          </div>
+        </details>
+      </div>
+      ${ids.length?`<div class="rvlist">${ids.map(id=>{const r=rowOf(id), we=RV.w[id];
+        return `<div class="rvitem" data-id="${id}">
+          <div class="meta2"><span class="qtopic">${esc(TOPICS[r[0]])}</span>
+            <span class="row" style="gap:6px">${isWrong(id)?`<span class="badge w">✕ wrong ${we.n}×</span>`:''}${isWrong(id)&&we.last==='right'?`<span class="badge ok">✓ fixed ${we.ok}×</span>`:''}${isSaved(id)?'<span class="badge s">★ saved</span>':''}</span></div>
+          <b>${esc(r[1])}</b>
+          <div data-ans ${f.hide?'hidden':''}><span class="ans">✓ ${esc(r[2][r[3]])}</span>${r[4]?`<div class="muted small">${esc(r[4])}</div>`:''}</div>
+          <div class="row" style="gap:8px">${saveBtn(id)}${isWrong(id)?`<button class="linkbtn" type="button" data-learnt="${id}">Mark learnt (remove from wrong list)</button>`:''}</div>
+        </div>`}).join('')}</div>`
+      :`<div class="qsetup"><p><b>Nothing here yet.</b> Every question you answer wrong in Law MCQs, Computer MCQs or the Full Mock lands here automatically. Tap <b>☆ Save</b> on any question to keep it here too.</p></div>`}`;
+      setSync(); wireSave(host);
+      host.querySelectorAll('[data-f]').forEach(b=>b.onclick=()=>{f[b.dataset.f]=b.dataset.v; store.set('pp_rvf',f); reviseView()});
+      host.querySelector('#rv-hide').onchange=e=>{f.hide=e.target.checked; store.set('pp_rvf',f); reviseView()};
+      host.querySelectorAll('.rvitem').forEach(c=>c.addEventListener('click',e=>{ if(e.target.closest('button')) return; const a=c.querySelector('[data-ans]'); if(a.hidden) a.hidden=false; }));
+      host.querySelectorAll('[data-learnt]').forEach(b=>b.onclick=()=>{markLearnt(b.dataset.learnt); reviseView()});
+      const io=host.querySelector('#rv-io'), exm=host.querySelector('[data-exmsg]');
+      host.querySelector('[data-export]').onclick=()=>{
+        const code='PP1:'+btoa(unescape(encodeURIComponent(JSON.stringify(RV))));
+        io.value=code;
+        const done=()=>{exm.textContent='Copied. Paste it on your other device.'};
+        try{ navigator.clipboard.writeText(code).then(done,()=>{io.select();exm.textContent='Code is in the box below: select and copy it.'}); }
+        catch(e){ io.select(); exm.textContent='Code is in the box below: select and copy it.'; }
+      };
+      host.querySelector('[data-import]').onclick=()=>{
+        try{
+          const raw=io.value.trim().replace(/^PP1:/,'');
+          const data=JSON.parse(decodeURIComponent(escape(atob(raw))));
+          ['w','s'].forEach(kind=>{const src=data[kind]||{}; for(const id in src){const a=RV[kind][id],b=src[id]; if(rowOf(id)&&(!a||(b.ts||0)>(a.ts||0))) RV[kind][id]=b;}});
+          changed(); reviseView();
+        }catch(e){ exm.textContent='That code could not be read. Copy it again in full.'; }
+      };
+      const st=host.querySelector('[data-start]');
+      st.onclick=()=>{ const n=+host.querySelector('#rv-n').value; begin(shuffle(ids).slice(0,n).map(itemFromId),'practice',0,false); };
+    }
+
+    function setup(){
+      if(cfg.revise) return reviseView();
+      S.running=false; S.done=false;
+      const isMock=cfg.mock;
+      const tlist = isMock?[]:topicsOf(cfg.bank);
+      const mine = isMock?[]:[...new Set(wrongIds().concat(savedIds()))].filter(id=>id.startsWith(cfg.bank+':'));
+      const best = store.get('pp_best_'+cfg.key,null);
+      host.innerHTML=`<div class="qsetup">
+        ${isMock?`<p>Simulates your subject section: <b>100 questions</b>. DSSSB papers are reported as 200 Q in 2 hours, so 60 minutes is the realistic pace for 100.</p>`:
+        `<div><p class="boxhead">Topics <span class="muted small">(${QB[cfg.bank].length} questions in bank)</span></p>
+         <div class="chips">${tlist.map(t=>`<label class="chip"><input type="checkbox" value="${t}" checked> ${esc(TOPICS[t])} <span class="muted small">${QB[cfg.bank].filter(r=>r[0]===t).length}</span></label>`).join('')}</div>
+         <div class="row small" style="margin-top:8px"><button class="btn ghost" type="button" data-all>All</button><button class="btn ghost" type="button" data-none>None</button></div></div>`}
+        <div class="row">
+          ${isMock?`<label>Time <select id="${cfg.key}-time"><option value="60" selected>60 min</option><option value="90">90 min</option><option value="120">120 min</option></select></label>`:
+          `<label>Questions <select id="${cfg.key}-n"><option>10</option><option selected>25</option><option>50</option><option>100</option><option value="999">All</option></select></label>
+           <label>Mode <select id="${cfg.key}-mode"><option value="practice">Practice (instant answer)</option><option value="test">Test (result at end)</option></select></label>`}
+          <label class="chip"><input type="checkbox" id="${cfg.key}-neg" checked> −0.25 negative</label>
+          ${isMock?'':`<label class="chip"><input type="checkbox" id="${cfg.key}-mist" ${mine.length?'':'disabled'}> Only my Revise list (${mine.length})</label>`}
+        </div>
+        <div class="row"><button class="btn ${cfg.cls}" type="button" data-start>Start</button>
+        ${best?`<span class="small muted">Best so far: <b>${best.pct}%</b> net (${best.net}/${best.n})</span>`:''}</div>
+        <p class="small muted">Wrong answers go to <b>Revise</b> automatically. Press <b>☆ Save</b> (or the S key) on any question to add it there too.</p>
+      </div>`;
+      const chk=()=>[...host.querySelectorAll('.chips input')];
+      const a=host.querySelector('[data-all]'), n=host.querySelector('[data-none]');
+      if(a) a.onclick=()=>chk().forEach(c=>c.checked=true);
+      if(n) n.onclick=()=>chk().forEach(c=>c.checked=false);
+      host.querySelector('[data-start]').onclick=()=>{
+        const neg=host.querySelector('#'+cfg.key+'-neg').checked;
+        if(isMock){
+          const pick=(bank,k)=>shuffle(QB[bank].map((_,i)=>i)).slice(0,k).map(i=>makeItem(bank,i));
+          begin(shuffle(pick('law',50).concat(pick('comp',50))),'test',+host.querySelector('#'+cfg.key+'-time').value*60,neg);
+        } else {
+          const sel=new Set(chk().filter(c=>c.checked).map(c=>c.value));
+          const onlyM=host.querySelector('#'+cfg.key+'-mist').checked;
+          let ids=onlyM?mine:QB[cfg.bank].map((r,i)=>cfg.bank+':'+i).filter(id=>sel.has(rowOf(id)[0]));
+          if(!ids.length){host.querySelector('[data-start]').insertAdjacentHTML('afterend','<span class="small" style="color:var(--bad)">Select at least one topic.</span>');return}
+          const n=+host.querySelector('#'+cfg.key+'-n').value;
+          begin(shuffle(ids).slice(0,n).map(itemFromId),host.querySelector('#'+cfg.key+'-mode').value,0,neg);
+        }
+      };
+    }
+
+    function render(){
+      const it=S.items[S.i], n=S.items.length, p=S.pick[S.i];
+      const answered=S.pick.filter(x=>x!==null).length;
+      const reveal = S.mode==='practice' && p!==null;
+      const right=S.items.reduce((c,x,k)=>c+(S.pick[k]===x.ans?1:0),0);
+      host.innerHTML=`<div class="qcard">
+        <div class="qbar"><span>Q ${S.i+1} / ${n} · answered ${answered}</span>
+          ${S.mode==='practice'?`<span>Correct ${right} / ${answered}</span>`:''}
+          ${S.time?`<span>Time left <span class="timer">${fmt(S.left)}</span></span>`:''}</div>
+        <div class="progress"><i style="width:${(answered/n*100).toFixed(1)}%"></i></div>
+        <div class="qhead"><span class="qtopic">${esc(TOPICS[it.t])}</span>${saveBtn(it.id)}</div>
+        <p class="qtext">${esc(it.q)}</p>
+        <div class="opts">${it.opts.map((o,k)=>{
+          let c=''; if(reveal){ if(k===it.ans) c='right'; else if(k===p) c='wrong'; } else if(k===p) c='picked';
+          return `<button class="opt ${c}" type="button" data-k="${k}" ${reveal?'disabled':''}><span class="k">${L[k]}</span><span>${esc(o)}</span></button>`}).join('')}</div>
+        ${reveal?`<div class="expl ${p===it.ans?'':'bad'}"><b>${p===it.ans?'Correct.':'Answer: '+L[it.ans]+'. '+esc(it.opts[it.ans])+'.'}</b> ${esc(it.e||'')}${p!==it.ans?' <span class="small">(Added to Revise.)</span>':''}</div>`:''}
+        <div class="qnav">
+          <div class="row"><button class="btn ghost" type="button" data-prev ${S.i?'':'disabled'}>← Prev</button>
+          ${S.mode==='test'?`<button class="btn ghost" type="button" data-clear ${p===null?'disabled':''}>Clear</button><button class="btn ghost" type="button" data-flag>${S.flag.has(S.i)?'Unmark':'Mark for review'}</button>`:''}</div>
+          <div class="row">${S.i<n-1?`<button class="btn ${cfg.cls}" type="button" data-next>Next →</button>`:''}<button class="btn ghost" type="button" data-finish>Submit</button></div>
+        </div>
+        ${S.mode==='test'?`<div class="palette">${S.items.map((_,k)=>`<button type="button" data-go="${k}" class="${S.pick[k]!==null?'done':''} ${k===S.i?'cur':''} ${S.flag.has(k)?'flag':''}">${k+1}</button>`).join('')}</div>`:''}
+        <p class="small muted">Keys: 1–4 or A–D answer · S save · ← → move</p>
+      </div>`;
+      host.querySelectorAll('.opt').forEach(b=>b.onclick=()=>choose(+b.dataset.k));
+      wireSave(host);
+      const on=(sel,fn)=>{const el=host.querySelector(sel); if(el) el.onclick=fn};
+      on('[data-prev]',()=>{S.i--;render()}); on('[data-next]',()=>{S.i++;render()});
+      on('[data-clear]',()=>{S.pick[S.i]=null;render()});
+      on('[data-flag]',()=>{S.flag.has(S.i)?S.flag.delete(S.i):S.flag.add(S.i);render()});
+      on('[data-finish]',()=>confirmFinish());
+      host.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{S.i=+b.dataset.go;render()});
+    }
+    function choose(k){
+      if(S.done) return;
+      if(S.mode==='practice' && S.pick[S.i]!==null) return;
+      S.pick[S.i]=k;
+      const it=S.items[S.i];
+      if(S.mode==='practice') recordAnswer(it.id,k===it.ans);
+      render();
+    }
+    function confirmFinish(){
+      const left=S.pick.filter(x=>x===null).length;
+      if(left && !S.confirm){ S.confirm=true;
+        host.querySelector('.qnav').insertAdjacentHTML('afterend',`<div class="note">${left} unanswered. Press <b>Submit</b> again to finish.</div>`);
+        setTimeout(()=>S.confirm=false,4000); return; }
+      finish();
+    }
+    function finish(){
+      clearInterval(S.tm); S.done=true; S.confirm=false; S.running=false;
+      const n=S.items.length; let r=0,w=0; const per={};
+      S.items.forEach((it,k)=>{const p=S.pick[k]; per[it.t]=per[it.t]||{r:0,w:0,s:0,n:0}; per[it.t].n++;
+        if(p===null) per[it.t].s++; else if(p===it.ans){r++;per[it.t].r++} else {w++;per[it.t].w++}
+        if(S.mode==='test' && p!==null) recordAnswer(it.id,p===it.ans);});
+      const net=S.neg? r-w*0.25 : r, pct=Math.round(net/n*1000)/10;
+      const best=store.get('pp_best_'+cfg.key,null);
+      if(!cfg.revise && n>=10 && (!best||pct>best.pct)) store.set('pp_best_'+cfg.key,{pct,net,n});
+      const ok=pct>=80;
+      const wrongs=S.items.map((it,k)=>({it,p:S.pick[k]})).filter(x=>x.p!==x.it.ans);
+      host.innerHTML=`<div class="result">
+        <div class="row" style="align-items:flex-end"><div><span class="big">${pct}%</span></div>
+          <div><span class="pill ${ok?'ok':'bad'}">${ok?'Target met (80%+)':'Below 80% target'}</span><br>
+          <span class="small muted">Net ${net} / ${n} · ✓ ${r} · ✕ ${w} · skipped ${n-r-w}${S.neg?' · −0.25 each wrong':''}</span></div></div>
+        <div class="target" aria-label="Score against 80 percent target"><i class="${ok?'ok':'bad'}" style="width:${Math.max(0,Math.min(100,pct))}%"></i><s></s><em>80%</em></div>
+        ${w?`<p class="small">${w} wrong answer${w>1?'s were':' was'} added to <b>Revise</b>.</p>`:''}
+        <div class="tbl"><table><tr><th>Topic</th><th>Right</th><th>Wrong</th><th>Skip</th><th>Accuracy</th></tr>
+          ${Object.entries(per).sort((a,b)=>(a[1].r/a[1].n)-(b[1].r/b[1].n)).map(([t,v])=>`<tr><td>${esc(TOPICS[t])}</td><td>${v.r}</td><td>${v.w}</td><td>${v.s}</td><td><b style="color:${v.r/v.n>=.8?'var(--ok)':'var(--bad)'}">${Math.round(v.r/v.n*100)}%</b></td></tr>`).join('')}
+        </table></div>
+        <div class="row"><button class="btn ${cfg.cls}" type="button" data-again>${cfg.revise?'Back to Revise list':'New set'}</button>
+          ${wrongs.length?`<button class="btn ghost" type="button" data-retry>Retry these ${wrongs.length} wrong/skipped</button>`:''}</div>
+        ${wrongs.length?`<h4>Review</h4><div class="review">${wrongs.map(({it,p})=>`<div><div class="qhead"><span class="qtopic">${esc(TOPICS[it.t])}</span>${saveBtn(it.id)}</div><b>${esc(it.q)}</b>
+          <span class="ans">✓ ${esc(it.opts[it.ans])}</span>${p!==null?`<span class="your">✕ You: ${esc(it.opts[p])}</span>`:'<span class="muted">Skipped</span>'}${it.e?`<span class="muted small">${esc(it.e)}</span>`:''}</div>`).join('')}</div>`:'<p>Perfect set. Move to a harder mix or the Full Mock.</p>'}
+      </div>`;
+      wireSave(host);
+      host.querySelector('[data-again]').onclick=setup;
+      const rt=host.querySelector('[data-retry]');
+      if(rt) rt.onclick=()=>begin(shuffle(wrongs.map(x=>itemFromId(x.it.id))),'practice',0,false);
+      host.scrollIntoView({block:'start'});
+    }
+    document.addEventListener('keydown',e=>{
+      if(host.closest('[data-panel]').hidden||!S.running||S.done) return;
+      if(e.ctrlKey||e.metaKey||e.altKey) return;
+      if(['INPUT','SELECT','TEXTAREA'].includes(document.activeElement.tagName)) return;
+      const k=e.key.toUpperCase();
+      if(k==='S'){ const b=host.querySelector('.qhead [data-sv]'); if(b) b.click(); return; }
+      let idx='1234'.indexOf(k); if(idx<0) idx=L.indexOf(k);
+      if(idx>=0 && e.key.length===1){choose(idx);return}
+      if(e.key==='ArrowRight'&&S.i<S.items.length-1){S.i++;render()}
+      if(e.key==='ArrowLeft'&&S.i>0){S.i--;render()}
+    });
+    setup();
+    return {refresh(){ if(!S.running && !S.done) setup(); }, S,
+      state(){return S.running?'run':S.done?'done':'setup'},
+      toSetup(){clearInterval(S.tm); S.running=false; S.done=false; setup()},
+      running(){return !!S.running}, index(){return S.i||0},
+      prev(){ if(S.running&&S.i>0){S.i--;render()} }};
+  }
+  quizzes.lawq=Quiz(document.getElementById('quiz-law'),{bank:'law',key:'law',cls:'law'});
+  quizzes.compq=Quiz(document.getElementById('quiz-comp'),{bank:'comp',key:'comp',cls:'comp'});
+  quizzes.mock=Quiz(document.getElementById('quiz-mock'),{mock:true,key:'mock',cls:''});
+  const rvQ=quizzes.revise=Quiz(document.getElementById('quiz-revise'),{revise:true,key:'rv',cls:''});
+  document.addEventListener('click',()=>setTimeout(updBack,0));
+  onRvChange=()=>{ if(!rvQ.S.running && !rvQ.S.done) rvQ.refresh(); };
+
+  const h=(location.hash||'').slice(1);
+  if(h.startsWith('a-')) show('laws',true); else if(h.startsWith('c-')) show('computer',true); else show(h||store.get('pp_tab','plan'),true);
+  updateCount(); store.set('pp_rv',RV);
+  initCloud();
+})();
+</script>
+<script>
+if('serviceWorker' in navigator){addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){})})}
+</script>
+</body>
+</html>
