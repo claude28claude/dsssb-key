@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>DUSIB Patwari Prep</title>
-<meta name="description" content="DUSIB Patwari (Post Code 14/26) prep: every Delhi Act in the syllabus with section tables and traps, computer revision, 557 MCQs, a timed 100-question mock with negative marking, and a Revise list of wrong and saved questions. Works offline.">
+<meta name="description" content="DUSIB Patwari (Post Code 14/26) prep: every Delhi Act in the syllabus with section tables and traps, Delhi GK, computer revision, 709 MCQs, a timed 100-question mock with negative marking, and a Revise list of wrong and saved questions. Works offline.">
 <meta name="theme-color" content="#141a17">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -27,7 +27,7 @@
 /* Layout: a revenue-register desk. Sticky tab bar, one panel at a time, ledger-style fact strips and section tables. Dim sage paper, never white. */
 :root{
   --bg:#d6dbcd; --surface:#e2e6d9; --surface2:#cad1bf; --ink:#1e2922; --muted:#4f5c53; --rule:#aeb7a2;
-  --law:#a1232a; --law-soft:#e6d0c8; --comp:#1b5870; --comp-soft:#cbdbdc;
+  --law:#a1232a; --law-soft:#e6d0c8; --comp:#1b5870; --comp-soft:#cbdbdc; --gk:#7a5200; --gk-soft:#e7dcc0;
   --ok:#2b6838; --ok-soft:#c9dcc5; --bad:#94460f; --bad-soft:#e7d2bd; --focus:#1b5870;
   --f-display:"Literata",Georgia,"Times New Roman",serif;
   --f-body:"Inter","Segoe UI",system-ui,sans-serif;
@@ -36,11 +36,11 @@
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --bg:#141a17; --surface:#1c2420; --surface2:#25302a; --ink:#d9e0d4; --muted:#92a096; --rule:#34413a;
-  --law:#ef7d76; --law-soft:#3a2321; --comp:#82bfd6; --comp-soft:#1b2f37;
+  --law:#ef7d76; --law-soft:#3a2321; --comp:#82bfd6; --comp-soft:#1b2f37; --gk:#e3b45c; --gk-soft:#33291a;
   --ok:#82c792; --ok-soft:#1e3324; --bad:#e8a86f; --bad-soft:#3a2a1b; --focus:#82bfd6; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#141a17; --surface:#1c2420; --surface2:#25302a; --ink:#d9e0d4; --muted:#92a096; --rule:#34413a;
-  --law:#ef7d76; --law-soft:#3a2321; --comp:#82bfd6; --comp-soft:#1b2f37;
+  --law:#ef7d76; --law-soft:#3a2321; --comp:#82bfd6; --comp-soft:#1b2f37; --gk:#e3b45c; --gk-soft:#33291a;
   --ok:#82c792; --ok-soft:#1e3324; --bad:#e8a86f; --bad-soft:#3a2a1b; --focus:#82bfd6; color-scheme:dark}
 
 *{box-sizing:border-box}
@@ -72,6 +72,8 @@ nav.tabs button.backbtn:disabled{color:var(--muted);opacity:.5;cursor:default}
 nav.tabs button.t-law{color:var(--law)}
 nav.tabs button.t-law[aria-selected="true"]{border-bottom-color:var(--law)}
 nav.tabs button.t-comp[aria-selected="true"]{border-bottom-color:var(--comp);color:var(--comp)}
+nav.tabs button.t-gk{color:var(--gk)}
+nav.tabs button.t-gk[aria-selected="true"]{border-bottom-color:var(--gk)}
 
 main{padding-block:24px 64px}
 .panel{display:grid;gap:22px}
@@ -81,15 +83,22 @@ main{padding-block:24px 64px}
 .banner.law h2{color:var(--law)}
 .banner.comp{background:var(--comp-soft);border-left:6px solid var(--comp)}
 .banner.comp h2{color:var(--comp)}
+.banner.gk{background:var(--gk-soft);border-left:6px solid var(--gk)}
+.banner.gk h2{color:var(--gk)}
 
 .subnav{display:flex;flex-wrap:wrap;gap:6px}
 .subnav a{font-size:.88rem;text-decoration:none;color:var(--ink);background:var(--surface);border:1px solid var(--rule);border-radius:999px;padding:4px 11px}
 .subnav.law a:hover{border-color:var(--law);color:var(--law)}
 .subnav.comp a:hover{border-color:var(--comp);color:var(--comp)}
+.subnav.gk a:hover{border-color:var(--gk);color:var(--gk)}
 
 article.unit{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:20px;display:grid;gap:14px;scroll-margin-top:70px;min-width:0}
 article.unit.law h3{color:var(--law)}
 article.unit.comp h3{color:var(--comp)}
+article.unit.gk h3{color:var(--gk)}
+article.unit.gk td.sec{color:var(--gk)}
+.btn.gk{background:var(--gk);border-color:var(--gk);color:var(--bg)}
+#g-quiz{color:var(--gk)}
 .tag{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:8px;overflow:hidden}
 .facts div{background:var(--bg);padding:9px 12px;display:grid;gap:2px}
@@ -209,6 +218,7 @@ footer{color:var(--muted);font-size:.85rem;padding-block:24px;border-top:1px sol
     <button role="tab" data-tab="plan" aria-selected="true">Plan</button>
     <button role="tab" data-tab="laws" class="t-law" aria-selected="false">Delhi Laws</button>
     <button role="tab" data-tab="computer" class="t-comp" aria-selected="false">Computer</button>
+    <button role="tab" data-tab="delhigk" class="t-gk" aria-selected="false">Delhi GK</button>
     <button role="tab" data-tab="lawq" class="t-law" aria-selected="false">Law MCQs</button>
     <button role="tab" data-tab="compq" class="t-comp" aria-selected="false">Computer MCQs</button>
     <button role="tab" data-tab="mock" aria-selected="false">Full Mock · 100</button>
@@ -1058,6 +1068,303 @@ footer{color:var(--muted);font-size:.85rem;padding-block:24px;border-top:1px sol
   </article>
 </section>
 
+<!-- ============ DELHI GK ============ -->
+<section class="panel" data-panel="delhigk" hidden>
+  <div class="banner gk">
+    <h2>Delhi GK</h2>
+    <p>Everything about Delhi that a DSSSB paper asks: facts and figures, office-holders, history, the seven cities, monuments, geography, culture, institutions, transport, sport and 2025–26 updates. MCQs at the bottom.</p>
+  </div>
+  <nav class="subnav gk" aria-label="Delhi GK topics">
+    <a href="#g-glance">At a glance</a><a href="#g-people">Who's who</a><a href="#g-hist">History</a><a href="#g-cities">Seven cities</a><a href="#g-mon">Monuments</a><a href="#g-geo">Geography</a><a href="#g-cult">Culture</a><a href="#g-inst">Institutions</a><a href="#g-trans">Transport</a><a href="#g-sport">Sport</a><a href="#g-now">2025–26 updates</a><a href="#g-quiz">Delhi GK MCQs</a>
+  </nav>
+
+  <article class="unit gk" id="g-glance">
+    <span class="tag">Facts and figures</span>
+    <h3>Delhi at a glance</h3>
+    <dl class="facts">
+      <div><dt>Status</dt><dd>National Capital Territory (69th Amdt, 1991)</dd></div>
+      <div><dt>Area</dt><dd>1,483 sq km</dd></div>
+      <div><dt>Borders</dt><dd>Haryana (N, W, S) · Uttar Pradesh (E)</dd></div>
+      <div><dt>River</dt><dd>Yamuna (about 48 km in Delhi)</dd></div>
+      <div><dt>Districts</dt><dd>13 (since Dec 2025; earlier 11)</dd></div>
+      <div><dt>Seats</dt><dd>70 MLA (12 SC) · 7 Lok Sabha · 3 Rajya Sabha</dd></div>
+      <div><dt>MCD wards</dt><dd>250 (unified 22 May 2022)</dd></div>
+      <div><dt>Languages</dt><dd>Hindi; Punjabi &amp; Urdu second official (Act of 2000)</dd></div>
+      <div><dt>State animal</dt><dd>Nilgai</dd></div>
+      <div><dt>State bird</dt><dd>House Sparrow (2012)</dd></div>
+    </dl>
+    <div class="two">
+      <div><p class="boxhead">Census 2011</p><div class="tbl"><table>
+        <tr><td class="sec">Population</td><td>1,67,87,941 (about 1.68 crore)</td></tr>
+        <tr><td class="sec">Density</td><td>11,320 per sq km: <b>highest</b> of all states/UTs</td></tr>
+        <tr><td class="sec">Sex ratio</td><td>868 females per 1,000 males</td></tr>
+        <tr><td class="sec">Literacy</td><td>86.21%</td></tr>
+        <tr><td class="sec">Urban</td><td>About 97.5%</td></tr>
+      </table></div></div>
+      <div><p class="boxhead">Economy (Economic Survey 2025–26)</p><div class="tbl"><table>
+        <tr><td class="sec">Per capita</td><td>₹5,31,610 (about 2.5× the national figure)</td></tr>
+        <tr><td class="sec">GSDP</td><td>₹13.27 lakh crore (current prices)</td></tr>
+        <tr><td class="sec">Structure</td><td>Services-led (tertiary sector dominant)</td></tr>
+        <tr><td class="sec">Budget 2026–27</td><td>₹1,03,700 crore, presented 24 Mar 2026; "green budget" (about 21% for environment)</td></tr>
+        <tr><td class="sec">Budget 2025–26</td><td>₹1,00,000 crore (Rekha Gupta's first)</td></tr>
+      </table></div></div>
+    </div>
+    <div class="note"><b>Trap:</b> Delhi has no official state tree or flower in standard lists. If asked, the animal is <b>Nilgai</b> and the bird is <b>House Sparrow</b>.</div>
+  </article>
+
+  <article class="unit gk" id="g-people">
+    <span class="tag">As of October 2026</span>
+    <h3>Who's who in Delhi</h3>
+    <div class="tbl"><table>
+      <tr><th>Post</th><th>Holder</th><th>Note</th></tr>
+      <tr><td class="sec">Lieutenant Governor</td><td><b>Taranjit Singh Sandhu</b></td><td>23rd LG, since 11 Mar 2026; ex-Ambassador to USA. Before him V.K. Saxena (2022–26, now LG Ladakh)</td></tr>
+      <tr><td class="sec">Chief Minister</td><td><b>Rekha Gupta</b> (BJP)</td><td>Since 20 Feb 2025; MLA Shalimar Bagh; 4th woman CM</td></tr>
+      <tr><td class="sec">Speaker</td><td><b>Vijender Gupta</b></td><td>8th Assembly; Deputy Speaker <b>Mohan Singh Bisht</b></td></tr>
+      <tr><td class="sec">Mayor (MCD)</td><td><b>Pravesh Wahi</b> (BJP)</td><td>Elected 29 Apr 2026; Deputy Mayor Monika Pant; mayor's term is one year</td></tr>
+      <tr><td class="sec">Police Commissioner</td><td><b>Anurag Kumar</b></td><td>Since 17 Jul 2026 (1994 AGMUT IPS); before him Satish Golcha</td></tr>
+    </table></div>
+    <div class="two">
+      <div><p class="boxhead">Chief Ministers in order</p><div class="tbl"><table>
+        <tr><td class="sec">1952–55</td><td>Chaudhary Brahm Prakash (first)</td></tr>
+        <tr><td class="sec">1955–56</td><td>Gurmukh Nihal Singh</td></tr>
+        <tr><td class="sec">1993–96</td><td>Madan Lal Khurana (first after NCT)</td></tr>
+        <tr><td class="sec">1996–98</td><td>Sahib Singh Verma</td></tr>
+        <tr><td class="sec">1998</td><td>Sushma Swaraj (first woman CM)</td></tr>
+        <tr><td class="sec">1998–2013</td><td>Sheila Dikshit (longest, 15 years)</td></tr>
+        <tr><td class="sec">2013–14, 2015–24</td><td>Arvind Kejriwal</td></tr>
+        <tr><td class="sec">2024–25</td><td>Atishi</td></tr>
+        <tr><td class="sec">2025–</td><td>Rekha Gupta</td></tr>
+      </table></div></div>
+      <div><p class="boxhead">Assembly election, Feb 2025</p><ul>
+        <li>BJP <b>48</b>, AAP <b>22</b>, Congress 0 (of 70)</li>
+        <li>BJP returned to power after 27 years (last in 1998)</li>
+        <li>4 women CMs: Sushma Swaraj, Sheila Dikshit, Atishi, Rekha Gupta</li>
+        <li>Delhi between 1956 and 1993 had no CM (Union Territory, Metropolitan Council from 1966)</li>
+      </ul></div>
+    </div>
+  </article>
+
+  <article class="unit gk" id="g-hist">
+    <span class="tag">From Indraprastha to NCT</span>
+    <h3>History of Delhi</h3>
+    <div class="tbl"><table>
+      <tr><th>When</th><th>What</th></tr>
+      <tr><td class="sec">Epic age</td><td>Indraprastha, city of the Pandavas (Mahabharata); Purana Qila site linked to it</td></tr>
+      <tr><td class="sec">11th c.</td><td>Tomar Rajputs: <b>Anangpal Tomar</b> builds <b>Lal Kot</b></td></tr>
+      <tr><td class="sec">12th c.</td><td>Chauhans: <b>Prithviraj Chauhan</b> extends it as <b>Qila Rai Pithora</b>; loses to Muhammad Ghori at Tarain (1192)</td></tr>
+      <tr><td class="sec">1206–1526</td><td><b>Delhi Sultanate</b>: Mamluk/Slave (1206–90, Qutb-ud-din Aibak, Iltutmish, Razia, Balban) → Khalji (1290–1320) → Tughlaq (1320–1414) → Sayyid (1414–51) → Lodi (1451–1526)</td></tr>
+      <tr><td class="sec">1398</td><td>Timur sacks Delhi</td></tr>
+      <tr><td class="sec">1526</td><td>Babur defeats Ibrahim Lodi at Panipat: Mughal rule begins</td></tr>
+      <tr><td class="sec">1540–55</td><td>Sher Shah Suri (Sur dynasty); Shergarh at Purana Qila</td></tr>
+      <tr><td class="sec">1639–48</td><td>Shah Jahan builds <b>Shahjahanabad</b> and shifts the capital from Agra (1648)</td></tr>
+      <tr><td class="sec">1739</td><td><b>Nadir Shah</b> sacks Delhi, takes the Peacock Throne and Koh-i-Noor</td></tr>
+      <tr><td class="sec">1803</td><td>Battle of Delhi: British (Lord Lake) defeat the Marathas</td></tr>
+      <tr><td class="sec">1857</td><td>Rebels reach Delhi on 11 May; <b>Bahadur Shah Zafar</b> proclaimed leader; exiled to Rangoon (1858)</td></tr>
+      <tr><td class="sec">1877 / 1903</td><td>Delhi Durbars: Lytton (Victoria as Empress) and Curzon (Edward VII)</td></tr>
+      <tr><td class="sec">12 Dec 1911</td><td>Durbar of <b>George V</b>: capital to shift from Calcutta to Delhi (Viceroy Hardinge)</td></tr>
+      <tr><td class="sec">1912</td><td>Delhi separated from Punjab; 23 Dec: bomb on Lord Hardinge at Chandni Chowk (Rash Behari Bose linked)</td></tr>
+      <tr><td class="sec">8 Apr 1929</td><td>Bhagat Singh &amp; Batukeshwar Dutt throw bombs in the Central Legislative Assembly</td></tr>
+      <tr><td class="sec">13 Feb 1931</td><td><b>New Delhi inaugurated</b> by Lord Irwin (Lutyens &amp; Baker)</td></tr>
+      <tr><td class="sec">15–16 Aug 1947</td><td>Independence; Nehru hoists the flag at the Red Fort on 16 Aug</td></tr>
+      <tr><td class="sec">30 Jan 1948</td><td>Gandhi assassinated at Birla House (now Gandhi Smriti)</td></tr>
+      <tr><td class="sec">1952 → 1956</td><td>Part C State with an Assembly → Union Territory (1 Nov 1956)</td></tr>
+      <tr><td class="sec">1966</td><td>Delhi Administration Act: Metropolitan Council; Delhi High Court (31 Oct)</td></tr>
+      <tr><td class="sec">1991–93</td><td>69th Amendment (Art 239AA), GNCTD Act 1991; first Assembly election 1993</td></tr>
+    </table></div>
+  </article>
+
+  <article class="unit gk" id="g-cities">
+    <span class="tag">Asked every year</span>
+    <h3>The seven (eight) cities of Delhi</h3>
+    <div class="tbl"><table>
+      <tr><th>#</th><th>City</th><th>Built by</th><th>Remains today</th></tr>
+      <tr><td class="sec">1</td><td>Lal Kot / Qila Rai Pithora</td><td>Anangpal Tomar; Prithviraj Chauhan</td><td>Mehrauli, Qutub area</td></tr>
+      <tr><td class="sec">2</td><td>Siri (1303)</td><td>Alauddin Khalji</td><td>Siri Fort, Shahpur Jat</td></tr>
+      <tr><td class="sec">3</td><td>Tughlaqabad (1321)</td><td>Ghiyasuddin Tughlaq</td><td>Tughlaqabad Fort</td></tr>
+      <tr><td class="sec">4</td><td>Jahanpanah</td><td>Muhammad bin Tughlaq</td><td>Walls joining Siri and Lal Kot</td></tr>
+      <tr><td class="sec">5</td><td>Firozabad (1354)</td><td>Firoz Shah Tughlaq</td><td>Feroz Shah Kotla (Ashokan pillar brought from Topra)</td></tr>
+      <tr><td class="sec">6</td><td>Dinpanah / Shergarh</td><td>Humayun; Sher Shah Suri</td><td>Purana Qila</td></tr>
+      <tr><td class="sec">7</td><td>Shahjahanabad (1639–48)</td><td>Shah Jahan</td><td>Old Delhi, Red Fort, Jama Masjid, Chandni Chowk</td></tr>
+      <tr><td class="sec">8</td><td>New Delhi (1931)</td><td>British (Lutyens, Baker)</td><td>Rashtrapati Bhavan, India Gate</td></tr>
+    </table></div>
+    <p class="small muted">Memory line: <b>L</b>ate <b>S</b>ultans <b>T</b>ook <b>J</b>ewels <b>F</b>rom <b>D</b>elhi's <b>S</b>hah <b>N</b>ow → Lal Kot, Siri, Tughlaqabad, Jahanpanah, Firozabad, Dinpanah, Shahjahanabad, New Delhi.</p>
+  </article>
+
+  <article class="unit gk" id="g-mon">
+    <span class="tag">3 UNESCO sites: Qutub Minar &amp; Humayun's Tomb (1993), Red Fort (2007)</span>
+    <h3>Monuments and landmarks</h3>
+    <div class="tbl"><table>
+      <tr><th>Monument</th><th>Built by / when</th><th>Remember</th></tr>
+      <tr><td><b>Qutub Minar</b></td><td>Begun by Qutb-ud-din Aibak (c. 1199), completed by Iltutmish; repaired by Firoz Shah Tughlaq</td><td>About 72.5 m, 5 storeys, 379 steps; UNESCO 1993</td></tr>
+      <tr><td>Quwwat-ul-Islam Mosque</td><td>Qutb-ud-din Aibak</td><td>First mosque in Delhi, in the Qutub complex</td></tr>
+      <tr><td>Iron Pillar</td><td>Gupta period, Chandragupta II</td><td>Rust-resistant iron; in the Qutub complex</td></tr>
+      <tr><td>Alai Darwaza (1311)</td><td>Alauddin Khalji</td><td>Early true arch and dome in India</td></tr>
+      <tr><td><b>Humayun's Tomb</b> (1565–72)</td><td>Bega Begum (Haji Begum); architect Mirak Mirza Ghiyas</td><td>First garden-tomb of the subcontinent; inspired the Taj; UNESCO 1993</td></tr>
+      <tr><td><b>Red Fort</b> (1639–48)</td><td>Shah Jahan; architect Ustad Ahmad Lahauri</td><td>Red sandstone; Lahori Gate, Diwan-i-Aam, Diwan-i-Khas, Rang Mahal; Moti Masjid added by Aurangzeb; UNESCO 2007; PM's flag hoisting on 15 Aug</td></tr>
+      <tr><td>Jama Masjid (1650–56)</td><td>Shah Jahan</td><td>Masjid-i-Jahan-Numa; among the largest mosques in India</td></tr>
+      <tr><td>Chandni Chowk (1650)</td><td>Designed by Jahanara Begum</td><td>Gurudwara Sis Ganj: martyrdom of Guru Tegh Bahadur (1675)</td></tr>
+      <tr><td>Safdarjung's Tomb (1754)</td><td>For Nawab Safdarjung</td><td>Last great Mughal garden-tomb</td></tr>
+      <tr><td>Jantar Mantar (1724)</td><td>Maharaja Sawai Jai Singh II</td><td>Astronomical observatory</td></tr>
+      <tr><td>Hauz Khas</td><td>Reservoir by Alauddin Khalji; madrasa by Firoz Shah Tughlaq</td><td>Hauz-i-Alai</td></tr>
+      <tr><td>Lodi Garden</td><td>Tombs of Muhammad Shah Sayyid, Sikandar Lodi</td><td>Sayyid and Lodi tombs</td></tr>
+      <tr><td>Nizamuddin Dargah</td><td>Sufi saint Hazrat Nizamuddin Auliya (Chishti)</td><td>Amir Khusrau buried nearby</td></tr>
+      <tr><td>Agrasen ki Baoli</td><td>Stepwell near Connaught Place</td><td>ASI-protected</td></tr>
+      <tr><td><b>India Gate</b> (1921–31)</td><td>Edwin Lutyens</td><td>42 m war memorial (WWI, Third Anglo-Afghan War); Amar Jawan Jyoti (1972) merged with the National War Memorial flame on 21 Jan 2022; Netaji statue unveiled 8 Sep 2022</td></tr>
+      <tr><td>National War Memorial</td><td>Inaugurated 25 Feb 2019</td><td>Near India Gate</td></tr>
+      <tr><td><b>Rashtrapati Bhavan</b> (1929)</td><td>Lutyens (Viceroy's House)</td><td>About 340 rooms; Mughal Gardens renamed <b>Amrit Udyan</b> (Jan 2023)</td></tr>
+      <tr><td>Old Parliament House (1927)</td><td>Lutyens &amp; Herbert Baker; opened by Lord Irwin</td><td>Circular; now called Samvidhan Sadan</td></tr>
+      <tr><td>New Parliament</td><td>Inaugurated 28 May 2023</td><td>Central Vista project</td></tr>
+      <tr><td>Kartavya Path</td><td>Renamed from Rajpath, 8 Sep 2022</td><td>Republic Day parade route; Beating Retreat at Vijay Chowk (29 Jan)</td></tr>
+      <tr><td>Lotus Temple (1986)</td><td>Bahá'í House of Worship; architect Fariborz Sahba</td><td>27 marble "petals"</td></tr>
+      <tr><td>Akshardham (2005)</td><td>BAPS; opened 6 Nov 2005</td><td>On the Yamuna bank</td></tr>
+      <tr><td>PM Sangrahalaya</td><td>Teen Murti; opened 14 Apr 2022</td><td>Museum of all Prime Ministers</td></tr>
+      <tr><td>Bharat Mandapam</td><td>Pragati Maidan; opened 26 Jul 2023</td><td>Venue of the G20 Summit (9–10 Sep 2023)</td></tr>
+      <tr><td>Yashobhoomi</td><td>IICC Dwarka; opened 17 Sep 2023</td><td>Convention centre</td></tr>
+    </table></div>
+    <div class="two">
+      <div><p class="boxhead">Samadhis on the Yamuna</p><ul>
+        <li>Raj Ghat: Mahatma Gandhi</li><li>Shanti Van: Jawaharlal Nehru</li><li>Vijay Ghat: Lal Bahadur Shastri</li>
+        <li>Shakti Sthal: Indira Gandhi</li><li>Veer Bhumi: Rajiv Gandhi</li><li>Kisan Ghat: Charan Singh</li>
+        <li>Samata Sthal: Jagjivan Ram</li><li>Ekta Sthal: Giani Zail Singh</li><li>Sadaiv Atal: Atal Bihari Vajpayee</li>
+      </ul></div>
+      <div><p class="boxhead">Gurudwaras</p><ul>
+        <li>Sis Ganj Sahib: Guru Tegh Bahadur's martyrdom (1675), Chandni Chowk</li>
+        <li>Rakab Ganj Sahib: his cremation site, near Parliament</li>
+        <li>Bangla Sahib: linked to Guru Har Krishan, Connaught Place</li>
+      </ul></div>
+    </div>
+  </article>
+
+  <article class="unit gk" id="g-geo">
+    <span class="tag">River, ridge, climate, green areas</span>
+    <h3>Geography and environment</h3>
+    <div class="two">
+      <ul>
+        <li><b>Yamuna</b> enters Delhi at <b>Palla</b> (north) and flows about <b>48 km</b> south-east; barrages: <b>Wazirabad</b>, ITO, <b>Okhla</b>. Water released from <b>Hathnikund</b> (Haryana)</li>
+        <li><b>Delhi Ridge</b>: the northern end of the <b>Aravalli</b> range; four parts: Northern (near DU), Central, South-Central (Mehrauli), Southern (Asola)</li>
+        <li><b>Sahibi</b> river reaches Delhi as the <b>Najafgarh drain</b>, the largest drain into the Yamuna</li>
+        <li>Seismic <b>Zone IV</b></li>
+        <li>Climate: semi-arid / humid subtropical; hot "loo" winds in May–June; winter rain from <b>western disturbances</b>; monsoon arrives around late June</li>
+      </ul>
+      <ul>
+        <li><b>Asola Bhatti Wildlife Sanctuary</b>: on the Southern Ridge (Delhi's sanctuary)</li>
+        <li>Delhi has <b>no national park</b></li>
+        <li><b>Okhla Bird Sanctuary</b> is in Noida (Uttar Pradesh), not Delhi: a classic trap</li>
+        <li>Yamuna Biodiversity Park, Aravalli Biodiversity Park, Sanjay Van, Najafgarh Jheel</li>
+        <li>National Zoological Park (1959), near Purana Qila</li>
+        <li>Air quality: <b>GRAP</b> (Graded Response Action Plan, 4 stages) enforced by <b>CAQM</b> (Commission for Air Quality Management, Act of 2021)</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="unit gk" id="g-cult">
+    <span class="tag">Festivals, fairs, culture</span>
+    <h3>Culture of Delhi</h3>
+    <div class="two">
+      <ul>
+        <li><b>Phool Walon Ki Sair</b> (Sair-e-Gulfaroshan): began 1812 under Akbar Shah II; revived 1961–62 with Nehru's support; flower fans offered at the <b>Yogmaya temple</b> and the <b>dargah of Bakhtiyar Kaki</b>, Mehrauli. Symbol of communal harmony</li>
+        <li><b>Qutub Festival</b>: music and dance at the Qutub Minar</li>
+        <li><b>India International Trade Fair</b>: every November at Pragati Maidan (Bharat Mandapam), organised by ITPO</li>
+        <li><b>World Book Fair</b>: organised by the National Book Trust at Pragati Maidan</li>
+      </ul>
+      <ul>
+        <li>Republic Day parade on Kartavya Path; Beating Retreat at Vijay Chowk on 29 January</li>
+        <li><b>Dilli Haat</b> (INA): crafts and food from every state</li>
+        <li>Chandni Chowk: Paranthe Wali Gali, Khari Baoli (Asia's largest spice market)</li>
+        <li>Sunder Nursery: restored heritage park next to Humayun's Tomb</li>
+        <li>Languages: Hindi; <b>Punjabi and Urdu</b> second official languages (Delhi Official Languages Act, 2000)</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="unit gk" id="g-inst">
+    <span class="tag">Universities, museums, courts</span>
+    <h3>Institutions</h3>
+    <div class="tbl"><table>
+      <tr><th>Institution</th><th>Year</th><th>Note</th></tr>
+      <tr><td>University of Delhi</td><td class="sec">1922</td><td>Central university</td></tr>
+      <tr><td>Jamia Millia Islamia</td><td class="sec">1920</td><td>Founded at Aligarh, moved to Delhi 1925; central university 1988</td></tr>
+      <tr><td>AIIMS New Delhi</td><td class="sec">1956</td><td>By Act of Parliament</td></tr>
+      <tr><td>IIT Delhi</td><td class="sec">1961</td><td>Hauz Khas</td></tr>
+      <tr><td>JNU</td><td class="sec">1969</td><td>Named after Jawaharlal Nehru</td></tr>
+      <tr><td>IGNOU</td><td class="sec">1985</td><td>Open university, Maidan Garhi</td></tr>
+      <tr><td>GGSIP University</td><td class="sec">1998</td><td>Delhi state university, Dwarka</td></tr>
+      <tr><td>Ambedkar University Delhi</td><td class="sec">2007</td><td>Delhi state university</td></tr>
+      <tr><td>Delhi Technological University</td><td class="sec">2009</td><td>Formerly Delhi College of Engineering (1941)</td></tr>
+      <tr><td>National Museum</td><td class="sec">1949</td><td>Janpath</td></tr>
+      <tr><td>Sahitya Akademi · Lalit Kala Akademi</td><td class="sec">1954</td><td>Rabindra Bhawan</td></tr>
+      <tr><td>National Gallery of Modern Art</td><td class="sec">1954</td><td>Jaipur House</td></tr>
+      <tr><td>National School of Drama</td><td class="sec">1959</td><td>Mandi House</td></tr>
+      <tr><td>Delhi High Court</td><td class="sec">1966</td><td>Sher Shah Road; district courts: Tis Hazari, Saket, Rohini, Karkardooma, Patiala House, Dwarka, Rouse Avenue</td></tr>
+      <tr><td>Delhi Transport Corporation</td><td class="sec">1971</td><td>City buses</td></tr>
+      <tr><td>Delhi Jal Board</td><td class="sec">1998</td><td>Water supply and sewerage</td></tr>
+    </table></div>
+  </article>
+
+  <article class="unit gk" id="g-trans">
+    <span class="tag">Metro, rail, air, road</span>
+    <h3>Transport</h3>
+    <div class="two">
+      <ul>
+        <li><b>DMRC</b> formed 3 May 1995; "Metro Man" <b>E. Sreedharan</b></li>
+        <li>First section: <b>Shahdara–Tis Hazari</b> (Red Line), <b>24 Dec 2002</b>, opened by PM Vajpayee</li>
+        <li>Airport Express (Orange Line) 2011; <b>Magenta Line</b>: India's first driverless metro (28 Dec 2020)</li>
+        <li>Phase 4 is under way (opening in stages from 2026)</li>
+        <li><b>Namo Bharat</b> (RRTS, by NCRTC): India's first regional rapid rail; Delhi–Meerut; first stretch Sahibabad–Duhai on 20 Oct 2023; Delhi stretch (New Ashok Nagar) from 5 Jan 2025</li>
+      </ul>
+      <ul>
+        <li><b>Indira Gandhi International Airport</b> (Palam); Terminal 3 opened 2010</li>
+        <li>Major stations: New Delhi, Old Delhi (Delhi Jn), Hazrat Nizamuddin, Anand Vihar, Delhi Sarai Rohilla</li>
+        <li>ISBTs: Kashmere Gate, Anand Vihar, Sarai Kale Khan</li>
+        <li>DTC (1971) runs the city buses; electric buses being added</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="unit gk" id="g-sport">
+    <span class="tag">Games and stadiums</span>
+    <h3>Sport</h3>
+    <div class="two">
+      <ul>
+        <li><b>First Asian Games, 1951</b>: Delhi (National Stadium)</li>
+        <li><b>Asian Games 1982</b>: Delhi; JLN Stadium and Indira Gandhi Indoor Stadium built; colour TV broadcasting began in India</li>
+        <li><b>Commonwealth Games 2010</b>: Delhi (19th CWG)</li>
+        <li>IPL team: <b>Delhi Capitals</b> (Delhi Daredevils until 2018)</li>
+      </ul>
+      <div class="tbl"><table>
+        <tr><td class="sec">Arun Jaitley Stadium</td><td>Cricket; was Feroz Shah Kotla (renamed 2019)</td></tr>
+        <tr><td class="sec">Major Dhyan Chand National Stadium</td><td>Hockey; built 1933 as Irwin Amphitheatre</td></tr>
+        <tr><td class="sec">Jawaharlal Nehru Stadium</td><td>Athletics, football; 1982</td></tr>
+        <tr><td class="sec">Indira Gandhi Arena</td><td>Indoor sports; 1982</td></tr>
+        <tr><td class="sec">Others</td><td>Talkatora, Thyagaraj, Siri Fort, Karni Singh Shooting Range</td></tr>
+      </table></div>
+    </div>
+  </article>
+
+  <article class="unit gk" id="g-now">
+    <span class="tag">Most likely current-affairs questions</span>
+    <h3>Delhi 2025–26 updates</h3>
+    <div class="tbl"><table>
+      <tr><th>When</th><th>Update</th></tr>
+      <tr><td class="sec">Feb 2025</td><td>BJP wins Assembly election (48/70); Rekha Gupta CM from 20 Feb</td></tr>
+      <tr><td class="sec">Mar 2025</td><td><b>Mahila Samriddhi Yojana</b>: ₹2,500 per month for eligible women; ₹5,100 crore approved (8 Mar 2025); Budget 2025–26 ₹1 lakh crore</td></tr>
+      <tr><td class="sec">2025</td><td><b>Ayushman Bharat</b> rolled out in Delhi</td></tr>
+      <tr><td class="sec">25 Dec 2025</td><td><b>Atal Canteens</b>: meals at ₹5, launched on Vajpayee's birth anniversary</td></tr>
+      <tr><td class="sec">25 Dec 2025</td><td>Delhi reorganised into <b>13 revenue districts</b> (Shahdara merged; new: Old Delhi, Central North, Outer North)</td></tr>
+      <tr><td class="sec">11 Mar 2026</td><td>Taranjit Singh Sandhu takes over as LG</td></tr>
+      <tr><td class="sec">24 Mar 2026</td><td>Budget 2026–27: <b>₹1,03,700 crore</b>, "green budget"; Economic Survey: per capita ₹5,31,610</td></tr>
+      <tr><td class="sec">29 Apr 2026</td><td>Pravesh Wahi elected Mayor</td></tr>
+      <tr><td class="sec">17 Jul 2026</td><td>Anurag Kumar becomes Police Commissioner</td></tr>
+      <tr><td class="sec">Aug 2026</td><td>DUSIB (Amendment) Bill: JJ basti cut-off to 01.01.2025; DDA approves draft MPD-2047</td></tr>
+      <tr><td class="sec">3 Sep 2026</td><td>13 registration districts and 39 sub-divisions aligned with revenue districts</td></tr>
+      <tr><td class="sec">31 Dec 2026</td><td>NCT Laws (Special Provisions) Act protection ends unless extended</td></tr>
+    </table></div>
+  </article>
+
+  <h3 id="g-quiz" style="scroll-margin-top:70px">Delhi GK MCQs</h3>
+  <div id="quiz-dgk"></div>
+</section>
+
 <!-- ============ QUIZZES ============ -->
 <section class="panel" data-panel="lawq" hidden>
   <div class="banner law"><h2>Law MCQs</h2><p>Pick acts, set count, start. Practice mode shows the answer instantly; Test mode shows results at the end.</p></div>
@@ -1259,7 +1566,7 @@ footer{color:var(--muted);font-size:.85rem;padding-block:24px;border-top:1px sol
         </div>
         <div class="row">
           <span class="seg">${segBtn('kind','all','All')}${segBtn('kind','wrong','Wrong')}${segBtn('kind','saved','Saved')}</span>
-          <span class="seg">${segBtn('subj','all','Both')}${segBtn('subj','law','Laws')}${segBtn('subj','comp','Computer')}</span>
+          <span class="seg">${segBtn('subj','all','All')}${segBtn('subj','law','Laws')}${segBtn('subj','comp','Computer')}${segBtn('subj','dgk','Delhi GK')}</span>
           <label class="chip"><input type="checkbox" id="rv-hide" ${f.hide?'checked':''}> Hide answers (tap a card to reveal)</label>
         </div>
         <div class="row">
@@ -1327,6 +1634,7 @@ footer{color:var(--muted);font-size:.85rem;padding-block:24px;border-top:1px sol
           `<label>Questions <select id="${cfg.key}-n"><option>10</option><option selected>25</option><option>50</option><option>100</option><option value="999">All</option></select></label>
            <label>Mode <select id="${cfg.key}-mode"><option value="practice">Practice (instant answer)</option><option value="test">Test (result at end)</option></select></label>`}
           <label class="chip"><input type="checkbox" id="${cfg.key}-neg" checked> −0.25 negative</label>
+          ${isMock?`<label class="chip"><input type="checkbox" id="${cfg.key}-dgk"> Include Delhi GK (40 Laws + 40 Computer + 20 Delhi GK)</label>`:''}
           ${isMock?'':`<label class="chip"><input type="checkbox" id="${cfg.key}-mist" ${mine.length?'':'disabled'}> Only my Revise list (${mine.length})</label>`}
         </div>
         <div class="row"><button class="btn ${cfg.cls}" type="button" data-start>Start</button>
@@ -1341,7 +1649,9 @@ footer{color:var(--muted);font-size:.85rem;padding-block:24px;border-top:1px sol
         const neg=host.querySelector('#'+cfg.key+'-neg').checked;
         if(isMock){
           const pick=(bank,k)=>shuffle(QB[bank].map((_,i)=>i)).slice(0,k).map(i=>makeItem(bank,i));
-          begin(shuffle(pick('law',50).concat(pick('comp',50))),'test',+host.querySelector('#'+cfg.key+'-time').value*60,neg);
+          const withGk=host.querySelector('#'+cfg.key+'-dgk').checked;
+          const set=withGk?pick('law',40).concat(pick('comp',40),pick('dgk',20)):pick('law',50).concat(pick('comp',50));
+          begin(shuffle(set),'test',+host.querySelector('#'+cfg.key+'-time').value*60,neg);
         } else {
           const sel=new Set(chk().filter(c=>c.checked).map(c=>c.value));
           const onlyM=host.querySelector('#'+cfg.key+'-mist').checked;
@@ -1452,13 +1762,14 @@ footer{color:var(--muted);font-size:.85rem;padding-block:24px;border-top:1px sol
   }
   quizzes.lawq=Quiz(document.getElementById('quiz-law'),{bank:'law',key:'law',cls:'law'});
   quizzes.compq=Quiz(document.getElementById('quiz-comp'),{bank:'comp',key:'comp',cls:'comp'});
+  quizzes.delhigk=Quiz(document.getElementById('quiz-dgk'),{bank:'dgk',key:'dgk',cls:'gk'});
   quizzes.mock=Quiz(document.getElementById('quiz-mock'),{mock:true,key:'mock',cls:''});
   const rvQ=quizzes.revise=Quiz(document.getElementById('quiz-revise'),{revise:true,key:'rv',cls:''});
   document.addEventListener('click',()=>setTimeout(updBack,0));
   onRvChange=()=>{ if(!rvQ.S.running && !rvQ.S.done) rvQ.refresh(); };
 
   const h=(location.hash||'').slice(1);
-  if(h.startsWith('a-')) show('laws',true); else if(h.startsWith('c-')) show('computer',true); else show(h||store.get('pp_tab','plan'),true);
+  if(h.startsWith('a-')) show('laws',true); else if(h.startsWith('c-')) show('computer',true); else if(h.startsWith('g-')) show('delhigk',true); else show(h||store.get('pp_tab','plan'),true);
   updateCount(); store.set('pp_rv',RV);
   initCloud();
 })();

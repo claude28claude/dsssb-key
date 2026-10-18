@@ -300,8 +300,8 @@ function pageStart(){
   h.push('<a class="gatecard pat" href="patwari/">' +
          '<span class="gk">Subject paper · Post Code 14/26</span>' +
          '<b>DUSIB Patwari Prep</b>' +
-         '<span class="gd">Every Delhi Act in the syllabus with section tables and traps (DUSIB 2010 + 2026 amendment, DD Act, Land Revenue, Land Reforms, LA 1894, RFCTLARR 2013, PLR 1887, NCT Special Provisions, Delhi administration), computer revision, a 100-question timed mock and a Revise list.</span>' +
-         '<span class="gs">557 MCQs</span>' +
+         '<span class="gd">Every Delhi Act in the syllabus with section tables and traps (DUSIB 2010 + 2026 amendment, DD Act, Land Revenue, Land Reforms, LA 1894, RFCTLARR 2013, PLR 1887, NCT Special Provisions, Delhi administration), a full Delhi GK section, computer revision, a 100-question timed mock and a Revise list.</span>' +
+         '<span class="gs">709 MCQs</span>' +
          '<span class="btn">Open Patwari Prep →</span></a>');
   h.push('</div></section>');
   brandsub.textContent = 'Choose a site';
