@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>DUSIB Patwari Prep</title>
-<meta name="description" content="DUSIB Patwari (Post Code 14/26) prep: every Delhi Act in the syllabus with section tables and traps, Delhi GK, computer revision, 772 MCQs, a timed 100-question mock with negative marking, and a Revise list of wrong and saved questions. Works offline.">
+<meta name="description" content="DUSIB Patwari (Post Code 14/26) prep: every Delhi Act in the syllabus with section tables and traps, Delhi GK, Delhi governance &amp; schemes, computer revision, 919 MCQs, a timed 100-question mock with negative marking, and a Revise list of wrong and saved questions. Works offline.">
 <meta name="theme-color" content="#141a17">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -27,7 +27,7 @@
 /* Layout: a revenue-register desk. Sticky tab bar, one panel at a time, ledger-style fact strips and section tables. Dim sage paper, never white. */
 :root{
   --bg:#d6dbcd; --surface:#e2e6d9; --surface2:#cad1bf; --ink:#1e2922; --muted:#4f5c53; --rule:#aeb7a2;
-  --law:#a1232a; --law-soft:#e6d0c8; --comp:#1b5870; --comp-soft:#cbdbdc; --gk:#7a5200; --gk-soft:#e7dcc0;
+  --law:#a1232a; --law-soft:#e6d0c8; --comp:#1b5870; --comp-soft:#cbdbdc; --gk:#7a5200; --gk-soft:#e7dcc0; --ex:#5b3f80; --ex-soft:#ddd5e6;
   --ok:#2b6838; --ok-soft:#c9dcc5; --bad:#94460f; --bad-soft:#e7d2bd; --focus:#1b5870;
   --f-display:"Literata",Georgia,"Times New Roman",serif;
   --f-body:"Inter","Segoe UI",system-ui,sans-serif;
@@ -36,11 +36,11 @@
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --bg:#141a17; --surface:#1c2420; --surface2:#25302a; --ink:#d9e0d4; --muted:#92a096; --rule:#34413a;
-  --law:#ef7d76; --law-soft:#3a2321; --comp:#82bfd6; --comp-soft:#1b2f37; --gk:#e3b45c; --gk-soft:#33291a;
+  --law:#ef7d76; --law-soft:#3a2321; --comp:#82bfd6; --comp-soft:#1b2f37; --gk:#e3b45c; --gk-soft:#33291a; --ex:#c4a7ea; --ex-soft:#2a2338;
   --ok:#82c792; --ok-soft:#1e3324; --bad:#e8a86f; --bad-soft:#3a2a1b; --focus:#82bfd6; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#141a17; --surface:#1c2420; --surface2:#25302a; --ink:#d9e0d4; --muted:#92a096; --rule:#34413a;
-  --law:#ef7d76; --law-soft:#3a2321; --comp:#82bfd6; --comp-soft:#1b2f37; --gk:#e3b45c; --gk-soft:#33291a;
+  --law:#ef7d76; --law-soft:#3a2321; --comp:#82bfd6; --comp-soft:#1b2f37; --gk:#e3b45c; --gk-soft:#33291a; --ex:#c4a7ea; --ex-soft:#2a2338;
   --ok:#82c792; --ok-soft:#1e3324; --bad:#e8a86f; --bad-soft:#3a2a1b; --focus:#82bfd6; color-scheme:dark}
 
 *{box-sizing:border-box}
@@ -67,13 +67,15 @@ nav.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:v
 nav.tabs .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
 nav.tabs button{font:inherit;font-weight:700;font-size:.95rem;background:none;border:0;border-bottom:3px solid transparent;color:var(--muted);padding:12px 12px 9px;cursor:pointer;white-space:nowrap}
 nav.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--ink)}
-nav.tabs button.backbtn{position:sticky;left:0;z-index:1;background:var(--surface);color:var(--ink);border-bottom:0;border-right:1px solid var(--rule);padding-inline:4px 14px;margin-right:2px}
+nav.tabs button.backbtn{position:sticky;left:0;z-index:1;background:var(--surface);box-shadow:-24px 0 0 var(--surface);color:var(--ink);border-bottom:0;border-right:1px solid var(--rule);padding-inline:4px 14px;margin-right:2px}
 nav.tabs button.backbtn:disabled{color:var(--muted);opacity:.5;cursor:default}
 nav.tabs button.t-law{color:var(--law)}
 nav.tabs button.t-law[aria-selected="true"]{border-bottom-color:var(--law)}
 nav.tabs button.t-comp[aria-selected="true"]{border-bottom-color:var(--comp);color:var(--comp)}
 nav.tabs button.t-gk{color:var(--gk)}
 nav.tabs button.t-gk[aria-selected="true"]{border-bottom-color:var(--gk)}
+nav.tabs button.t-ex{color:var(--ex)}
+nav.tabs button.t-ex[aria-selected="true"]{border-bottom-color:var(--ex)}
 
 main{padding-block:24px 64px}
 .panel{display:grid;gap:22px}
@@ -85,12 +87,15 @@ main{padding-block:24px 64px}
 .banner.comp h2{color:var(--comp)}
 .banner.gk{background:var(--gk-soft);border-left:6px solid var(--gk)}
 .banner.gk h2{color:var(--gk)}
+.banner.ex{background:var(--ex-soft);border-left:6px solid var(--ex)}
+.banner.ex h2{color:var(--ex)}
 
 .subnav{display:flex;flex-wrap:wrap;gap:6px}
 .subnav a{font-size:.88rem;text-decoration:none;color:var(--ink);background:var(--surface);border:1px solid var(--rule);border-radius:999px;padding:4px 11px}
 .subnav.law a:hover{border-color:var(--law);color:var(--law)}
 .subnav.comp a:hover{border-color:var(--comp);color:var(--comp)}
 .subnav.gk a:hover{border-color:var(--gk);color:var(--gk)}
+.subnav.ex a:hover{border-color:var(--ex);color:var(--ex)}
 
 article.unit{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:20px;display:grid;gap:14px;scroll-margin-top:70px;min-width:0}
 article.unit.law h3{color:var(--law)}
@@ -99,6 +104,9 @@ article.unit.gk h3{color:var(--gk)}
 article.unit.gk td.sec{color:var(--gk)}
 .btn.gk{background:var(--gk);border-color:var(--gk);color:var(--bg)}
 #g-quiz{color:var(--gk)}
+article.unit.ex h3{color:var(--ex)}
+article.unit.ex td.sec{color:var(--ex)}
+.btn.ex{background:var(--ex);border-color:var(--ex);color:var(--bg)}
 .tag{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:8px;overflow:hidden}
 .facts div{background:var(--bg);padding:9px 12px;display:grid;gap:2px}
@@ -219,9 +227,11 @@ footer{color:var(--muted);font-size:.85rem;padding-block:24px;border-top:1px sol
     <button role="tab" data-tab="laws" class="t-law" aria-selected="false">Delhi Laws</button>
     <button role="tab" data-tab="computer" class="t-comp" aria-selected="false">Computer</button>
     <button role="tab" data-tab="delhigk" class="t-gk" aria-selected="false">Delhi GK</button>
+    <button role="tab" data-tab="extras" class="t-ex" aria-selected="false">Syllabus Extras</button>
     <button role="tab" data-tab="lawq" class="t-law" aria-selected="false">Law MCQs</button>
     <button role="tab" data-tab="compq" class="t-comp" aria-selected="false">Computer MCQs</button>
     <button role="tab" data-tab="dgkq" class="t-gk" aria-selected="false">Delhi GK MCQs</button>
+    <button role="tab" data-tab="extq" class="t-ex" aria-selected="false">Extras MCQs</button>
     <button role="tab" data-tab="mock" aria-selected="false">Full Mock · 100</button>
     <button role="tab" data-tab="revise" aria-selected="false">Revise <span class="count" id="rvCount">0</span></button>
   </div>
@@ -1349,13 +1359,18 @@ footer{color:var(--muted);font-size:.85rem;padding-block:24px;border-top:1px sol
       <tr><th>When</th><th>Update</th></tr>
       <tr><td class="sec">Feb 2025</td><td>BJP wins Assembly election (48/70); Rekha Gupta CM from 20 Feb</td></tr>
       <tr><td class="sec">Mar 2025</td><td><b>Mahila Samriddhi Yojana</b>: ₹2,500 per month for eligible women; ₹5,100 crore approved (8 Mar 2025); Budget 2025–26 ₹1 lakh crore</td></tr>
-      <tr><td class="sec">2025</td><td><b>Ayushman Bharat</b> rolled out in Delhi</td></tr>
+      <tr><td class="sec">5 Apr 2025</td><td><b>Ayushman Bharat</b> rolled out in Delhi: ₹10 lakh cover (₹5 lakh Centre + ₹5 lakh Delhi); Vay Vandana for 70+</td></tr>
+      <tr><td class="sec">17 Jun 2025</td><td>First 33 <b>Ayushman Arogya Mandirs</b> open (replacing Mohalla Clinics)</td></tr>
+      <tr><td class="sec">2025</td><td>Delhi Board of School Education wound up; its schools shift to CBSE</td></tr>
       <tr><td class="sec">25 Dec 2025</td><td><b>Atal Canteens</b>: meals at ₹5, launched on Vajpayee's birth anniversary</td></tr>
       <tr><td class="sec">25 Dec 2025</td><td>Delhi reorganised into <b>13 revenue districts</b> (Shahdara merged; new: Old Delhi, Central North, Outer North)</td></tr>
+      <tr><td class="sec">2 Mar 2026</td><td><b>Pink Saheli Smart Card</b> issuance for free bus travel (mandatory from 1 Sep 2026)</td></tr>
       <tr><td class="sec">11 Mar 2026</td><td>Taranjit Singh Sandhu takes over as LG</td></tr>
+      <tr><td class="sec">1 Apr 2026</td><td><b>Lakhpati Bitiya Yojana</b> replaces the Ladli Scheme</td></tr>
       <tr><td class="sec">24 Mar 2026</td><td>Budget 2026–27: <b>₹1,03,700 crore</b>, "green budget"; Economic Survey: per capita ₹5,31,610</td></tr>
       <tr><td class="sec">29 Apr 2026</td><td>Pravesh Wahi elected Mayor</td></tr>
       <tr><td class="sec">17 Jul 2026</td><td>Anurag Kumar becomes Police Commissioner</td></tr>
+      <tr><td class="sec">26 Aug 2026</td><td><b>Delhi Lakshmi Yojana</b> launched (₹2,500/month for women aged 21–60; first transfer 1 Sep)</td></tr>
       <tr><td class="sec">Aug 2026</td><td>DUSIB (Amendment) Bill: JJ basti cut-off to 01.01.2025; DDA approves draft MPD-2047</td></tr>
       <tr><td class="sec">3 Sep 2026</td><td>13 registration districts and 39 sub-divisions aligned with revenue districts</td></tr>
       <tr><td class="sec">31 Dec 2026</td><td>NCT Laws (Special Provisions) Act protection ends unless extended</td></tr>
@@ -1367,6 +1382,357 @@ footer{color:var(--muted);font-size:.85rem;padding-block:24px;border-top:1px sol
     <p>215 MCQs on everything above, in their own tab. Every question you get wrong goes to <b>Revise</b> automatically, and you can practise only your wrong ones.</p>
     <div class="row"><button class="btn gk" type="button" data-goto="dgkq">Open Delhi GK MCQs →</button></div>
   </div>
+</section>
+
+<!-- ============ SYLLABUS EXTRAS ============ -->
+<section class="panel" data-panel="extras" hidden>
+  <div class="banner ex">
+    <h2>Syllabus Extras</h2>
+    <p>Everything on your full paper syllabus that the other tabs did not cover: Delhi Governance &amp; Civic Institutions, Delhi Govt Schemes, and the extra computer topics. MCQs for all of it are in the <b>Extras MCQs</b> tab.</p>
+  </div>
+  <nav class="subnav ex" aria-label="Extras topics">
+    <a href="#x-check">Syllabus checklist</a><a href="#x-pds">PDS &amp; NFSA</a><a href="#x-mcd">MCD reunification</a><a href="#x-ndmc">Imperial Delhi Committee</a><a href="#x-vig">Vigilance</a><a href="#x-dbse">DBSE partnership</a><a href="#x-mpd">Master Plan 1961–81</a><a href="#x-dpgs">Parks &amp; Society</a><a href="#x-djb">Delhi Jal Board</a><a href="#x-mag">Magistrate functions</a><a href="#x-sch">Delhi Govt Schemes</a><a href="#x-mem">Computer memory</a><a href="#x-os">Operating system</a><a href="#x-web">Browsers &amp; search engines</a><a href="#x-mail">Email &amp; communication</a>
+  </nav>
+
+  <article class="unit ex" id="x-check">
+    <span class="tag">Your syllabus, item by item</span>
+    <h3>Syllabus checklist: where each topic is</h3>
+    <div class="tbl"><table>
+      <tr><th>Syllabus block</th><th>Topic</th><th>Where on this site</th></tr>
+      <tr><td rowspan="9"><b>Delhi Governance &amp; Civic Institutions</b></td><td>PDS &amp; NFSA</td><td>Extras → PDS &amp; NFSA</td></tr>
+      <tr><td>MCD reunification</td><td>Extras → MCD (also Delhi Laws → Administration)</td></tr>
+      <tr><td>Imperial Delhi Committee</td><td>Extras → Imperial Delhi Committee</td></tr>
+      <tr><td>Vigilance function</td><td>Extras → Vigilance</td></tr>
+      <tr><td>Delhi Board of School Education partnership</td><td>Extras → DBSE</td></tr>
+      <tr><td>Master Plan 1961–81</td><td>Extras → Master Plan (also Delhi Laws → DD Act)</td></tr>
+      <tr><td>Parks &amp; Society</td><td>Extras → Delhi Parks &amp; Gardens Society</td></tr>
+      <tr><td>Delhi Jal Board</td><td>Extras → Delhi Jal Board</td></tr>
+      <tr><td>Magistrate functions</td><td>Extras → Magistrate functions</td></tr>
+      <tr><td rowspan="7"><b>Delhi Relevant Acts</b></td><td>Punjab Land Revenue Act 1887</td><td>Delhi Laws</td></tr>
+      <tr><td>Land Acquisition Act 1894</td><td>Delhi Laws</td></tr>
+      <tr><td>Delhi Development Act 1957</td><td>Delhi Laws</td></tr>
+      <tr><td>Delhi Land Revenue Act 1954</td><td>Delhi Laws</td></tr>
+      <tr><td>Delhi Land Reforms Act (<b>1954</b>, not 1957)</td><td>Delhi Laws</td></tr>
+      <tr><td>NCT Laws (Special Provisions) Act 2011</td><td>Delhi Laws</td></tr>
+      <tr><td>RFCTLARR (R&amp;R) Act 2013</td><td>Delhi Laws</td></tr>
+      <tr><td rowspan="2"><b>Computer Basics</b></td><td>History &amp; generations, I/O devices, MS Word, PowerPoint, Excel</td><td>Computer tab</td></tr>
+      <tr><td>Computer memory, operating system, web browsers, search engines</td><td>Extras (detailed) + Computer tab</td></tr>
+      <tr><td><b>Computer Advance</b></td><td>Internet &amp; networking, cyber security, email &amp; communication</td><td>Computer tab + Extras → Email</td></tr>
+      <tr><td><b>GK of Delhi</b></td><td>Polity &amp; Constitution, Govt schemes, history &amp; culture, geography &amp; demography</td><td>Delhi GK tab, Delhi Laws → Administration, Extras → Schemes</td></tr>
+    </table></div>
+    <div class="note"><b>Trap in the syllabus slide:</b> it says "Delhi Land Reforms Act 1957". The Act is of <b>1954</b> (Delhi Act 8 of 1954). 1957 is the year of the Delhi Development Act and the DMC Act.</div>
+  </article>
+
+  <article class="unit ex" id="x-pds">
+    <span class="tag">Food security</span>
+    <h3>PDS &amp; National Food Security Act, 2013</h3>
+    <dl class="facts">
+      <div><dt>Act</dt><dd>NFSA, Act 20 of 2013 (Sept 2013)</dd></div>
+      <div><dt>Coverage</dt><dd>Up to 75% rural, 50% urban</dd></div>
+      <div><dt>Priority household</dt><dd>5 kg per person per month</dd></div>
+      <div><dt>AAY household</dt><dd>35 kg per family per month</dd></div>
+      <div><dt>Prices (Schedule I)</dt><dd>Rice ₹3, wheat ₹2, coarse grain ₹1 per kg</dd></div>
+      <div><dt>Now</dt><dd>Free under PMGKAY (from 1 Jan 2023; extended 5 years from 2024)</dd></div>
+    </dl>
+    <div class="two">
+      <div class="tbl"><table>
+        <tr><th>Section</th><th>Provision</th></tr>
+        <tr><td class="sec">3</td><td>Right to subsidised foodgrains</td></tr>
+        <tr><td class="sec">4</td><td>Pregnant women &amp; lactating mothers: free meal + maternity benefit of at least ₹6,000</td></tr>
+        <tr><td class="sec">5</td><td>Children (6 months–14 years): nutrition via anganwadi / mid-day meal</td></tr>
+        <tr><td class="sec">8</td><td>Food security allowance if grains are not supplied</td></tr>
+        <tr><td class="sec">10</td><td>States identify eligible households</td></tr>
+        <tr><td class="sec">13</td><td><b>Eldest woman (18+)</b> is head of household for the ration card</td></tr>
+        <tr><td class="sec">15</td><td>District Grievance Redressal Officer</td></tr>
+        <tr><td class="sec">16</td><td><b>State Food Commission</b></td></tr>
+        <tr><td class="sec">28 / 29</td><td>Social audit / vigilance committees</td></tr>
+      </table></div>
+      <div><p class="boxhead">PDS in Delhi</p><ul>
+        <li>Delhi was the <b>first to roll out</b> the food security scheme: <b>20 Aug 2013</b> (Rajiv Gandhi's birth anniversary), Talkatora Stadium, with Sonia Gandhi and CM Sheila Dikshit</li>
+        <li>About 17.8 lakh ration-card households, about 72 lakh beneficiaries, about 2,000 fair price shops</li>
+        <li>Run by the Department of Food, Supplies &amp; Consumer Affairs; Aadhaar-based <b>e-PoS</b> machines</li>
+        <li><b>One Nation One Ration Card</b> in Delhi from July 2021</li>
+        <li>Dilli Annashree Yojana (2012): ₹600 a month cash to the senior-most woman, an early Aadhaar-based transfer</li>
+        <li>History: TPDS 1997; Antyodaya Anna Yojana (AAY) 25 Dec 2000</li>
+      </ul></div>
+    </div>
+  </article>
+
+  <article class="unit ex" id="x-mcd">
+    <span class="tag">Municipal Corporation of Delhi</span>
+    <h3>MCD: formation, trifurcation, reunification</h3>
+    <div class="tbl"><table>
+      <tr><th>When</th><th>What</th></tr>
+      <tr><td class="sec">1957</td><td>Delhi Municipal Corporation (DMC) Act passed by Parliament</td></tr>
+      <tr><td class="sec">7 Apr 1958</td><td>MCD comes into existence; first Mayor <b>Aruna Asaf Ali</b></td></tr>
+      <tr><td class="sec">2012</td><td><b>Trifurcated</b> into North, South and East Delhi Municipal Corporations (DMC Amendment Act 2011 of the Delhi Assembly)</td></tr>
+      <tr><td class="sec">Mar–Apr 2022</td><td><b>DMC (Amendment) Act, 2022</b> passed by Parliament (Lok Sabha 30 Mar, Rajya Sabha 5 Apr)</td></tr>
+      <tr><td class="sec">22 May 2022</td><td><b>Unified MCD</b> comes back; Special Officer Ashwani Kumar, Commissioner Gyanesh Bharti; wards fixed at <b>250</b> (from 272)</td></tr>
+      <tr><td class="sec">4 Dec 2022</td><td>Election: AAP 134, BJP 104, Congress 9</td></tr>
+      <tr><td class="sec">Mayors</td><td>Shelly Oberoi (2023, 2023–24) → Mahesh Khichi (Nov 2024) → Raja Iqbal Singh (Apr 2025) → <b>Pravesh Wahi</b> (29 Apr 2026)</td></tr>
+    </table></div>
+    <ul>
+      <li>Mayor's term is <b>one year</b>: the 1st year is reserved for a woman, the 3rd year for an SC councillor</li>
+      <li>12 zones; HQ: Dr. S.P. Mukherjee Civic Centre, Minto Road</li>
+      <li>Other civic bodies: NDMC (central New Delhi) and the Delhi Cantonment Board</li>
+    </ul>
+  </article>
+
+  <article class="unit ex" id="x-ndmc">
+    <span class="tag">From capital-building body to NDMC</span>
+    <h3>Imperial Delhi Committee and the New Delhi Municipal Council</h3>
+    <div class="tbl"><table>
+      <tr><th>When</th><th>Step</th></tr>
+      <tr><td class="sec">1912</td><td>Delhi Town Planning Committee (George Swinton, John Brodie, Edwin Lutyens) plans the new capital</td></tr>
+      <tr><td class="sec">25 Mar 1913</td><td><b>Imperial Delhi Committee</b> set up to oversee construction of the new capital: the beginning of the NDMC</td></tr>
+      <tr><td class="sec">Feb 1916</td><td>Chief Commissioner creates the <b>Raisina Municipal Committee</b> (also called the Imperial Delhi Municipal Committee) for sanitation of the construction workers</td></tr>
+      <tr><td class="sec">7 Apr 1925</td><td>Second-class municipality under the Punjab Municipal Act</td></tr>
+      <tr><td class="sec">22 Feb 1927</td><td>Resolution to adopt the name <b>"New Delhi"</b>: New Delhi Municipal Committee (approved 16 Mar 1927)</td></tr>
+      <tr><td class="sec">1931–32</td><td>New capital opened (Feb 1931); first-class municipality (1932)</td></tr>
+      <tr><td class="sec">1994</td><td><b>NDMC Act, 1994</b> replaces the Punjab Municipal Act, 1911: renamed <b>New Delhi Municipal Council</b></td></tr>
+    </table></div>
+    <ul>
+      <li>NDMC covers about 43 sq km (about 3% of Delhi): Lutyens' Delhi, Connaught Place, Chanakyapuri</li>
+      <li>Its Chairperson is <b>appointed by the Central Government</b> (not elected); HQ Palika Kendra</li>
+    </ul>
+  </article>
+
+  <article class="unit ex" id="x-vig">
+    <span class="tag">Anti-corruption machinery</span>
+    <h3>Vigilance function in Delhi</h3>
+    <div class="two">
+      <ul>
+        <li><b>Directorate of Vigilance</b> (GNCTD) works under the <b>Chief Secretary</b>, who is the Chief Vigilance Officer of the NCT</li>
+        <li>Headed by the <b>Director (Vigilance)</b>, who is also ex-officio Joint Commissioner of Police, <b>Anti-Corruption Branch (ACB)</b></li>
+        <li><b>Vigilance wing</b>: disciplinary cases and complaints against government employees (from the public, CBI, CVC)</li>
+        <li><b>ACB</b>: traps, raids and investigation under the <b>Prevention of Corruption Act, 1988</b></li>
+        <li>Nodal advisor to the vigilance officers of departments and local bodies</li>
+      </ul>
+      <ul>
+        <li><b>Delhi Lokayukta and Upalokayukta Act, 1995</b> (Delhi Act 1 of 1996): Lokayukta inquires into allegations against public functionaries (misuse of position, lack of integrity, disproportionate assets)</li>
+        <li><b>CVC</b> (Central Vigilance Commission, statutory under the CVC Act 2003) supervises vigilance in central bodies</li>
+        <li><b>Vigilance Awareness Week</b> is held in the week of <b>31 October</b> (Sardar Patel's birth anniversary)</li>
+        <li>Since the 2023 GNCTD amendment, postings and vigilance matters of officers go through the <b>National Capital Civil Service Authority</b> (CM, Chief Secretary, Principal Secretary Home)</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="unit ex" id="x-dbse">
+    <span class="tag">Delhi's own school board</span>
+    <h3>Delhi Board of School Education (DBSE) and its partnership</h3>
+    <div class="tbl"><table>
+      <tr><th>When</th><th>What</th></tr>
+      <tr><td class="sec">6 Mar 2021</td><td>Delhi Cabinet approves constituting the <b>DBSE</b>; registered on 16 Mar 2021</td></tr>
+      <tr><td class="sec">Aug 2021</td><td><b>MoU with the International Baccalaureate (IB)</b>, Geneva: IB-based curriculum and assessment in 30 government schools, including 20 <b>Schools of Specialised Excellence (SoSE)</b>; students get joint DBSE–IB certification</td></tr>
+      <tr><td class="sec">2021–22</td><td>First DBSE-affiliated schools; DBSE approved for exams and equivalence with other boards</td></tr>
+      <tr><td class="sec">2025</td><td>The new government decides to <b>wind up the DBSE</b>: SoSE schools shift to <b>CBSE</b> as "CM SHRI" schools; class 9 students of 2025–26 registered with CBSE</td></tr>
+    </table></div>
+    <div class="note"><b>Remember:</b> DBSE's partner was the <b>International Baccalaureate</b>, not Cambridge. If asked about the current status, the answer is that the DBSE is being wound up and its schools moved to CBSE.</div>
+  </article>
+
+  <article class="unit ex" id="x-mpd">
+    <span class="tag">Planning Delhi</span>
+    <h3>Master Plan of Delhi 1961–81 (MPD-1962) and after</h3>
+    <div class="tbl"><table>
+      <tr><th>Plan</th><th>Period</th><th>Key facts</th></tr>
+      <tr><td><b>MPD-1962</b></td><td class="sec">1961–1981</td><td>India's <b>first comprehensive master plan</b> for a city; prepared by the Town Planning Organisation (set up 1955) with Ford Foundation experts; came into force <b>1 Sep 1962</b> under the DD Act 1957; zoning, district centres, ring roads, green belt</td></tr>
+      <tr><td>Interim General Plan</td><td class="sec">1956</td><td>Stop-gap plan before MPD-1962</td></tr>
+      <tr><td>MPD-2001</td><td class="sec">1981–2001</td><td>Notified 1 Aug 1990</td></tr>
+      <tr><td>MPD-2021</td><td class="sec">2001–2021</td><td>Notified 7 Feb 2007; mixed land use, Land Pooling (2018), Transit-Oriented Development; 15 planning zones (A to P, no I)</td></tr>
+      <tr><td>MPD-2041</td><td class="sec">2021–2041</td><td>Draft stalled</td></tr>
+      <tr><td>MPD-2047</td><td class="sec">to 2047</td><td>Draft approved by DDA on 12 Aug 2026; final notification by MoHUA</td></tr>
+    </table></div>
+  </article>
+
+  <article class="unit ex" id="x-dpgs">
+    <span class="tag">"Parks &amp; Society"</span>
+    <h3>Delhi Parks &amp; Gardens Society (DPGS)</h3>
+    <div class="two">
+      <ul>
+        <li>Cabinet approval <b>May 2008</b>; registered <b>Aug 2008</b> under the <b>Societies Registration Act, 1860</b></li>
+        <li>Governing Body headed by the <b>Lieutenant Governor</b>; Governing Council chaired by the <b>Chief Secretary</b>; Executive Committee below</li>
+        <li>All civic agencies are members through their Directors of Horticulture</li>
+      </ul>
+      <ul>
+        <li>Aims: greening Delhi, finding vacant land for greening, competitions and awards</li>
+        <li>Gives grants to <b>RWAs, NGOs and eco-clubs</b> to maintain parks (online via e-District since 1 Apr 2021)</li>
+        <li>2025–26: record ₹13.36 crore for 1,643 parks through 364 RWAs/NGOs</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="unit ex" id="x-djb">
+    <span class="tag">Water and sewerage</span>
+    <h3>Delhi Jal Board (DJB)</h3>
+    <div class="two">
+      <ul>
+        <li>Set up under the <b>Delhi Jal Board Act, 1998</b>, replacing the Delhi Water Supply &amp; Sewage Disposal Undertaking of the MCD</li>
+        <li>Functions: drinking water supply, sewerage, sewage treatment and disposal, drainage</li>
+        <li>Chairperson is usually the Water Minister; a CEO runs it</li>
+        <li>Free water up to <b>20 kilolitres</b> a month for households (since 2015)</li>
+      </ul>
+      <ul>
+        <li>Raw water: <b>Yamuna</b> (via Haryana: Wazirabad, Munak canal), <b>Ganga</b> (Upper Ganga Canal → Sonia Vihar, Bhagirathi plants), <b>Bhakra</b> storage, groundwater</li>
+        <li>Water treatment plants: Haiderpur, Chandrawal, Wazirabad, Sonia Vihar, Bhagirathi, Okhla, Nangloi, Bawana, Dwarka</li>
+        <li><b>Okhla sewage treatment plant: 564 MLD</b>, Asia's largest; fully working from 2025; built with the National Mission for Clean Ganga</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="unit ex" id="x-mag">
+    <span class="tag">Executive magistrates under BNSS 2023</span>
+    <h3>Magistrate functions</h3>
+    <div class="two">
+      <div class="tbl"><table>
+        <tr><th>BNSS (CrPC)</th><th>Power</th></tr>
+        <tr><td class="sec">14 (20)</td><td>Appointment of Executive Magistrates, DM, ADM, SDM</td></tr>
+        <tr><td class="sec">163 (144)</td><td>Urgent prohibitory orders (curfew-type)</td></tr>
+        <tr><td class="sec">152 (133)</td><td>Removal of public nuisance</td></tr>
+        <tr><td class="sec">164 (145)</td><td>Dispute over land or water likely to breach peace</td></tr>
+        <tr><td class="sec">126 (107)</td><td>Security for keeping the peace</td></tr>
+        <tr><td class="sec">129 (110)</td><td>Security for good behaviour from habitual offenders</td></tr>
+        <tr><td class="sec">148 (129)</td><td>Dispersal of unlawful assembly</td></tr>
+        <tr><td class="sec">194 / 196 (174 / 176)</td><td>Inquest; magisterial inquiry into custodial death</td></tr>
+      </table></div>
+      <ul>
+        <li><b>BNSS, 2023</b> replaced the CrPC from <b>1 July 2024</b></li>
+        <li>For Delhi, the State Government's BNSS powers are delegated to the <b>LG</b> (MHA notification, 28 Jun 2024)</li>
+        <li><b>June 2026</b>: LG approved Executive Magistrate powers for <b>DMs, ADMs, Revenue Assistants, Tehsildars and Consolidation Officers</b> in the 13 reorganised districts</li>
+        <li>SDM (Executive Magistrate) also issues caste, income and residence certificates, registers marriages, heads the <b>Maintenance Tribunal</b> (Senior Citizens Act, 2007), hears revenue cases and handles disaster relief</li>
+        <li>Delhi has a <b>Police Commissionerate</b> (since 1 July 1978): senior police officers also hold some magisterial powers, such as prohibitory orders</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="unit ex" id="x-sch">
+    <span class="tag">GK of Delhi: Govt schemes</span>
+    <h3>Delhi Government schemes</h3>
+    <div class="tbl"><table>
+      <tr><th>Scheme</th><th>What it gives</th><th>Key dates</th></tr>
+      <tr><td><b>Delhi Lakshmi Yojana</b> (announced as Mahila Samriddhi Yojana)</td><td>₹2,500 a month to eligible women aged 21–60</td><td>₹5,100 cr approved 8 Mar 2025; guidelines Jul 2026; launched <b>26 Aug 2026</b> (Talkatora); first transfer 1 Sep 2026</td></tr>
+      <tr><td><b>Ayushman Bharat PM-JAY</b> in Delhi</td><td><b>₹10 lakh</b> health cover per family (₹5 lakh Centre + ₹5 lakh Delhi top-up)</td><td>MoU with NHA on 5 Apr 2025; widows and disabled pensioners added Feb 2026</td></tr>
+      <tr><td>Ayushman Vay Vandana</td><td>Health cover for everyone aged <b>70+</b></td><td>Registrations in Delhi from 28 Apr 2025</td></tr>
+      <tr><td><b>Ayushman Arogya Mandirs</b></td><td>Neighbourhood health centres replacing Mohalla Clinics</td><td>First 33 on 17 Jun 2025; target 1,139</td></tr>
+      <tr><td><b>Atal Canteens</b></td><td>Meals at <b>₹5</b></td><td>25 Dec 2025</td></tr>
+      <tr><td><b>Pink Saheli Smart Card</b></td><td>Free DTC and cluster bus travel for women and transgender persons (NCMC card)</td><td>Mandatory instead of pink paper tickets from 1 Sep 2026 (free bus rides since 29 Oct 2019)</td></tr>
+      <tr><td><b>Lakhpati Bitiya Yojana</b></td><td>Girl-child savings scheme replacing the <b>Ladli Scheme (2008)</b></td><td>From 1 Apr 2026</td></tr>
+      <tr><td>Aid for pregnant women</td><td>₹21,000</td><td>Announced in Budget 2025–26</td></tr>
+      <tr><td>Mukhyamantri Tirth Yatra Yojana</td><td>Free pilgrimages for senior citizens</td><td>Earlier scheme, continuing</td></tr>
+      <tr><td>Earlier schemes</td><td>Mohalla Clinics (2015, first at Peeragarhi); 20 KL free water (2015); 200 units free electricity; Dilli Annashree (2012)</td><td>Mohalla Clinics being closed or converted (137 shut in Jan 2026)</td></tr>
+    </table></div>
+  </article>
+
+  <article class="unit ex" id="x-mem">
+    <span class="tag">Computer Basics</span>
+    <h3>Computer memory in detail</h3>
+    <div class="two">
+      <div class="tbl"><table>
+        <tr><th>Type</th><th>Facts</th></tr>
+        <tr><td class="sec">Registers</td><td>Inside the CPU; fastest, smallest</td></tr>
+        <tr><td class="sec">Cache</td><td>SRAM between CPU and RAM; levels L1 (fastest), L2, L3</td></tr>
+        <tr><td class="sec">RAM</td><td>Primary, volatile, random access. SRAM (flip-flops, cache) vs DRAM (capacitors, needs refresh, main memory); SDRAM, DDR4, DDR5</td></tr>
+        <tr><td class="sec">ROM</td><td>Non-volatile: Mask ROM, PROM (write once), EPROM (UV erase), EEPROM (electrical erase), Flash</td></tr>
+        <tr><td class="sec">CMOS</td><td>Battery-backed chip that keeps BIOS settings, date and time</td></tr>
+        <tr><td class="sec">Virtual memory</td><td>Part of the hard disk used as extra RAM (paging / swap file)</td></tr>
+      </table></div>
+      <div class="tbl"><table>
+        <tr><th>Secondary storage</th><th>Facts</th></tr>
+        <tr><td class="sec">HDD</td><td>Magnetic platters; speed in RPM (5,400 / 7,200)</td></tr>
+        <tr><td class="sec">SSD</td><td>NAND flash, no moving parts, faster</td></tr>
+        <tr><td class="sec">Flash memory</td><td>Invented by Fujio Masuoka (Toshiba); pen drives, SD cards</td></tr>
+        <tr><td class="sec">Optical</td><td>CD 700 MB · DVD 4.7 GB (8.5 GB dual layer) · Blu-ray 25 GB (50 GB dual), blue-violet laser</td></tr>
+        <tr><td class="sec">Magnetic tape</td><td><b>Sequential access</b>; used for backup</td></tr>
+        <tr><td class="sec">Units</td><td>bit → nibble (4) → byte (8) → KB (1024 B) → MB → GB → TB → PB → EB → ZB → YB</td></tr>
+      </table></div>
+    </div>
+  </article>
+
+  <article class="unit ex" id="x-os">
+    <span class="tag">Computer Basics</span>
+    <h3>Operating system: functions and types</h3>
+    <div class="two">
+      <ul>
+        <li>OS = system software between the user and the hardware</li>
+        <li><b>Functions</b>: process management, memory management, file management, device management (via drivers), security, user interface</li>
+        <li><b>Kernel</b> = core of the OS; <b>shell</b> = interface to it</li>
+        <li>Booting: BIOS/UEFI → POST → bootloader → OS loads; cold vs warm boot</li>
+        <li>Spooling (print queue), deadlock, thrashing</li>
+        <li>File systems: FAT32, NTFS (Windows), ext4 (Linux), APFS (macOS)</li>
+      </ul>
+      <div class="tbl"><table>
+        <tr><th>Type</th><th>Example / note</th></tr>
+        <tr><td class="sec">Batch</td><td>Jobs run in groups, no user interaction</td></tr>
+        <tr><td class="sec">Multiprogramming</td><td>Several programs in memory; CPU never idle</td></tr>
+        <tr><td class="sec">Time-sharing / multitasking</td><td>CPU time sliced among users or tasks</td></tr>
+        <tr><td class="sec">Multiprocessing</td><td>Two or more CPUs</td></tr>
+        <tr><td class="sec">Real-time (RTOS)</td><td>Fixed deadlines: missiles, air traffic, medical devices</td></tr>
+        <tr><td class="sec">Distributed / Network</td><td>Many computers act as one / server OS</td></tr>
+        <tr><td class="sec">Mobile</td><td>Android (Google, Linux kernel), iOS (Apple)</td></tr>
+        <tr><td class="sec">Others</td><td>MS-DOS (CUI, 1981), UNIX (1969, Bell Labs: Ken Thompson &amp; Dennis Ritchie), Linux (1991, Linus Torvalds), macOS, Chrome OS; India: <b>BOSS</b> (C-DAC), <b>Maya OS</b> (Defence Ministry, 2023)</td></tr>
+      </table></div>
+    </div>
+  </article>
+
+  <article class="unit ex" id="x-web">
+    <span class="tag">Computer Basics</span>
+    <h3>Web browsers and search engines</h3>
+    <div class="two">
+      <div class="tbl"><table>
+        <tr><th>Browser</th><th>Facts</th></tr>
+        <tr><td class="sec">WorldWideWeb</td><td>First browser (1990), Tim Berners-Lee</td></tr>
+        <tr><td class="sec">Mosaic</td><td>1993, NCSA (Marc Andreessen): first popular graphical browser</td></tr>
+        <tr><td class="sec">Netscape Navigator</td><td>1994</td></tr>
+        <tr><td class="sec">Internet Explorer</td><td>1995, Microsoft; retired 15 Jun 2022</td></tr>
+        <tr><td class="sec">Opera · Safari · Firefox</td><td>1995 · 2003 (Apple) · 2004 (Mozilla)</td></tr>
+        <tr><td class="sec">Chrome · Edge</td><td>2008 (Google) · 2015 (Microsoft; Chromium-based from 2020)</td></tr>
+        <tr><td class="sec">Engines</td><td>Blink (Chrome, Edge), Gecko (Firefox), WebKit (Safari)</td></tr>
+      </table></div>
+      <div class="tbl"><table>
+        <tr><th>Search engine</th><th>Facts</th></tr>
+        <tr><td class="sec">Archie</td><td>First search engine (1990), Alan Emtage</td></tr>
+        <tr><td class="sec">Yahoo</td><td>1994, Jerry Yang &amp; David Filo</td></tr>
+        <tr><td class="sec">Google</td><td>1998, Larry Page &amp; Sergey Brin; PageRank</td></tr>
+        <tr><td class="sec">Bing</td><td>2009, Microsoft</td></tr>
+        <tr><td class="sec">DuckDuckGo</td><td>2008, privacy-focused (no tracking)</td></tr>
+        <tr><td class="sec">Baidu · Yandex</td><td>China · Russia</td></tr>
+        <tr><td class="sec">How it works</td><td>Crawler/spider → indexer → ranking; SEO = search engine optimisation</td></tr>
+        <tr><td class="sec">Operators</td><td>"exact phrase", -exclude, site:gov.in, filetype:pdf, OR</td></tr>
+      </table></div>
+    </div>
+    <p class="small muted">Browser features: address bar, tabs, bookmarks/favourites, history, cache, cookies, incognito/private window, extensions/add-ons, home page, downloads. A browser opens web pages; a search engine finds them. Google Chrome is a browser; Google Search is a search engine.</p>
+  </article>
+
+  <article class="unit ex" id="x-mail">
+    <span class="tag">Computer Advance</span>
+    <h3>Email and communication</h3>
+    <div class="two">
+      <ul>
+        <li>First email: <b>Ray Tomlinson, 1971</b> (ARPANET); he chose the <b>@</b> sign</li>
+        <li>Address = username@domain (e.g. name@gov.in)</li>
+        <li>Fields: To, <b>Cc</b> (carbon copy), <b>Bcc</b> (blind carbon copy, hidden), Subject, Body, Attachment, Signature</li>
+        <li>Actions: Reply, Reply All, Forward; folders: Inbox, Outbox, Sent, Drafts, Spam/Junk, Trash</li>
+        <li>Protocols: <b>SMTP</b> sends (port 25/587), <b>POP3</b> downloads (110), <b>IMAP</b> syncs (143), <b>MIME</b> for attachments and multimedia</li>
+        <li>Gmail attachment limit 25 MB (larger files go via Drive link)</li>
+      </ul>
+      <ul>
+        <li>Services: Hotmail (1996, <b>Sabeer Bhatia</b> &amp; Jack Smith; now Outlook.com), Yahoo Mail (1997), <b>Gmail (2004)</b>, Rediffmail (Indian), NIC email for government</li>
+        <li>Threats: spam, phishing, email spoofing; use 2FA</li>
+        <li>Synchronous (live: calls, video meetings, chat) vs asynchronous (email, forums)</li>
+        <li>Tools: instant messaging (WhatsApp 2009), VoIP (Skype 2003), video conferencing (Zoom, Google Meet, Microsoft Teams), SMS/MMS, fax</li>
+        <li>Short range: Bluetooth (about 10 m), NFC (a few cm, tap-to-pay), Wi-Fi</li>
+      </ul>
+    </div>
+  </article>
+
+  <div class="banner ex">
+    <h2>Now practise the extras</h2>
+    <p>MCQs on every card above. Wrong answers go to <b>Revise</b> automatically.</p>
+    <div class="row"><button class="btn ex" type="button" data-goto="extq">Open Extras MCQs →</button></div>
+  </div>
+</section>
+<section class="panel" data-panel="extq" hidden>
+  <div class="banner ex"><h2>Extras MCQs</h2><p>Questions on Delhi Governance &amp; Civic Institutions, Delhi Govt Schemes, computer memory, operating systems, browsers, search engines and email. Wrong answers go to Revise; use <b>Practise my wrong answers</b> to drill only those.</p></div>
+  <div id="quiz-ext"></div>
 </section>
 
 <!-- ============ QUIZZES ============ -->
@@ -1575,7 +1941,7 @@ footer{color:var(--muted);font-size:.85rem;padding-block:24px;border-top:1px sol
         </div>
         <div class="row">
           <span class="seg">${segBtn('kind','all','All')}${segBtn('kind','wrong','Wrong')}${segBtn('kind','saved','Saved')}</span>
-          <span class="seg">${segBtn('subj','all','All')}${segBtn('subj','law','Laws')}${segBtn('subj','comp','Computer')}${segBtn('subj','dgk','Delhi GK')}</span>
+          <span class="seg">${segBtn('subj','all','All')}${segBtn('subj','law','Laws')}${segBtn('subj','comp','Computer')}${segBtn('subj','dgk','Delhi GK')}${segBtn('subj','ext','Extras')}</span>
           <label class="chip"><input type="checkbox" id="rv-hide" ${f.hide?'checked':''}> Hide answers (tap a card to reveal)</label>
         </div>
         <div class="row">
@@ -1644,7 +2010,7 @@ footer{color:var(--muted);font-size:.85rem;padding-block:24px;border-top:1px sol
           `<label>Questions <select id="${cfg.key}-n"><option>10</option><option selected>25</option><option>50</option><option>100</option><option value="999">All</option></select></label>
            <label>Mode <select id="${cfg.key}-mode"><option value="practice">Practice (instant answer)</option><option value="test">Test (result at end)</option></select></label>`}
           <label class="chip"><input type="checkbox" id="${cfg.key}-neg" checked> −0.25 negative</label>
-          ${isMock?`<label class="chip"><input type="checkbox" id="${cfg.key}-dgk"> Include Delhi GK (40 Laws + 40 Computer + 20 Delhi GK)</label>`:''}
+          ${isMock?`<label class="chip"><input type="checkbox" id="${cfg.key}-dgk"> Include Delhi GK &amp; Extras (35 Laws + 35 Computer + 15 Delhi GK + 15 Extras)</label>`:''}
           ${isMock?'':`<label class="chip"><input type="checkbox" id="${cfg.key}-mist" ${mine.length?'':'disabled'}> Only my Revise list (${mine.length})</label>`}
         </div>
         <div class="row"><button class="btn ${cfg.cls}" type="button" data-start>Start</button>
@@ -1664,7 +2030,7 @@ footer{color:var(--muted);font-size:.85rem;padding-block:24px;border-top:1px sol
         if(isMock){
           const pick=(bank,k)=>shuffle(QB[bank].map((_,i)=>i)).slice(0,k).map(i=>makeItem(bank,i));
           const withGk=host.querySelector('#'+cfg.key+'-dgk').checked;
-          const set=withGk?pick('law',40).concat(pick('comp',40),pick('dgk',20)):pick('law',50).concat(pick('comp',50));
+          const set=withGk?pick('law',35).concat(pick('comp',35),pick('dgk',15),pick('ext',15)):pick('law',50).concat(pick('comp',50));
           begin(shuffle(set),'test',+host.querySelector('#'+cfg.key+'-time').value*60,neg);
         } else {
           const sel=new Set(chk().filter(c=>c.checked).map(c=>c.value));
@@ -1777,6 +2143,7 @@ footer{color:var(--muted);font-size:.85rem;padding-block:24px;border-top:1px sol
   quizzes.lawq=Quiz(document.getElementById('quiz-law'),{bank:'law',key:'law',cls:'law'});
   quizzes.compq=Quiz(document.getElementById('quiz-comp'),{bank:'comp',key:'comp',cls:'comp'});
   quizzes.dgkq=Quiz(document.getElementById('quiz-dgk'),{bank:'dgk',key:'dgk',cls:'gk'});
+  quizzes.extq=Quiz(document.getElementById('quiz-ext'),{bank:'ext',key:'ext',cls:'ex'});
   document.addEventListener('click',e=>{const g=e.target.closest('[data-goto]'); if(!g) return; navPush('#'+g.dataset.goto); show(g.dataset.goto); updBack();});
   quizzes.mock=Quiz(document.getElementById('quiz-mock'),{mock:true,key:'mock',cls:''});
   const rvQ=quizzes.revise=Quiz(document.getElementById('quiz-revise'),{revise:true,key:'rv',cls:''});
@@ -1784,7 +2151,7 @@ footer{color:var(--muted);font-size:.85rem;padding-block:24px;border-top:1px sol
   onRvChange=()=>{ if(!rvQ.S.running && !rvQ.S.done) rvQ.refresh(); };
 
   const h=(location.hash||'').slice(1);
-  if(h.startsWith('a-')) show('laws',true); else if(h.startsWith('c-')) show('computer',true); else if(h.startsWith('g-')) show('delhigk',true); else show(h||store.get('pp_tab','plan'),true);
+  if(h.startsWith('a-')) show('laws',true); else if(h.startsWith('c-')) show('computer',true); else if(h.startsWith('g-')) show('delhigk',true); else if(h.startsWith('x-')) show('extras',true); else show(h||store.get('pp_tab','plan'),true);
   updateCount(); store.set('pp_rv',RV);
   initCloud();
 })();
