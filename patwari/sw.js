@@ -6,7 +6,7 @@
    answers when offline), the fonts and icons are stale-while-revalidate.
    Bump CACHE on any deploy that changes a file listed in ASSETS. */
 
-var CACHE = 'patwari-v2';
+var CACHE = 'patwari-v3';
 var ASSETS = [
   './', './index.html', './qbank.js', './manifest.webmanifest',
   './icon-180.png', './icon-192.png', './icon-512.png',

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>DUSIB Patwari Prep</title>
-<meta name="description" content="DUSIB Patwari (Post Code 14/26) prep: every Delhi Act in the syllabus with section tables and traps, Delhi GK, computer revision, 709 MCQs, a timed 100-question mock with negative marking, and a Revise list of wrong and saved questions. Works offline.">
+<meta name="description" content="DUSIB Patwari (Post Code 14/26) prep: every Delhi Act in the syllabus with section tables and traps, Delhi GK, computer revision, 772 MCQs, a timed 100-question mock with negative marking, and a Revise list of wrong and saved questions. Works offline.">
 <meta name="theme-color" content="#141a17">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -221,6 +221,7 @@ footer{color:var(--muted);font-size:.85rem;padding-block:24px;border-top:1px sol
     <button role="tab" data-tab="delhigk" class="t-gk" aria-selected="false">Delhi GK</button>
     <button role="tab" data-tab="lawq" class="t-law" aria-selected="false">Law MCQs</button>
     <button role="tab" data-tab="compq" class="t-comp" aria-selected="false">Computer MCQs</button>
+    <button role="tab" data-tab="dgkq" class="t-gk" aria-selected="false">Delhi GK MCQs</button>
     <button role="tab" data-tab="mock" aria-selected="false">Full Mock · 100</button>
     <button role="tab" data-tab="revise" aria-selected="false">Revise <span class="count" id="rvCount">0</span></button>
   </div>
@@ -1179,7 +1180,7 @@ footer{color:var(--muted);font-size:.85rem;padding-block:24px;border-top:1px sol
     <div class="tbl"><table>
       <tr><th>#</th><th>City</th><th>Built by</th><th>Remains today</th></tr>
       <tr><td class="sec">1</td><td>Lal Kot / Qila Rai Pithora</td><td>Anangpal Tomar; Prithviraj Chauhan</td><td>Mehrauli, Qutub area</td></tr>
-      <tr><td class="sec">2</td><td>Siri (1303)</td><td>Alauddin Khalji</td><td>Siri Fort, Shahpur Jat</td></tr>
+      <tr><td class="sec">2</td><td>Siri (1303)</td><td>Alauddin Khalji (against Mongol raids)</td><td>Siri Fort, Shahpur Jat</td></tr>
       <tr><td class="sec">3</td><td>Tughlaqabad (1321)</td><td>Ghiyasuddin Tughlaq</td><td>Tughlaqabad Fort</td></tr>
       <tr><td class="sec">4</td><td>Jahanpanah</td><td>Muhammad bin Tughlaq</td><td>Walls joining Siri and Lal Kot</td></tr>
       <tr><td class="sec">5</td><td>Firozabad (1354)</td><td>Firoz Shah Tughlaq</td><td>Feroz Shah Kotla (Ashokan pillar brought from Topra)</td></tr>
@@ -1361,8 +1362,11 @@ footer{color:var(--muted);font-size:.85rem;padding-block:24px;border-top:1px sol
     </table></div>
   </article>
 
-  <h3 id="g-quiz" style="scroll-margin-top:70px">Delhi GK MCQs</h3>
-  <div id="quiz-dgk"></div>
+  <div class="banner gk" id="g-quiz" style="scroll-margin-top:70px">
+    <h2>Now practise Delhi GK</h2>
+    <p>215 MCQs on everything above, in their own tab. Every question you get wrong goes to <b>Revise</b> automatically, and you can practise only your wrong ones.</p>
+    <div class="row"><button class="btn gk" type="button" data-goto="dgkq">Open Delhi GK MCQs →</button></div>
+  </div>
 </section>
 
 <!-- ============ QUIZZES ============ -->
@@ -1373,6 +1377,10 @@ footer{color:var(--muted);font-size:.85rem;padding-block:24px;border-top:1px sol
 <section class="panel" data-panel="compq" hidden>
   <div class="banner comp"><h2>Computer MCQs</h2><p>All 13 syllabus topics. Use Test mode with negative marking to check exam readiness.</p></div>
   <div id="quiz-comp"></div>
+</section>
+<section class="panel" data-panel="dgkq" hidden>
+  <div class="banner gk"><h2>Delhi GK MCQs</h2><p>215 questions across all 11 Delhi GK topics. Wrong answers go to Revise automatically; use <b>Practise my wrong answers</b> to drill only those.</p></div>
+  <div id="quiz-dgk"></div>
 </section>
 <section class="panel" data-panel="mock" hidden>
   <div class="banner"><h2>Full Mock · 100 questions</h2><p class="muted">50 Delhi Laws + 50 Computer, random each time. Timed, −0.25 negative marking, palette navigation, auto-submit.</p></div>
@@ -1486,6 +1494,7 @@ footer{color:var(--muted);font-size:.85rem;padding-block:24px;border-top:1px sol
     panels.forEach(p=>p.hidden = p.dataset.panel!==name);
     store.set('pp_tab',name);
     if(name==='revise') onRvChange();
+    else if(typeof quizzes!=='undefined'&&quizzes[name]&&quizzes[name].state()==='setup') quizzes[name].refresh();
     if(!keepScroll) window.scrollTo({top:0});
   }
   /* Back: one step at a time. Inside a running quiz it goes to the previous
@@ -1623,8 +1632,9 @@ footer{color:var(--muted);font-size:.85rem;padding-block:24px;border-top:1px sol
       const isMock=cfg.mock;
       const tlist = isMock?[]:topicsOf(cfg.bank);
       const mine = isMock?[]:[...new Set(wrongIds().concat(savedIds()))].filter(id=>id.startsWith(cfg.bank+':'));
+      const wrongMine = isMock?[]:wrongIds().filter(id=>id.startsWith(cfg.bank+':'));
       const best = store.get('pp_best_'+cfg.key,null);
-      host.innerHTML=`<div class="qsetup">
+      host.innerHTML=`${wrongMine.length?`<div class="note" style="display:grid;gap:8px"><span><b>${wrongMine.length} question${wrongMine.length>1?'s':''} you got wrong</b> in this section ${wrongMine.length>1?'are':'is'} saved for revision.</span><div class="row"><button class="btn ${cfg.cls}" type="button" data-wrongstart>Practise my wrong answers (${wrongMine.length})</button><button class="linkbtn" type="button" data-seerev>See them in Revise</button></div></div>`:''}<div class="qsetup">
         ${isMock?`<p>Simulates your subject section: <b>100 questions</b>. DSSSB papers are reported as 200 Q in 2 hours, so 60 minutes is the realistic pace for 100.</p>`:
         `<div><p class="boxhead">Topics <span class="muted small">(${QB[cfg.bank].length} questions in bank)</span></p>
          <div class="chips">${tlist.map(t=>`<label class="chip"><input type="checkbox" value="${t}" checked> ${esc(TOPICS[t])} <span class="muted small">${QB[cfg.bank].filter(r=>r[0]===t).length}</span></label>`).join('')}</div>
@@ -1641,6 +1651,10 @@ footer{color:var(--muted);font-size:.85rem;padding-block:24px;border-top:1px sol
         ${best?`<span class="small muted">Best so far: <b>${best.pct}%</b> net (${best.net}/${best.n})</span>`:''}</div>
         <p class="small muted">Wrong answers go to <b>Revise</b> automatically. Press <b>☆ Save</b> (or the S key) on any question to add it there too.</p>
       </div>`;
+      const ws=host.querySelector('[data-wrongstart]');
+      if(ws) ws.onclick=()=>begin(shuffle(wrongMine).map(itemFromId),'practice',0,false);
+      const sr=host.querySelector('[data-seerev]');
+      if(sr) sr.onclick=()=>{ store.set('pp_rvf',{kind:'wrong',subj:cfg.bank,hide:false}); navPush('#revise'); show('revise'); updBack(); };
       const chk=()=>[...host.querySelectorAll('.chips input')];
       const a=host.querySelector('[data-all]'), n=host.querySelector('[data-none]');
       if(a) a.onclick=()=>chk().forEach(c=>c.checked=true);
@@ -1762,7 +1776,8 @@ footer{color:var(--muted);font-size:.85rem;padding-block:24px;border-top:1px sol
   }
   quizzes.lawq=Quiz(document.getElementById('quiz-law'),{bank:'law',key:'law',cls:'law'});
   quizzes.compq=Quiz(document.getElementById('quiz-comp'),{bank:'comp',key:'comp',cls:'comp'});
-  quizzes.delhigk=Quiz(document.getElementById('quiz-dgk'),{bank:'dgk',key:'dgk',cls:'gk'});
+  quizzes.dgkq=Quiz(document.getElementById('quiz-dgk'),{bank:'dgk',key:'dgk',cls:'gk'});
+  document.addEventListener('click',e=>{const g=e.target.closest('[data-goto]'); if(!g) return; navPush('#'+g.dataset.goto); show(g.dataset.goto); updBack();});
   quizzes.mock=Quiz(document.getElementById('quiz-mock'),{mock:true,key:'mock',cls:''});
   const rvQ=quizzes.revise=Quiz(document.getElementById('quiz-revise'),{revise:true,key:'rv',cls:''});
   document.addEventListener('click',()=>setTimeout(updBack,0));

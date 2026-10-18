@@ -8,7 +8,7 @@ to serve, works offline as an installable app.
 The bare address opens a **front door** that asks which site to open: the Key
 itself, or **DUSIB Patwari Prep** in `patwari/` (the subject paper for Post
 Code 14/26: every Delhi Act in the syllabus with section tables, computer
-revision, Delhi GK, 709 MCQs, a timed 100-question mock and a Revise list). The Patwari
+revision, Delhi GK, 772 MCQs, a timed 100-question mock and a Revise list). The Patwari
 site is a separate page with its own service worker and its own saved list;
 the Key's worker leaves `/patwari/` alone. `#/start` or the **⇄ Sites** tab
 brings the front door back.
