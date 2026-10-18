@@ -242,7 +242,7 @@ footer{color:var(--muted);font-size:.85rem;padding-block:24px;border-top:1px sol
 <!-- ============ PLAN ============ -->
 <section class="panel" data-panel="plan">
   <div class="stats">
-    <div class="stat"><b>19 Oct</b><span>Shift III, 5–7 PM (DSSSB calendar; confirm on admit card)</span></div>
+    <div class="stat"><b>19–24 Oct</b><span>Patwari shifts per DSSSB calendar; your exact date and shift are on the admit card</span></div>
     <div class="stat"><b>100 Q</b><span>From this syllabus (your estimate)</span></div>
     <div class="stat"><b>−0.25</b><span>Negative mark per wrong answer (standard DSSSB)</span></div>
     <div class="stat"><b>80+</b><span>Your target net score out of 100</span></div>
@@ -1428,7 +1428,7 @@ footer{color:var(--muted);font-size:.85rem;padding-block:24px;border-top:1px sol
     <h3>Who runs what in Delhi</h3>
     <div class="tbl"><table>
       <tr><th>Body</th><th>Under / set up</th><th>Job</th></tr>
-      <tr><td><b>Delhi Legislative Assembly</b></td><td>Art 239AA; 70 MLAs; Old Secretariat building (1912; Central Legislative Assembly sat here 1913–26)</td><td>Laws on State &amp; Concurrent subjects except police, public order, land. Went <b>paperless with NeVA</b> and got a <b>500 kW rooftop solar</b> plant in Aug 2025</td></tr>
+      <tr><td><b>Delhi Legislative Assembly</b></td><td>Art 239AA; 70 MLAs; Old Secretariat building (1912; Imperial Legislative Council sat here 1913–20, then the Central Legislative Assembly 1921–26)</td><td>Laws on State &amp; Concurrent subjects except police, public order, land. Went <b>paperless with NeVA</b> and got a <b>500 kW rooftop solar</b> plant in Aug 2025</td></tr>
       <tr><td>Delhi Secretariat</td><td>I.P. Estate (ITO)</td><td>Seat of the CM and ministers; Chief Secretary heads the civil service</td></tr>
       <tr><td>Divisional Commissioner</td><td>Revenue Department; also Secretary (Revenue)</td><td>Heads revenue administration; 13 DMs below</td></tr>
       <tr><td><b>DDA</b></td><td>Central (MoHUA), DD Act 1957; Chairman: LG</td><td>Land, planning, housing, Master Plan</td></tr>
@@ -1904,7 +1904,7 @@ footer{color:var(--muted);font-size:.85rem;padding-block:24px;border-top:1px sol
   function updBack(){backBtn.disabled=!canBack()}
   function navPush(hash){
     const t=curTab(), q=quizzes[t];
-    NAV.stack.push({tab:t,y:window.scrollY,qz:q?q.state():null});
+    NAV.stack.push({tab:t,y:window.scrollY,qz:q?q.state():null,last:q&&q.state()==='done'?q.S.last:null});
     if(NAV.stack.length>200) NAV.stack.shift();
     try{history.pushState({pp:NAV.stack.length},'',hash||location.hash||'#'+t);NAV.hist=true}catch(e){NAV.hist=false}
     updBack();
@@ -1912,19 +1912,33 @@ footer{color:var(--muted);font-size:.85rem;padding-block:24px;border-top:1px sol
   function restore(st){
     show(st.tab,true);
     const q=quizzes[st.tab];
-    if(q&&st.qz==='setup'&&q.state()!=='setup') q.toSetup();
+    if(q&&st.qz!=='run'){
+      if(st.qz==='done'&&st.last){ if(q.state()!=='done'||q.S.last!==st.last) q.toDone(st.last); }
+      else if(st.qz!==q.state()) q.toSetup();
+    }
     requestAnimationFrame(()=>window.scrollTo({top:st.y||0}));
     updBack();
   }
   function stepQuizBack(){const q=quizzes[curTab()]; if(q&&q.running()&&q.index()>0){q.prev();return true} return false}
+  /* Leaving a running test or mock loses it, so the first Back at Q1 only warns. */
+  function guardLeave(){
+    const q=quizzes[curTab()];
+    if(!q||!q.running()||q.mode()!=='test') return false;
+    if(NAV.arm&&Date.now()-NAV.arm<4000){NAV.arm=0;return false}
+    NAV.arm=Date.now(); q.note('Press <b>Back</b> again within 4 seconds to leave this test without submitting.');
+    return true;
+  }
   backBtn.onclick=()=>{
     if(stepQuizBack()){updBack();return}
     if(!NAV.stack.length) return;
-    if(NAV.hist){try{history.back();return}catch(e){}}
+    if(guardLeave()) return;
+    if(NAV.hist){try{NAV.pass=true;history.back();return}catch(e){NAV.pass=false}}
     restore(NAV.stack.pop());
   };
   window.addEventListener('popstate',()=>{
+    const pass=NAV.pass; NAV.pass=false;
     if(stepQuizBack()){ try{history.pushState({pp:NAV.stack.length},'',location.hash)}catch(e){} updBack(); return; }
+    if(!pass&&NAV.stack.length&&guardLeave()){ try{history.pushState({pp:NAV.stack.length},'',location.hash)}catch(e){} return; }
     if(NAV.stack.length) restore(NAV.stack.pop());
   });
 
@@ -2121,15 +2135,16 @@ footer{color:var(--muted);font-size:.85rem;padding-block:24px;border-top:1px sol
         setTimeout(()=>S.confirm=false,4000); return; }
       finish();
     }
-    function finish(){
+    function finish(replay){
       clearInterval(S.tm); S.done=true; S.confirm=false; S.running=false;
+      if(!replay) S.last={items:S.items,pick:S.pick.slice(),mode:S.mode,neg:S.neg};
       const n=S.items.length; let r=0,w=0; const per={};
       S.items.forEach((it,k)=>{const p=S.pick[k]; per[it.t]=per[it.t]||{r:0,w:0,s:0,n:0}; per[it.t].n++;
         if(p===null) per[it.t].s++; else if(p===it.ans){r++;per[it.t].r++} else {w++;per[it.t].w++}
-        if(S.mode==='test' && p!==null) recordAnswer(it.id,p===it.ans);});
+        if(!replay && S.mode==='test' && p!==null) recordAnswer(it.id,p===it.ans);});
       const net=S.neg? r-w*0.25 : r, pct=Math.round(net/n*1000)/10;
       const best=store.get('pp_best_'+cfg.key,null);
-      if(!cfg.revise && n>=10 && (!best||pct>best.pct)) store.set('pp_best_'+cfg.key,{pct,net,n});
+      if(!replay && !cfg.revise && n>=10 && (!best||pct>best.pct)) store.set('pp_best_'+cfg.key,{pct,net,n});
       const ok=pct>=80;
       const wrongs=S.items.map((it,k)=>({it,p:S.pick[k]})).filter(x=>x.p!==x.it.ans);
       host.innerHTML=`<div class="result">
@@ -2150,7 +2165,7 @@ footer{color:var(--muted);font-size:.85rem;padding-block:24px;border-top:1px sol
       host.querySelector('[data-again]').onclick=setup;
       const rt=host.querySelector('[data-retry]');
       if(rt) rt.onclick=()=>begin(shuffle(wrongs.map(x=>itemFromId(x.it.id))),'practice',0,false);
-      host.scrollIntoView({block:'start'});
+      if(!replay) host.scrollIntoView({block:'start'});
     }
     document.addEventListener('keydown',e=>{
       if(host.closest('[data-panel]').hidden||!S.running||S.done) return;
@@ -2164,7 +2179,16 @@ footer{color:var(--muted);font-size:.85rem;padding-block:24px;border-top:1px sol
       if(e.key==='ArrowLeft'&&S.i>0){S.i--;render()}
     });
     setup();
-    return {refresh(){ if(!S.running && !S.done) setup(); }, S,
+    return {refresh(){
+        if(S.running||S.done) return;
+        const keep=[...host.querySelectorAll('.qsetup input,.qsetup select')].map(el=>[el.id||el.value,el.type==='checkbox'?el.checked:el.value]);
+        setup();
+        const m=new Map(keep);
+        host.querySelectorAll('.qsetup input,.qsetup select').forEach(el=>{const k=el.id||el.value; if(!m.has(k)||el.disabled) return; if(el.type==='checkbox') el.checked=m.get(k); else el.value=m.get(k);});
+      }, S,
+      mode(){return S.mode},
+      note(html){ const el=host.querySelector('.qnav'); if(!el) return; host.querySelectorAll('.note.leave').forEach(x=>x.remove()); el.insertAdjacentHTML('afterend',`<div class="note leave">${html}</div>`); },
+      toDone(last){ last=last||S.last; if(!last) return false; clearInterval(S.tm); S.last=last; Object.assign(S,{items:last.items,pick:last.pick.slice(),mode:last.mode,neg:last.neg,time:0}); finish(true); return true; },
       state(){return S.running?'run':S.done?'done':'setup'},
       toSetup(){clearInterval(S.tm); S.running=false; S.done=false; setup()},
       running(){return !!S.running}, index(){return S.i||0},
