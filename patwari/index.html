@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>DUSIB Patwari Prep</title>
-<meta name="description" content="DUSIB Patwari (Post Code 14/26) prep: every Delhi Act in the syllabus with section tables and traps, Delhi GK, Delhi governance &amp; schemes, computer revision with printers and MS Office in depth, 1,333 MCQs, a timed 100-question mock with negative marking, and a Revise list of wrong and saved questions. Works offline.">
+<meta name="description" content="DUSIB Patwari (Post Code 14/26) prep: every Delhi Act in the syllabus with section tables and traps, Delhi GK, Delhi governance &amp; schemes, computer revision with printers and MS Office in depth, every Windows and Office shortcut ranked by chance, 1,463 MCQs, a timed 100-question mock with negative marking, and a Revise list of wrong and saved questions. Works offline.">
 <meta name="theme-color" content="#141a17">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -125,6 +125,8 @@ td.sec{font-family:var(--f-mono);font-weight:500;white-space:nowrap;width:1%}
 .note.new{border-left-color:var(--ok);background:var(--ok-soft)}
 .note b{font-weight:700}
 .boxhead{font-weight:700;margin-bottom:4px}
+[data-keys]{min-width:0;max-width:100%}[data-keys] td kbd{white-space:normal;overflow-wrap:anywhere}[data-keys] table{table-layout:fixed;width:100%}[data-keys] th:first-child{width:3.6em}[data-keys] th:nth-child(2){width:45%}[data-keys] td{overflow-wrap:anywhere}article.unit{min-width:0}
+td.ch3{color:var(--law);font-weight:700;white-space:nowrap}td.ch2{color:var(--comp);white-space:nowrap}td.ch1{color:var(--muted);white-space:nowrap}
 .sheetq{display:grid;gap:6px}
 .sheetq details{background:var(--bg);border:1px solid var(--rule);border-radius:8px;padding:9px 12px}
 .sheetq summary{cursor:pointer;font-weight:600}
@@ -321,8 +323,10 @@ footer{color:var(--muted);font-size:.85rem;padding-block:24px;border-top:1px sol
 <section class="panel" data-panel="sheet" hidden>
   <div class="banner law">
     <h2>Revision Sheet</h2>
-    <p>Section (A) land laws on one page: the revenue chain, the two Delhi 1954 Acts, record terms and area units. Read it once, then drill the questions at the bottom. Full detail is in <button class="linkbtn" type="button" data-goto="laws">Delhi Laws</button>.</p>
+    <p>Section (A) land laws on one page: the revenue chain, the two Delhi 1954 Acts, record terms and area units. Read it once, then drill the questions at the bottom. Full detail is in <button class="linkbtn" type="button" data-goto="laws">Delhi Laws</button>. Every Windows and MS Office shortcut, ranked by chance, is at the end.</p>
   </div>
+  <nav class="subnav law" aria-label="Sheet parts"><a href="#s-laws">Land laws</a><a href="#s-keys">Shortcut keys (ranked)</a></nav>
+  <span id="s-laws"></span>
 
   <article class="unit law">
     <span class="tag">Who does what</span>
@@ -424,6 +428,12 @@ footer{color:var(--muted);font-size:.85rem;padding-block:24px;border-top:1px sol
       <details><summary>Chairperson of DUSIB?</summary><p><b>Chief Minister of Delhi.</b></p></details>
     </div>
     <div class="row"><button class="btn" type="button" data-goto="lawq">Now do Law MCQs</button></div>
+  </article>
+  <article class="unit comp" id="s-keys">
+    <span class="tag">Computer · short keys</span>
+    <h3>Shortcut keys ranked by chance of being asked</h3>
+    <div data-keys></div>
+    <div class="row"><button class="btn comp" type="button" data-goto="compq">Now do Shortcut MCQs</button></div>
   </article>
 </section>
 
@@ -1357,47 +1367,8 @@ footer{color:var(--muted);font-size:.85rem;padding-block:24px;border-top:1px sol
   </article>
 
   <article class="unit comp" id="c-keys">
-    <h3>Short keys</h3>
-    <div class="two">
-      <div class="tbl"><table>
-        <tr><th>Windows / general</th><th>Action</th></tr>
-        <tr><td><kbd>Ctrl+C/X/V</kbd></td><td>Copy / Cut / Paste</td></tr>
-        <tr><td><kbd>Ctrl+Z</kbd> <kbd>Ctrl+Y</kbd></td><td>Undo / Redo</td></tr>
-        <tr><td><kbd>Alt+Tab</kbd> <kbd>Win+Tab</kbd></td><td>Switch apps / Task View</td></tr>
-        <tr><td><kbd>Alt+F4</kbd></td><td>Close app</td></tr>
-        <tr><td><kbd>Win+D</kbd> <kbd>Win+E</kbd></td><td>Desktop / File Explorer</td></tr>
-        <tr><td><kbd>Win+L</kbd> <kbd>Win+R</kbd> <kbd>Win+I</kbd></td><td>Lock / Run / Settings</td></tr>
-        <tr><td><kbd>Win+V</kbd> <kbd>Win+Shift+S</kbd></td><td>Clipboard history / Snip</td></tr>
-        <tr><td><kbd>Ctrl+Shift+Esc</kbd></td><td>Task Manager</td></tr>
-        <tr><td><kbd>F2</kbd> <kbd>F5</kbd></td><td>Rename / Refresh</td></tr>
-        <tr><td><kbd>Shift+Del</kbd></td><td>Permanent delete</td></tr>
-        <tr><td><kbd>Ctrl+Shift+N</kbd></td><td>New folder (Explorer) / Incognito (Chrome)</td></tr>
-        <tr><td><kbd>Alt+Enter</kbd></td><td>Properties</td></tr>
-        <tr><td><kbd>Ctrl+T/W</kbd> <kbd>Ctrl+Shift+T</kbd></td><td>Tab new/close / reopen closed</td></tr>
-        <tr><td><kbd>Ctrl+H</kbd> <kbd>Ctrl+J</kbd> <kbd>Ctrl+D</kbd></td><td>Browser history / downloads / bookmark</td></tr>
-      </table></div>
-      <div class="tbl"><table>
-        <tr><th>MS Office</th><th>Action</th></tr>
-        <tr><td><kbd>Ctrl+L/E/R/J</kbd></td><td>Left / Centre / Right / Justify</td></tr>
-        <tr><td><kbd>Ctrl+F</kbd> <kbd>Ctrl+H</kbd> <kbd>Ctrl+G</kbd></td><td>Find / Replace / Go To</td></tr>
-        <tr><td><kbd>Ctrl+K</kbd></td><td>Hyperlink</td></tr>
-        <tr><td><kbd>Ctrl+Enter</kbd> <kbd>Shift+Enter</kbd></td><td>Page break / line break (Word)</td></tr>
-        <tr><td><kbd>Ctrl+=</kbd> <kbd>Ctrl+Shift+=</kbd></td><td>Subscript / Superscript</td></tr>
-        <tr><td><kbd>Ctrl+]</kbd> <kbd>Ctrl+[</kbd></td><td>Font size +1 / −1</td></tr>
-        <tr><td><kbd>Shift+F3</kbd></td><td>Change case</td></tr>
-        <tr><td><kbd>F7</kbd> <kbd>Shift+F7</kbd> <kbd>F12</kbd></td><td>Spelling / Thesaurus / Save As</td></tr>
-        <tr><td><kbd>F2</kbd> <kbd>F4</kbd> <kbd>F9</kbd></td><td>Excel: edit cell / $ toggle / recalc</td></tr>
-        <tr><td><kbd>Alt+=</kbd> <kbd>Ctrl+1</kbd></td><td>Excel: AutoSum / Format Cells</td></tr>
-        <tr><td><kbd>Ctrl+;</kbd> <kbd>Ctrl+Shift+;</kbd></td><td>Excel: date / time</td></tr>
-        <tr><td><kbd>Alt+Enter</kbd> <kbd>Ctrl+`</kbd></td><td>Excel: new line in cell / show formulas</td></tr>
-        <tr><td><kbd>Shift+F11</kbd> <kbd>F11</kbd></td><td>Excel: new sheet / chart sheet</td></tr>
-        <tr><td><kbd>Ctrl+Space</kbd> <kbd>Shift+Space</kbd></td><td>Excel: select column / row</td></tr>
-        <tr><td><kbd>Ctrl+Shift+L</kbd></td><td>Excel: filter</td></tr>
-        <tr><td><kbd>F5</kbd> <kbd>Shift+F5</kbd></td><td>PPT: show from start / current</td></tr>
-        <tr><td><kbd>Ctrl+M</kbd> <kbd>Ctrl+D</kbd></td><td>PPT: new slide / duplicate</td></tr>
-        <tr><td><kbd>B</kbd> <kbd>W</kbd> <kbd>Esc</kbd></td><td>PPT show: black / white / end</td></tr>
-      </table></div>
-    </div>
+    <h3>Short keys, ranked by chance</h3>
+    <div data-keys></div>
   </article>
 
   <article class="unit comp" id="c-modern">
@@ -2546,8 +2517,15 @@ footer{color:var(--muted);font-size:.85rem;padding-block:24px;border-top:1px sol
   document.addEventListener('click',()=>setTimeout(updBack,0));
   onRvChange=()=>{ if(!rvQ.S.running && !rvQ.S.done) rvQ.refresh(); };
 
+  const KEYS={"Windows & general": [[3, "Ctrl+C / Ctrl+X / Ctrl+V", "Copy / Cut / Paste"], [3, "Ctrl+Z / Ctrl+Y", "Undo / Redo"], [3, "Ctrl+A", "Select all"], [3, "Ctrl+S / Ctrl+N / Ctrl+O", "Save / New / Open"], [3, "Ctrl+P", "Print"], [3, "Ctrl+B / I / U", "Bold / Italic / Underline"], [3, "Ctrl+F / Ctrl+H", "Find / Replace"], [3, "Alt+F4", "Close app"], [3, "Alt+Tab", "Switch apps"], [3, "Win or Ctrl+Esc", "Start menu"], [3, "Win+D", "Show desktop"], [3, "Win+E", "File Explorer"], [3, "Win+L", "Lock PC"], [3, "Win+R", "Run box"], [3, "Ctrl+Alt+Del", "Security screen"], [3, "Ctrl+Shift+Esc", "Task Manager"], [3, "Shift+Del", "Delete permanently"], [3, "F1 / F2 / F5", "Help / Rename / Refresh"], [3, "PrtScn", "Whole screen to clipboard"], [3, "Esc", "Cancel"], [2, "Win+I", "Settings"], [2, "Win+V", "Clipboard history"], [2, "Win+Shift+S", "Snip an area"], [2, "Alt+PrtScn", "Active window to clipboard"], [2, "Win+PrtScn", "Save screenshot to Pictures"], [2, "Win+M / Win+Shift+M", "Minimise all / restore"], [2, "Win+Tab", "Task View"], [2, "Win+S", "Search"], [2, "Win+X", "Quick Link menu"], [2, "Win+P", "Project / display mode"], [2, "Win+Arrow keys", "Snap / maximise / minimise window"], [2, "Win+.", "Emoji panel"], [2, "Win+Ctrl+D", "New virtual desktop"], [2, "Shift+F10", "Right-click menu"], [2, "Ctrl+Shift+N", "New folder"], [2, "Alt+Enter", "Properties"], [2, "Ctrl+Click / Shift+Click", "Select separate / range"], [2, "Ctrl+W", "Close window or tab"], [1, "Win+A / Win+N", "Quick Settings / notifications (Win 11)"], [1, "Win+W / Win+Z", "Widgets / Snap layouts"], [1, "Win+G", "Game Bar"], [1, "Win+H", "Voice typing"], [1, "Win+K", "Cast"], [1, "Win+U", "Accessibility"], [1, "Win+Plus / Win+Esc", "Magnifier on / off"], [1, "Win+Ctrl+Enter", "Narrator"], [1, "Win+Ctrl+Left/Right", "Switch desktops"], [1, "Win+1…9", "Open taskbar app by position"], [1, "Alt+Space", "Window menu"], [1, "Alt+Esc", "Cycle windows in order opened"], [1, "F3 / F4", "Search / address bar (Explorer)"], [1, "Alt+Up", "Up one folder"], [1, "Ctrl+F4", "Close document, keep app"]], "Browser": [[2, "Ctrl+T / Ctrl+Shift+T", "New tab / reopen closed tab"], [2, "Ctrl+Shift+N", "Incognito window (Chrome)"], [2, "Ctrl+H / Ctrl+J / Ctrl+D", "History / Downloads / Bookmark"], [2, "Ctrl+Tab", "Next tab"], [2, "Alt+Left / Alt+Right", "Back / Forward"], [2, "F11", "Full screen"], [2, "Ctrl+Plus / Minus / 0", "Zoom in / out / reset"], [2, "Ctrl+Shift+Delete", "Clear browsing data"], [1, "Ctrl+L (Alt+D, F6)", "Address bar"], [1, "Ctrl+U", "Page source"], [1, "F12 (Ctrl+Shift+I)", "Developer tools"], [1, "Ctrl+Shift+B", "Bookmarks bar"], [1, "Ctrl+F5", "Hard refresh"]], "MS Word": [[3, "Ctrl+E / L / R / J", "Centre / Left / Right / Justify"], [3, "Ctrl+K", "Hyperlink"], [3, "Ctrl+Enter", "Page break"], [3, "F7", "Spelling & grammar"], [3, "Shift+F7", "Thesaurus"], [3, "F12", "Save As"], [3, "Shift+Enter", "Line break"], [3, "Ctrl+Home / Ctrl+End", "Start / end of document"], [3, "Home / End", "Start / end of line"], [2, "Shift+F3", "Change case"], [2, "Ctrl+= / Ctrl+Shift+=", "Subscript / Superscript"], [2, "Ctrl+] / Ctrl+[", "Font +1 / −1 pt"], [2, "Ctrl+Shift+> / <", "Grow / shrink font"], [2, "Ctrl+D", "Font dialog"], [2, "Ctrl+1 / 2 / 5", "Single / double / 1.5 spacing"], [2, "Ctrl+M / Ctrl+T", "Indent / hanging indent"], [2, "Ctrl+G or F5", "Go To"], [2, "F4", "Repeat last action"], [2, "Ctrl+Shift+8", "Show ¶ marks"], [2, "Ctrl+Alt+V", "Paste Special"], [2, "Alt+Shift+D / T", "Insert date / time"], [2, "Ctrl+Shift+C / V", "Copy / paste formatting"], [2, "Ctrl+Shift+Enter", "Column break"], [2, "Ctrl+Alt+M", "New comment"], [2, "Ctrl+Shift+E", "Track Changes"], [2, "Ctrl+Alt+F", "Footnote"], [2, "Ctrl+F2", "Print Preview"], [1, "Ctrl+Alt+D", "Endnote"], [1, "Ctrl+Shift+A / K", "All caps / small caps"], [1, "Ctrl+Shift+D", "Double underline"], [1, "Ctrl+Shift+W", "Underline words only"], [1, "Ctrl+Shift+H", "Hidden text"], [1, "Ctrl+Shift+L", "Bullet list"], [1, "Ctrl+Alt+1/2/3", "Heading 1/2/3"], [1, "Ctrl+Shift+N", "Normal style"], [1, "Ctrl+Space / Ctrl+Q", "Clear character / paragraph format"], [1, "Ctrl+Alt+C / R / T", "© / ® / ™"], [1, "Alt+=", "Equation"], [1, "Alt+Shift+P", "Page number"], [1, "Ctrl+Backspace", "Delete word left"], [1, "Shift+F5", "Last edit point"], [1, "Ctrl+Shift+Space", "Non-breaking space"], [1, "Ctrl+Alt+P / O / N", "Print Layout / Outline / Draft view"], [1, "F8", "Extend selection"], [1, "Shift+F1", "Reveal formatting"], [1, "Ctrl+F12 / Shift+F12", "Open / Save"], [1, "Ctrl+F1", "Hide Ribbon"]], "MS Excel": [[3, "Alt+=", "AutoSum"], [3, "F2", "Edit cell"], [3, "F4", "$ absolute reference / repeat"], [3, "Ctrl+;", "Current date"], [3, "Ctrl+1", "Format Cells"], [3, "Shift+F11", "New worksheet"], [3, "F11", "Chart on new sheet"], [3, "Alt+Enter", "New line in cell"], [3, "Ctrl+Space / Shift+Space", "Select column / row"], [2, "Ctrl+`", "Show formulas"], [2, "Ctrl+Shift+;", "Current time"], [2, "F9", "Recalculate"], [2, "Ctrl+Arrow", "Edge of data"], [2, "Ctrl+Home / Ctrl+End", "A1 / last used cell"], [2, "Ctrl+PgDn / PgUp", "Next / previous sheet"], [2, "Ctrl+D / Ctrl+R", "Fill down / right"], [2, "Ctrl+E", "Flash Fill"], [2, "Ctrl+T", "Create table"], [2, "Ctrl+Shift+L", "Filter"], [2, "Ctrl+- / Ctrl+Shift++", "Delete / insert cells"], [2, "Ctrl+9 / Ctrl+0", "Hide rows / columns"], [2, "Ctrl+Shift+$ / %", "Currency / percent"], [2, "Shift+F3", "Insert Function"], [2, "Alt+F1", "Chart on same sheet"], [2, "Ctrl+Enter", "Fill selected cells"], [2, "Tab / Shift+Tab / Enter", "Right / left / down"], [1, "Ctrl+5", "Strikethrough"], [1, "Ctrl+Shift+# / @ / ! / ~", "Date / time / number / general format"], [1, "Ctrl+Shift+& / _", "Add / remove border"], [1, "Ctrl+Shift+9", "Unhide rows"], [1, "Shift+F2", "Note (comment)"], [1, "Ctrl+F3", "Name Manager"], [1, "Ctrl+'", "Copy formula from above"], [1, "Alt+Down", "Open drop-down list"], [1, "Ctrl+Shift+U", "Expand formula bar"]], "MS PowerPoint": [[3, "F5", "Show from start"], [3, "Ctrl+M", "New slide"], [3, "Shift+F5", "Show from current slide"], [3, "Esc", "End show"], [2, "Ctrl+D", "Duplicate slide"], [2, "B or . / W or ,", "Black / white screen"], [2, "N, Space, → / P, ←", "Next / previous"], [2, "Number + Enter", "Go to slide"], [2, "Ctrl+G / Ctrl+Shift+G", "Group / ungroup"], [1, "Home / End", "First / last slide (in show)"], [1, "Ctrl+P / Ctrl+E / E", "Pen / eraser / erase ink"], [1, "Ctrl+L / Ctrl+H", "Laser pointer / hide pointer"], [1, "Alt+F5", "Presenter View"], [1, "Ctrl+T", "Font dialog"], [1, "Shift+F9 / Alt+F9", "Grid / guides"]], "Outlook & other Office": [[2, "Ctrl+Shift+M", "New email"], [2, "Ctrl+R / Ctrl+Shift+R", "Reply / Reply All"], [2, "Ctrl+F", "Forward (Outlook)"], [2, "Alt+F8 / Alt+F11", "Macros / VBA editor"], [2, "Alt or F10", "KeyTips"], [1, "Ctrl+1 / 2 / 3 / 4", "Mail / Calendar / Contacts / Tasks"], [1, "F9", "Send/Receive all"], [1, "Ctrl+Q / Ctrl+U", "Mark read / unread"], [1, "Ctrl+Shift+A", "New appointment"], [1, "Alt+S", "Send"], [1, "F11 (Access)", "Navigation Pane"]]};
+  const STARS={3:'★★★',2:'★★',1:'★'};
+  const esc2=s=>s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+  document.querySelectorAll('[data-keys]').forEach(el=>{
+    el.innerHTML='<p class="small muted">Ranked within each app: ★★★ most asked, ★★ often asked, ★ sometimes asked. Ranking is an estimate from past DSSSB, SSC and bank computer papers. Practise them in <b>Computer MCQs</b> with the three Shortcuts topics.</p>'+
+    Object.entries(KEYS).map(([app,rows])=>`<p class="boxhead" style="margin-top:12px">${esc2(app)} <span class="muted small">(${rows.length})</span></p><div class="tbl"><table><tr><th>Rank</th><th>Keys</th><th>Action</th></tr>${rows.map((r,i)=>`<tr><td class="ch${r[0]}">${i+1}<br>${STARS[r[0]]}</td><td><kbd>${esc2(r[1])}</kbd></td><td>${esc2(r[2])}</td></tr>`).join('')}</table></div>`).join('');
+  });
   const h=(location.hash||'').slice(1);
-  if(h.startsWith('a-')) show('laws',true); else if(h.startsWith('c-')) show('computer',true); else if(h.startsWith('g-')) show('delhigk',true); else if(h.startsWith('x-')) show('extras',true); else show(h||store.get('pp_tab','plan'),true);
+  if(h.startsWith('a-')) show('laws',true); else if(h.startsWith('c-')) show('computer',true); else if(h.startsWith('g-')) show('delhigk',true); else if(h.startsWith('x-')) show('extras',true); else if(h.startsWith('s-')) show('sheet',true); else show(h||store.get('pp_tab','plan'),true);
   updateCount(); store.set('pp_rv',RV);
   initCloud();
 })();
