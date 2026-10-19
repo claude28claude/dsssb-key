@@ -125,6 +125,11 @@ td.sec{font-family:var(--f-mono);font-weight:500;white-space:nowrap;width:1%}
 .note.new{border-left-color:var(--ok);background:var(--ok-soft)}
 .note b{font-weight:700}
 .boxhead{font-weight:700;margin-bottom:4px}
+.sheetq{display:grid;gap:6px}
+.sheetq details{background:var(--bg);border:1px solid var(--rule);border-radius:8px;padding:9px 12px}
+.sheetq summary{cursor:pointer;font-weight:600}
+.sheetq details p{margin-top:6px;color:var(--muted)}
+.sheetq details p b{color:var(--law)}
 
 /* plan */
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
@@ -224,6 +229,7 @@ footer{color:var(--muted);font-size:.85rem;padding-block:24px;border-top:1px sol
   <div class="wrap" role="tablist">
     <button id="backBtn" class="backbtn" type="button" disabled aria-label="Go back one step">← Back</button>
     <button role="tab" data-tab="plan" aria-selected="true">Plan</button>
+    <button role="tab" data-tab="sheet" class="t-law" aria-selected="false">Revision Sheet</button>
     <button role="tab" data-tab="laws" class="t-law" aria-selected="false">Delhi Laws</button>
     <button role="tab" data-tab="computer" class="t-comp" aria-selected="false">Computer</button>
     <button role="tab" data-tab="delhigk" class="t-gk" aria-selected="false">Delhi GK</button>
@@ -309,6 +315,116 @@ footer{color:var(--muted);font-size:.85rem;padding-block:24px;border-top:1px sol
     <tr><td>Delhi area</td><td>1 acre = 4.8 bigha; 1 bigha = 20 biswa</td><td>Revenue practice</td></tr>
     <tr><td>Delhi polity</td><td>70 MLAs (12 SC) · 7 ministers max · 7 LS · 3 RS · 250 MCD wards · 13 districts</td><td>Art 239AA etc.</td></tr>
   </table></div>
+</section>
+
+<!-- ============ REVISION SHEET ============ -->
+<section class="panel" data-panel="sheet" hidden>
+  <div class="banner law">
+    <h2>Revision Sheet</h2>
+    <p>Section (A) land laws on one page: the revenue chain, the two Delhi 1954 Acts, record terms and area units. Read it once, then drill the questions at the bottom. Full detail is in <button class="linkbtn" type="button" data-goto="laws">Delhi Laws</button>.</p>
+  </div>
+
+  <article class="unit law">
+    <span class="tag">Who does what</span>
+    <h3>Revenue chain in Delhi</h3>
+    <div class="tbl"><table>
+      <tr><th>Officer</th><th>Role to remember</th></tr>
+      <tr><td class="sec">Divisional Commissioner</td><td>Head of revenue administration (the Acts' "Chief Commissioner" powers now sit with LG / Financial Commissioner)</td></tr>
+      <tr><td class="sec">Deputy Commissioner / DM</td><td>Appoints the Patwari for each halka (DLRev S.13); keeps the record of rights and Annual Register (S.21)</td></tr>
+      <tr><td class="sec">SDM (Revenue Assistant)</td><td>Disputed mutations; ejectment under DLR Act S.86A</td></tr>
+      <tr><td class="sec">Tahsildar</td><td>Gets succession and transfer reports; if undisputed, directs the Patwari to record mutation (S.22, S.23)</td></tr>
+      <tr><td class="sec">Kanungo</td><td>Supervises and corrects the annual register; verifies the Patwari's entries (S.14)</td></tr>
+      <tr><td class="sec">Patwari</td><td>One per halka; keeps Khasra Girdawari, Khatauni, village map; starts mutation</td></tr>
+    </table></div>
+  </article>
+
+  <div class="two">
+    <article class="unit law">
+      <span class="tag">Delhi Act 12 of 1954 · records</span>
+      <h3>Delhi Land Revenue Act</h3>
+      <div class="tbl"><table>
+        <tr><th>Section</th><th>Point</th></tr>
+        <tr><td class="sec">S.13</td><td>Patwari for each <b>halka</b>, appointed by the <b>Deputy Commissioner</b></td></tr>
+        <tr><td class="sec">S.14</td><td>Kanungos</td></tr>
+        <tr><td class="sec">S.15</td><td>Patwari, Kanungo are <b>public servants</b>; records are public records</td></tr>
+        <tr><td class="sec">S.20</td><td>Record of rights for <b>each village</b></td></tr>
+        <tr><td class="sec">S.21</td><td><b>Annual Register</b></td></tr>
+        <tr><td class="sec">S.22</td><td>Report succession or transfer of possession</td></tr>
+        <tr><td class="sec">S.23</td><td>Tahsildar inquires; undisputed: Patwari records mutation</td></tr>
+        <tr><td class="sec">S.41</td><td><b>Presumption of truth</b> of entries (PLR Act: S.44)</td></tr>
+        <tr><td class="sec">S.65 / 66 / 72</td><td>First appeal / second appeal / revision</td></tr>
+      </table></div>
+    </article>
+    <article class="unit law">
+      <span class="tag">Delhi Act 8 of 1954 · tenures</span>
+      <h3>Delhi Land Reforms Act</h3>
+      <div class="tbl"><table>
+        <tr><th>Section</th><th>Point</th></tr>
+        <tr><td class="sec">S.5 / S.6</td><td>Only two tenures: <b>Bhumidhar</b> and <b>Asami</b> (no Sirdar; that is UP)</td></tr>
+        <tr><td class="sec">S.7</td><td>Common lands vest in the <b>Gaon Sabha</b></td></tr>
+        <tr><td class="sec">S.23</td><td>Only permitted diversion of farm land: <b>industrial use</b></td></tr>
+        <tr><td class="sec">S.33</td><td>Transfer bar below <b>8 standard acres</b></td></tr>
+        <tr><td class="sec">S.50</td><td>Order of succession (SC 2022 upheld; HSA does not override)</td></tr>
+        <tr><td class="sec">S.81</td><td><b>Non-agricultural use</b>: ejectment, land vests in Gaon Sabha</td></tr>
+        <tr><td class="sec">S.84 / 85</td><td>Suit vs occupier without title / occupier becomes Bhumidhar or Asami</td></tr>
+        <tr><td class="sec">S.86A</td><td>Revenue Assistant may eject; <b>3 years</b> limitation</td></tr>
+        <tr><td class="sec">S.185</td><td>Revenue courts only; civil courts barred</td></tr>
+      </table></div>
+    </article>
+  </div>
+
+  <article class="unit law">
+    <span class="tag">Terms of art</span>
+    <h3>Land records glossary</h3>
+    <div class="tbl"><table>
+      <tr><th>Term</th><th>Meaning</th></tr>
+      <tr><td class="sec">Halka</td><td>Circle of villages under one Patwari</td></tr>
+      <tr><td class="sec">Mauza</td><td>Revenue village</td></tr>
+      <tr><td class="sec">Khasra</td><td>Field (plot) number and the field-wise register</td></tr>
+      <tr><td class="sec">Khasra Girdawari</td><td>Crop inspection record, each harvest: <b>Kharif</b> and <b>Rabi</b></td></tr>
+      <tr><td class="sec">Khatauni</td><td>Register of holdings (who holds which khasras); Delhi <b>Form P-VI</b></td></tr>
+      <tr><td class="sec">Jamabandi</td><td>Periodical record of owners, cultivators, revenue (PLR Act S.33)</td></tr>
+      <tr><td class="sec">Shajra / Masavi</td><td>Village map showing every khasra</td></tr>
+      <tr><td class="sec">Mutation (इंतकाल / दाखिल-खारिज)</td><td>Name change in the record; <b>fiscal only, gives no title</b></td></tr>
+      <tr><td class="sec">Fard</td><td>Certified copy of a record entry</td></tr>
+      <tr><td class="sec">Lal Dora / Abadi</td><td>Village residential area, kept out of the field records</td></tr>
+    </table></div>
+  </article>
+
+  <article class="unit law">
+    <span class="tag">Units · quick sums</span>
+    <h3>Area measurement</h3>
+    <dl class="facts">
+      <div><dt>1 bigha (Delhi)</dt><dd>20 biswa ≈ 1,008 sq yd</dd></div>
+      <div><dt>1 biswa</dt><dd>20 biswansi ≈ 50.4 sq yd</dd></div>
+      <div><dt>1 acre</dt><dd>4,840 sq yd ≈ 4.8 bigha</dd></div>
+      <div><dt>1 hectare</dt><dd>10,000 m² ≈ 2.471 acre</dd></div>
+      <div><dt>1 sq yd</dt><dd>9 sq ft ≈ 0.836 m²</dd></div>
+      <div><dt>Old Punjab units</dt><dd>20 marla = 1 kanal; 8 kanal = 1 acre</dd></div>
+    </dl>
+    <div class="note new"><b>Worked:</b> 5 bigha 10 biswa = 5.5 × 1,008 = 5,544 sq yd · 2 acre = 9,680 ÷ 1,008 ≈ 9.6 bigha</div>
+    <div class="note"><b>Check:</b> the 1,008 sq yd bigha is the usual Delhi figure in prep material, not taken from the Act. If a question gives its own value, use that.</div>
+  </article>
+
+  <article class="unit law">
+    <span class="tag">Tap to reveal</span>
+    <h3>12 quick checks</h3>
+    <div class="sheetq">
+      <details><summary>Under DLRev Act, a Patwari is appointed for a…</summary><p><b>Halka</b>, by the Deputy Commissioner (S.13).</p></details>
+      <details><summary>Who directs the Patwari to record an undisputed mutation?</summary><p><b>Tahsildar</b> (S.23).</p></details>
+      <details><summary>Does mutation confer title?</summary><p><b>No.</b> Fiscal entry only; title is for the civil court.</p></details>
+      <details><summary>Presumption of truth: DLRev section vs PLR section?</summary><p><b>S.41</b> (Delhi) vs <b>S.44</b> (Punjab).</p></details>
+      <details><summary>The two tenures under the Delhi Land Reforms Act?</summary><p><b>Bhumidhar and Asami.</b> No Sirdar.</p></details>
+      <details><summary>Bhumidhar opens a banquet hall on farm land. Which section?</summary><p><b>S.81</b>: non-agricultural use, land vests in Gaon Sabha.</p></details>
+      <details><summary>Revenue Assistant's ejectment power and its limitation?</summary><p><b>S.86A</b>, 3 years.</p></details>
+      <details><summary>Register of the crop sown in each field every season?</summary><p><b>Khasra Girdawari.</b></p></details>
+      <details><summary>Khatauni in Delhi is prepared in which form?</summary><p><b>Form P-VI.</b></p></details>
+      <details><summary>Who verifies the Patwari's entries?</summary><p><b>Kanungo</b> (S.14).</p></details>
+      <details><summary>3 bigha 5 biswa in sq yd (1 bigha = 1,008)?</summary><p><b>3.25 × 1,008 = 3,276 sq yd.</b></p></details>
+      <details><summary>Chairperson of DUSIB?</summary><p><b>Chief Minister of Delhi.</b></p></details>
+    </div>
+    <div class="row"><button class="btn" type="button" data-goto="lawq">Now do Law MCQs</button></div>
+  </article>
 </section>
 
 <!-- ============ LAWS ============ -->
